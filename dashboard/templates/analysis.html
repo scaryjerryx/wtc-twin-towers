@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Analysis</title>
+    ">
+</head>
+<body>
+
+<div class="navbar">
+    /Dashboard</a>
+    /assets
+    /analysis
+    <a href
+    /sourcesSources</a>
+</div>
+
+<h1>AI Analysis</h1>
+
+<table>
+<tr>
+    <th>ID</th>
+    <th>Asset ID</th>
+    <th>Tower</th>
+    <th>Floor</th>
+    <th>Area</th>
+    <th>Year</th>
+    <th>Confidence</th>
+</tr>
+
+{% for row in analysis_records %}
+<tr>
+    <td>{{ row[0] }}</td>
+    <td>{{ row[1] }}</td>
+    <td>{{ row[2] }}</td>
+    <td>{{ row[3] }}</td>
+    <td>{{ row[4] }}</td>
+    <td>{{ row[5] }}</td>
+    <td>{{ row[6] }}</td>
+</tr>
+{% endfor %}
+
+</table>
+
+</body>
+</html>

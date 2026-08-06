@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Queues</title>
+    /static/style.css
+</head>
+<body>
+
+<div class="navbar">
+    /
+    ">Assets</a>
+    /analysis>
+    /queues
+    /sources
+</div>
+
+<h1>Queues</h1>
+
+<h2>Discovery Queue</h2>
+
+<table>
+{% for item in discovery_queue %}
+<tr>
+    <td>{{ item[0] }}</td>
+    <td>{{ item[1] }}</td>
+    <td>{{ item[2] }}</td>
+    <td>{{ item[4] }}</td>
+</tr>
+{% endfor %}
+</table>
+
+<h2>Metadata Queue</h2>
+
+<table>
+{% for item in metadata_queue %}
+<tr>
+    <td>{{ item[0] }}</td>
+    <td>{{ item[1] }}</td>
+    <td>{{ item[2] }}</td>
+</tr>
+{% endfor %}
+</table>
+
+</body>
+</html>
