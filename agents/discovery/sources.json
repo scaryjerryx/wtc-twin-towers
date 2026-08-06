@@ -14,5 +14,17 @@
   {
     "name": "NIST",
     "url": "https://www.nist.gov"
+  },
+  {
+    "name": "Port Authority",
+    "url": "https://www.panynj.gov"
+  },
+  {
+    "name": "Flickr Commons",
+    "url": "https://www.flickr.com/commons"
+  },
+  {
+    "name": "National Archives",
+    "url": "https://www.archives.gov"
   }
 ]
