@@ -1,0 +1,18 @@
+[
+  {
+    "name": "Library of Congress",
+    "url": "https://www.loc.gov"
+  },
+  {
+    "name": "Internet Archive",
+    "url": "https://archive.org"
+  },
+  {
+    "name": "Wikimedia Commons",
+    "url": "https://commons.wikimedia.org"
+  },
+  {
+    "name": "NIST",
+    "url": "https://www.nist.gov"
+  }
+]
