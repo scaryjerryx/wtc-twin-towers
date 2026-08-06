@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WTC Evidence Engine Dashboard</title>
+
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #0f172a;
+            color: #ffffff;
+            margin: 0;
+            padding: 30px;
+        }
+
+        h1 {
+            color: #38bdf8;
+            margin-bottom: 30px;
+        }
+
+        .stats {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+
+        .card {
+            background: #1e293b;
+            border-radius: 12px;
+            padding: 20px;
+            min-width: 220px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+        }
+
+        .card h2 {
+            font-size: 16px;
+            margin-top: 0;
+            color: #94a3b8;
+        }
+
+        .value {
+            font-size: 42px;
+            font-weight: bold;
+            color: #38bdf8;
+        }
+
+        .table-container {
+            background: #1e293b;
+            border-radius: 12px;
+            padding: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th {
+            text-align: left;
+            padding: 12px;
+            background: #334155;
+        }
+
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #334155;
+        }
+
+        tr:hover {
+            background: #273449;
+        }
+
+        .section-title {
+            margin-bottom: 15px;
+            color: #38bdf8;
+        }
+
+        .empty {
+            color: #94a3b8;
+            padding: 20px 0;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>🏢 WTC Evidence Engine Dashboard</h1>
+
+    <div class="stats">
+
+        <div class="card">
+            <h2>Total Assets</h2>
+            <div class="value">{{ total_assets }}</div>
+        </div>
+
+        <div class="card">
+            <h2>Pending Metadata</h2>
+            <div class="value">{{ pending_metadata }}</div>
+        </div>
+
+        <div class="card">
+            <h2>Completed Metadata</h2>
+            <div class="value">{{ completed_metadata }}</div>
+        </div>
+
+    </div>
+
+    <div class="table-container">
+
+        <h2 class="section-title">Recent Assets</h2>
+
+        {% if recent_assets %}
+
+        <table>
+
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>Type</th>
+                    <th>R2 Key</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                {% for asset in recent_assets %}
+
+                <tr>
+                    <td>{{ asset[0] }}</td>
+                    <td>{{ asset[1] }}</td>
+                    <td>{{ asset[2] }}</td>
+                    <td>{{ asset[3] }}</td>
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+
+        {% else %}
+
+        <div class="empty">
+            No assets found.
+        </div>
+
+        {% endif %}
+
+    </div>
+
+</body
