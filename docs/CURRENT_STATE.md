@@ -18,6 +18,6 @@ Next:
 ⬜ Citation Loader
 ⬜ Fact Verification
 ✅ Relationship Search
-⬜ Automated Ingestion
+✅ Automated Ingestion
 ⬜ Timeline Builder
 ⬜ Digital Twin Layer

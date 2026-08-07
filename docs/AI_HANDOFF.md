@@ -472,3 +472,30 @@ Goal:
 Drop PDF into folder.
 
 Engine automatically
+
+## Automated Ingestion
+
+File:
+
+agents/ingestion/automated_ingestion.py
+
+Status:
+
+✅ Working
+
+Purpose:
+
+Processes all PDFs in:
+
+data/incoming_pdfs/
+
+Successful PDFs are moved to:
+
+data/processed_pdfs/
+
+Failed PDFs are moved to:
+
+data/failed_pdfs/
+
+After ingestion, the relationship builder runs automatically.
+
