@@ -1,0 +1,10 @@
+psycopg2-binary
+python-dotenv
+requests
+PyPDF2
+PyPDF2
+psycopg2-binary
+python-dotenv
+requests
+boto3
+mailutils
