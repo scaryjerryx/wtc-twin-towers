@@ -2,9 +2,14 @@ import os
 import psycopg2
 
 from dotenv import load_dotenv
+
 from agents.knowledge.knowledge_extractor import (
     extract_entities,
     extract_facts
+)
+
+from agents.knowledge.fact_cleaner import (
+    clean_facts
 )
 
 load_dotenv()
@@ -36,16 +41,29 @@ for row in rows:
     description = row[2]
 
     entities = extract_entities(description)
-    facts = extract_facts(description)
+
+    facts = clean_facts(
+        extract_facts(description)
+    )
 
     print()
+    print("=" * 60)
     print(f"Analysis: {analysis_id}")
+    print("=" * 60)
+
+    print()
 
     print("Entities:")
-    print(entities)
+
+    for entity in entities:
+        print(f" - {entity}")
+
+    print()
 
     print("Facts:")
-    print(facts)
+
+    for fact in facts:
+        print(f" - {fact}")
 
     #
     # Store Entities
@@ -99,7 +117,9 @@ for row in rows:
 conn.commit()
 
 print()
+print("=" * 60)
 print("Knowledge Pipeline Complete")
+print("=" * 60)
 
 cur.close()
 conn.close()
