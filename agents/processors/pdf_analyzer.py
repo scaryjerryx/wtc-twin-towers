@@ -5,6 +5,10 @@ from agents.knowledge.knowledge_extractor import (
     extract_facts
 )
 
+from agents.knowledge.fact_cleaner import (
+    clean_facts
+)
+
 
 def analyze_pdf(pdf_path):
 
@@ -12,7 +16,9 @@ def analyze_pdf(pdf_path):
 
     entities = extract_entities(text)
 
-    facts = extract_facts(text)
+    facts = clean_facts(
+        extract_facts(text)
+    )
 
     return {
         "text_length": len(text),

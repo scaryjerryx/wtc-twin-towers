@@ -220,7 +220,8 @@ __marimo__/
 .env
 
 __pycache__/
-
+*.pdf
 *.pyc
 
 .vscode/
+
