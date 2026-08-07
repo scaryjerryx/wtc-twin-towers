@@ -43,7 +43,7 @@ def store_entities(cur, entities):
         )
 
 
-def store_facts(cur, facts):
+def store_facts(cur, facts, source_file):
 
     for fact in facts:
 
@@ -53,23 +53,32 @@ def store_facts(cur, facts):
             (
                 entity_id,
                 fact_text,
-                confidence
+                confidence,
+                source_file
             )
             VALUES
             (
                 NULL,
                 %s,
+                %s,
                 %s
             )
+            ON CONFLICT (fact_text)
+            DO NOTHING
             """,
             (
                 fact,
-                75
+                75,
+                source_file
             )
         )
 
 
 def process_pdf(pdf_path):
+
+    source_file = os.path.basename(
+        pdf_path
+    )
 
     print()
     print("Extracting text...")
@@ -107,7 +116,8 @@ def process_pdf(pdf_path):
 
     store_facts(
         cur,
-        facts
+        facts,
+        source_file
     )
 
     conn.commit()
@@ -116,6 +126,10 @@ def process_pdf(pdf_path):
     print("=" * 60)
     print("PDF KNOWLEDGE INGESTED")
     print("=" * 60)
+
+    print()
+
+    print(f"Source File: {source_file}")
 
     print()
 
