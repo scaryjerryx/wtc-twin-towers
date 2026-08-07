@@ -1,15 +1,23 @@
-Completed:
-✅ Discovery
 ✅ R2
 ✅ Assets
 ✅ Metadata Queue
 ✅ Classification
 ✅ Routing
 ✅ Knowledge Tables
+✅ OCR
+✅ PDF Knowledge Pipeline
+✅ Fact Cleaning
+✅ Fact Deduplication
+✅ Fact Provenance
+✅ Relationship Mining
 
 Next:
-⬜ Entity Resolution
+
+⬜ Relationship Confidence Scoring
+⬜ Entity Resolution v2
 ⬜ Citation Loader
 ⬜ Fact Verification
-⬜ Search Engine
+⬜ Relationship Search
+⬜ Automated Ingestion
 ⬜ Timeline Builder
+⬜ Digital Twin Layer

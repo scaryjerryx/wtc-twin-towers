@@ -1,5 +1,9 @@
 import re
 
+from agents.knowledge.fact_normalizer import (
+    canonicalize_fact
+)
+
 
 VALID_COLUMN_TYPES = {
     "1000",
@@ -31,12 +35,16 @@ def clean_facts(facts):
 
     for fact in facts:
 
-        fact = fact.strip()
+        fact = canonicalize_fact(
+            fact
+        )
 
         #
         # Years
         #
-        if fact.startswith("Referenced year"):
+        if fact.startswith(
+            "Referenced year"
+        ):
 
             match = re.search(
                 r"(\d{4})",
@@ -130,10 +138,11 @@ def clean_facts(facts):
             "SECTION"
         ):
 
-            if re.match(
-                r"SECTION\s+[A-Z]-[A-Z]$",
-                fact.upper()
-            ):
+            if fact.upper() in {
+                "SECTION A-A",
+                "SECTION B-B",
+                "SECTION C-C"
+            }:
 
                 cleaned.append(
                     fact.upper()
@@ -142,9 +151,11 @@ def clean_facts(facts):
             continue
 
         #
-        # Drawing Book
+        # Drawing Books
         #
-        if "DRAWING BOOK" in fact.upper():
+        if fact.startswith(
+            "Drawing Book"
+        ):
 
             cleaned.append(
                 fact
@@ -153,9 +164,11 @@ def clean_facts(facts):
             continue
 
         #
-        # Exterior Wall
+        # Exterior Walls
         #
-        if "EXTERIOR WALL" in fact.upper():
+        if fact.startswith(
+            "Exterior Wall"
+        ):
 
             cleaned.append(
                 fact
