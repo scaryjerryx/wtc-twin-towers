@@ -1,14 +1,23 @@
 import os
-import psycopg2
+from collections import Counter
 
+import psycopg2
 from dotenv import load_dotenv
 
 
 load_dotenv()
 
 
-def get_or_create_entity(cur, name):
+def get_connection():
+    return psycopg2.connect(
+        host="localhost",
+        dbname=os.getenv("POSTGRES_DB"),
+        user=os.getenv("POSTGRES_USER"),
+        password=os.getenv("POSTGRES_PASSWORD")
+    )
 
+
+def get_or_create_entity(cur, name, entity_type="fact"):
     cur.execute(
         """
         INSERT INTO entities
@@ -26,7 +35,7 @@ def get_or_create_entity(cur, name):
         """,
         (
             name,
-            "fact"
+            entity_type
         )
     )
 
@@ -43,16 +52,29 @@ def get_or_create_entity(cur, name):
 
     row = cur.fetchone()
 
+    if not row:
+        raise RuntimeError(
+            f"Could not find or create entity: {name}"
+        )
+
     return row[0]
 
 
-def create_relationship(
+def calculate_confidence(evidence_count):
+    return min(
+        50 + (evidence_count * 5),
+        100
+    )
+
+
+def upsert_relationship(
     cur,
     source_name,
     relationship_type,
-    target_name
+    target_name,
+    evidence_count,
+    source_method
 ):
-
     source_id = get_or_create_entity(
         cur,
         source_name
@@ -63,6 +85,10 @@ def create_relationship(
         target_name
     )
 
+    confidence = calculate_confidence(
+        evidence_count
+    )
+
     cur.execute(
         """
         INSERT INTO relationships
@@ -70,10 +96,14 @@ def create_relationship(
             source_entity_id,
             relationship_type,
             target_entity_id,
-            confidence
+            confidence,
+            evidence_count,
+            source_method
         )
         VALUES
         (
+            %s,
+            %s,
             %s,
             %s,
             %s,
@@ -85,37 +115,42 @@ def create_relationship(
             relationship_type,
             target_entity_id
         )
-        DO NOTHING
+        DO UPDATE SET
+            confidence = EXCLUDED.confidence,
+            evidence_count = EXCLUDED.evidence_count,
+            source_method = EXCLUDED.source_method
         """,
         (
             source_id,
             relationship_type,
             target_id,
-            75
+            confidence,
+            evidence_count,
+            source_method
         )
     )
 
 
-def build_relationships():
+def should_skip_fact(fact):
+    if fact.startswith("Referenced year"):
+        return True
 
-    conn = psycopg2.connect(
-        host="localhost",
-        dbname=os.getenv("POSTGRES_DB"),
-        user=os.getenv("POSTGRES_USER"),
-        password=os.getenv("POSTGRES_PASSWORD")
-    )
+    return False
 
-    cur = conn.cursor()
 
+def load_page_facts(cur):
     cur.execute(
         """
         SELECT
+            fs.source_file,
             fs.source_page,
             f.fact_text
         FROM fact_sources fs
         JOIN facts f
             ON fs.fact_id = f.id
+        WHERE fs.source_page IS NOT NULL
         ORDER BY
+            fs.source_file,
             fs.source_page,
             f.fact_text
         """
@@ -125,64 +160,98 @@ def build_relationships():
 
     page_facts = {}
 
-    for page, fact in rows:
+    for source_file, source_page, fact_text in rows:
+        key = (
+            source_file,
+            source_page
+        )
 
-        page_facts.setdefault(
-            page,
-            []
-        ).append(fact)
+        if key not in page_facts:
+            page_facts[key] = []
 
-    relationships_created = 0
+        page_facts[key].append(
+            fact_text
+        )
 
-    for page, facts in page_facts.items():
+    return page_facts
+
+
+def mine_relationships(page_facts):
+    relationship_counter = Counter()
+
+    for page_key, facts in page_facts.items():
+        clean_facts = [
+            fact
+            for fact in facts
+            if not should_skip_fact(fact)
+        ]
 
         drawing_books = [
-            f
-            for f in facts
-            if f.startswith(
-                "Drawing Book"
-            )
+            fact
+            for fact in clean_facts
+            if fact.startswith("Drawing Book")
+        ]
+
+        exterior_walls = [
+            fact
+            for fact in clean_facts
+            if fact.startswith("Exterior Wall")
         ]
 
         for drawing_book in drawing_books:
-
-            for fact in facts:
-
+            for fact in clean_facts:
                 if fact == drawing_book:
                     continue
 
-                create_relationship(
-                    cur,
-                    fact,
-                    "appears_in",
-                    drawing_book
-                )
+                relationship_counter[
+                    (
+                        fact,
+                        "appears_in",
+                        drawing_book
+                    )
+                ] += 1
 
-                relationships_created += 1
-
-        exterior_walls = [
-            f
-            for f in facts
-            if f.startswith(
-                "Exterior Wall"
-            )
-        ]
-
-        for wall in exterior_walls:
-
-            for fact in facts:
-
-                if fact == wall:
+        for exterior_wall in exterior_walls:
+            for fact in clean_facts:
+                if fact == exterior_wall:
                     continue
 
-                create_relationship(
-                    cur,
-                    fact,
-                    "associated_with",
-                    wall
-                )
+                relationship_counter[
+                    (
+                        fact,
+                        "associated_with",
+                        exterior_wall
+                    )
+                ] += 1
 
-                relationships_created += 1
+    return relationship_counter
+
+
+def build_relationships():
+    conn = get_connection()
+    cur = conn.cursor()
+
+    page_facts = load_page_facts(
+        cur
+    )
+
+    relationship_counter = mine_relationships(
+        page_facts
+    )
+
+    for relationship, evidence_count in relationship_counter.items():
+        source_name = relationship[0]
+        relationship_type = relationship[1]
+        target_name = relationship[2]
+
+        upsert_relationship(
+            cur,
+            source_name,
+            relationship_type,
+            target_name,
+            evidence_count,
+            "page_cooccurrence"
+        )
 
     conn.commit()
 
@@ -190,23 +259,14 @@ def build_relationships():
     print("=" * 60)
     print("FACT RELATIONSHIP BUILD COMPLETE")
     print("=" * 60)
-
     print()
-
-    print(
-        f"Pages Processed: "
-        f"{len(page_facts)}"
-    )
-
-    print(
-        f"Relationships Created: "
-        f"{relationships_created}"
-    )
+    print(f"Pages Processed: {len(page_facts)}")
+    print(f"Relationships Found: {len(relationship_counter)}")
+    print()
 
     cur.close()
     conn.close()
 
 
 if __name__ == "__main__":
-
     build_relationships()
