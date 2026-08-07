@@ -16,7 +16,7 @@ Next:
 ✅ Relationship Confidence Scoring
 ✅ Entity Resolution v2
 ⬜ Citation Loader
-⬜ Fact Verification
+✅ Fact Verification v2
 ✅ Relationship Search
 ✅ Automated Ingestion
 ✅ Timeline builder
