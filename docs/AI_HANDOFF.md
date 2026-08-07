@@ -499,3 +499,26 @@ data/failed_pdfs/
 
 After ingestion, the relationship builder runs automatically.
 
+## Fact Verification v2
+
+File:
+
+agents/verification/fact_verifier.py
+
+Status:
+
+✅ Working
+
+Purpose:
+
+Uses fact_sources counts to update facts with:
+
+- verification_status
+- confidence
+
+Rules:
+
+0 sources = claim, confidence 50  
+1 source = supported, confidence 70  
+2 sources = well_supported, confidence 85  
+3+ sources = verified, confidence 95
