@@ -2,7 +2,7 @@ import os
 import psycopg2
 
 from dotenv import load_dotenv
-from knowledge_extractor import (
+from agents.knowledge.knowledge_extractor import (
     extract_entities,
     extract_facts
 )
