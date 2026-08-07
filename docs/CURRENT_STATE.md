@@ -14,7 +14,7 @@
 Next:
 
 🔄 Relationship Confidence Scoring
-⬜ Entity Resolution v2
+✅ Entity Resolution v2
 ⬜ Citation Loader
 ⬜ Fact Verification
 ✅ Relationship Search
