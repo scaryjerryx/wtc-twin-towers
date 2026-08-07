@@ -572,3 +572,32 @@ The master engine runner now executes:
 4. Relationship building
 5. Timeline build
 
+## Engine Health Report
+
+File:
+
+agents/engine/health_report.py
+
+Status:
+
+✅ Working
+
+Purpose:
+
+Reports current engine health including:
+
+- entity count
+- fact count
+- fact source count
+- citation count
+- relationship count
+- alias count
+- verification status counts
+- facts without sources
+- relationships without source method
+- top source files
+- top relationships
+
+Command:
+
+python -m agents.engine.health_report
