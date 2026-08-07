@@ -17,7 +17,7 @@ Next:
 ⬜ Entity Resolution v2
 ⬜ Citation Loader
 ⬜ Fact Verification
-🔄 Relationship Search
+✅ Relationship Search
 ⬜ Automated Ingestion
 ⬜ Timeline Builder
 ⬜ Digital Twin Layer
