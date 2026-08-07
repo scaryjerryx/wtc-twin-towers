@@ -3,6 +3,7 @@ import psycopg2
 
 from dotenv import load_dotenv
 from r2_download import download_file
+from vision_client import analyze_image
 
 load_dotenv()
 
@@ -64,13 +65,14 @@ download_file(
     local_file
 )
 
-description = (
-    "Image retrieved successfully and awaiting AI vision analysis."
-)
+analysis = analyze_image(local_file)
 
-tags = (
-    "retrieved,pending-analysis"
-)
+asset_type = analysis["asset_type"]
+asset_type_confidence = analysis["asset_type_confidence"]
+
+description = analysis["description"]
+tags = analysis["tags"]
+confidence_score = analysis["confidence"]
 
 cur.execute("""
     INSERT INTO ai_analysis
@@ -84,10 +86,14 @@ cur.execute("""
         image_description,
         tags,
         analysis_version,
-        analysis_json
+        analysis_json,
+        asset_type_detected,
+        asset_type_confidence
     )
     VALUES
     (
+        %s,
+        %s,
         %s,
         %s,
         %s,
@@ -106,11 +112,13 @@ cur.execute("""
     "Unknown",
     "Unknown",
     "Unknown",
-    0,
+    confidence_score,
     description,
     tags,
-    "v1",
-    '{"agent":"vision_analyze"}'
+    "v2",
+    '{"agent":"vision_analyze"}',
+    asset_type,
+    asset_type_confidence
 ))
 
 cur.execute("""
@@ -130,10 +138,15 @@ conn.commit()
 print()
 print("Analysis Complete")
 print("-----------------")
-print(f"Queue ID   : {queue_id}")
-print(f"Asset ID   : {asset_id}")
-print(f"Title      : {asset[1]}")
-print(f"Local File : {local_file}")
+print(f"Queue ID              : {queue_id}")
+print(f"Asset ID              : {asset_id}")
+print(f"Title                 : {asset[1]}")
+print(f"Local File            : {local_file}")
+print(f"Asset Type            : {asset_type}")
+print(f"Type Confidence       : {asset_type_confidence}")
+print(f"Description           : {description}")
+print(f"Tags                  : {tags}")
+print(f"Analysis Confidence   : {confidence_score}")
 
 cur.close()
 conn.close()
