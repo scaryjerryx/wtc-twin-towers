@@ -23,4 +23,5 @@ Next:
 ✅ Master Engine Runner
 ✅ Relationship Search v2
 ✅ Engine Health Report
+🔄 Automated Evidence Gathering
 ⬜ Digital Twin Layer

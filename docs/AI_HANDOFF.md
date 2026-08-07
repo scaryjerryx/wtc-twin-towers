@@ -601,3 +601,9 @@ Reports current engine health including:
 Command:
 
 python -m agents.engine.health_report
+
+Important:
+The final engine must not rely on manual file uploads.
+Manual incoming_pdfs was only a test harness.
+The real system requires automated evidence discovery and acquisition.
+
