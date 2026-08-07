@@ -20,4 +20,5 @@ Next:
 ✅ Relationship Search
 ✅ Automated Ingestion
 ✅ Timeline builder
+✅ Relationship Search v2
 ⬜ Digital Twin Layer

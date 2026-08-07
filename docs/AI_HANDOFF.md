@@ -522,3 +522,30 @@ Rules:
 1 source = supported, confidence 70  
 2 sources = well_supported, confidence 85  
 3+ sources = verified, confidence 95
+
+## Relationship Search v2
+
+File:
+
+agents/search/relationship_search.py
+
+Status:
+
+✅ Working
+
+Purpose:
+
+Searches graph relationships and displays:
+
+- source entity
+- relationship type
+- target entity
+- relationship confidence
+- evidence count
+- source method
+- source fact confidence
+- target fact confidence
+- verification status
+- source PDF files
+- source pages
+``
