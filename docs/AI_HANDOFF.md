@@ -549,3 +549,26 @@ Searches graph relationships and displays:
 - source PDF files
 - source pages
 ``
+
+## Citation Loader
+
+File:
+
+agents/knowledge/citation_loader.py
+
+Status:
+
+✅ Working
+
+Purpose:
+
+Copies evidence records from fact_sources into citations.
+
+The master engine runner now executes:
+
+1. Automated PDF ingestion
+2. Citation loader
+3. Fact verification
+4. Relationship building
+5. Timeline build
+

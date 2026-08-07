@@ -2,6 +2,10 @@ from agents.ingestion.automated_ingestion import (
     process_all_pdfs
 )
 
+from agents.knowledge.citation_loader import (
+    load_citations
+)
+
 from agents.verification.fact_verifier import (
     verify_facts
 )
@@ -33,7 +37,15 @@ def run_engine():
 
     print()
     print("=" * 80)
-    print("STEP 2: FACT VERIFICATION")
+    print("STEP 2: CITATION LOADER")
+    print("=" * 80)
+    print()
+
+    load_citations()
+
+    print()
+    print("=" * 80)
+    print("STEP 3: FACT VERIFICATION")
     print("=" * 80)
     print()
 
@@ -41,7 +53,7 @@ def run_engine():
 
     print()
     print("=" * 80)
-    print("STEP 3: RELATIONSHIP BUILDING")
+    print("STEP 4: RELATIONSHIP BUILDING")
     print("=" * 80)
     print()
 
@@ -49,7 +61,7 @@ def run_engine():
 
     print()
     print("=" * 80)
-    print("STEP 4: TIMELINE BUILD")
+    print("STEP 5: TIMELINE BUILD")
     print("=" * 80)
     print()
 
