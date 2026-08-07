@@ -13,11 +13,11 @@
 
 Next:
 
-🔄 Relationship Confidence Scoring
+✅ Relationship Confidence Scoring
 ✅ Entity Resolution v2
 ⬜ Citation Loader
 ⬜ Fact Verification
 ✅ Relationship Search
 ✅ Automated Ingestion
-⬜ Timeline Builder
+✅ Timeline builder
 ⬜ Digital Twin Layer
