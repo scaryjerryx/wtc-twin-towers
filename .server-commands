@@ -1,0 +1,47 @@
+source venv/bin/activate
+to get into virtual environment
+
+
+git status --short
+git diff --check
+
+------------------------------------------------
+
+git add requirements.txt .server-commands
+git commit -m "Document server commands and discovery dependency"
+git push
+
+----------------------------------------------------------------
+
+above is to update git hub
+
+----------------------------------------------
+postgres status and login
+
+docker ps --format "table {{.Names}}\t{{.Image}}\t{{.Status}}\t{{.Ports}}"
+
+-----------------------------------------------------------------------------
+
+docker exec -it wtc-postgres psql -U wtc_admin -d wtc_evidence
+
+--------------------------------------------------------------
+
+test connection 
+
+\conninfo
+
+---------------------------
+
+list tables
+
+\dt
+
+---------------------------------
+
+exit
+
+\q
+
+----------------------------------
+
+
