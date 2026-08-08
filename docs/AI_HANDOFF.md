@@ -1,625 +1,626 @@
-# AI HANDOFF
+# AI Handoff: World Trade Center Evidence Engine
 
-## Project
+## Purpose of This Document
 
-WTC Knowledge Engine
+This document provides the essential context required for an AI development assistant to continue work on the World Trade Center Evidence Engine safely and accurately.
 
-Purpose:
+The repository documentation and Git history are the authoritative project memory.
 
-Build an evidence-backed knowledge engine and digital twin for the World Trade Center archive.
+Conversation history is not authoritative project memory.
 
-The system ingests images, documents, engineering drawings and historical records and converts them into structured knowledge with provenance.
+Before making significant changes, read:
 
----
+- `docs/MISSION.md`
+- `docs/EVIDENCE_STANDARDS.md`
+- `docs/MASTER_PLAN.md`
+- `docs/ARCHITECTURE.md`
+- `docs/CURRENT_STATE.md`
+- `docs/NEXT_TASK.md`
+- `docs/AI_HANDOFF.md`
+- `.clinerules`
 
-# Current Architecture
+## Project Mission
 
-PDF
- ↓
-OCR
- ↓
-Text Extraction
- ↓
-Entity Extraction
- ↓
-Fact Extraction
- ↓
-Fact Normalization
- ↓
-Fact Cleaning
- ↓
-Fact Deduplication
- ↓
-Knowledge Graph
- ↓
-Relationships
- ↓
-Source Attribution
- ↓
-Page Attribution
+Build an automated, transparent, citation-backed evidence engine capable of supporting the most historically accurate digital reconstruction of the original World Trade Center complex.
 
----
+The completed system must:
 
-# Core Components
+1. Discover relevant historical evidence automatically
+2. Download and register permitted evidence
+3. Prevent duplicate URL and file storage
+4. Store evidence in R2
+5. Register evidence as database assets
+6. Classify and route evidence
+7. Process PDFs, photographs, drawings, video, audio, and records
+8. Extract entities, facts, events, sources, and relationships
+9. Preserve source, page, sheet, frame, and timestamp provenance
+10. Create research citations
+11. Verify claims and preserve contradictions
+12. Build a searchable knowledge graph
+13. Support an evidence-backed digital twin
+14. Support an evidence-linked historical walkthrough
 
-## OCR
+Evidence takes priority over assumptions.
 
-File:
+Artificial intelligence may assist with processing and interpretation, but artificial intelligence must not become an uncited source of historical truth.
 
-agents/processors/pdf_text_extractor.py
+## Critical Acquisition Requirement
 
-Capabilities:
+The final engine must not depend on permanent manual evidence uploads.
 
-- PyPDF2 text extraction
-- OCR fallback using Tesseract
-- pdf2image support
-- scanned PDF support
-- page-level extraction
+The local PDF incoming folder is a development and testing mechanism only.
 
-Functions:
+The intended acquisition path is:
 
-- extract_text()
-- extract_pages()
-
-Status:
-
-✅ Working
-
----
-
-## Entity Extraction
-
-File:
-
-agents/knowledge/knowledge_extractor.py
-
-Capabilities:
-
-- Extract known WTC entities
-- Extract engineering entities
-- Entity recognition from OCR text
-
-Status:
-
-✅ Working
-
----
-
-## Fact Extraction
-
-File:
-
-agents/knowledge/knowledge_extractor.py
-
-Capabilities:
-
-Extract:
-
-- Drawing Books
-- Column Types
-- Spandrel Types
-- Strut Types
-- Sections
-- Years
-- Exterior Wall references
-
-Status:
-
-✅ Working
-
----
-
-## Fact Normalization
-
-File:
-
-agents/knowledge/fact_normalizer.py
-
-Purpose:
-
-Convert OCR variants into canonical facts.
-
-Examples:
-
-DRAWING BOOK 1
-
+Configured Sources
 ↓
-
-Drawing Book 1
-
-EXTERIOR WALL TO EL.363
-
+Existing Discovery Layer
 ↓
-
-Exterior Wall To EL. 363
-
-Status:
-
-✅ Working
-
----
-
-## Fact Cleaning
-
-File:
-
-agents/knowledge/fact_cleaner.py
-
-Purpose:
-
-Validate facts before insertion.
-
-Current validations:
-
-- Column Type whitelist
-- Strut Type whitelist
-- Spandrel Type whitelist
-- Section validation
-- Year filtering
-
-Status:
-
-✅ Working
-
----
-
-## PDF Knowledge Pipeline
-
-File:
-
-agents/knowledge/pdf_knowledge_pipeline.py
-
-Purpose:
-
-Process engineering PDFs.
-
-Pipeline:
-
-PDF
- ↓
-OCR
- ↓
-Extract Facts
- ↓
-Normalize Facts
- ↓
-Clean Facts
- ↓
-Store Facts
- ↓
-Store Provenance
-
-Status:
-
-✅ Working
-
----
-
-## Relationship Mining
-
-File:
-
-agents/knowledge/fact_relationship_builder.py
-
-Purpose:
-
-Create relationships from page-level co-occurrence.
-
-Current relationships:
-
-appears_in
-
-associated_with
-
-Examples:
-
-Column Type 7000
- ↓
-associated_with
- ↓
-Exterior Wall To EL. 363
-
-Status:
-
-✅ Working
-
----
-
-# Database
-
-Database:
-
-wtc_evidence
-
-Current tables:
-
-## entities
-
-Stores entities.
-
-Examples:
-
-- World Trade Center
-- North Tower
-- South Tower
-- Drawing Book 1
-- Column Type 7000
-
----
-
-## facts
-
-Stores unique facts.
-
-Important constraints:
-
-unique_fact
-
-Current fields:
-
-- id
-- entity_id
-- fact_text
-- confidence
-- verification_status
-- source_file
-- source_page
-
-Status:
-
-✅ Working
-
----
-
-## fact_sources
-
-Stores fact provenance.
-
-Purpose:
-
-One fact can appear in many documents and many pages.
-
-Fields:
-
-- id
-- fact_id
-- source_file
-- source_page
-- confidence
-
-Constraint:
-
-unique_fact_source
-
-Status:
-
-✅ Working
-
----
-
-## relationships
-
-Stores graph relationships.
-
-Fields:
-
-- source_entity_id
-- relationship_type
-- target_entity_id
-- confidence
-- created_at
-
-Constraint:
-
-unique_relationship
-
-Status:
-
-✅ Working
-
----
-
-# Provenance
-
-Implemented:
-
-✅ source_file
-
-✅ source_page
-
-✅ confidence
-
-Example:
-
-Fact:
-
-Column Type 7000
-
-Source:
-
-WTCI-000721-L.PDF
-
-Page:
-
-22
-
-Status:
-
-✅ Working
-
----
-
-# Current Proven Capabilities
-
-The engine can:
-
-✅ Read scanned engineering PDFs
-
-✅ OCR historical drawings
-
-✅ Extract structured facts
-
-✅ Normalize OCR variations
-
-✅ Deduplicate facts
-
-✅ Track source document
-
-✅ Track source page
-
-✅ Build relationships automatically
-
-✅ Store knowledge in PostgreSQL
-
-✅ Maintain provenance
-
----
-
-# Recently Completed
-
-- Package migration
-- OCR support
-- Fact normalization
+Search Candidates
+↓
+Discoveries
+↓
+Discovery Queue
+↓
+Existing Downloader Layer
+↓
+Response and Content Validation
+↓
+URL and File-Hash Deduplication
+↓
+R2 Object Storage
+↓
+Asset Registration
+↓
+Metadata and Processing Queues
+↓
+Classification and Routing
+↓
+Existing Processing and Knowledge Engine
+
+The repository already contains acquisition foundations under:
+
+- `agents/discovery/`
+- `agents/downloader/`
+
+Do not create a competing `agents/acquisition/` subsystem.
+
+Inspect and reuse the existing systems unless a documented audit proves that replacement is necessary.
+
+## Current Working Foundation
+
+### Package and Runtime
+
+- Python package structure under `agents/`
+- Package-qualified internal imports
+- Root `requirements.txt`
+- Python virtual environment
+- PostgreSQL database
+- R2 integration foundation
+- Tesseract OCR
+- Poppler PDF rendering
+- Git checkpoint workflow
+
+### PDF and OCR Processing
+
+Working components include:
+
+- Embedded PDF text extraction
+- OCR fallback for scanned PDFs
+- PDF-page rendering
+- Whole-document OCR extraction
+- Page-level OCR extraction
+- Source-page preservation
+- PDF analyser
+- PDF knowledge pipeline
+
+Primary file:
+
+- `agents/processors/pdf_text_extractor.py`
+
+Important functions include:
+
+- `extract_with_pypdf2()`
+- `extract_with_ocr()`
+- `extract_pages()`
+- `extract_text()`
+
+### Knowledge Extraction
+
+Working components include:
+
+- Known-entity extraction
+- Engineering fact extraction
+- Drawing-book extraction
+- Column-type extraction
+- Spandrel-type extraction
+- Strut-type extraction
+- Section-reference extraction
+- Exterior-wall reference extraction
+- Explicit year-reference extraction
+- Fact normalisation
 - Fact cleaning
 - Fact deduplication
-- Source file attribution
-- Source page attribution
-- fact_sources architecture
-- Automatic relationship mining
 
----
+Important files include:
 
-# Current Priority
+- `agents/knowledge/knowledge_extractor.py`
+- `agents/knowledge/fact_normalizer.py`
+- `agents/knowledge/fact_cleaner.py`
+- `agents/knowledge/pdf_knowledge_pipeline.py`
+- `agents/knowledge/knowledge_pipeline.py`
 
-## 1
+### Provenance and Citations
 
-Relationship Confidence Scoring
+Working components include:
 
-Goal:
+- Source-file attribution
+- Source-page attribution
+- `fact_sources`
+- Fact-source deduplication
+- Citation table
+- Citation Loader
+- Citation deduplication
 
-Relationships should accumulate evidence.
+Important file:
 
-Example:
+- `agents/knowledge/citation_loader.py`
 
-Column Type 7000
+Current provenance path:
 
-associated_with
-
-Exterior Wall To EL. 363
-
-evidence_count = 12
-
-confidence = 95
-
----
-
-## 2
-
-Entity Resolution V2
-
-Goal:
-
-Merge aliases.
-
-Examples:
-
-WTC
-
-World Trade Center
-
-WORLD TRADE CENTER
-
+Facts
 ↓
+Fact Sources
+↓
+Citations
 
-Single entity
+The `fact_sources` table is the authoritative scalable fact-provenance model.
 
----
+Legacy `source_file` and `source_page` fields may remain in `facts` for compatibility.
 
-## 3
+### Entity Resolution
 
-Relationship Search
+Working components include:
 
-Goal:
+- Entity alias table
+- Alias seeding
+- Canonical-name resolution
+- Canonical entity creation
+- Alias relationship reassignment
+- Entity Resolution v2
 
-Query graph and return relationships.
+Important file:
 
-Example:
+- `agents/knowledge/entity_resolution.py`
 
-Search:
+Database support:
 
-Column Type 7000
+- `entity_aliases`
 
-Returns:
+### Fact Verification
 
-Relationships
+Working components include:
 
-Sources
+- Evidence-based Fact Verification v2
+- Fact confidence updates
+- Verification-status updates
 
-Pages
+Important file:
 
-Documents
+- `agents/verification/fact_verifier.py`
 
-Confidence
+Current operational rules:
 
----
+- Zero source records: `claim`, confidence 50
+- One source record: `supported`, confidence 70
+- Two source records: `well_supported`, confidence 85
+- Three or more source records: `verified`, confidence 95
 
-## 4
+Important limitation:
 
-Automated Ingestion
+Source-record count is not necessarily independent-source count.
 
-Goal:
+Several pages from one document may currently increase verification strength without representing independent evidence.
 
-Drop PDF into folder.
+### Relationships
 
-Engine automatically
+Working components include:
 
-## Automated Ingestion
+- Seed relationships
+- Page-co-occurrence relationship mining
+- Relationship deduplication
+- Relationship evidence counts
+- Relationship confidence scoring
+- Relationship source methods
+- Relationship Search v2
+- Relationship provenance display
 
-File:
+Important files include:
 
-agents/ingestion/automated_ingestion.py
+- `agents/knowledge/relationship_builder.py`
+- `agents/knowledge/fact_relationship_builder.py`
+- `agents/search/relationship_search.py`
 
-Status:
+Current automatically generated relationship types include:
 
-✅ Working
+- `appears_in`
+- `associated_with`
 
-Purpose:
+Current automatic source method:
 
-Processes all PDFs in:
+- `page_cooccurrence`
 
-data/incoming_pdfs/
+Important limitation:
 
-Successful PDFs are moved to:
+Page co-occurrence indicates an association signal.
 
-data/processed_pdfs/
+Page co-occurrence does not prove causation, containment, structural dependency, or design intent.
 
-Failed PDFs are moved to:
+### Timeline
 
-data/failed_pdfs/
+Working component:
 
-After ingestion, the relationship builder runs automatically.
+- Timeline Builder v2
 
-## Fact Verification v2
+Important file:
 
-File:
+- `agents/timeline/timeline_builder.py`
 
-agents/verification/fact_verifier.py
+Current behaviour:
 
-Status:
+- Accepts explicit referenced-year facts
+- Rejects engineering identifiers that merely resemble years
+- Displays confidence
+- Displays verification status
+- Displays available source provenance
 
-✅ Working
+Current limitation:
 
-Purpose:
+The timeline does not yet represent a complete historical event model.
 
-Uses fact_sources counts to update facts with:
+### Local PDF Processing Test Harness
 
-- verification_status
-- confidence
+Working component:
 
-Rules:
+- `agents/ingestion/automated_ingestion.py`
 
-0 sources = claim, confidence 50  
-1 source = supported, confidence 70  
-2 sources = well_supported, confidence 85  
-3+ sources = verified, confidence 95
+Current directories:
 
-## Relationship Search v2
+- `data/incoming_pdfs/`
+- `data/processed_pdfs/`
+- `data/failed_pdfs/`
 
-File:
+This component processes manually supplied PDFs and moves successful or failed files into the appropriate directory.
 
-agents/search/relationship_search.py
+This is a test harness.
 
-Status:
+This is not the final automated evidence-gathering workflow.
 
-✅ Working
+### Engine Operations
 
-Purpose:
+Working components include:
 
-Searches graph relationships and displays:
+- Master Engine Runner
+- Citation loading
+- Fact verification
+- Relationship rebuilding
+- Timeline generation
+- Engine Health Report
 
-- source entity
-- relationship type
-- target entity
-- relationship confidence
-- evidence count
-- source method
-- source fact confidence
-- target fact confidence
-- verification status
-- source PDF files
-- source pages
-``
+Important files include:
 
-## Citation Loader
+- `agents/engine/run_engine.py`
+- `agents/engine/health_report.py`
 
-File:
+The current Master Engine Runner operates the existing local processing workflow.
 
-agents/knowledge/citation_loader.py
+The Master Engine Runner does not yet run a verified end-to-end external discovery and downloader pipeline.
 
-Status:
+## Confirmed Database Foundation
 
-✅ Working
+Primary database:
 
-Purpose:
+- `wtc_evidence`
 
-Copies evidence records from fact_sources into citations.
+Confirmed knowledge tables include:
 
-The master engine runner now executes:
+- `entities`
+- `entity_aliases`
+- `facts`
+- `fact_sources`
+- `citations`
+- `relationships`
 
-1. Automated PDF ingestion
-2. Citation loader
-3. Fact verification
-4. Relationship building
-5. Timeline build
+Known or expected operational tables include:
 
-## Engine Health Report
+- `sources`
+- `search_candidates`
+- `discoveries`
+- `discovery_queue`
+- `assets`
+- `metadata_queue`
+- `ai_analysis`
 
-File:
+The discovery, downloader, asset, and queue schemas must be audited before integration changes are made.
 
-agents/engine/health_report.py
+Known constraints include:
 
-Status:
+- `unique_fact`
+- `unique_fact_source`
+- `unique_relationship`
+- Citation uniqueness protection
+- Entity-name uniqueness protection
 
-✅ Working
+Do not assume undocumented schema details.
 
-Purpose:
+Inspect the live PostgreSQL schema before proposing migrations.
 
-Reports current engine health including:
+## Tested Evidence
 
-- entity count
-- fact count
-- fact source count
-- citation count
-- relationship count
-- alias count
-- verification status counts
-- facts without sources
-- relationships without source method
-- top source files
-- top relationships
+The scanned engineering document:
 
-Command:
+- `WTCI-000721-L.PDF`
 
-python -m agents.engine.health_report
+was used to validate:
 
-Important:
-The final engine must not rely on manual file uploads.
-Manual incoming_pdfs was only a test harness.
-The real system requires automated evidence discovery and acquisition.
+- OCR across 39 pages
+- Page-level extraction
+- Entity extraction
+- Engineering fact extraction
+- Fact normalisation
+- Fact cleaning
+- Fact provenance
+- Citation loading
+- Fact verification
+- Relationship mining
+- Relationship confidence
+- Relationship search
+- Timeline filtering
+- Master engine execution
+- Engine health reporting
 
-## AI Workflow Decision
+This source document is test evidence.
 
-The browser chat thread became too long and unreliable.
+Do not commit the PDF to Git.
 
-Development should move into a repo-aware coding assistant workflow.
+## Components Requiring Audit
 
-Preferred setup:
+The following areas must not be treated as complete merely because files or database tables exist.
 
-- Claude Code or VS Code Copilot for repo editing
-- Repo docs are the source of truth
-- No manual long file pasting
+### Discovery
+
+- Trusted-source seeding
+- Search generation
+- Candidate creation
+- Candidate relevance assessment
+- Candidate promotion
+- Discovery creation
+- Discovery queue creation
+- URL normalisation
+- URL deduplication
+- Discovery exports and diagnostics
+
+### Downloader and Storage
+
+- Discovery-queue consumption
+- HTTP response validation
+- Content-type validation
+- File downloading
+- File hashing
+- File-hash deduplication
+- R2 upload from the downloader
+- Asset registration
+- Failure handling
+- Retry handling
+- Metadata queue creation
+- Processing queue creation
+
+### Classification and Routing
+
+- Asset classification
+- Classification confidence
+- Routing
+- Processor invocation
+- Processing-status updates
+- Failure routing
+
+### Specialist Processing
+
+- Photograph processing
+- Image OCR
+- Blueprint processing
+- Drawing-number and revision extraction
+- Video processing
+- Keyframe extraction
+- Timestamp citations
+- Audio transcription
+- Audio timestamp citations
+
+### Additional Search and Analysis
+
+- General query engine
+- Graph-search components
+- Metadata-analysis components
+- Vision-analysis components
+- R2 analysis retrieval
+- AI-provider abstraction
+
+## Current Active Task
+
+The single active task is:
+
+**Reconnect Existing Automated Evidence Gathering**
+
+The authoritative task definition is:
+
+- `docs/NEXT_TASK.md`
+
+The immediate first stage is a read-only audit of:
+
+- `agents/discovery/`
+- `agents/downloader/`
+
+The audit must identify:
+
+- File purpose
+- Imports
+- Dependencies
+- Database tables
+- Inputs
+- Outputs
+- Invocation method
+- Execution order
+- Completion status
+- Duplicate responsibilities
+- Broken imports
+- Missing queue transitions
+- Missing deduplication
+- Missing R2 integration
+- Missing asset registration
+- Missing processing handoff
+- Required tests
+
+The audit must also inspect the live schemas for:
+
+- `sources`
+- `search_candidates`
+- `discoveries`
+- `discovery_queue`
+- `assets`
+- `metadata_queue`
+
+No code, files, schemas, or database records should be modified during the initial audit.
+
+## Development Assistant Workflow
+
+Current development tooling:
+
+- Cline
+- OpenRouter
+- DeepSeek V4 Flash
+- Server-side VS Code
+- SSH localhost tunnel
+- Plan mode before Act mode
+- Approval-controlled edits and commands
+- Cline checkpoints
+
+The repository documentation and Git history are the authoritative project memory.
+
+AI chat memory is not authoritative project memory.
+
+## Required Development Process
+
+Every task must follow this sequence:
+
+Read
+↓
+Audit
+↓
+Plan
+↓
+Approve
+↓
+Implement One Scoped Change
+↓
+Compile or Test
+↓
+Review Git Diff
+↓
+Update Documentation
+↓
+Commit
+↓
+Continue
+
+## Non-Negotiable Rules
+
 - Inspect before editing
-- One file at a time
-- Commit after every working milestone
+- Work on one milestone at a time
+- Read complete files before replacing them
+- Prefer targeted changes over broad rewrites
+- Reuse existing architecture
+- Do not create duplicate systems
+- Require explicit approval for database changes
+- Do not delete evidence
+- Do not commit downloaded evidence
+- Do not commit secrets or API keys
+- Do not run destructive commands without approval
+- Do not commit automatically
+- Do not treat AI output as historical evidence
+- Do not allow AI suggestions to overwrite cited evidence
+- Run targeted tests after each change
+- Review `git diff` after each change
+- Update documentation only after tests pass
+- Stop when the approved milestone is complete
 
-Kimi / DeepSeek / other APIs should be introduced later as engine intelligence layers, not as the main development memory.
+## AI Use Within the Evidence Engine
+
+AI may later assist with:
+
+- Evidence relevance scoring
+- Classification
+- Document summarisation
+- Structured fact suggestions
+- Entity suggestions
+- Relationship suggestions
+- Image interpretation
+- Drawing interpretation
+- Contradiction detection
+- Research assistance
+
+AI output must:
+
+- Be labelled as AI-assisted or AI-generated
+- Retain citations to source evidence
+- Preserve provider and model details
+- Preserve prompt or prompt-version information
+- Be validated before storage as authoritative knowledge
+- Remain separate from direct evidence
+- Be subject to human review for high-impact claims
+
+## Before Starting a New Development Session
+
+A new AI session must:
+
+1. Read the authoritative documentation
+2. Read `.clinerules`
+3. Inspect the relevant repository files
+4. Confirm the current task
+5. Confirm the working-tree status
+6. Produce a plan
+7. Wait for approval before editing
+
+The initial prompt should explicitly prohibit:
+
+- File edits
+- Database changes
+- New architecture
+- Destructive commands
+- Automatic commits
+
+## Current Strategic Boundary
+
+Do not begin:
+
+- Digital Twin schema development
+- Reconstruction geometry
+- Walkthrough development
+- Large-scale crawling
+- Broad AI enrichment
+- Unrelated database redesign
+
+until the existing discovery and downloader pipeline has been audited, repaired, and tested end to end.
+
+## Recovery Procedure
+
+If a development conversation is lost:
+
+1. Open the repository
+2. Check `git status`
+3. Read the authoritative documentation
+4. Read the latest entries in `docs/SESSION_LOG.md`
+5. Read `docs/NEXT_TASK.md`
+6. Inspect the latest Git commits
+7. Continue only from the documented active milestone
+
+The repository must remain sufficient to continue development without access to previous chat history.

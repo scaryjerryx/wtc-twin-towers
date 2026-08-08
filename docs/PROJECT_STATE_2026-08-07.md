@@ -1,3 +1,18 @@
+# Historical Project Snapshot
+
+> **Historical record:** This document records the project state on August 7, 2026.
+>
+> This file is preserved for development history and must not be treated as the current project status.
+>
+> For current information, read:
+>
+> - `docs/CURRENT_STATE.md`
+> - `docs/NEXT_TASK.md`
+> - `docs/AI_HANDOFF.md`
+
+---
+
+
 # WTC Knowledge Engine
 
 ## Completed
