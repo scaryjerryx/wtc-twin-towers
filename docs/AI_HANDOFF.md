@@ -607,3 +607,19 @@ The final engine must not rely on manual file uploads.
 Manual incoming_pdfs was only a test harness.
 The real system requires automated evidence discovery and acquisition.
 
+## AI Workflow Decision
+
+The browser chat thread became too long and unreliable.
+
+Development should move into a repo-aware coding assistant workflow.
+
+Preferred setup:
+
+- Claude Code or VS Code Copilot for repo editing
+- Repo docs are the source of truth
+- No manual long file pasting
+- Inspect before editing
+- One file at a time
+- Commit after every working milestone
+
+Kimi / DeepSeek / other APIs should be introduced later as engine intelligence layers, not as the main development memory.

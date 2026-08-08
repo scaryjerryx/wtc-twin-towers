@@ -67,3 +67,45 @@ processing queues
     ↓
 knowledge engine
 
+# NEXT TASK
+
+## Reconnect Existing Automated Evidence Gathering
+
+Do not create a new acquisition system.
+
+Use existing folders:
+
+- agents/discovery/
+- agents/downloader/
+
+Goal:
+
+Understand and complete the existing automated evidence gathering pipeline.
+
+Expected flow:
+
+sources.json
+    ↓
+sources table
+    ↓
+search candidates
+    ↓
+discoveries
+    ↓
+discovery queue
+    ↓
+downloader
+    ↓
+R2 / assets table
+    ↓
+processing queues
+    ↓
+knowledge engine
+
+Rules:
+
+- Inspect before editing.
+- One file at a time.
+- No duplicate acquisition system.
+- Full replacement files only when needed.
+- Commit after every working milestone.
