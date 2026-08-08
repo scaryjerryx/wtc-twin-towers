@@ -120,6 +120,18 @@ The discovery audit must determine:
 
 Do not rewrite `sources.json` until the existing discovery system has been audited.
 
+### Machine-Readable Name Mapping
+
+The machine-readable configs (`agents/discovery/sources.json` and `research/sources.json`) keep the consumer-facing `name` value and add a `canonical_name` field that matches this registry:
+
+| JSON `name` | Registry canonical name |
+|---|---|
+| `NIST` | `National Institute of Standards and Technology` |
+| `Port Authority` | `Port Authority of New York and New Jersey` |
+| `National Archives` | `National Archives and Records Administration` |
+
+All other JSON `name` values already equal the registry canonical names.
+
 # Priority Source Registry
 
 ## Library of Congress
@@ -467,6 +479,60 @@ Automation status:
 
 **Not yet approved for production harvesting**
 
+## National Archives and Records Administration
+
+### Registry Information
+
+Canonical name:
+
+`National Archives and Records Administration`
+
+Known abbreviations:
+
+- `NARA`
+- `National Archives`
+
+Source category:
+
+Government archive and national archives
+
+Status:
+
+**Under Review**
+
+Expected evidence types:
+
+- Photographs
+- Architectural records
+- Maps
+- Publications
+- Records
+- Drawings
+- Catalogue records
+- Historical metadata
+
+Potential evidence value:
+
+- Federal records relating to the World Trade Center
+- Official publications
+- Photographic records
+- Collection metadata
+- Archive identifiers
+
+Required review:
+
+- Confirm relevant World Trade Center collections
+- Confirm search and access endpoints
+- Confirm item-level rights statements
+- Confirm download permissions
+- Establish rate limits
+- Record citation format
+- Test one controlled discovery path
+
+Automation status:
+
+**Not yet approved for production harvesting**
+
 ## Engineering and Architectural Journals
 
 ### Registry Information
@@ -711,6 +777,18 @@ The immediate discovery audit must compare this registry against:
 - Existing candidate records
 
 Differences must be documented before source records are changed.
+
+# Source Governance Summary
+
+| Source | Status | Rights | Rate limit | Last reviewed |
+|---|---|---|---|---|
+| Library of Congress | Under Review | Item-level rights statements and download permissions not yet confirmed | not yet assigned | 2026-08-08 |
+| Internet Archive | Under Review | Item-level rights vary by uploader; reuse conditions not yet confirmed | not yet assigned | 2026-08-08 |
+| National Institute of Standards and Technology | Under Review | Reuse conditions not yet confirmed | not yet assigned | 2026-08-08 |
+| Port Authority of New York and New Jersey | Under Review | Rights restrictions not yet recorded; citation requirements not yet confirmed | not yet assigned | 2026-08-08 |
+| Wikimedia Commons | Under Review | Licence and attribution vary by file; original-source links must be preserved | not yet assigned | 2026-08-08 |
+| Flickr Commons | Under Review | Image-download policy and rights statements not yet confirmed | not yet assigned | 2026-08-08 |
+| National Archives and Records Administration | Under Review | Access, download, and reuse conditions not yet reviewed | not yet assigned | 2026-08-08 |
 
 # Completion Criteria
 

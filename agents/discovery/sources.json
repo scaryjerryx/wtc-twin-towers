@@ -1,30 +1,61 @@
 [
   {
     "name": "Library of Congress",
-    "url": "https://www.loc.gov"
+    "url": "https://www.loc.gov",
+    "status": "Under Review",
+    "rights": "Item-level rights statements and download permissions not yet confirmed",
+    "rate_limit": "not yet assigned",
+    "last_reviewed": "2026-08-08"
   },
   {
     "name": "Internet Archive",
-    "url": "https://archive.org"
+    "url": "https://archive.org",
+    "status": "Under Review",
+    "rights": "Item-level rights vary by uploader; reuse conditions not yet confirmed",
+    "rate_limit": "not yet assigned",
+    "last_reviewed": "2026-08-08"
   },
   {
     "name": "Wikimedia Commons",
-    "url": "https://commons.wikimedia.org"
+    "url": "https://commons.wikimedia.org",
+    "status": "Under Review",
+    "rights": "Licence and attribution vary by file; original-source links must be preserved",
+    "rate_limit": "not yet assigned",
+    "last_reviewed": "2026-08-08"
   },
   {
     "name": "NIST",
-    "url": "https://www.nist.gov"
+    "url": "https://www.nist.gov",
+    "canonical_name": "National Institute of Standards and Technology",
+    "status": "Under Review",
+    "rights": "Reuse conditions not yet confirmed",
+    "rate_limit": "not yet assigned",
+    "last_reviewed": "2026-08-08"
   },
   {
     "name": "Port Authority",
-    "url": "https://www.panynj.gov"
+    "url": "https://www.panynj.gov",
+    "canonical_name": "Port Authority of New York and New Jersey",
+    "status": "Under Review",
+    "rights": "Rights restrictions not yet recorded; citation requirements not yet confirmed",
+    "rate_limit": "not yet assigned",
+    "last_reviewed": "2026-08-08"
   },
   {
     "name": "Flickr Commons",
-    "url": "https://www.flickr.com/commons"
+    "url": "https://www.flickr.com/commons",
+    "status": "Under Review",
+    "rights": "Image-download policy and rights statements not yet confirmed",
+    "rate_limit": "not yet assigned",
+    "last_reviewed": "2026-08-08"
   },
   {
     "name": "National Archives",
-    "url": "https://www.archives.gov"
+    "url": "https://www.archives.gov",
+    "canonical_name": "National Archives and Records Administration",
+    "status": "Under Review",
+    "rights": "Access, download, and reuse conditions not yet reviewed",
+    "rate_limit": "not yet assigned",
+    "last_reviewed": "2026-08-08"
   }
 ]
