@@ -6,6 +6,19 @@
 
 🔄 **In Progress**
 
+## Milestone Progress
+
+- ✅ **M0 – Pre-flight backup** — Complete and passed. Production database backed up, restored into a scratch database, row counts and schema object counts matched, scratch database cleaned up.
+- ✅ **M1 – Architecture decisions** — Complete and approved. Decisions recorded below.
+- 🔄 **M2 – Source-registry reconciliation** — Current active milestone.
+
+## Approved M1 Architecture Decisions
+
+1. **`search_candidates` record types.** `search_candidates` distinguishes `search_request` from `evidence_candidate` via a `record_type` field. A search request is not the same thing as a returned evidence URL.
+2. **`asset_sources` retrieval events.** One `asset_sources` row = one retrieval event. A second row represents a separate retrieval event or a separately discovered source reference.
+3. **Canonical discovery record.** `discoveries` is the canonical discovery record for all new rows.
+4. **Legacy discovery tables.** `discovered_urls` and `search_history` remain legacy data, read-only, outside the new operational path.
+
 ## Objective
 
 Audit, reconnect, repair, and test the existing automated evidence-discovery and downloader pipeline.
@@ -138,143 +151,62 @@ Wait for approval before editing code or changing the database.
 
 ## Implementation Order
 
-After the audit and plan are approved, implementation should proceed through these milestones:
+Implementation proceeds through the milestones defined in:
 
-### Milestone 1: Source Seeding
+- `docs/plans/MINIMAL_ACQUISITION_REPAIR_PLAN_2026-08-08.md`
 
-Confirm that configured sources can be loaded into the `sources` table safely and idempotently.
+The approved milestone order is:
 
-Required test:
+- ✅ **M0 – Pre-flight backup** — Complete
+- ✅ **M1 – Architecture decisions** — Complete
+- 🔄 **M2 – Source-registry reconciliation** — Current
+- ⬜ **M3 – Limited writer role** — Planned
+- ⬜ **M4 – First small schema migration** — Planned
+- ⬜ **M5 – Package/import repair** — Planned
+- ⬜ **M6 – Source seeding repair** — Planned
+- ⬜ **M7 – Search-request generation** — Planned
+- ⬜ **M8 – Controlled source search** — Planned
+- ⬜ **M9 – Human review and manual promotion** — Planned
+- ⬜ **M10 – Discovery queue** — Planned
+- ⬜ **M11 – Downloader schema additions** — Planned
+- ⬜ **M12 – `asset_sources` registration + privilege grant** — Planned
+- ⬜ **M13 – R2 testability, then downloader implementation** — Planned
+- ⬜ **M14 – Controlled end-to-end test** — Planned
+- ⬜ **M15 – Orchestrator repair** — Planned (only after M14 passes)
 
-- Run source seeding twice
-- Confirm that duplicate source records are not created
+### M2 – Source-Registry Reconciliation (Current)
 
-### Milestone 2: Search Candidate Creation
+Reconcile `agents/discovery/sources.json` (7) and `research/sources.json` (4) against `docs/SOURCE_REGISTRY.md`; add status/rights/rate-limit/review fields. No fixed source count is asserted until done.
 
-Confirm that source-specific searches can create normalised, deduplicated search candidates.
+Files affected:
 
-Required test:
+- `agents/discovery/sources.json`
+- `research/sources.json`
+- `docs/SOURCE_REGISTRY.md`
 
-- Generate candidates from one approved test source
-- Confirm candidate URLs and source provenance are stored
-- Confirm repeated runs do not create duplicate candidates
+Schema/data changes:
 
-### Milestone 3: Discovery Promotion
+- None (files only)
 
-Confirm that an approved candidate can become a discovery record.
+Exact test:
 
-Required test:
+- Load both configs and diff keys against the registry
 
-- Promote one test candidate
-- Confirm the discovery retains the candidate and source relationship
-- Confirm duplicate discovery records are prevented
+Expected result:
 
-### Milestone 4: Discovery Queue
+- One canonical source list, no name/national-archive mismatches
 
-Confirm that an approved discovery can enter the downloader queue.
+Rollback/recovery:
 
-Required test:
+- Revert config commit
 
-- Queue one discovery
-- Confirm its initial status
-- Confirm repeated queue operations remain idempotent
+Dependencies:
 
-### Milestone 5: Download and Validation
+- M1
 
-Confirm that the downloader can retrieve one permitted test file.
+Role:
 
-Required test:
-
-- Validate HTTP status
-- Validate content type
-- Preserve the original URL
-- Preserve the source record
-- Record failures without losing the discovery
-
-### Milestone 6: Deduplication
-
-Add or verify:
-
-- URL normalisation
-- URL deduplication
-- Cryptographic file hashing
-- File-hash deduplication
-
-Required test:
-
-- Process the same URL twice
-- Process the same file from two permitted URLs
-- Confirm duplicate storage is prevented
-- Confirm all source references are preserved
-
-### Milestone 7: R2 Storage
-
-Confirm that one downloaded file can be uploaded to R2.
-
-Required test:
-
-- Upload one test file
-- Confirm the R2 object exists
-- Confirm the object key is preserved
-- Confirm the original URL and file hash remain associated with the object
-
-### Milestone 8: Asset Registration
-
-Confirm that the stored R2 object creates a valid asset record.
-
-Required test:
-
-- Confirm asset identifier
-- Confirm R2 object key
-- Confirm source URL
-- Confirm source identifier
-- Confirm file name
-- Confirm content type
-- Confirm file hash
-- Confirm acquisition status
-- Confirm processing status
-
-### Milestone 9: Processing Queue
-
-Confirm that the new asset creates the required metadata or processing job.
-
-Required test:
-
-- Confirm the asset is queued only once
-- Confirm the queue status is correct
-- Confirm processor routing can locate the asset
-
-### Milestone 10: Existing Engine Handoff
-
-Confirm that the registered and queued asset reaches the existing processing and knowledge engine.
-
-Required test:
-
-- Route one supported PDF asset
-- Extract text or OCR
-- Create provenance records
-- Load citations
-- Verify facts
-- Build relationships
-- Confirm the full path is traceable back to the discovery URL
-
-### Milestone 11: Master Engine Integration
-
-Only after the previous milestones pass, update the Master Engine Runner to include the repaired evidence-gathering workflow.
-
-Expected future order:
-
-1. Source and discovery processing
-2. Candidate promotion
-3. Discovery queue processing
-4. Download and asset registration
-5. Classification and routing
-6. Specialist processing
-7. Citation loading
-8. Fact verification
-9. Relationship building
-10. Timeline updates
-11. Health reporting
+- None (files only)
 
 ## Completion Criteria
 

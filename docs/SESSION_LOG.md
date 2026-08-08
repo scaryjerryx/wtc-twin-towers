@@ -38,6 +38,92 @@ Each future session entry should include:
 
 ---
 
+# 2026-08-08: Milestone 1 — Architecture Decisions Approved
+
+## Objective
+
+Complete Milestone 1 (architecture decisions, no code) of the minimal acquisition repair plan.
+
+Record the approved architecture decisions in repository documentation.
+
+## Starting State
+
+- M0 (pre-flight backup) was complete and passed.
+- The production database was backed up, restored into a scratch database, row counts and schema object counts matched, and the scratch database was cleaned up.
+- The read-only repository audit and database schema audit were complete.
+- The minimal acquisition repair plan was approved.
+
+## Files Inspected
+
+- `.clinerules/00-project-rules.md`
+- `docs/MISSION.md`
+- `docs/CURRENT_STATE.md`
+- `docs/plans/MINIMAL_ACQUISITION_REPAIR_PLAN_2026-08-08.md`
+- `docs/audits/DATABASE_SCHEMA_AUDIT_2026-08-08.md`
+- `docs/audits/DISCOVERY_DOWNLOADER_AUDIT_2026-08-08.md`
+- `docs/ARCHITECTURE.md`
+- `docs/NEXT_TASK.md`
+- `docs/SESSION_LOG.md`
+- `agents/discovery/build_real_searches.py`
+
+## Files Changed
+
+- `docs/ARCHITECTURE.md`
+- `docs/NEXT_TASK.md`
+- `docs/SESSION_LOG.md`
+
+## Database Changes
+
+None.
+
+## Commands Run
+
+None.
+
+## Tests Performed
+
+None (documentation-only milestone).
+
+## Results
+
+All 11 approved architecture decisions from Section A of the repair plan were verified as consistent with the audits, CURRENT_STATE.md, and project rules.
+
+The two open decisions were resolved and approved:
+
+1. **`search_candidates` record types.** `search_candidates` distinguishes `search_request` from `evidence_candidate` via a `record_type` field. A search request is not the same thing as a returned evidence URL.
+2. **`asset_sources` retrieval events.** One `asset_sources` row = one retrieval event. A second row represents a separate retrieval event or a separately discovered source reference.
+
+## Decisions
+
+- `search_candidates` will distinguish `search_request` from `evidence_candidate` via a `record_type` field.
+- `asset_sources` represents retrieval events. One row = one retrieval event.
+- `discoveries` remains the canonical discovery record for all new rows.
+- `discovered_urls` and `search_history` remain legacy data, read-only, outside the new operational path.
+- No new tables are invented without approval.
+- `run_pipeline.py` is not changed until the independent acquisition path passes its controlled end-to-end test.
+
+## Documentation Updated
+
+- `docs/ARCHITECTURE.md` — Added search-candidate representation (record types), asset-sources retrieval-event semantics, and updated the database architecture section.
+- `docs/NEXT_TASK.md` — Recorded M0/M1 completion, the four approved M1 decisions, and set M2 (source-registry reconciliation) as the current active milestone.
+- `docs/SESSION_LOG.md` — This entry.
+
+## Git Commit
+
+Not committed. Awaiting review.
+
+## Remaining Issues
+
+- M2 (source-registry reconciliation) is the next milestone.
+- Source configs (`agents/discovery/sources.json` and `research/sources.json`) still need reconciliation against `docs/SOURCE_REGISTRY.md`.
+- No code, schema, or database changes have been made.
+
+## Next Action
+
+Proceed to M2 — Source-registry reconciliation.
+
+---
+
 # 2026-08-08: Documentation Recovery and AI Workflow Transition
 
 ## Objective

@@ -50,7 +50,9 @@ Configured Sources
 ↓
 Discovery Layer
 ↓
-Search Candidates
+Search Requests (`search_candidates`, `record_type = 'search_request'`)
+↓
+Evidence Candidates (`search_candidates`, `record_type = 'evidence_candidate'`)
 ↓
 Discoveries
 ↓
@@ -143,15 +145,26 @@ The exact responsibility and current validity of every file must be confirmed by
 ↓
 Sources Table
 ↓
-Search Definitions
+Search Requests (`record_type = 'search_request'`)
 ↓
-Search Candidates
+Evidence Candidates (`record_type = 'evidence_candidate'`)
 ↓
 Candidate Review or Promotion
 ↓
 Discoveries
 ↓
 Discovery Queue
+
+## Search-Candidate Representation
+
+`search_candidates` distinguishes two record types via a `record_type` field:
+
+- `search_request` — a generated query URL for one source and target
+- `evidence_candidate` — a returned evidence URL produced by executing a search request
+
+A search request is not the same thing as a returned evidence URL.
+
+Legacy tables `discovered_urls` and `search_history` are preserved as read-only legacy data and are excluded from the new operational path.
 
 ## Intended Responsibilities
 
@@ -289,6 +302,24 @@ Expected fields include:
 - Processing status
 - Creation timestamp
 - Update timestamp
+
+## Asset Sources (Retrieval Events)
+
+`asset_sources` records retrieval-event provenance for assets.
+
+One `asset_sources` row = one retrieval event.
+
+Expected fields include:
+
+- `asset_id`
+- `source_id`
+- `original_url`
+- `normalised_url`
+- `final_effective_url`
+- `retrieved_at`
+- `created_at`
+
+A second row represents a separate retrieval event or a separately discovered source reference. Two rows are not expected merely because `original_url` and `final_effective_url` differ.
 
 ## Queues
 
@@ -957,6 +988,7 @@ Known knowledge and operational tables include:
 
 - `sources`
 - `assets`
+- `asset_sources`
 - `metadata_queue`
 - `ai_analysis`
 - `entities`
@@ -966,13 +998,18 @@ Known knowledge and operational tables include:
 - `citations`
 - `relationships`
 
-Discovery-related tables may include:
+Discovery-related tables include:
 
-- `search_candidates`
-- `discoveries`
+- `search_candidates` — records both `search_request` and `evidence_candidate` record types via a `record_type` field
+- `discoveries` — the canonical discovery record for all new rows
 - `discovery_queue`
 
-The exact discovery and operational schemas must be confirmed during the current audit.
+Legacy discovery tables (read-only, outside the new operational path):
+
+- `discovered_urls`
+- `search_history`
+
+The exact discovery and operational schemas will be confirmed during the migrations defined in the repair plan.
 
 ## Entities
 
