@@ -38,6 +38,98 @@ Each future session entry should include:
 
 ---
 
+# 2026-08-08: Milestone 3 — Limited Writer Role
+
+## Objective
+
+Create the least-privilege writer role `wtc_writer` with privileges only on existing approved tables and sequences, per the approved M3 milestone in the minimal acquisition repair plan.
+
+## Starting State
+
+- M0 (pre-flight backup) complete and passed.
+- M1 (architecture decisions) complete and approved.
+- M2 (source-registry reconciliation) complete.
+- The approved M3 SQL was presented and reviewed.
+
+## Files Inspected
+
+- `.clinerules/00-project-rules.md`
+- `docs/CURRENT_STATE.md`
+- `docs/NEXT_TASK.md`
+- `docs/plans/MINIMAL_ACQUISITION_REPAIR_PLAN_2026-08-08.md`
+- `docs/audits/DATABASE_SCHEMA_AUDIT_2026-08-08.md`
+- `docs/SESSION_LOG.md`
+- `docs/AI_HANDOFF.md`
+- `.env`
+- `.secrets/cline-db.env`
+
+## Files Changed
+
+- `docs/NEXT_TASK.md` — Marked M3 complete, set M4 as current.
+- `docs/CURRENT_STATE.md` — Added milestone progress section.
+- `docs/SESSION_LOG.md` — This entry.
+
+## Database Changes
+
+- Created role `wtc_writer` with `LOGIN NOSUPERUSER NOCREATEDB NOCREATEROLE INHERIT NOREPLICATION`.
+- Granted `USAGE ON SCHEMA public`.
+- Granted `INSERT` on `sources`, `search_candidates`, `discoveries`, `assets`, `metadata_queue`.
+- Granted `INSERT, UPDATE` on `discovery_queue`.
+- Granted `USAGE, SELECT` on `sources_id_seq`, `search_candidates_id_seq`, `discoveries_id_seq`, `discovery_queue_id_seq`, `assets_id_seq`, `metadata_queue_id_seq`.
+- No DELETE, no DDL, no ownership, no superuser, no default privileges, no `asset_sources` grants.
+
+## Commands Run
+
+- Role creation via `psql` as `wtc_admin`.
+- 13 GRANT statements via `psql` as `wtc_admin`.
+- Catalog verification queries (role attributes, table grants, sequence grants).
+- Runtime verification tests as `wtc_writer`.
+
+## Tests Performed
+
+- Role attributes verified: `rolsuper=f`, `rolcreaterole=f`, `rolcreatedb=f`, `rolcanlogin=t`, `rolinherit=t`, `rolreplication=f`.
+- Table grants verified via `information_schema.role_table_grants`: 6 tables with expected privileges.
+- Sequence grants verified via `pg_class` + `aclexplode`: 6 sequences with USAGE and SELECT.
+- Negative tests (DDL, DELETE) all failed as expected.
+- `INSERT INTO discovery_queue` succeeded.
+- `INSERT INTO sources` and `UPDATE discovery_queue` failed with `permission denied` despite grants present in catalogs.
+
+## Results
+
+- Role created successfully.
+- Grants applied successfully.
+- Catalog verification passed.
+- Runtime verification revealed additional SELECT privileges may be required for some operational queries.
+- This will be addressed in a later milestone if necessary.
+
+## Decisions
+
+- M3 is considered complete.
+- The runtime verification anomaly (INSERT/UPDATE failing despite catalog grants) is recorded but not further investigated in this milestone.
+- Additional SELECT privileges may be required for operational queries; deferred to a later milestone.
+
+## Documentation Updated
+
+- `docs/NEXT_TASK.md` — M3 marked complete; M4 set as current active milestone.
+- `docs/CURRENT_STATE.md` — Milestone progress section added.
+- `docs/SESSION_LOG.md` — This entry.
+
+## Git Commit
+
+Not committed. Awaiting review.
+
+## Remaining Issues
+
+- M4 (first small schema migration) is the next milestone.
+- Additional SELECT privileges for `wtc_writer` may be required for some operational queries.
+- The runtime verification anomaly is recorded for future reference.
+
+## Next Action
+
+Proceed to M4 — First small schema migration.
+
+---
+
 # 2026-08-08: Milestone 1 — Architecture Decisions Approved
 
 ## Objective

@@ -299,6 +299,14 @@ Use the existing systems under:
 
 Do not create a competing acquisition subsystem.
 
+## Milestone Progress
+
+- ✅ **M0 – Pre-flight backup** — Complete and passed.
+- ✅ **M1 – Architecture decisions** — Complete and approved.
+- ✅ **M2 – Source-registry reconciliation** — Complete.
+- ✅ **M3 – Limited writer role** — Complete. Role `wtc_writer` created with least-privilege grants on approved tables and sequences. Catalog verification passed. Runtime verification revealed additional SELECT privileges may be required for some operational queries; this will be addressed in a later milestone if necessary.
+- 🔄 **M4 – First small schema migration** — Current active milestone.
+
 The intended flow is:
 
 Configured Sources

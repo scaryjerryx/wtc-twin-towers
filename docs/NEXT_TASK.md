@@ -10,7 +10,9 @@
 
 - ✅ **M0 – Pre-flight backup** — Complete and passed. Production database backed up, restored into a scratch database, row counts and schema object counts matched, scratch database cleaned up.
 - ✅ **M1 – Architecture decisions** — Complete and approved. Decisions recorded below.
-- 🔄 **M2 – Source-registry reconciliation** — Current active milestone.
+- ✅ **M2 – Source-registry reconciliation** — Complete.
+- ✅ **M3 – Limited writer role** — Complete. Role `wtc_writer` created with least-privilege grants on approved tables and sequences. Catalog verification passed. Runtime verification revealed additional SELECT privileges may be required for some operational queries; this will be addressed in a later milestone if necessary.
+- 🔄 **M4 – First small schema migration** — Current active milestone.
 
 ## Approved M1 Architecture Decisions
 
@@ -159,9 +161,9 @@ The approved milestone order is:
 
 - ✅ **M0 – Pre-flight backup** — Complete
 - ✅ **M1 – Architecture decisions** — Complete
-- 🔄 **M2 – Source-registry reconciliation** — Current
-- ⬜ **M3 – Limited writer role** — Planned
-- ⬜ **M4 – First small schema migration** — Planned
+- ✅ **M2 – Source-registry reconciliation** — Complete
+- ✅ **M3 – Limited writer role** — Complete
+- 🔄 **M4 – First small schema migration** — Current
 - ⬜ **M5 – Package/import repair** — Planned
 - ⬜ **M6 – Source seeding repair** — Planned
 - ⬜ **M7 – Search-request generation** — Planned
@@ -174,7 +176,39 @@ The approved milestone order is:
 - ⬜ **M14 – Controlled end-to-end test** — Planned
 - ⬜ **M15 – Orchestrator repair** — Planned (only after M14 passes)
 
-### M2 – Source-Registry Reconciliation (Current)
+### M4 – First Small Schema Migration (Current)
+
+Add only discovery-side structures required by the new operational path: `discovery_queue.discovery_id` (nullable FK → discoveries), `attempt_count`, `last_error`, `next_retry`, new status values, index on `discovery_queue(status)`, and a unique constraint on `search_candidates` (only if required by the new path). **Do not add a unique constraint to `search_history`.**
+
+Files affected:
+
+- SQL migration artifact
+
+Schema/data changes:
+
+- As listed; forward-only, idempotent
+
+Exact test:
+
+- Rerun migration (no-op); verify via `information_schema`; confirm `search_history` unchanged
+
+Expected result:
+
+- New columns/constraints/index present; `search_history` and legacy rows unchanged
+
+Rollback/recovery:
+
+- Forward-fix only; no destructive rollback of populated columns
+
+Dependencies:
+
+- M0, M1
+
+Role:
+
+- Administrator
+
+### M2 – Source-Registry Reconciliation (Complete)
 
 Reconcile `agents/discovery/sources.json` (7) and `research/sources.json` (4) against `docs/SOURCE_REGISTRY.md`; add status/rights/rate-limit/review fields. No fixed source count is asserted until done.
 

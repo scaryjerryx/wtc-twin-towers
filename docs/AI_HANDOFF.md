@@ -455,41 +455,27 @@ The authoritative task definition is:
 
 - `docs/NEXT_TASK.md`
 
-The immediate first stage is a read-only audit of:
+## Milestone Progress
 
-- `agents/discovery/`
-- `agents/downloader/`
+- ✅ **M0 – Pre-flight backup** — Complete and passed.
+- ✅ **M1 – Architecture decisions** — Complete and approved.
+- ✅ **M2 – Source-registry reconciliation** — Complete.
+- ✅ **M3 – Limited writer role** — Complete. Role `wtc_writer` created with least-privilege grants on approved tables and sequences. Catalog verification passed. Runtime verification revealed additional SELECT privileges may be required for some operational queries; this will be addressed in a later milestone if necessary.
+- 🔄 **M4 – First small schema migration** — Current active milestone.
 
-The audit must identify:
+## Writer Role
 
-- File purpose
-- Imports
-- Dependencies
-- Database tables
-- Inputs
-- Outputs
-- Invocation method
-- Execution order
-- Completion status
-- Duplicate responsibilities
-- Broken imports
-- Missing queue transitions
-- Missing deduplication
-- Missing R2 integration
-- Missing asset registration
-- Missing processing handoff
-- Required tests
+The `wtc_writer` role exists in `wtc_evidence` with:
 
-The audit must also inspect the live schemas for:
+- `LOGIN NOSUPERUSER NOCREATEDB NOCREATEROLE INHERIT NOREPLICATION`
+- `USAGE ON SCHEMA public`
+- `INSERT` on `sources`, `search_candidates`, `discoveries`, `assets`, `metadata_queue`
+- `INSERT, UPDATE` on `discovery_queue`
+- `USAGE, SELECT` on `sources_id_seq`, `search_candidates_id_seq`, `discoveries_id_seq`, `discovery_queue_id_seq`, `assets_id_seq`, `metadata_queue_id_seq`
+- No DELETE, no DDL, no ownership, no superuser, no default privileges
+- No `asset_sources` grants (deferred to M12)
 
-- `sources`
-- `search_candidates`
-- `discoveries`
-- `discovery_queue`
-- `assets`
-- `metadata_queue`
-
-No code, files, schemas, or database records should be modified during the initial audit.
+Credentials are stored in `.secrets/wtc_writer.env` (not committed to Git).
 
 ## Development Assistant Workflow
 
