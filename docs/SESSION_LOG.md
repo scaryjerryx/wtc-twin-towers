@@ -690,3 +690,100 @@ Planned commit message:
 ## Next Action
 
 Finish the final documentation tasks, create `.clinerules`, review and commit the documentation checkpoint, then use Cline in Plan mode to perform the read-only discovery and downloader audit defined in `docs/NEXT_TASK.md`.
+
+---
+
+# 2026-08-09: Milestone 7 — Search-Request Generation
+
+## Objective
+
+Generate source search requests into `search_candidates` with `record_type = 'search_request'` from the reconciled source config, idempotently.
+
+## Starting State
+
+- M0–M6 complete.
+- `agents/discovery/build_searches.py` wrote to legacy `search_history` table with unqualified imports.
+- `agents/discovery/build_real_searches.py` wrote to `search_candidates` with hardcoded 3-of-7 sources, plain INSERT, no `record_type`.
+- `search_candidates` had 30 rows with NULL `record_type`.
+- M4 unique constraint `unique_search_candidate` on `(source_name, target, search_url)` already present.
+- `record_type` column already present from M4.
+
+## Files Inspected
+
+- `agents/discovery/build_searches.py` (legacy)
+- `agents/discovery/build_real_searches.py` (legacy)
+- `agents/discovery/main.py` (M6 reference)
+- `agents/discovery/database.py`
+- `agents/discovery/sources.json`
+- `research/targets.json`
+- `docs/SOURCE_REGISTRY.md`
+- Live `search_candidates` schema and data
+
+## Files Changed
+
+- `agents/discovery/build_searches.py` — Complete rewrite as operational search-request generator
+
+## Database Changes
+
+- 30 existing `search_candidates` rows had `record_type` corrected from NULL to `'search_request'` (via `ON CONFLICT DO UPDATE` on first run)
+- No schema changes (M4 already provided the unique constraint and `record_type` column)
+
+## Commands Run
+
+- `python3 -m py_compile agents/discovery/build_searches.py`
+- `venv/bin/python -m agents.discovery.build_searches` (first run — corrected NULL rows)
+- `venv/bin/python -m agents.discovery.build_searches` (second run — idempotency confirmed)
+- `psql` verification queries on `search_candidates`
+
+## Tests Performed
+
+- Syntax check: PASS
+- Package-safe execution: PASS
+- First run: 30 rows, all corrected from NULL to `'search_request'`
+- Second run: 30 rows, 0 changes (idempotent)
+- `SELECT DISTINCT record_type`: only `'search_request'`
+- `git diff --check`: clean
+- `git status --short`: only `build_searches.py` modified
+
+## Results
+
+- 30 search requests generated for 3 sources (Library of Congress, Internet Archive, Wikimedia Commons) × 10 targets
+- 4 sources skipped (NIST, Port Authority, Flickr Commons, National Archives) — no verified search URL templates exist
+- Idempotent across repeated runs
+- Package-safe imports via `agents.discovery.database`
+- CASE-based ON CONFLICT preserves `evidence_candidate` rows, corrects NULL rows, leaves existing `search_request` rows unchanged
+- Transaction safety with try/except/rollback
+
+## Decisions
+
+- Only sources with verified search URL templates are included (3 of 7)
+- Sources without templates are skipped with clear messages, not silently omitted
+- `ON CONFLICT DO NOTHING` with separate SELECT+UPDATE for NULL correction (rather than `ON CONFLICT DO UPDATE` with CASE) to enable accurate per-row reporting
+- `build_real_searches.py` left in place as legacy (not deleted)
+
+## Documentation Updated
+
+- `docs/CURRENT_STATE.md`
+- `docs/NEXT_TASK.md`
+- `docs/AI_HANDOFF.md`
+- `docs/SESSION_LOG.md`
+- `docs/DEVLOG.md`
+- `CHANGELOG.md`
+
+## Git Commit
+
+Not yet committed at the time of this entry.
+
+Planned commit message:
+
+`M7: Search-request generation — idempotent, package-safe`
+
+## Remaining Issues
+
+- 4 sources (NIST, Port Authority, Flickr Commons, National Archives) require verified search URL templates before search requests can be generated
+- M8 (controlled source search) requires executing actual HTTP requests against one approved source
+- `find_candidates.py` currently only prints targets — needs implementation for M8
+
+## Next Action
+
+Proceed to M8 – Controlled source search.

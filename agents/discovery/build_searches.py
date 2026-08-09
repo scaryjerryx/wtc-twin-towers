@@ -1,59 +1,126 @@
 import json
 import os
 import urllib.parse
-import psycopg2
 
-from dotenv import load_dotenv
+from agents.discovery.database import get_db_connection
 
-load_dotenv()
-
-with open("research/targets.json", "r") as f:
-    targets = json.load(f)
-
-with open("research/sources.json", "r") as f:
-    sources = json.load(f)
-
-conn = psycopg2.connect(
-    host="localhost",
-    dbname=os.getenv("POSTGRES_DB"),
-    user=os.getenv("POSTGRES_USER"),
-    password=os.getenv("POSTGRES_PASSWORD")
+sources_path = os.path.join(os.path.dirname(__file__), "sources.json")
+targets_path = os.path.join(
+    os.path.dirname(__file__), "..", "..", "research", "targets.json"
 )
 
+with open(sources_path, "r") as file:
+    sources = json.load(file)
+
+with open(targets_path, "r") as file:
+    targets = json.load(file)
+
+SEARCH_TEMPLATES = {
+    "Library of Congress": "https://www.loc.gov/search/?q={encoded}",
+    "Internet Archive": "https://archive.org/search?query={encoded}",
+    "Wikimedia Commons": "https://commons.wikimedia.org/w/index.php?search={encoded}",
+}
+
+conn = get_db_connection()
 cur = conn.cursor()
 
-for source in sources:
+inserted_count = 0
+corrected_count = 0
+already_count = 0
+skipped_sources = []
 
-    for target in targets:
+try:
+    for source in sources:
+        source_name = source["name"]
 
-        search_url = (
-            f"{source['url']}?search="
-            f"{urllib.parse.quote(target)}"
-        )
+        if source_name not in SEARCH_TEMPLATES:
+            skipped_sources.append(source_name)
+            continue
 
-        cur.execute(
-            """
-            INSERT INTO search_history
-            (
-                source_name,
-                target,
-                search_url
+        template = SEARCH_TEMPLATES[source_name]
+
+        for target in targets:
+            encoded = urllib.parse.quote(target)
+            search_url = template.format(encoded=encoded)
+
+            cur.execute(
+                """
+                INSERT INTO search_candidates
+                (source_name, target, search_url, record_type)
+                VALUES (%s, %s, %s, 'search_request')
+                ON CONFLICT (source_name, target, search_url)
+                DO NOTHING
+                RETURNING id
+                """,
+                (source_name, target, search_url),
             )
-            VALUES
-            (%s,%s,%s)
-            """,
-            (
-                source["name"],
-                target,
-                search_url
-            )
-        )
 
-        print(
-            f"Stored {source['name']} -> {target}"
-        )
+            row = cur.fetchone()
 
-conn.commit()
+            if row is not None:
+                inserted_count += 1
+                print(f"Inserted: {source_name} -> {target}")
+            else:
+                cur.execute(
+                    """
+                    SELECT record_type
+                    FROM search_candidates
+                    WHERE source_name = %s
+                      AND target = %s
+                      AND search_url = %s
+                    """,
+                    (source_name, target, search_url),
+                )
+                existing = cur.fetchone()
+                existing_record_type = existing[0]
 
-cur.close()
-conn.close()
+                if existing_record_type is None:
+                    cur.execute(
+                        """
+                        UPDATE search_candidates
+                        SET record_type = 'search_request'
+                        WHERE source_name = %s
+                          AND target = %s
+                          AND search_url = %s
+                        """,
+                        (source_name, target, search_url),
+                    )
+                    corrected_count += 1
+                    print(
+                        f"Corrected: {source_name} -> {target} "
+                        f"(was NULL)"
+                    )
+                elif existing_record_type == "search_request":
+                    already_count += 1
+                    print(f"Already present: {source_name} -> {target}")
+                else:
+                    already_count += 1
+                    print(
+                        f"Preserved: {source_name} -> {target} "
+                        f"(existing record_type = "
+                        f"'{existing_record_type}')"
+                    )
+
+    conn.commit()
+
+    for skipped in skipped_sources:
+        print(f"Skipped {skipped}: no search URL template defined")
+
+    print()
+    print("Search-request generation complete.")
+    print(f"  Inserted:          {inserted_count}")
+    print(f"  Corrected (NULL):  {corrected_count}")
+    print(f"  Already present:   {already_count}")
+    print(f"  Skipped sources:   {len(skipped_sources)}")
+    print(
+        f"  Expected search_request row count: "
+        f"{len(SEARCH_TEMPLATES) * len(targets)}"
+    )
+
+except Exception:
+    conn.rollback()
+    raise
+
+finally:
+    cur.close()
+    conn.close()

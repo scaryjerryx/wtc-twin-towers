@@ -15,7 +15,8 @@
 - ✅ **M4 – First small schema migration** — Complete.
 - ✅ **M5 – Package/import repair** — Complete. An M5 regression (unqualified import in `main.py`) was discovered during the M6 audit and repaired as part of M6 implementation.
 - ✅ **M6 – Source seeding repair** — Complete. Source seeding is now idempotent with URL upsert support, accurate per-row status reporting, module-relative path resolution, and all-or-nothing transaction safety.
-- 🔄 **M7 – Search-request generation** — Current active milestone.
+- ✅ **M7 – Search-request generation** — Complete. Search requests generated for 3 sources with verified search URL templates into `search_candidates` with `record_type = 'search_request'`. Idempotent via `ON CONFLICT DO NOTHING` backed by the M4 unique constraint. Legacy NULL `record_type` rows corrected. 4 sources deferred pending verified search URL templates. Package-safe execution verified.
+- 🔄 **M8 – Controlled source search** — Current active milestone.
 
 ## Approved M1 Architecture Decisions
 
@@ -169,8 +170,8 @@ The approved milestone order is:
 - ✅ **M4 – First small schema migration** — Complete
 - ✅ **M5 – Package/import repair** — Complete
 - ✅ **M6 – Source seeding repair** — Complete
-- 🔄 **M7 – Search-request generation** — Current
-- ⬜ **M8 – Controlled source search** — Planned
+- ✅ **M7 – Search-request generation** — Complete
+- 🔄 **M8 – Controlled source search** — Current
 - ⬜ **M9 – Human review and manual promotion** — Planned
 - ⬜ **M10 – Discovery queue** — Planned
 - ⬜ **M11 – Downloader schema additions** — Planned
@@ -179,17 +180,18 @@ The approved milestone order is:
 - ⬜ **M14 – Controlled end-to-end test** — Planned
 - ⬜ **M15 – Orchestrator repair** — Planned (only after M14 passes)
 
-### M7 – Search-Request Generation (Current)
+### M7 – Search-Request Generation (Complete)
 
 Generate source search requests into `search_candidates` (record_type = 'search_request') from the reconciled source config, idempotently.
 
 Files affected:
 
-- Replacement for `build_real_searches.py` (legacy scripts excluded from operational path)
+- `agents/discovery/build_searches.py` (rewritten as operational replacement)
 
 Schema/data changes:
 
 - INSERT into `search_candidates` (unique constraint from M4)
+- UPDATE `record_type` on legacy NULL rows
 
 Exact test:
 
@@ -197,7 +199,7 @@ Exact test:
 
 Expected result:
 
-- Search-request set stable across runs
+- Search-request set stable across runs; 30 search requests for 3 sources with verified templates; 4 sources skipped
 
 Rollback/recovery:
 
@@ -206,6 +208,38 @@ Rollback/recovery:
 Dependencies:
 
 - M4, M6
+
+Role:
+
+- Writer
+
+### M8 – Controlled Source Search (Current)
+
+Execute exactly one controlled source search (one approved source, one permitted search) and store returned evidence URL candidates.
+
+Files affected:
+
+- `agents/discovery/find_candidates.py` (candidates only)
+
+Schema/data changes:
+
+- INSERT into `search_candidates` only (record_type = 'evidence_candidate', per M1 decision)
+
+Exact test:
+
+- Run against the one approved source/search; verify candidates written and no discovery or queue writes
+
+Expected result:
+
+- Returned evidence URL candidates stored; `discoveries` and `discovery_queue` untouched
+
+Rollback/recovery:
+
+- Revert commit; preserve the test candidates and mark for review rather than deleting
+
+Dependencies:
+
+- M7 and the M1 record-type decision
 
 Role:
 

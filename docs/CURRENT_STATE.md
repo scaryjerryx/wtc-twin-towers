@@ -227,9 +227,9 @@ The following components are documented or present in the repository, but their 
 
 - ✅ Trusted-source seeding
 - ✅ Source database integration
-- 🟡 Search-definition generation
-- 🟡 Source-specific search generation
-- 🟡 Search-candidate creation
+- ✅ Search-definition generation
+- ✅ Source-specific search generation
+- ✅ Search-candidate creation
 - 🟡 Candidate relevance assessment
 - 🟡 Candidate promotion
 - 🟡 Manual candidate promotion
@@ -308,7 +308,8 @@ Do not create a competing acquisition subsystem.
 - ✅ **M4 – First small schema migration** — Complete. `discovery_queue` gained `discovery_id`, `attempt_count`, `last_error`, and `next_retry` columns. `search_candidates` gained a unique constraint.
 - ✅ **M5 – Package/import repair** — Complete. `agents/discovery/main.py` import changed to package-qualified form. An M5 regression (unqualified import) was discovered during the M6 audit and repaired as part of M6 implementation.
 - ✅ **M6 – Source seeding repair** — Complete. Source seeding is now idempotent with URL upsert support, accurate per-row status reporting, module-relative path resolution, and all-or-nothing transaction safety. Package-safe execution verified.
-- 🔄 **M7 – Search-request generation** — Current active milestone.
+- ✅ **M7 – Search-request generation** — Complete. Search requests generated for 3 sources with verified search URL templates into `search_candidates` with `record_type = 'search_request'`. Idempotent via `ON CONFLICT DO NOTHING` backed by the M4 unique constraint. Legacy NULL `record_type` rows corrected. 4 sources deferred pending verified search URL templates. Package-safe execution verified.
+- 🔄 **M8 – Controlled source search** — Current active milestone.
 
 The intended flow is:
 
@@ -428,15 +429,15 @@ This source document is test evidence and should not be committed to Git.
 
 ## Immediate Next Milestone
 
-The next milestone is M7 – Search-request generation.
+The next milestone is M8 – Controlled source search.
 
-Generate source search requests into `search_candidates` (record_type = 'search_request') from the reconciled source config, idempotently.
+Execute exactly one controlled source search (one approved source, one permitted search) and store returned evidence URL candidates into `search_candidates` with `record_type = 'evidence_candidate'`.
 
 The next milestone is complete when:
 
-1. Search requests are generated for all 7 configured sources
-2. Search requests are written to `search_candidates` with `record_type = 'search_request'`
-3. Repeated runs produce no duplicate search requests
+1. One approved source search is executed
+2. Returned evidence URL candidates are stored with `record_type = 'evidence_candidate'`
+3. `discoveries` and `discovery_queue` remain untouched
 4. Package-safe execution is verified
 5. Targeted tests pass
 6. Documentation is updated
