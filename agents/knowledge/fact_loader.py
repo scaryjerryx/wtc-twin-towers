@@ -1,20 +1,9 @@
-import os
-import psycopg2
-
-from dotenv import load_dotenv
-
-load_dotenv()
+from agents.discovery.database import get_db_connection
 
 
 def store_fact(entity_id, fact_text):
 
-    conn = psycopg2.connect(
-        host="localhost",
-        dbname=os.getenv("POSTGRES_DB"),
-        user=os.getenv("POSTGRES_USER"),
-        password=os.getenv("POSTGRES_PASSWORD")
-    )
-
+    conn = get_db_connection()
     cur = conn.cursor()
 
     cur.execute(
@@ -36,6 +25,5 @@ def store_fact(entity_id, fact_text):
     )
 
     conn.commit()
-
     cur.close()
     conn.close()

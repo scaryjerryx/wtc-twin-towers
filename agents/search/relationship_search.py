@@ -1,20 +1,4 @@
-import os
-import psycopg2
-
-from dotenv import load_dotenv
-
-
-load_dotenv()
-
-
-def get_connection():
-
-    return psycopg2.connect(
-        host="localhost",
-        dbname=os.getenv("POSTGRES_DB"),
-        user=os.getenv("POSTGRES_USER"),
-        password=os.getenv("POSTGRES_PASSWORD")
-    )
+from agents.discovery.database import get_db_connection
 
 
 def get_fact_details(cur, fact_text):
@@ -105,7 +89,7 @@ def print_fact_details(label, details):
 
 def search_relationships(search_term):
 
-    conn = get_connection()
+    conn = get_db_connection()
     cur = conn.cursor()
 
     cur.execute(

@@ -1,7 +1,7 @@
-from processors.photo_processor import process_photo
-from processors.pdf_processor import process_pdf
-from processors.blueprint_processor import process_blueprint
-from processors.video_processor import process_video
+from agents.processors.photo_processor import process_photo
+from agents.processors.pdf_processor import process_pdf
+from agents.processors.blueprint_processor import process_blueprint
+from agents.processors.video_processor import process_video
 
 
 def route_asset(asset_type, asset_path):

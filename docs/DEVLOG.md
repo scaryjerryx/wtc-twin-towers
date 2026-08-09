@@ -13,6 +13,7 @@ Completed:
 - M13
 - M14
 - M15
+- M16
 
 Major lessons:
 - M6 audit discovered an M5 regression (unqualified import in `main.py`). The regression was repaired as part of M6 implementation.
@@ -53,6 +54,10 @@ Major lessons:
 - M15: Manual promotion (`manual_promote.py --ids N`) is intentionally excluded from the automated orchestrator — human review is required before promoting evidence candidates to discoveries. The orchestrator will skip this stage if no approved discoveries are queued.
 - M15: `mock_analyze.py` was repaired to use the shared `agents.discovery.database.get_db_connection()` — the name "mock" refers to the hardcoded analysis values (tower=Unknown, etc.), not the module's role. It is the operational metadata processor pending real AI analysis integration.
 - M15: The full acquisition pipeline repair (M0–M15) is now complete. All 6 automated stages are connected under a single `python -m agents.run_pipeline` entry point, each stage independently idempotent.
+- M16: All 20 knowledge platform files across 7 directories now use the shared `agents.discovery.database.get_db_connection()` — the same pattern adopted in the discovery/downloader pipeline during M5. Zero remaining inline `psycopg2.connect()` calls in the repaired directories.
+- M16: The pattern of Category C files (module-level `conn = psycopg2.connect(...)`) required wrapping logic in `main()` functions. The interactive search tools (`query_engine`, `graph_search`, `relationship_search`) preserve interactive `input()` behavior.
+- M16: `entity_resolution.py` was the most complex repair — 410 lines with `get_connection()` used across multiple functions. The shared import is inside `run_entity_resolution()` to avoid circular imports while keeping utility functions (`seed_aliases`, `resolve_name`, etc.) parameterized with `cur`.
+- M16: The engine (`run_engine.py`) was already package-safe from M5 — it needed no repair. The health report now also includes `assets` counts (download_status breakdown), expanding beyond the original entity/fact/citation/relationship counts.
 
 ## 2026-08-08
 

@@ -1550,3 +1550,110 @@ Not yet committed at the time of this entry.
 ## Next Action
 
 The acquisition pipeline repair (M0–M15) is complete. Next: expand evidence acquisition, integrate with knowledge engine, or begin classification/routing work.
+
+---
+
+# 2026-08-09: Milestone 16 — Knowledge Platform Import Repair
+
+## Objective
+
+Replace all inline `psycopg2.connect()` calls in all knowledge, timeline, verification, metadata, search, engine, and router modules with the shared `agents.discovery.database.get_db_connection()`.
+
+## Starting State
+
+- M0–M15 complete.
+- 20 files across 7 directories used inline `psycopg2.connect()` or module-level connections.
+- The shared `get_db_connection()` already existed from the discovery pipeline repair.
+
+## Files Inspected
+
+All files under agents/knowledge/, agents/timeline/, agents/verification/, agents/metadata/, agents/search/, agents/engine/, agents/router/.
+
+## Files Changed
+
+All 20 files with inline DB connections, plus route_asset.py (import path fix):
+
+**Category A (9 files):** Function-scoped `get_connection()` → shared import
+- `agents/knowledge/citation_loader.py`
+- `agents/knowledge/entity_resolution.py`
+- `agents/knowledge/fact_relationship_builder.py`
+- `agents/knowledge/knowledge_pipeline.py`
+- `agents/knowledge/pdf_knowledge_pipeline.py`
+- `agents/timeline/timeline_builder.py`
+- `agents/verification/fact_verifier.py`
+- `agents/search/relationship_search.py`
+- `agents/engine/health_report.py`
+
+**Category B (3 files):** Simple inline connect → shared import
+- `agents/knowledge/entity_loader.py`
+- `agents/knowledge/entity_resolver.py`
+- `agents/knowledge/fact_loader.py`
+
+**Category C (6 files):** Module-level conn → `main()` function
+- `agents/knowledge/knowledge_graph_builder.py`
+- `agents/knowledge/relationship_builder.py`
+- `agents/metadata/main.py`
+- `agents/metadata/vision_analyze.py`
+- `agents/search/query_engine.py`
+- `agents/search/graph_search.py`
+
+**Category D (2 files):** Import path fix
+- `agents/router/route_asset.py` (×4 import paths)
+- `agents/metadata/vision_analyze.py` (×2 import paths)
+
+## Database Changes
+
+None.
+
+## Commands Run
+
+1. py_compile on all 20 files — all passed
+2. grep for `psycopg2.connect(` in all 7 directories — zero matches
+3. `venv/bin/python -m agents.engine.run_engine` — all 5 stages completed without import errors
+4. `venv/bin/python -m agents.engine.health_report` — report produced successfully
+
+## Tests Performed
+
+| # | Test | Result |
+|---|---|---|
+| 1 | py_compile all 20 files | ✅ Passed |
+| 2 | grep `psycopg2.connect(` (7 directories) | ✅ Zero matches |
+| 3 | `run_engine` (5 stages) | ✅ No import errors |
+| 4 | `health_report` | ✅ 17 entities, 18 facts, 55 sources, 55 citations, 16 relationships, 7 assets |
+| 5 | `git diff --check` | ✅ Clean |
+
+## Results
+
+- All 20 knowledge, timeline, verification, metadata, search, engine, and router files now use the shared `get_db_connection()`.
+- Zero remaining inline `psycopg2.connect()` calls in the repaired directories.
+- Module-level connection patterns replaced with `main()` functions.
+- Interactive search tools preserve their interactive `input()` behavior.
+- Engine and health report run without import errors.
+- Import paths fixed for `route_asset.py` and `vision_analyze.py`.
+
+## Documentation Updated
+
+- `docs/CURRENT_STATE.md` — M16 marked complete
+- `docs/NEXT_TASK.md` — M16 added
+- `docs/AI_HANDOFF.md` — M16 added
+- `docs/SESSION_LOG.md` — This entry
+- `docs/DEVLOG.md` — M16 lessons (4 entries)
+- `CHANGELOG.md` — M16 added
+
+## Git Commit
+
+Not yet committed at the time of this entry.
+
+## Remaining Issues
+
+- The acquisition pipeline and knowledge engine are still disconnected (M17).
+- `run_engine.py` still reads from local `data/incoming_pdfs/` — needs to read from acquisition pipeline assets (M17).
+- Citation provenance does not connect to acquisition pipeline provenance (M18).
+- AI analysis is still mock data (M19).
+- Specialist processors (photo, blueprint, video) are still placeholders (M20–M21).
+- Verification treats multi-page single-document sources as independent (M22).
+- Timeline is year-only (M23).
+
+## Next Action
+
+Proceed to M17 – Pipeline Integration: connect acquisition pipeline assets to the knowledge engine.

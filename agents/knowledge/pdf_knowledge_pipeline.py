@@ -1,3 +1,5 @@
+import os
+
 from agents.processors.pdf_text_extractor import (
     extract_pages
 )
@@ -11,13 +13,7 @@ from agents.knowledge.fact_cleaner import (
     clean_facts
 )
 
-from dotenv import load_dotenv
-
-import os
-import psycopg2
-
-
-load_dotenv()
+from agents.discovery.database import get_db_connection
 
 
 def store_entities(cur, entities):
@@ -141,13 +137,7 @@ def process_pdf(pdf_path):
     all_entities = set()
     all_facts = set()
 
-    conn = psycopg2.connect(
-        host="localhost",
-        dbname=os.getenv("POSTGRES_DB"),
-        user=os.getenv("POSTGRES_USER"),
-        password=os.getenv("POSTGRES_PASSWORD")
-    )
-
+    conn = get_db_connection()
     cur = conn.cursor()
 
     for page_data in pages:

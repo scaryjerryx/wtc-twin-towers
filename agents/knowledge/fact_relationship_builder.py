@@ -1,20 +1,6 @@
-import os
 from collections import Counter
 
-import psycopg2
-from dotenv import load_dotenv
-
-
-load_dotenv()
-
-
-def get_connection():
-    return psycopg2.connect(
-        host="localhost",
-        dbname=os.getenv("POSTGRES_DB"),
-        user=os.getenv("POSTGRES_USER"),
-        password=os.getenv("POSTGRES_PASSWORD")
-    )
+from agents.discovery.database import get_db_connection
 
 
 def get_or_create_entity(cur, name, entity_type="fact"):
@@ -228,7 +214,7 @@ def mine_relationships(page_facts):
 
 
 def build_relationships():
-    conn = get_connection()
+    conn = get_db_connection()
     cur = conn.cursor()
 
     page_facts = load_page_facts(

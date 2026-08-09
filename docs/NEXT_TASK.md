@@ -24,6 +24,7 @@
 - ✅ **M13 – R2 testability, then downloader implementation** — Complete. `agents/downloader/main.py` rewritten with package-safe imports, lease/claim queue pattern, SHA-256 hashing, content-type detection, hash-based deduplication (reuses existing asset, skips redundant R2 upload and metadata_queue, still registers asset_sources), failure handling (`failed_permanent` + `last_error`). `test_r2.py` replaced with mocked unit test. Two Wikimedia Commons files downloaded (assets 5, 6) with full provenance.
 - ✅ **M14 – Controlled end-to-end test** — Complete. Full independent acquisition path exercised: candidate 123 → discovery 3 → queue 76 → asset 7 → asset_sources 7 → metadata_queue 9. All URL links verified MATCH. Idempotency confirmed across all three stages.
 - ✅ **M15 – Orchestrator repair** — Complete. `agents/run_pipeline.py` rewritten with `sys.executable -m` package-safe invocation. `agents/metadata/mock_analyze.py` repaired with package-safe imports. Full orchestrator execution verified across all 6 automated stages.
+- ✅ **M16 – Knowledge platform import repair** — Complete. All 20 files across `agents/knowledge/`, `agents/timeline/`, `agents/verification/`, `agents/metadata/`, `agents/search/`, `agents/engine/`, and `agents/router/` now use the shared `get_db_connection()`. Zero remaining `psycopg2.connect()` calls in repaired directories. Engine and health report verified running without import errors.
 
 ## Approved M1 Architecture Decisions
 
@@ -186,6 +187,7 @@ The approved milestone order is:
 - ✅ **M13 – R2 testability, then downloader implementation** — Complete
 - ✅ **M14 – Controlled end-to-end test** — Complete
 - ✅ **M15 – Orchestrator repair** — Complete
+- ✅ **M16 – Knowledge platform import repair** — Complete
 
 ### M7 – Search-Request Generation (Complete)
 

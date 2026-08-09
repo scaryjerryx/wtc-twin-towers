@@ -1,20 +1,4 @@
-import os
-import psycopg2
-
-from dotenv import load_dotenv
-
-
-load_dotenv()
-
-
-def get_connection():
-
-    return psycopg2.connect(
-        host="localhost",
-        dbname=os.getenv("POSTGRES_DB"),
-        user=os.getenv("POSTGRES_USER"),
-        password=os.getenv("POSTGRES_PASSWORD")
-    )
+from agents.discovery.database import get_db_connection
 
 
 def calculate_status(source_count):
@@ -47,7 +31,7 @@ def calculate_confidence(source_count):
 
 def verify_facts():
 
-    conn = get_connection()
+    conn = get_db_connection()
     cur = conn.cursor()
 
     cur.execute(
@@ -102,14 +86,6 @@ def verify_facts():
 
         updated_count += 1
 
-        print(
-            f"Fact {fact_id}: "
-            f"{fact_text} | "
-            f"sources={source_count} | "
-            f"status={status} | "
-            f"confidence={confidence}"
-        )
-
     conn.commit()
 
     print()
@@ -117,7 +93,7 @@ def verify_facts():
     print("FACT VERIFICATION COMPLETE")
     print("=" * 60)
     print()
-    print(f"Facts Updated: {updated_count}")
+    print(f"Facts Verified: {updated_count}")
     print()
 
     cur.close()

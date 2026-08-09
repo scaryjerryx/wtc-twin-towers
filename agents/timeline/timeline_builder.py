@@ -1,21 +1,6 @@
-import os
 import re
-import psycopg2
 
-from dotenv import load_dotenv
-
-
-load_dotenv()
-
-
-def get_connection():
-
-    return psycopg2.connect(
-        host="localhost",
-        dbname=os.getenv("POSTGRES_DB"),
-        user=os.getenv("POSTGRES_USER"),
-        password=os.getenv("POSTGRES_PASSWORD")
-    )
+from agents.discovery.database import get_db_connection
 
 
 def extract_year_from_fact(fact_text):
@@ -164,7 +149,7 @@ def print_timeline(events):
 
 def build_timeline():
 
-    conn = get_connection()
+    conn = get_db_connection()
     cur = conn.cursor()
 
     events = load_timeline_events(

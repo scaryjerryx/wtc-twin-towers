@@ -473,6 +473,7 @@ The authoritative task definition is:
 - ✅ **M13 – R2 testability, then downloader implementation** — Complete. `agents/downloader/main.py` rewritten with SHA-256 hashing, content-type detection, hash-based dedup, lease/claim queue pattern. `test_r2.py` replaced with mocked unit test.
 - ✅ **M14 – Controlled end-to-end test** — Complete. Full independent acquisition path verified end-to-end with provenance chain and idempotency.
 - ✅ **M15 – Orchestrator repair** — Complete. `agents/run_pipeline.py` rewritten with package-safe invocation across 6 automated stages. Legacy orchestration removed.
+- ✅ **M16 – Knowledge platform import repair** — Complete. All 20 knowledge, timeline, verification, metadata, search, engine, and router files now use the shared `get_db_connection()`. Zero remaining inline `psycopg2.connect()` calls.
 
 ## Writer Role
 

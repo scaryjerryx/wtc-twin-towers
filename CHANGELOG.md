@@ -18,6 +18,7 @@ All notable changes to this project will be documented in this file.
 - M13 – Downloader Repair & R2 Integration
 - M14 – Controlled End-to-End Test
 - M15 – Orchestrator Repair
+- M16 – Knowledge Platform Import Repair
 
 ---
 

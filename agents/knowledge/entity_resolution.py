@@ -1,9 +1,7 @@
-import os
 import re
 
 import psycopg2
 from dotenv import load_dotenv
-
 
 load_dotenv()
 
@@ -50,14 +48,35 @@ def normalize_key(value):
     return value.upper()
 
 
-def get_connection():
+def seed_aliases(cur):
 
-    return psycopg2.connect(
-        host="localhost",
-        dbname=os.getenv("POSTGRES_DB"),
-        user=os.getenv("POSTGRES_USER"),
-        password=os.getenv("POSTGRES_PASSWORD")
-    )
+    inserted = 0
+
+    for alias, canonical in DEFAULT_ALIASES:
+
+        cur.execute(
+            """
+            INSERT INTO entity_aliases
+            (
+                alias_text,
+                alias_key,
+                canonical_name
+            )
+            VALUES
+            (%s, %s, %s)
+            ON CONFLICT (alias_key)
+            DO NOTHING
+            """,
+            (
+                alias,
+                normalize_key(alias),
+                canonical
+            )
+        )
+
+        inserted += cur.rowcount
+
+    return inserted
 
 
 def ensure_alias_table(cur):
@@ -76,45 +95,35 @@ def ensure_alias_table(cur):
     )
 
 
-def seed_aliases(cur):
+def ensure_canonical_entities(cur):
 
-    for alias_text, canonical_name in DEFAULT_ALIASES:
+    canonical_names = set()
 
-        alias_key = normalize_key(
-            alias_text
-        )
+    for _, canonical in DEFAULT_ALIASES:
+        canonical_names.add(canonical)
+
+    for name in sorted(canonical_names):
 
         cur.execute(
             """
-            INSERT INTO entity_aliases
+            INSERT INTO entities
             (
-                alias_text,
-                alias_key,
-                canonical_name
+                name,
+                entity_type
             )
             VALUES
-            (
-                %s,
-                %s,
-                %s
-            )
-            ON CONFLICT (alias_key)
-            DO UPDATE SET
-                canonical_name = EXCLUDED.canonical_name
+            (%s, %s)
+            ON CONFLICT (name)
+            DO NOTHING
             """,
             (
-                alias_text,
-                alias_key,
-                canonical_name
+                name,
+                "canonical"
             )
         )
 
 
-def resolve_entity_name(cur, name):
-
-    alias_key = normalize_key(
-        name
-    )
+def resolve_name(cur, alias_text):
 
     cur.execute(
         """
@@ -123,7 +132,7 @@ def resolve_entity_name(cur, name):
         WHERE alias_key = %s
         """,
         (
-            alias_key,
+            normalize_key(alias_text),
         )
     )
 
@@ -132,279 +141,98 @@ def resolve_entity_name(cur, name):
     if row:
         return row[0]
 
-    return name.strip()
+    return alias_text
 
 
-def get_or_create_entity(
-    cur,
-    name,
-    entity_type="unknown"
-):
-
-    canonical_name = resolve_entity_name(
-        cur,
-        name
-    )
-
-    cur.execute(
-        """
-        INSERT INTO entities
-        (
-            name,
-            entity_type
-        )
-        VALUES
-        (
-            %s,
-            %s
-        )
-        ON CONFLICT (name)
-        DO NOTHING
-        """,
-        (
-            canonical_name,
-            entity_type
-        )
-    )
-
-    cur.execute(
-        """
-        SELECT id
-        FROM entities
-        WHERE name = %s
-        """,
-        (
-            canonical_name,
-        )
-    )
-
-    row = cur.fetchone()
-
-    if not row:
-        raise RuntimeError(
-            f"Could not create or find entity: {canonical_name}"
-        )
-
-    return row[0], canonical_name
-
-
-def merge_relationships_for_alias(
-    cur,
-    alias_entity_id,
-    canonical_entity_id
-):
+def rebuild_relationships(cur):
 
     cur.execute(
         """
         SELECT
             id,
-            source_entity_id,
-            relationship_type,
-            target_entity_id,
-            confidence,
-            evidence_count,
-            source_method
+            source_entity,
+            target_entity
         FROM relationships
-        WHERE
-            source_entity_id = %s
-            OR target_entity_id = %s
-        """,
-        (
-            alias_entity_id,
-            alias_entity_id
-        )
+        """
     )
 
     relationships = cur.fetchall()
 
-    for relationship in relationships:
+    reassigned = 0
 
-        relationship_id = relationship[0]
-        source_entity_id = relationship[1]
-        relationship_type = relationship[2]
-        target_entity_id = relationship[3]
-        confidence = relationship[4] or 50
-        evidence_count = relationship[5] or 1
-        source_method = relationship[6]
+    for rel_id, source, target in relationships:
 
-        new_source_id = source_entity_id
-        new_target_id = target_entity_id
+        resolved_source = resolve_name(
+            cur,
+            source
+        )
+        resolved_target = resolve_name(
+            cur,
+            target
+        )
 
-        if source_entity_id == alias_entity_id:
-            new_source_id = canonical_entity_id
-
-        if target_entity_id == alias_entity_id:
-            new_target_id = canonical_entity_id
-
-        if new_source_id != new_target_id:
+        if resolved_source != source or resolved_target != target:
 
             cur.execute(
                 """
-                INSERT INTO relationships
-                (
-                    source_entity_id,
-                    relationship_type,
-                    target_entity_id,
-                    confidence,
-                    evidence_count,
-                    source_method
-                )
-                VALUES
-                (
-                    %s,
-                    %s,
-                    %s,
-                    %s,
-                    %s,
-                    %s
-                )
-                ON CONFLICT
-                (
-                    source_entity_id,
-                    relationship_type,
-                    target_entity_id
-                )
-                DO UPDATE SET
-                    confidence = GREATEST(
-                        relationships.confidence,
-                        EXCLUDED.confidence
-                    ),
-                    evidence_count = GREATEST(
-                        relationships.evidence_count,
-                        EXCLUDED.evidence_count
-                    ),
-                    source_method = COALESCE(
-                        relationships.source_method,
-                        EXCLUDED.source_method
-                    )
+                UPDATE relationships
+                SET
+                    source_entity = %s,
+                    target_entity = %s
+                WHERE id = %s
                 """,
                 (
-                    new_source_id,
-                    relationship_type,
-                    new_target_id,
-                    confidence,
-                    evidence_count,
-                    source_method
+                    resolved_source,
+                    resolved_target,
+                    rel_id
                 )
             )
 
-        cur.execute(
-            """
-            DELETE FROM relationships
-            WHERE id = %s
-            """,
-            (
-                relationship_id,
-            )
-        )
+            reassigned += 1
+
+    return reassigned
 
 
-def reconcile_entities(cur):
+def run_entity_resolution():
 
-    cur.execute(
-        """
-        SELECT
-            id,
-            name,
-            entity_type
-        FROM entities
-        ORDER BY id
-        """
-    )
+    from agents.discovery.database import get_db_connection
 
-    entities = cur.fetchall()
-
-    merged_count = 0
-
-    for entity_id, name, entity_type in entities:
-
-        canonical_name = resolve_entity_name(
-            cur,
-            name
-        )
-
-        if canonical_name == name:
-            continue
-
-        canonical_id, _ = get_or_create_entity(
-            cur,
-            canonical_name,
-            entity_type or "unknown"
-        )
-
-        cur.execute(
-            """
-            UPDATE facts
-            SET entity_id = %s
-            WHERE entity_id = %s
-            """,
-            (
-                canonical_id,
-                entity_id
-            )
-        )
-
-        merge_relationships_for_alias(
-            cur,
-            entity_id,
-            canonical_id
-        )
-
-        cur.execute(
-            """
-            DELETE FROM entities
-            WHERE id = %s
-            """,
-            (
-                entity_id,
-            )
-        )
-
-        merged_count += 1
-
-        print(
-            f"Merged entity '{name}' into '{canonical_name}'"
-        )
-
-    return merged_count
-
-
-def main():
-
-    conn = get_connection()
+    conn = get_db_connection()
     cur = conn.cursor()
 
-    ensure_alias_table(
-        cur
-    )
+    try:
 
-    seed_aliases(
-        cur
-    )
+        ensure_alias_table(cur)
+        conn.commit()
 
-    merged_count = reconcile_entities(
-        cur
-    )
+        ensure_canonical_entities(cur)
+        conn.commit()
 
-    conn.commit()
+        inserted = seed_aliases(cur)
+        conn.commit()
 
-    print()
-    print("=" * 60)
-    print("ENTITY RESOLUTION COMPLETE")
-    print("=" * 60)
-    print()
-    print(
-        f"Aliases Seeded: {len(DEFAULT_ALIASES)}"
-    )
-    print(
-        f"Entities Merged: {merged_count}"
-    )
-    print()
+        reassigned = rebuild_relationships(cur)
+        conn.commit()
 
-    cur.close()
-    conn.close()
+        print()
+        print("=" * 60)
+        print("ENTITY RESOLUTION V2 COMPLETE")
+        print("=" * 60)
+        print()
+        print(f"Canonical entities ensured")
+        print(f"Aliases seeded: {inserted}")
+        print(f"Relationships reassigned: {reassigned}")
+        print()
+
+    except Exception:
+        conn.rollback()
+        raise
+
+    finally:
+        cur.close()
+        conn.close()
 
 
 if __name__ == "__main__":
 
-    main()
+    run_entity_resolution()
