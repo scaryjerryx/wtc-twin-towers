@@ -461,7 +461,10 @@ The authoritative task definition is:
 - ✅ **M1 – Architecture decisions** — Complete and approved.
 - ✅ **M2 – Source-registry reconciliation** — Complete.
 - ✅ **M3 – Limited writer role** — Complete. Role `wtc_writer` created with least-privilege grants on approved tables and sequences. Catalog verification passed. Runtime verification revealed additional SELECT privileges may be required for some operational queries; this will be addressed in a later milestone if necessary.
-- 🔄 **M4 – First small schema migration** — Current active milestone.
+- ✅ **M4 – First small schema migration** — Complete.
+- ✅ **M5 – Package/import repair** — Complete. An M5 regression (unqualified import in `main.py`) was discovered during the M6 audit and repaired as part of M6 implementation.
+- ✅ **M6 – Source seeding repair** — Complete. Source seeding is now idempotent with URL upsert support, accurate per-row status reporting, module-relative path resolution, and all-or-nothing transaction safety.
+- 🔄 **M7 – Search-request generation** — Current active milestone.
 
 ## Writer Role
 

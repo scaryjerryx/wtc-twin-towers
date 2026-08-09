@@ -38,6 +38,104 @@ Each future session entry should include:
 
 ---
 
+# 2026-08-09: Milestone 6 — Source Seeding Repair
+
+## Objective
+
+Repair `agents/discovery/main.py` to provide idempotent source seeding with URL upsert support, accurate per-row status reporting, module-relative path resolution, and all-or-nothing transaction safety.
+
+## Starting State
+
+- M0–M5 complete.
+- `agents/discovery/main.py` contained an M5 regression: the import had reverted from `from agents.discovery.database import get_db_connection` to `from database import get_db_connection`.
+- The `sources` table contained 7 rows matching `sources.json`.
+- The `unique_source_name` constraint on `sources(name)` was active.
+
+## Files Inspected
+
+- `.clinerules/00-project-rules.md`
+- `docs/CURRENT_STATE.md`
+- `docs/NEXT_TASK.md`
+- `docs/AI_HANDOFF.md`
+- `docs/plans/MINIMAL_ACQUISITION_REPAIR_PLAN_2026-08-08.md`
+- `docs/SOURCE_REGISTRY.md`
+- `docs/audits/DISCOVERY_DOWNLOADER_AUDIT_2026-08-08.md`
+- `docs/audits/DATABASE_SCHEMA_AUDIT_2026-08-08.md`
+- `docs/SESSION_LOG.md`
+- `agents/discovery/main.py`
+- `agents/discovery/database.py`
+- `agents/discovery/sources.json`
+- `research/sources.json`
+- Live `sources` and `discovery_queue` tables
+
+## Files Changed
+
+- `agents/discovery/main.py` — Complete rewrite of source-seeding logic.
+
+## Changes Made
+
+1. **M5 regression repair**: Changed `from database import get_db_connection` to `from agents.discovery.database import get_db_connection`.
+2. **Module-relative path**: Changed `open("agents/discovery/sources.json")` to `os.path.join(os.path.dirname(__file__), "sources.json")`.
+3. **URL upsert**: Changed `ON CONFLICT DO NOTHING` to `ON CONFLICT (name) DO UPDATE SET url = EXCLUDED.url`.
+4. **Accurate output**: Added `RETURNING (xmax = 0) AS inserted` and conditional `"Inserted"` / `"Already present"` messaging.
+5. **All-or-nothing transaction**: Wrapped operations in `try`/`except` with `conn.commit()` on success, `conn.rollback()` on failure, and `raise` to surface exceptions.
+6. **Resource cleanup**: Added `finally` block to close cursor and connection.
+
+## Database Changes
+
+None.
+
+## Commands Run
+
+- `python3 -m py_compile agents/discovery/main.py`
+- `venv/bin/python -m agents.discovery.main` (multiple runs)
+- `PGPASSWORD=... psql ... -c "SELECT COUNT(*) FROM sources;"`
+- `PGPASSWORD=... psql ... -c "SELECT name, COUNT(*) FROM sources GROUP BY name HAVING COUNT(*) > 1;"`
+- URL-update test: modified `sources.json`, ran seeder, verified DB update, restored original
+
+## Tests Performed
+
+1. Syntax check: ✅ PASS
+2. Package invocation (`python -m agents.discovery.main`): ✅ PASS — all 7 sources "Already present"
+3. Idempotency (run twice, row count unchanged): ✅ PASS — 7 rows both runs
+4. No duplicates (`GROUP BY name HAVING COUNT(*) > 1`): ✅ PASS — 0 rows
+5. URL-update (modify JSON, rerun, verify DB updated): ✅ PASS
+6. `git diff --check`: ✅ PASS
+
+## Results
+
+All six verification tests passed. Source seeding is now idempotent, supports URL updates, reports accurate per-row status, uses module-relative paths, and wraps operations in an all-or-nothing transaction.
+
+## Decisions
+
+- M5 regression (unqualified import) was discovered during the M6 audit and repaired as part of M6 implementation.
+- Per-row error recovery was rejected in favour of all-or-nothing transaction semantics.
+- Governance fields (`status`, `rights`, `rate_limit`, `last_reviewed`, `canonical_name`) remain in JSON only — no schema migration for `sources` governance columns at this time.
+
+## Documentation Updated
+
+- `docs/CURRENT_STATE.md`
+- `docs/NEXT_TASK.md`
+- `docs/AI_HANDOFF.md`
+- `docs/SESSION_LOG.md` — This entry.
+- `docs/DEVLOG.md`
+- `CHANGELOG.md`
+
+## Git Commit
+
+Not committed. Awaiting review.
+
+## Remaining Issues
+
+- M7 (search-request generation) is the next milestone.
+- `research/sources.json` is byte-identical to `agents/discovery/sources.json` — should be deprecated or removed.
+
+## Next Action
+
+Proceed to M7 — Search-request generation.
+
+---
+
 # 2026-08-08: Milestone 3 — Limited Writer Role
 
 ## Objective

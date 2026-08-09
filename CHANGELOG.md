@@ -6,9 +6,12 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
-### Planned
+### Completed
 
 - M6 – Source Seeding Repair
+
+### Planned
+
 - M7 – Search Request Generation
 - M8 – Controlled Source Search
 - M9 – Human Review & Promotion
@@ -31,6 +34,7 @@ All notable changes to this project will be documented in this file.
 - M3 – Limited Writer Role
 - M4 – First Schema Migration
 - M5 – Package / Import Repair
+- M6 – Source Seeding Repair
 
 ### Added
 
@@ -58,3 +62,5 @@ All notable changes to this project will be documented in this file.
 ### Fixes
 
 - Discovery package import issue resolved
+- M5 regression (unqualified import) discovered and repaired during M6
+- Source seeding now supports URL upserts with accurate per-row status reporting

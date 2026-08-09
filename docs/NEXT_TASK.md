@@ -12,7 +12,10 @@
 - ✅ **M1 – Architecture decisions** — Complete and approved. Decisions recorded below.
 - ✅ **M2 – Source-registry reconciliation** — Complete.
 - ✅ **M3 – Limited writer role** — Complete. Role `wtc_writer` created with least-privilege grants on approved tables and sequences. Catalog verification passed. Runtime verification revealed additional SELECT privileges may be required for some operational queries; this will be addressed in a later milestone if necessary.
-- 🔄 **M4 – First small schema migration** — Current active milestone.
+- ✅ **M4 – First small schema migration** — Complete.
+- ✅ **M5 – Package/import repair** — Complete. An M5 regression (unqualified import in `main.py`) was discovered during the M6 audit and repaired as part of M6 implementation.
+- ✅ **M6 – Source seeding repair** — Complete. Source seeding is now idempotent with URL upsert support, accurate per-row status reporting, module-relative path resolution, and all-or-nothing transaction safety.
+- 🔄 **M7 – Search-request generation** — Current active milestone.
 
 ## Approved M1 Architecture Decisions
 
@@ -163,10 +166,10 @@ The approved milestone order is:
 - ✅ **M1 – Architecture decisions** — Complete
 - ✅ **M2 – Source-registry reconciliation** — Complete
 - ✅ **M3 – Limited writer role** — Complete
-- 🔄 **M4 – First small schema migration** — Current
-- ⬜ **M5 – Package/import repair** — Planned
-- ⬜ **M6 – Source seeding repair** — Planned
-- ⬜ **M7 – Search-request generation** — Planned
+- ✅ **M4 – First small schema migration** — Complete
+- ✅ **M5 – Package/import repair** — Complete
+- ✅ **M6 – Source seeding repair** — Complete
+- 🔄 **M7 – Search-request generation** — Current
 - ⬜ **M8 – Controlled source search** — Planned
 - ⬜ **M9 – Human review and manual promotion** — Planned
 - ⬜ **M10 – Discovery queue** — Planned
@@ -176,37 +179,37 @@ The approved milestone order is:
 - ⬜ **M14 – Controlled end-to-end test** — Planned
 - ⬜ **M15 – Orchestrator repair** — Planned (only after M14 passes)
 
-### M4 – First Small Schema Migration (Current)
+### M7 – Search-Request Generation (Current)
 
-Add only discovery-side structures required by the new operational path: `discovery_queue.discovery_id` (nullable FK → discoveries), `attempt_count`, `last_error`, `next_retry`, new status values, index on `discovery_queue(status)`, and a unique constraint on `search_candidates` (only if required by the new path). **Do not add a unique constraint to `search_history`.**
+Generate source search requests into `search_candidates` (record_type = 'search_request') from the reconciled source config, idempotently.
 
 Files affected:
 
-- SQL migration artifact
+- Replacement for `build_real_searches.py` (legacy scripts excluded from operational path)
 
 Schema/data changes:
 
-- As listed; forward-only, idempotent
+- INSERT into `search_candidates` (unique constraint from M4)
 
 Exact test:
 
-- Rerun migration (no-op); verify via `information_schema`; confirm `search_history` unchanged
+- Run twice; no duplicate search requests
 
 Expected result:
 
-- New columns/constraints/index present; `search_history` and legacy rows unchanged
+- Search-request set stable across runs
 
 Rollback/recovery:
 
-- Forward-fix only; no destructive rollback of populated columns
+- Revert commit; dedup via unique constraint
 
 Dependencies:
 
-- M0, M1
+- M4, M6
 
 Role:
 
-- Administrator
+- Writer
 
 ### M2 – Source-Registry Reconciliation (Complete)
 

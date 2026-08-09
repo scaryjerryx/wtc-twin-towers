@@ -2,7 +2,7 @@
 
 ## Last Updated
 
-August 8, 2026
+August 9, 2026
 
 ## Purpose
 
@@ -225,8 +225,8 @@ The following components are documented or present in the repository, but their 
 
 ### Discovery
 
-- 🟡 Trusted-source seeding
-- 🟡 Source database integration
+- ✅ Trusted-source seeding
+- ✅ Source database integration
 - 🟡 Search-definition generation
 - 🟡 Source-specific search generation
 - 🟡 Search-candidate creation
@@ -305,7 +305,10 @@ Do not create a competing acquisition subsystem.
 - ✅ **M1 – Architecture decisions** — Complete and approved.
 - ✅ **M2 – Source-registry reconciliation** — Complete.
 - ✅ **M3 – Limited writer role** — Complete. Role `wtc_writer` created with least-privilege grants on approved tables and sequences. Catalog verification passed. Runtime verification revealed additional SELECT privileges may be required for some operational queries; this will be addressed in a later milestone if necessary.
-- 🔄 **M4 – First small schema migration** — Current active milestone.
+- ✅ **M4 – First small schema migration** — Complete. `discovery_queue` gained `discovery_id`, `attempt_count`, `last_error`, and `next_retry` columns. `search_candidates` gained a unique constraint.
+- ✅ **M5 – Package/import repair** — Complete. `agents/discovery/main.py` import changed to package-qualified form. An M5 regression (unqualified import) was discovered during the M6 audit and repaired as part of M6 implementation.
+- ✅ **M6 – Source seeding repair** — Complete. Source seeding is now idempotent with URL upsert support, accurate per-row status reporting, module-relative path resolution, and all-or-nothing transaction safety. Package-safe execution verified.
+- 🔄 **M7 – Search-request generation** — Current active milestone.
 
 The intended flow is:
 
@@ -425,24 +428,19 @@ This source document is test evidence and should not be committed to Git.
 
 ## Immediate Next Milestone
 
-The next milestone is complete when the project has:
+The next milestone is M7 – Search-request generation.
 
-1. A documented audit of every relevant discovery and downloader file
-2. Confirmed discovery and asset database schemas
-3. Confirmed inputs and outputs for every stage
-4. Package-safe imports
-5. A working source-to-search-candidate test
-6. A working candidate-to-discovery test
-7. A working discovery-to-download test
-8. File validation
-9. URL and file-hash deduplication
-10. Successful R2 storage
-11. A registered asset record
-12. A queued processing job
-13. A successful handoff into the existing processing engine
-14. Updated documentation
-15. Passing targeted tests
-16. A reviewed Git checkpoint
+Generate source search requests into `search_candidates` (record_type = 'search_request') from the reconciled source config, idempotently.
+
+The next milestone is complete when:
+
+1. Search requests are generated for all 7 configured sources
+2. Search requests are written to `search_candidates` with `record_type = 'search_request'`
+3. Repeated runs produce no duplicate search requests
+4. Package-safe execution is verified
+5. Targeted tests pass
+6. Documentation is updated
+7. The Git diff is reviewed
 
 ## Current Development Rule
 
