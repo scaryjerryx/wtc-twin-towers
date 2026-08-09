@@ -120,11 +120,12 @@ def store_fact_source(
     )
 
 
-def process_pdf(pdf_path):
+def process_pdf(pdf_path, source_file=None):
 
-    source_file = os.path.basename(
-        pdf_path
-    )
+    if source_file is None:
+        source_file = os.path.basename(
+            pdf_path
+        )
 
     print()
     print("Extracting pages...")

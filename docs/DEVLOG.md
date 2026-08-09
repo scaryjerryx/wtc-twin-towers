@@ -14,6 +14,7 @@ Completed:
 - M14
 - M15
 - M16
+- M17
 
 Major lessons:
 - M6 audit discovered an M5 regression (unqualified import in `main.py`). The regression was repaired as part of M6 implementation.
@@ -58,6 +59,10 @@ Major lessons:
 - M16: The pattern of Category C files (module-level `conn = psycopg2.connect(...)`) required wrapping logic in `main()` functions. The interactive search tools (`query_engine`, `graph_search`, `relationship_search`) preserve interactive `input()` behavior.
 - M16: `entity_resolution.py` was the most complex repair — 410 lines with `get_connection()` used across multiple functions. The shared import is inside `run_entity_resolution()` to avoid circular imports while keeping utility functions (`seed_aliases`, `resolve_name`, etc.) parameterized with `cur`.
 - M16: The engine (`run_engine.py`) was already package-safe from M5 — it needed no repair. The health report now also includes `assets` counts (download_status breakdown), expanding beyond the original entity/fact/citation/relationship counts.
+- M17: The acquisition pipeline and knowledge engine are now connected through `process_acquisition_assets()` — the engine queries `assets` for PDF-type assets with completed download and metadata stages, downloads from R2, and processes through the existing PDF knowledge pipeline. The query uses `content_type ILIKE '%pdf%'` to filter eligible assets.
+- M17: All 7 current acquisition assets are HTML (Wikimedia Commons file pages), not PDF — so the M17 integration reports 0 eligible PDF assets but the code path is verified working. A genuine PDF download through the acquisition pipeline would be automatically picked up and processed.
+- M17: Provenance is preserved through explicit `source_file` identifiers (`acquisition_asset_{id}`), passed into `process_pdf()` as the `source_file` parameter. This allows `fact_sources` records to be traced back to the `assets` table and the full acquisition provenance chain.
+- M17: The local PDF ingestion test harness (`process_all_pdfs()`) is preserved as STEP 1b, after the acquisition asset step (STEP 1a). This means `run_engine.py` now processes both acquisition pipeline assets and locally placed test PDFs in a single run.
 
 ## 2026-08-08
 

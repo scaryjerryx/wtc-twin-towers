@@ -474,6 +474,7 @@ The authoritative task definition is:
 - ✅ **M14 – Controlled end-to-end test** — Complete. Full independent acquisition path verified end-to-end with provenance chain and idempotency.
 - ✅ **M15 – Orchestrator repair** — Complete. `agents/run_pipeline.py` rewritten with package-safe invocation across 6 automated stages. Legacy orchestration removed.
 - ✅ **M16 – Knowledge platform import repair** — Complete. All 20 knowledge, timeline, verification, metadata, search, engine, and router files now use the shared `get_db_connection()`. Zero remaining inline `psycopg2.connect()` calls.
+- ✅ **M17 – Acquisition → Knowledge Pipeline Integration** — Complete. The acquisition pipeline and knowledge engine are connected via `process_acquisition_assets()`. The engine now queries acquisition assets from R2, downloads and processes them through the PDF knowledge pipeline, preserving provenance with `source_file` identifiers.
 
 ## Writer Role
 

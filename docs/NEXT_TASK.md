@@ -25,6 +25,7 @@
 - ✅ **M14 – Controlled end-to-end test** — Complete. Full independent acquisition path exercised: candidate 123 → discovery 3 → queue 76 → asset 7 → asset_sources 7 → metadata_queue 9. All URL links verified MATCH. Idempotency confirmed across all three stages.
 - ✅ **M15 – Orchestrator repair** — Complete. `agents/run_pipeline.py` rewritten with `sys.executable -m` package-safe invocation. `agents/metadata/mock_analyze.py` repaired with package-safe imports. Full orchestrator execution verified across all 6 automated stages.
 - ✅ **M16 – Knowledge platform import repair** — Complete. All 20 files across `agents/knowledge/`, `agents/timeline/`, `agents/verification/`, `agents/metadata/`, `agents/search/`, `agents/engine/`, and `agents/router/` now use the shared `get_db_connection()`. Zero remaining `psycopg2.connect()` calls in repaired directories. Engine and health report verified running without import errors.
+- ✅ **M17 – Acquisition → Knowledge Pipeline Integration** — Complete. `agents/ingestion/process_acquisition_assets.py` created to query acquisition PDF assets, download from R2, and process through the PDF knowledge pipeline with `source_file` provenance identifiers. `run_engine.py` updated with STEP 1a/1b split. Process_pdf accepts optional source_file for provenance preservation.
 
 ## Approved M1 Architecture Decisions
 
@@ -188,6 +189,7 @@ The approved milestone order is:
 - ✅ **M14 – Controlled end-to-end test** — Complete
 - ✅ **M15 – Orchestrator repair** — Complete
 - ✅ **M16 – Knowledge platform import repair** — Complete
+- ✅ **M17 – Acquisition → Knowledge Pipeline Integration** — Complete
 
 ### M7 – Search-Request Generation (Complete)
 

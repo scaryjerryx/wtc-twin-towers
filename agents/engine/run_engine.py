@@ -2,6 +2,10 @@ from agents.ingestion.automated_ingestion import (
     process_all_pdfs
 )
 
+from agents.ingestion.process_acquisition_assets import (
+    process_acquisition_assets
+)
+
 from agents.knowledge.citation_loader import (
     load_citations
 )
@@ -29,7 +33,15 @@ def run_engine():
 
     print()
     print("=" * 80)
-    print("STEP 1: AUTOMATED PDF INGESTION")
+    print("STEP 1a: ACQUISITION ASSET PROCESSING")
+    print("=" * 80)
+    print()
+
+    process_acquisition_assets()
+
+    print()
+    print("=" * 80)
+    print("STEP 1b: LOCAL PDF INGESTION")
     print("=" * 80)
     print()
 
