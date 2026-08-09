@@ -6,6 +6,7 @@ Completed:
 - M6
 - M7
 - M8
+- M9
 
 Major lessons:
 - M6 audit discovered an M5 regression (unqualified import in `main.py`). The regression was repaired as part of M6 implementation.
@@ -19,6 +20,10 @@ Major lessons:
 - M8: The M4 unique constraint on `(source_name, target, search_url)` provided idempotency for free — second run produced 0 inserts, 20 already-present.
 - M8: No schema changes were needed — the `record_type` column and unique constraint from M4 were sufficient.
 - M8: 20 real WTC evidence candidates discovered from a single controlled search, including historical photographs, aerial views, and architectural images.
+- M9: No code path existed from `search_candidates` (evidence_candidate) to `discoveries` — `manual_promote.py` wrote to legacy `discovered_urls` with hardcoded test data. Rewritten with package-safe imports, command-line ID selection, and two-layer idempotency (query filter `record_type='evidence_candidate' AND status='pending'` plus application-level SELECT-before-INSERT).
+- M9: Application-level idempotency is sufficient for single-process use when a database unique constraint is not yet available. The query-level status filter provides a first line of defence; the SELECT-before-INSERT provides a second.
+- M9: `export_candidates.py` and `export_discoveries.py` were also updated to use package-safe imports and read from the correct canonical tables.
+- M9: No schema changes were required — the `discoveries` table and `search_candidates.status` column already existed.
 
 ## 2026-08-08
 

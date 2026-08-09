@@ -872,3 +872,119 @@ Planned commit message:
 ### Next Action
 
 Proceed to M9 – Human review and manual promotion.
+
+---
+
+## Session: August 9, 2026 — M9 Human Review & Manual Promotion
+
+### Objective
+
+Audit the candidate-promotion workflow and implement human review and manual promotion of evidence candidates into the canonical `discoveries` table.
+
+### Starting State
+
+- M8 complete: 20 evidence candidates in `search_candidates` (record_type='evidence_candidate')
+- `discoveries` table: 0 rows
+- `discovery_queue`: 54 legacy rows
+- `discovered_urls`: 41 legacy rows
+- `manual_promote.py`: hardcoded test data, wrote to legacy `discovered_urls`
+- `promote_searches.py`: read from legacy `search_history`, wrote to legacy `discovered_urls`
+- `export_candidates.py`: no record_type filtering
+- `export_discoveries.py`: read from legacy `discovered_urls`
+
+### Audit Findings
+
+1. **No code path existed** from `search_candidates` (evidence_candidate) to `discoveries`
+2. `manual_promote.py` used hardcoded `REAL_DISCOVERIES` list with a test URL
+3. `manual_promote.py` wrote to `discovered_urls` (legacy), not `discoveries` (canonical)
+4. `manual_promote.py` used unqualified `import psycopg2` instead of package-safe import
+5. `promote_searches.py` read from `search_history` (legacy), not `search_candidates`
+6. `export_candidates.py` dumped all rows without distinguishing record_types
+7. `export_discoveries.py` read from `discovered_urls` (legacy), not `discoveries`
+8. `discoveries` table had no unique constraint on `discovered_url`
+
+### Plan Approved
+
+- Rewrite `manual_promote.py` with package-safe imports, command-line ID selection, application-level idempotency
+- Query-level filtering: `record_type='evidence_candidate' AND status='pending'`
+- Application-level idempotency: SELECT-before-INSERT on `discoveries.discovered_url`
+- Discovery status: `'approved'`
+- No schema changes (unique constraint deferred)
+- Update `export_candidates.py` with `--type` filtering
+- Update `export_discoveries.py` to read from `discoveries`
+
+### Files Changed
+
+- `agents/discovery/manual_promote.py` — Complete rewrite
+- `agents/discovery/export_candidates.py` — Added `--type` flag, package-safe imports, tabular output
+- `agents/discovery/export_discoveries.py` — Changed source from `discovered_urls` to `discoveries`, package-safe imports, tabular output
+
+### Files NOT Changed
+
+- `promote_searches.py` — Legacy, outside new operational path
+- `queue_discoveries.py` — M10 concern
+- `discover.py` — Legacy test script
+- `find_candidates.py` — M8, working correctly
+- `main.py` — M6, working correctly
+- `build_searches.py` — M7, working correctly
+- `database.py` — Shared utility, working correctly
+
+### Database Changes
+
+None. M9 is code-only.
+
+### Tests Run
+
+| # | Test | Result |
+|---|---|---|
+| 1 | Syntax check `manual_promote.py` | ✅ Passed |
+| 2 | Syntax check `export_candidates.py` | ✅ Passed |
+| 3 | Syntax check `export_discoveries.py` | ✅ Passed |
+| 4 | Promote candidate 121 | ✅ 1 promoted |
+| 5 | Verify discovery row (source, target, URL, status='approved') | ✅ Correct |
+| 6 | Verify candidate status updated to 'promoted' | ✅ Correct |
+| 7 | Idempotency: promote 121 again | ✅ "No eligible candidates" (status='pending' filter) |
+| 8 | Verify no duplicate discovery | ✅ Still 1 row |
+| 9 | Promote candidate 122 | ✅ 1 promoted |
+| 10 | Verify 2 discoveries total | ✅ 2 rows |
+| 11 | Invalid ID (99999) | ✅ "No eligible candidates" |
+| 12 | search_request ID (1) not promotable | ✅ "No eligible candidates" (record_type filter) |
+| 13 | discovery_queue untouched | ✅ 54 rows unchanged |
+| 14 | discovered_urls untouched | ✅ 41 rows unchanged |
+| 15 | `git diff --check` | ✅ No whitespace errors |
+
+### Results
+
+- `manual_promote.py` successfully promotes evidence_candidates into canonical `discoveries`
+- Two candidates (121, 122) promoted and verified
+- Idempotency confirmed at two levels: query filter (status='pending') and application (SELECT-before-INSERT)
+- `discovery_queue` and `discovered_urls` untouched
+- No schema changes required
+
+### Documentation Updated
+
+- `docs/CURRENT_STATE.md`
+- `docs/NEXT_TASK.md`
+- `docs/AI_HANDOFF.md`
+- `docs/SESSION_LOG.md`
+- `docs/DEVLOG.md`
+- `CHANGELOG.md`
+
+### Git Commit
+
+Not yet committed at the time of this entry.
+
+Planned commit message:
+
+`M9: Human review and manual promotion — evidence candidates → discoveries`
+
+### Remaining Issues
+
+- 18 evidence candidates still pending review
+- `discoveries` has no unique constraint on `discovered_url` (deferred)
+- `discoveries` has no `candidate_id` FK (deferred)
+- `queue_discoveries.py` has silent-loss bug (M10)
+
+### Next Action
+
+Proceed to M10 – Discovery queue.
