@@ -72,6 +72,9 @@ Major lessons:
 - M19: The provider-selection mechanism (`METADATA_PROVIDER` environment variable) allows switching between mock and AI-powered analysis without code changes. The orchestrator (`run_pipeline.py`) always calls `ai_analyze`, which internally dispatches based on the env var. This means `mock_analyze.py` remains available as a standalone fallback: `python -m agents.metadata.mock_analyze`.
 - M19: AI provenance includes `agent` ("openrouter"), `model` (from `OPENROUTER_MODEL` env var), and `timestamp` (ISO-8601 UTC) in `analysis_json`. This meets the evidence standards requirement that AI output must preserve provider and model details.
 - M19: The existing `vision_client.py` was not modified — its `analyze_image()` function (file-extension classifier that discards the encoded base64) remains as legacy. The new `ai_client.py` is a clean implementation that actually sends the image to OpenRouter.
+- M20: Canonical asset types reconcile the mismatched naming between the downloader (used `image`/`pdf`), the AI analyzer (uses `photo`/`document`), and the router (expected `photo`/`document`/`blueprint`/`video`). The canonical set is `photo`, `document`, `blueprint`, `video`, `audio`, `unknown`.
+- M20: The classification model is hybrid — MIME-based (free, immediate) at download time, AI-refined (expensive, more accurate) during metadata processing when confidence > 60. Mock provider confidence (50) never overrides. `unknown` type is never overridden even with high confidence.
+- M20: Routing is not invoked in M20 — the router is normalized and ready but actual processor invocation is deferred to M21 when specialist processors are implemented. The ai_analyze classification step is the only runtime change beyond naming normalization.
 
 ## 2026-08-08
 

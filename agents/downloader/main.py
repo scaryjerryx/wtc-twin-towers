@@ -27,17 +27,18 @@ from agents.downloader.register_asset import register_asset_source
 
 # ---- Mapping from MIME Content-Type to file extension and asset_type ----
 MIME_TO_EXT: dict[str, tuple[str, str]] = {
-    "image/jpeg": (".jpg", "image"),
-    "image/jpg": (".jpg", "image"),
-    "image/png": (".png", "image"),
-    "image/gif": (".gif", "image"),
-    "image/webp": (".webp", "image"),
-    "image/tiff": (".tif", "image"),
-    "application/pdf": (".pdf", "pdf"),
+    "image/jpeg": (".jpg", "photo"),
+    "image/jpg": (".jpg", "photo"),
+    "image/png": (".png", "photo"),
+    "image/gif": (".gif", "photo"),
+    "image/webp": (".webp", "photo"),
+    "image/tiff": (".tif", "photo"),
+    "application/pdf": (".pdf", "document"),
     "video/mp4": (".mp4", "video"),
     "video/webm": (".webm", "video"),
     "audio/mpeg": (".mp3", "audio"),
     "audio/ogg": (".ogg", "audio"),
+    "text/html": (".html", "unknown"),
 }
 
 

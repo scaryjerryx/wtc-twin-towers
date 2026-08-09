@@ -9,7 +9,7 @@ def route_asset(asset_type, asset_path):
     if asset_type == "photo":
         return process_photo(asset_path)
 
-    if asset_type == "pdf":
+    if asset_type == "document":
         return process_pdf(asset_path)
 
     if asset_type == "blueprint":

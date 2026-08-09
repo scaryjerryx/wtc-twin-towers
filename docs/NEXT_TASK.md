@@ -28,6 +28,10 @@
 - ✅ **M17 – Acquisition → Knowledge Pipeline Integration** — Complete. `agents/ingestion/process_acquisition_assets.py` created to query acquisition PDF assets, download from R2, and process through the PDF knowledge pipeline with `source_file` provenance identifiers. `run_engine.py` updated with STEP 1a/1b split. Process_pdf accepts optional source_file for provenance preservation.
 - ✅ **M18 – Citation Provenance Integration** — Complete. `citations.asset_id` and `citations.asset_source_id` nullable FK columns added. `citation_loader.py` resolves provenance from `acquisition_asset_{id}` pattern at citation creation time. Provenance chain: Fact → Citation → Asset → Asset Source → Discovery → Search Candidate. Migration: `database/migrations/003_add_citation_asset_provenance.sql`.
 - ✅ **M19 – AI-Assisted Metadata Processing** — Complete. `agents/metadata/ai_client.py` created with OpenRouter API integration. `agents/metadata/ai_analyze.py` created with provider selection (`METADATA_PROVIDER=mock|openrouter`). `run_pipeline.py` wired to AI analyzer. Mock fallback retained. AI provenance stored in `analysis_json`.
+- ✅ **M20 – Asset Classification & Routing** — Complete. Canonical asset types (`photo/document/blueprint/video/audio/unknown`). Downloader MIME mapping normalized. AI classification refinement via confidence threshold (>60) in `ai_analyze.py`. Router normalized to canonical types. Routing invocation deferred to M21.
+
+- ✅ **M19 – AI-Assisted Metadata Processing** — Complete
+- ✅ **M20 – Asset Classification & Routing** — Complete
 
 ## Approved M1 Architecture Decisions
 

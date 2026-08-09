@@ -60,6 +60,8 @@ def _run_mock_analysis(cur, asset_id: int, queue_id: int) -> None:
         "UPDATE assets SET metadata_status = 'completed' WHERE id = %s",
         (asset_id,),
     )
+    # Mock analysis never has high-enough confidence to override classification.
+    print("  Classification skipped (mock provider)")
 
 
 def _run_openrouter_analysis(
@@ -68,7 +70,7 @@ def _run_openrouter_analysis(
     queue_id: int,
     r2_key: str,
 ) -> None:
-    """Download from R2, send to OpenRouter AI, store results."""
+    """Download from R2, send to OpenRouter AI, store results, classify."""
     from agents.metadata.ai_client import analyze_with_ai  # noqa: PLC0415
 
     ext = os.path.splitext(r2_key or "asset.bin")[1] or ".bin"
@@ -122,6 +124,22 @@ def _run_openrouter_analysis(
             "UPDATE assets SET metadata_status = 'completed' WHERE id = %s",
             (asset_id,),
         )
+
+        # ---- M20 Classification: refine asset_type from AI results ----------
+        classification = analysis.get("asset_type")
+        classification_confidence = analysis.get("asset_type_confidence", 0)
+        if (
+            classification
+            and classification_confidence > 60
+            and classification != "unknown"
+        ):
+            cur.execute(
+                "UPDATE assets SET asset_type = %s WHERE id = %s",
+                (classification, asset_id),
+            )
+            print(f"  Classified as: {classification} (confidence: {classification_confidence})")
+        else:
+            print(f"  Classify skipped (confidence: {classification_confidence}, type: {classification})")
 
         print(f"  Provider : openrouter")
         print(f"  Model    : {analysis['model']}")

@@ -1930,3 +1930,85 @@ Not yet committed at the time of this entry.
 ## Next Action
 
 Proceed to M20 – Asset Classification & Routing.
+
+---
+
+# 2026-08-09: Milestone 20 — Asset Classification & Routing
+
+## Objective
+
+Normalize asset type names across the system, implement AI-based classification refinement, and prepare the router for specialist processor invocation.
+
+## Starting State
+
+- M0–M19 complete.
+- Downloader classified assets using `image` and `pdf` (non-canonical names).
+- `ai_analyze.py` stored `asset_type_detected` in `ai_analysis` but never updated `assets.asset_type`.
+- `route_asset.py` expected `photo` and `pdf` — mismatched with downloader's `image`.
+- `route_asset()` was never called from any pipeline stage.
+- All specialist processors were placeholders.
+
+## Files Inspected
+
+- `agents/router/route_asset.py`
+- `agents/metadata/ai_analyze.py`
+- `agents/downloader/main.py`
+- `agents/processors/pdf_processor.py`, `photo_processor.py`, `blueprint_processor.py`, `video_processor.py`
+
+## Files Changed
+
+- `agents/downloader/main.py` — **Modified.** MIME-to-asset_type mapping canonicalized: `image→photo`, `pdf→document`, added `text/html→unknown`.
+- `agents/metadata/ai_analyze.py` — **Modified.** Added M20 classification step in `_run_openrouter_analysis()`: updates `assets.asset_type` when AI `asset_type_confidence > 60` and type is not `unknown`. Mock provider prints "Classification skipped (mock provider)".
+- `agents/router/route_asset.py` — **Modified.** Changed `pdf→document` to match canonical names.
+
+## Database Changes
+
+None.
+
+## Commands Run
+
+1. `python3 -m py_compile agents/downloader/main.py agents/metadata/ai_analyze.py agents/router/route_asset.py` — all passed
+2. `METADATA_PROVIDER=mock venv/bin/python -m agents.metadata.ai_analyze` — "No pending metadata items"
+
+## Tests Performed
+
+| # | Test | Result |
+|---|---|---|
+| 1 | py_compile all 3 files | ✅ All passed |
+| 2 | Downloader canonical types | ✅ image→photo, pdf→document |
+| 3 | AI classification threshold | ✅ Updates only when confidence > 60 AND type ≠ unknown |
+| 4 | Mock does not override | ✅ "Classification skipped (mock provider)" |
+| 5 | Router accepts canonical names | ✅ `document→process_pdf()`, `photo→process_photo()` |
+| 6 | No routing invocation | ✅ Deferred to M21 |
+| 7 | `git diff --check` | ✅ Clean |
+
+## Results
+
+- Canonical asset type names established: `photo`, `document`, `blueprint`, `video`, `audio`, `unknown`.
+- Hybrid classification: MIME-based at download, AI-refined at metadata processing when confidence > 60.
+- Router normalized to canonical names, ready for M21.
+- No schema changes, no new routing logic invoked.
+
+## Documentation Updated
+
+- `docs/CURRENT_STATE.md` — M20 marked complete
+- `docs/NEXT_TASK.md` — M20 added
+- `docs/AI_HANDOFF.md` — M20 added
+- `docs/SESSION_LOG.md` — This entry
+- `docs/DEVLOG.md` — M20 lessons (3 entries)
+- `CHANGELOG.md` — M20 added
+
+## Git Commit
+
+Not yet committed at the time of this entry.
+
+## Remaining Issues
+
+- Specialist processors (photo, blueprint, video) are still placeholders (M21).
+- Routing is not yet invoked — `route_asset()` is not called from any pipeline stage (M21).
+- Verification treats multi-page single-document sources as independent (M22).
+- Timeline is year-only (M23).
+
+## Next Action
+
+Proceed to M21 – Specialist Processor Implementation.
