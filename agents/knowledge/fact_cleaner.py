@@ -57,7 +57,7 @@ def clean_facts(facts):
                     match.group(1)
                 )
 
-                if 1965 <= year <= 1975:
+                if 1960 <= year <= 2001:
 
                     cleaned.append(
                         fact

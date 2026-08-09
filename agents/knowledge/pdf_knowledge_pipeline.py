@@ -84,7 +84,8 @@ def store_fact_source(
     cur,
     fact_id,
     source_file,
-    source_page
+    source_page,
+    asset_id=None
 ):
 
     cur.execute(
@@ -94,10 +95,12 @@ def store_fact_source(
             fact_id,
             source_file,
             source_page,
-            confidence
+            confidence,
+            asset_id
         )
         VALUES
         (
+            %s,
             %s,
             %s,
             %s,
@@ -115,7 +118,8 @@ def store_fact_source(
             fact_id,
             source_file,
             source_page,
-            75
+            75,
+            asset_id
         )
     )
 

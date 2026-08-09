@@ -75,7 +75,7 @@ def query_ai_description(asset_path):
     return ""
 
 
-def store_fact(cur, fact_text, source_file, confidence=50):
+def store_fact(cur, fact_text, source_file, confidence=50, asset_id=None):
     """
     Insert a fact with idempotency, return the fact id.
     """
@@ -127,13 +127,15 @@ def store_fact(cur, fact_text, source_file, confidence=50):
             fact_id,
             source_file,
             source_page,
-            confidence
+            confidence,
+            asset_id
         )
         VALUES
         (
             %s,
             %s,
             NULL,
+            %s,
             %s
         )
         ON CONFLICT
@@ -148,6 +150,7 @@ def store_fact(cur, fact_text, source_file, confidence=50):
             fact_id,
             source_file,
             confidence,
+            asset_id,
         ),
     )
 
@@ -319,6 +322,7 @@ def process_photo(asset_path):
             fact,
             source_file,
             confidence=60,
+            asset_id=asset_id,
         )
 
         if fact_id is not None:

@@ -4,6 +4,10 @@ from agents.discovery.database import get_db_connection
 
 
 def extract_year_from_fact(fact_text):
+    """Extract a 4-digit year from a 'Referenced year' fact.
+
+    Returns the year as an integer, or None if not a year fact.
+    """
 
     if not fact_text.startswith(
         "Referenced year"
@@ -28,7 +32,58 @@ def extract_year_from_fact(fact_text):
     return None
 
 
-def load_timeline_events(cur):
+def resolve_entity_for_fact(cur, fact_id):
+    """Look up the entity_id linked to this fact."""
+
+    cur.execute(
+        "SELECT entity_id FROM facts WHERE id = %s",
+        (fact_id,),
+    )
+
+    row = cur.fetchone()
+
+    if row and row[0]:
+        return row[0]
+
+    return None
+
+
+def resolve_asset_for_fact(cur, fact_id):
+    """Look up the asset_id from fact_sources for this fact."""
+
+    cur.execute(
+        """
+        SELECT asset_id
+        FROM fact_sources
+        WHERE fact_id = %s
+          AND asset_id IS NOT NULL
+        ORDER BY id
+        LIMIT 1
+        """,
+        (fact_id,),
+    )
+
+    row = cur.fetchone()
+
+    if row and row[0]:
+        return row[0]
+
+    return None
+
+
+def build_timeline():
+    """Build persistent timeline events from facts.
+
+    Reads facts with 'Referenced year' pattern, extracts the year,
+    resolves entity and asset provenance, and inserts into the
+    timeline_events table idempotently.
+
+    The timeline_events table must already exist (created by migration
+    database/migrations/005_create_timeline_events.sql).
+    """
+
+    conn = get_db_connection()
+    cur = conn.cursor()
 
     cur.execute(
         """
@@ -36,22 +91,16 @@ def load_timeline_events(cur):
             f.id,
             f.fact_text,
             f.confidence,
-            f.verification_status,
-            fs.source_file,
-            fs.source_page,
-            fs.confidence AS source_confidence
+            f.verification_status
         FROM facts f
-        LEFT JOIN fact_sources fs
-            ON f.id = fs.fact_id
-        ORDER BY
-            f.id,
-            fs.source_page
+        WHERE f.fact_text LIKE 'Referenced year%%'
+        ORDER BY f.id
         """
     )
 
     rows = cur.fetchall()
 
-    events = []
+    created_count = 0
 
     for row in rows:
 
@@ -59,9 +108,6 @@ def load_timeline_events(cur):
         fact_text = row[1]
         fact_confidence = row[2]
         verification_status = row[3]
-        source_file = row[4]
-        source_page = row[5]
-        source_confidence = row[6]
 
         year = extract_year_from_fact(
             fact_text
@@ -70,95 +116,83 @@ def load_timeline_events(cur):
         if year is None:
             continue
 
-        events.append(
-            {
-                "year": year,
-                "fact_id": fact_id,
-                "fact_text": fact_text,
-                "fact_confidence": fact_confidence,
-                "verification_status": verification_status,
-                "source_file": source_file,
-                "source_page": source_page,
-                "source_confidence": source_confidence
-            }
+        entity_id = resolve_entity_for_fact(
+            cur,
+            fact_id,
         )
 
-    return sorted(
-        events,
-        key=lambda event: (
-            event["year"],
-            event["fact_text"],
-            event["fact_id"]
+        asset_id = resolve_asset_for_fact(
+            cur,
+            fact_id,
         )
+
+        # Determine confidence from verification status
+        confidence = fact_confidence
+
+        cur.execute(
+            """
+            INSERT INTO timeline_events
+            (
+                event_year,
+                event_type,
+                description,
+                date_text,
+                fact_id,
+                entity_id,
+                asset_id,
+                confidence
+            )
+            VALUES
+            (
+                %s,
+                %s,
+                %s,
+                %s,
+                %s,
+                %s,
+                %s,
+                %s
+            )
+            ON CONFLICT
+            (
+                fact_id,
+                event_year,
+                event_type
+            )
+            DO NOTHING
+            """,
+            (
+                year,
+                "reference",
+                fact_text,
+                str(year),
+                fact_id,
+                entity_id,
+                asset_id,
+                confidence,
+            ),
+        )
+
+        if cur.rowcount > 0:
+            created_count += 1
+
+    conn.commit()
+
+    # Summary
+    cur.execute(
+        "SELECT COUNT(*) FROM timeline_events"
     )
 
-
-def print_timeline(events):
-
-    print()
-    print("=" * 60)
-    print("WTC KNOWLEDGE TIMELINE")
-    print("=" * 60)
-    print()
-
-    if not events:
-
-        print("No timeline events found.")
-        print()
-        return
-
-    current_year = None
-
-    for event in events:
-
-        year = event["year"]
-
-        if year != current_year:
-
-            current_year = year
-
-            print()
-            print("-" * 60)
-            print(f"YEAR: {year}")
-            print("-" * 60)
-
-        print()
-        print(f"Fact ID             : {event['fact_id']}")
-        print(f"Fact                : {event['fact_text']}")
-        print(f"Fact Confidence     : {event['fact_confidence']}")
-        print(f"Verification Status : {event['verification_status']}")
-
-        if event["source_file"]:
-
-            print(f"Source File         : {event['source_file']}")
-
-        if event["source_page"]:
-
-            print(f"Source Page         : {event['source_page']}")
-
-        if event["source_confidence"]:
-
-            print(f"Source Confidence   : {event['source_confidence']}")
+    total_events = cur.fetchone()[0]
 
     print()
     print("=" * 60)
-    print(f"Timeline Events: {len(events)}")
+    print("TIMELINE BUILDER COMPLETE")
     print("=" * 60)
     print()
-
-
-def build_timeline():
-
-    conn = get_db_connection()
-    cur = conn.cursor()
-
-    events = load_timeline_events(
-        cur
-    )
-
-    print_timeline(
-        events
-    )
+    print(f"Events Created: {created_count}")
+    print(f"Total Events:   {total_events}")
+    print()
 
     cur.close()
     conn.close()

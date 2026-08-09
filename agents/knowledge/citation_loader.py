@@ -1,5 +1,3 @@
-import re
-
 from agents.discovery.database import get_db_connection
 
 
@@ -69,19 +67,31 @@ def ensure_citations_table(cur):
     )
 
 
-def _resolve_acquisition_provenance(cur, source_file):
-    """Parse acquisition_asset_{id} pattern and resolve provenance FKs.
+def _resolve_acquisition_provenance(cur, source_file, asset_id):
+    """Resolve provenance FKs from fact_sources asset_id or source_file pattern.
 
-    Returns (asset_id, asset_source_id) or (None, None) for non-acquisition
-    source files (local PDFs, etc.).
+    Returns (asset_id, asset_source_id) or (None, None) for non-acquisition files.
     """
-    match = re.match(r"^acquisition_asset_(\d+)$", source_file)
+
+    # If asset_id is already known from fact_sources, use it directly
+    if asset_id is not None:
+        cur.execute(
+            "SELECT id FROM asset_sources WHERE asset_id = %s "
+            "ORDER BY retrieved_at DESC LIMIT 1",
+            (asset_id,),
+        )
+        row = cur.fetchone()
+        asset_source_id = row[0] if row else None
+        return asset_id, asset_source_id
+
+    # Fallback: parse source_file for acquisition_asset_{id} pattern
+    import re
+    match = re.match(r"^acquisition_asset_(\d+)(?:_ocr)?$", source_file)
     if match is None:
         return None, None
 
     asset_id = int(match.group(1))
 
-    # Find the most recent retrieval event for this asset
     cur.execute(
         "SELECT id FROM asset_sources WHERE asset_id = %s "
         "ORDER BY retrieved_at DESC LIMIT 1",
@@ -108,7 +118,8 @@ def load_citations():
             fact_id,
             source_file,
             source_page,
-            confidence
+            confidence,
+            asset_id
         FROM fact_sources
         ORDER BY
             fact_id,
@@ -127,11 +138,13 @@ def load_citations():
         source_file = row[1]
         source_page = row[2]
         confidence = row[3]
+        fs_asset_id = row[4]
 
-        # Resolve acquisition provenance from source_file identifier
+        # Resolve provenance using fact_sources.asset_id when available
         asset_id, asset_source_id = _resolve_acquisition_provenance(
             cur,
             source_file,
+            fs_asset_id,
         )
 
         cur.execute(

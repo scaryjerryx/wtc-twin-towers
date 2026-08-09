@@ -85,6 +85,12 @@ def main() -> None:
         #
         # Link facts to entities
         #
+        source_file = (
+            f"acquisition_asset_{asset_id}"
+            if asset_id
+            else f"ai_analysis_{analysis_id}"
+        )
+
         for entity in entities:
 
             entity_id = get_entity_id(entity)
@@ -113,6 +119,58 @@ def main() -> None:
                         entity_id,
                         fact,
                         50,
+                    ),
+                )
+
+                cur.execute(
+                    """
+                    SELECT id
+                    FROM facts
+                    WHERE fact_text = %s
+                    """,
+                    (
+                        fact,
+                    ),
+                )
+
+                fact_row = cur.fetchone()
+
+                if fact_row is None:
+                    continue
+
+                fact_id = fact_row[0]
+
+                cur.execute(
+                    """
+                    INSERT INTO fact_sources
+                    (
+                        fact_id,
+                        source_file,
+                        source_page,
+                        confidence,
+                        asset_id
+                    )
+                    VALUES
+                    (
+                        %s,
+                        %s,
+                        NULL,
+                        %s,
+                        %s
+                    )
+                    ON CONFLICT
+                    (
+                        fact_id,
+                        source_file,
+                        source_page
+                    )
+                    DO NOTHING
+                    """,
+                    (
+                        fact_id,
+                        source_file,
+                        50,
+                        asset_id,
                     ),
                 )
 
