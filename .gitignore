@@ -229,3 +229,5 @@ data/
 *.pdf
 *.PDF.secrets/
 .secrets/
+# Local AI workflow rules
+.clinerules/
