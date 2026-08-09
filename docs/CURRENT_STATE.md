@@ -312,7 +312,7 @@ Do not create a competing acquisition subsystem.
 - ✅ **M8 – Controlled source search** — Complete. One controlled source search executed (Wikimedia Commons, "World Trade Center Plaza"). 20 evidence URL candidates extracted and stored in `search_candidates` with `record_type = 'evidence_candidate'`. Idempotent via `ON CONFLICT DO NOTHING` backed by the M4 unique constraint. `discoveries` and `discovery_queue` confirmed untouched. Package-safe execution verified.
 - ✅ **M9 – Human review and manual promotion** — Complete. `manual_promote.py` rewritten to read `evidence_candidate` rows from `search_candidates` and promote approved candidates into the canonical `discoveries` table with status `'approved'`. Package-safe imports, transaction safety, command-line ID selection, and application-level idempotency (query filters to `record_type='evidence_candidate' AND status='pending'` plus SELECT-before-INSERT). `export_candidates.py` updated with `--type` filtering. `export_discoveries.py` updated to read from `discoveries`. Two candidates promoted and verified. No schema changes.
 - ✅ **M10 – Discovery queue** — Complete. `queue_discoveries.py` rewritten to read from canonical `discoveries` table and INSERT into `discovery_queue` with `discovery_id` FK populated. Idempotent via LEFT JOIN on `discovery_id` plus `ON CONFLICT(target_url) DO NOTHING`. Silent-loss bug eliminated (unconditional UPDATE replaced by RETURNING clause). Package-safe imports, transaction safety. Two discoveries queued and linkage verified. No schema changes.
-- ⬜ **M11 – Downloader schema additions** — Next planned milestone.
+- ✅ **M11 – Downloader schema additions** — Complete. `assets.file_hash` (text, unique index) and `assets.content_type` (text) columns added. `asset_sources` table created with 8 columns (`id`, `asset_id`, `source_id`, `original_url`, `normalised_url`, `final_effective_url`, `retrieved_at`, `created_at`) plus FK constraints to `assets` and `sources`. All DDL idempotent via `IF NOT EXISTS`. Legacy rows preserved (4 assets, file_hash/content_type NULL). Migration file: `database/migrations/001_add_downloader_schema.sql`.
 
 The intended flow is:
 
@@ -432,19 +432,18 @@ This source document is test evidence and should not be committed to Git.
 
 ## Immediate Next Milestone
 
-The next milestone is M11 – Downloader schema additions.
+The next milestone is M12 – `asset_sources` registration + privilege grant.
 
-Add `assets.file_hash` (unique), `assets.content_type`, and create `asset_sources` table for retrieval-event provenance.
+Implement `asset_sources` registration (one row per retrieval event) and add its privileges to the writer role via a separately reviewed grant.
 
 The next milestone is complete when:
 
-1. Schema migration is idempotent and verified
-2. `assets.file_hash` unique index exists
-3. `asset_sources` table exists with approved columns
-4. No duplicate indexes created
-5. Legacy rows preserved
-6. Documentation is updated
-7. The Git diff is reviewed
+1. Registration code inserts one row per retrieval event into `asset_sources`
+2. Writer role gains INSERT on `asset_sources` and USAGE/SELECT on its sequence
+3. Targeted test confirms a single `asset_sources` row with all three URL forms and `retrieved_at`
+4. Repeated registration creates a second row (new retrieval event) only if a new retrieval occurred
+5. Documentation is updated
+6. The Git diff is reviewed
 
 ## Current Development Rule
 

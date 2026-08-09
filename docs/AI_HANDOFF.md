@@ -468,7 +468,8 @@ The authoritative task definition is:
 - ✅ **M8 – Controlled source search** — Complete. One controlled source search executed (Wikimedia Commons, "World Trade Center Plaza"). 20 evidence URL candidates extracted and stored in `search_candidates` with `record_type = 'evidence_candidate'`. Idempotent via `ON CONFLICT DO NOTHING` backed by the M4 unique constraint. `discoveries` and `discovery_queue` confirmed untouched. Package-safe execution verified.
 - ✅ **M9 – Human review and manual promotion** — Complete. `manual_promote.py` rewritten to read `evidence_candidate` rows from `search_candidates` and promote approved candidates into the canonical `discoveries` table with status `'approved'`. Package-safe imports, transaction safety, command-line ID selection, and application-level idempotency. `export_candidates.py` updated with `--type` filtering. `export_discoveries.py` updated to read from `discoveries`. Two candidates promoted and verified. No schema changes.
 - ✅ **M10 – Discovery queue** — Complete. `queue_discoveries.py` rewritten to read from canonical `discoveries` table and INSERT into `discovery_queue` with `discovery_id` FK populated. Idempotent via LEFT JOIN on `discovery_id` plus `ON CONFLICT(target_url) DO NOTHING`. Silent-loss bug eliminated. Two discoveries queued; discovery-to-queue linkage verified. No schema changes. 54 legacy queue rows preserved untouched.
-- 🔄 **M11 – Downloader schema additions** — Current active milestone.
+- ✅ **M11 – Downloader schema additions** — Complete. `assets.file_hash` (text, unique index) and `assets.content_type` (text) columns added. `asset_sources` table created with 8 columns plus FK constraints to `assets` and `sources`. All DDL idempotent via `IF NOT EXISTS`; rerun confirmed no-op. Legacy rows preserved. Migration: `database/migrations/001_add_downloader_schema.sql`.
+- 🔄 **M12 – `asset_sources` registration + privilege grant** — Current active milestone.
 
 ## Writer Role
 

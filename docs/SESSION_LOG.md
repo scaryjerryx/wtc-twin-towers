@@ -1074,3 +1074,70 @@ Planned commit message:
 ## Next Action
 
 Proceed to M11 – Downloader schema additions.
+
+---
+
+## Session 2026-08-09 — M11: Downloader Schema Additions
+
+### Date
+
+August 9, 2026, ~13:24–14:00 UTC
+
+### Milestone
+
+M11 – Downloader Schema Additions
+
+### Status
+
+✅ Complete
+
+### Changes Made
+
+#### New Files
+
+- `database/migrations/001_add_downloader_schema.sql` — idempotent migration adding `assets.file_hash`, `assets.content_type`, and `asset_sources` table
+
+#### Live Schema Changes
+
+1. **`assets.file_hash` (text, nullable)** — with `UNIQUE INDEX unique_asset_file_hash`
+2. **`assets.content_type` (text, nullable)**
+3. **`asset_sources` table** — 8 columns: `id` (SERIAL PK), `asset_id` (NOT NULL, FK→assets), `source_id` (nullable, FK→sources), `original_url` (NOT NULL), `normalised_url`, `final_effective_url`, `retrieved_at` (NOT NULL, DEFAULT now()), `created_at` (NOT NULL, DEFAULT now())
+
+### Verification Results
+
+| Check | Result |
+|---|---|
+| `assets.file_hash` column exists | ✅ text, nullable |
+| `assets.content_type` column exists | ✅ text, nullable |
+| `unique_asset_file_hash` index exists | ✅ UNIQUE, btree on file_hash |
+| `asset_sources` table exists | ✅ 8 columns, SERIAL PK |
+| `asset_sources_asset_id_fkey` FK | ✅ REFERENCES assets(id) |
+| `asset_sources_source_id_fkey` FK | ✅ REFERENCES sources(id) |
+| Migration rerun (no-op) | ✅ All 4 statements "already exists, skipping" |
+| Legacy rows preserved | ✅ 4 assets, file_hash NULL, content_type NULL |
+| No duplicate indexes on assets | ✅ Only assets_pkey + unique_asset_file_hash |
+| `asset_sources` row count | ✅ 0 (ready for M12 registration code) |
+
+### Key Decisions
+
+- Used `SERIAL` for `asset_sources.id` to match existing project convention
+- No idempotency constraint on `asset_sources` — deferred to M12
+- No writer-role grants on `asset_sources` — deferred to M12
+- No downloader code changes — M13 concern
+
+### Documentation Updated
+
+- `docs/CURRENT_STATE.md` — M11 marked complete, M12 as next milestone
+- `docs/NEXT_TASK.md` — M11 complete, M12 active in milestone progress + implementation order
+- `docs/AI_HANDOFF.md` — M11 complete, M12 current
+- `docs/SESSION_LOG.md` — this entry
+
+### Remaining Issues
+
+- `asset_sources` idempotency key still open (M12 approval needed)
+- Writer role lacks `asset_sources` privileges (M12)
+- Downloader does not compute file_hash or write content_type (M13)
+
+### Next Action
+
+Proceed to M12 – `asset_sources` registration + privilege grant.
