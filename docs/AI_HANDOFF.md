@@ -471,7 +471,8 @@ The authoritative task definition is:
 - ✅ **M11 – Downloader schema additions** — Complete. `assets.file_hash` (text, unique index) and `assets.content_type` (text) columns added. `asset_sources` table created with 8 columns plus FK constraints to `assets` and `sources`. All DDL idempotent via `IF NOT EXISTS`; rerun confirmed no-op. Legacy rows preserved. Migration: `database/migrations/001_add_downloader_schema.sql`.
 - ✅ **M12 – `asset_sources` registration + privilege grant** — Complete. `agents/downloader/register_asset.py` created; idempotent via unique constraint. Writer role granted INSERT on `asset_sources` and USAGE/SELECT on `asset_sources_id_seq`. Migration: `database/migrations/002_add_asset_sources_unique.sql`.
 - ✅ **M13 – R2 testability, then downloader implementation** — Complete. `agents/downloader/main.py` rewritten with SHA-256 hashing, content-type detection, hash-based dedup, lease/claim queue pattern. `test_r2.py` replaced with mocked unit test.
-- 🔄 **M14 – Controlled end-to-end test** — Current active milestone.
+- ✅ **M14 – Controlled end-to-end test** — Complete. Full independent acquisition path verified end-to-end with provenance chain and idempotency.
+- 🔄 **M15 – Orchestrator repair** — Current active milestone.
 
 ## Writer Role
 

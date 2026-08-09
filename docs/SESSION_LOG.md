@@ -1370,3 +1370,91 @@ Planned commit message:
 ## Next Action
 
 Proceed to M14 – Controlled end-to-end test.
+
+---
+
+# 2026-08-09: Milestone 14 — Controlled End-to-End Test
+
+## Objective
+
+Exercise the full independent acquisition path with one fresh candidate and verify the complete provenance chain from search_candidates through metadata_queue.
+
+## Starting State
+
+- M0–M13 complete.
+- 18 pending evidence_candidates in search_candidates (ids 123-140).
+- 2 discoveries already processed (ids 1, 2).
+- 2 queue rows completed (ids 74, 75).
+- 6 assets (1-6), 4 asset_sources rows, 8 metadata_queue rows.
+
+## Test Record
+
+Candidate: `search_candidates.id = 123` — Wikimedia Commons file page for Austin Tobin Plaza photograph.
+
+## Steps Executed
+
+1. `manual_promote --ids 123` → discovery 3 (approved)
+2. `queue_discoveries` → queue row 76 (discovery_id=3, pending)
+3. `downloader/main.py` → asset 7, asset_sources 7, metadata_queue 9, queue 76 completed
+4. Idempotency re-run: all three stages produced zero new rows
+
+## Database Changes
+
+- `search_candidates` id 123: status `pending` → `promoted`
+- `discoveries` +1 row (id=3)
+- `discovery_queue` +1 row (id=76, discovery_id=3, completed)
+- `assets` +1 row (id=7, source_id=4, SHA-256, content_type)
+- `asset_sources` +1 row (id=7, asset_id=7, all URL forms)
+- `metadata_queue` +1 row (id=9, asset_id=7, pending)
+
+## Provenance Chain Verified
+
+| Stage | ID | URL Match |
+|---|---|---|
+| search_candidates | 123 | — |
+| discoveries | 3 | ✅ MATCH |
+| discovery_queue | 76 | ✅ MATCH |
+| assets | 7 | ✅ MATCH |
+| asset_sources | 7 | ✅ MATCH |
+| metadata_queue | 9 | — |
+
+All four URL links across the chain verified MATCH.
+
+## Idempotency
+
+| Re-run | Result |
+|---|---|
+| manual_promote | "No eligible candidates" |
+| queue_discoveries | "No unqueued approved discoveries" |
+| downloader | "No pending queue items with discovery_id" |
+
+## Results
+
+- Full independent acquisition path operational end-to-end.
+- Provenance chain fully traceable from candidate to metadata handoff.
+- Idempotency confirmed at every stage.
+- No code or schema changes (test run only).
+
+## Documentation Updated
+
+- `docs/CURRENT_STATE.md`
+- `docs/NEXT_TASK.md`
+- `docs/AI_HANDOFF.md`
+- `docs/SESSION_LOG.md` — This entry
+- `docs/DEVLOG.md`
+- `CHANGELOG.md`
+
+## Git Commit
+
+Not yet committed at the time of this entry.
+
+## Remaining Issues
+
+- Only 3 of 20 evidence candidates have been processed through the full pipeline.
+- Downloaded content is HTML file description pages, not raw images.
+- Queue lease/claim has no expiry mechanism.
+- `run_pipeline.py` still uses old invocation patterns (M15 concern).
+
+## Next Action
+
+Proceed to M15 – Orchestrator repair.

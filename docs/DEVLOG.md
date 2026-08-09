@@ -11,6 +11,7 @@ Completed:
 - M11
 - M12
 - M13
+- M14
 
 Major lessons:
 - M6 audit discovered an M5 regression (unqualified import in `main.py`). The regression was repaired as part of M6 implementation.
@@ -45,6 +46,8 @@ Major lessons:
 - M13: Wikimedia Commons file pages return `text/html; charset=UTF-8` (not `image/jpeg`) because the URL points to the file description page, not the raw image. The downloader correctly detects and stores the actual Content-Type — the next step may need to follow the "Original file" link to get the actual media, but the current content (the HTML page) is a legitimate asset with a unique hash.
 - M13: Hash deduplication works naturally with the `unique_asset_file_hash` index — the `SELECT id FROM assets WHERE file_hash = %s` check before insert prevents duplicate assets, and the unique constraint provides a safety net. The pattern is: detect duplicate → reuse existing asset_id → still register asset_sources (new provenance row) → skip metadata_queue (asset already has it) → mark queue completed.
 - M13: The lease/claim queue pattern (`pending → in_progress → completed`) prevents concurrent workers from processing the same row — the UPDATE to `in_progress` acts as a claim, and the WHERE clause filters only `status = 'pending' AND discovery_id IS NOT NULL`.
+- M14: The end-to-end test proved the full independent acquisition path works: candidate 123 → discovery 3 → queue 76 → asset 7 → asset_sources 7 → metadata_queue 9. All four URL links across the chain verified MATCH. Idempotency confirmed at every stage — re-running manual_promote, queue_discoveries, and downloader all produced zero new rows.
+- M14: The provenance chain is now fully traceable from a search_candidates row through discoveries, discovery_queue, assets, asset_sources, and metadata_queue — each stage preserves the original URL and links to the next via foreign keys.
 
 ## 2026-08-08
 

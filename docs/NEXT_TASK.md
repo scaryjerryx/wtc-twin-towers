@@ -22,7 +22,8 @@
 - ✅ **M11 – Downloader schema additions** — Complete. `assets.file_hash` (text, unique index) and `assets.content_type` (text) columns added idempotently. `asset_sources` table created with 8 columns (`id`, `asset_id`, `source_id`, `original_url`, `normalised_url`, `final_effective_url`, `retrieved_at`, `created_at`) plus FK constraints to `assets` and `sources`. All DDL idempotent via `IF NOT EXISTS`; rerun confirmed no-op. Legacy rows preserved (4 assets, file_hash/content_type NULL). No duplicate ordinary index on `file_hash`. Migration file: `database/migrations/001_add_downloader_schema.sql`.
 - ✅ **M12 – `asset_sources` registration + privilege grant** — Complete. `agents/downloader/register_asset.py` created with idempotent registration via unique constraint on `(asset_id, COALESCE(source_id, -1), original_url)`. Unique index migration (`database/migrations/002_add_asset_sources_unique.sql`) applied. Writer role granted INSERT on `asset_sources` and USAGE/SELECT on `asset_sources_id_seq`. Registration tested: first call inserts, repeated call is a no-op, different URL creates new retrieval event.
 - ✅ **M13 – R2 testability, then downloader implementation** — Complete. `agents/downloader/main.py` rewritten with package-safe imports, lease/claim queue pattern, SHA-256 hashing, content-type detection, hash-based deduplication (reuses existing asset, skips redundant R2 upload and metadata_queue, still registers asset_sources), failure handling (`failed_permanent` + `last_error`). `test_r2.py` replaced with mocked unit test. Two Wikimedia Commons files downloaded (assets 5, 6) with full provenance.
-- 🔄 **M14 – Controlled end-to-end test** — Next active milestone.
+- ✅ **M14 – Controlled end-to-end test** — Complete. Full independent acquisition path exercised: candidate 123 → discovery 3 → queue 76 → asset 7 → asset_sources 7 → metadata_queue 9. All URL links verified MATCH. Idempotency confirmed across all three stages.
+- 🔄 **M15 – Orchestrator repair** — Next active milestone.
 
 ## Approved M1 Architecture Decisions
 
@@ -183,8 +184,8 @@ The approved milestone order is:
 - ✅ **M11 – Downloader schema additions** — Complete
 - ✅ **M12 – `asset_sources` registration + privilege grant** — Complete
 - ✅ **M13 – R2 testability, then downloader implementation** — Complete
-- 🔄 **M14 – Controlled end-to-end test** — Current
-- ⬜ **M15 – Orchestrator repair** — Planned (only after M14 passes)
+- ✅ **M14 – Controlled end-to-end test** — Complete
+- 🔄 **M15 – Orchestrator repair** — Current
 
 ### M7 – Search-Request Generation (Complete)
 
