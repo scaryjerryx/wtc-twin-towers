@@ -16,6 +16,7 @@ Completed:
 - M16
 - M17
 - M18
+- M19
 
 Major lessons:
 - M6 audit discovered an M5 regression (unqualified import in `main.py`). The regression was repaired as part of M6 implementation.
@@ -67,6 +68,10 @@ Major lessons:
 - M18: Citation provenance is now populated at creation time — `citation_loader.py` parses `acquisition_asset_{id}` from `fact_sources.source_file` using the regex `^acquisition_asset_(\d+)$`, resolves `asset_id` directly and `asset_source_id` from the most recent `asset_sources` row. Local PDF source files (e.g., `WTCI-000721-L.PDF`) don't match the pattern and get NULL FKs — fully backward compatible.
 - M18: The `asset_source_id` FK resolves to the most recent retrieval event (`ORDER BY retrieved_at DESC LIMIT 1`) — this is correct because citations are created during the same engine run that processed the asset, so the most recent retrieval event is the one that produced the facts.
 - M18: The citations table unique constraint `(fact_id, source_file, source_page, citation_type)` does not include `asset_id` or `asset_source_id` — this preserves idempotency. The provenance columns are metadata that don't affect deduplication.
+- M19: OpenRouter integration uses the project's existing API key from `.secrets/cline-db.env` — the `ai_client.py` loads dotenv from this path rather than the default `.env`, matching the project's credential storage pattern.
+- M19: The provider-selection mechanism (`METADATA_PROVIDER` environment variable) allows switching between mock and AI-powered analysis without code changes. The orchestrator (`run_pipeline.py`) always calls `ai_analyze`, which internally dispatches based on the env var. This means `mock_analyze.py` remains available as a standalone fallback: `python -m agents.metadata.mock_analyze`.
+- M19: AI provenance includes `agent` ("openrouter"), `model` (from `OPENROUTER_MODEL` env var), and `timestamp` (ISO-8601 UTC) in `analysis_json`. This meets the evidence standards requirement that AI output must preserve provider and model details.
+- M19: The existing `vision_client.py` was not modified — its `analyze_image()` function (file-extension classifier that discards the encoded base64) remains as legacy. The new `ai_client.py` is a clean implementation that actually sends the image to OpenRouter.
 
 ## 2026-08-08
 

@@ -21,6 +21,7 @@ All notable changes to this project will be documented in this file.
 - M16 – Knowledge Platform Import Repair
 - M17 – Acquisition → Knowledge Pipeline Integration
 - M18 – Citation Provenance Integration
+- M19 – AI-Assisted Metadata Processing
 
 ---
 

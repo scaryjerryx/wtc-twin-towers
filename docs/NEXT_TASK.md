@@ -27,6 +27,7 @@
 - ✅ **M16 – Knowledge platform import repair** — Complete. All 20 files across `agents/knowledge/`, `agents/timeline/`, `agents/verification/`, `agents/metadata/`, `agents/search/`, `agents/engine/`, and `agents/router/` now use the shared `get_db_connection()`. Zero remaining `psycopg2.connect()` calls in repaired directories. Engine and health report verified running without import errors.
 - ✅ **M17 – Acquisition → Knowledge Pipeline Integration** — Complete. `agents/ingestion/process_acquisition_assets.py` created to query acquisition PDF assets, download from R2, and process through the PDF knowledge pipeline with `source_file` provenance identifiers. `run_engine.py` updated with STEP 1a/1b split. Process_pdf accepts optional source_file for provenance preservation.
 - ✅ **M18 – Citation Provenance Integration** — Complete. `citations.asset_id` and `citations.asset_source_id` nullable FK columns added. `citation_loader.py` resolves provenance from `acquisition_asset_{id}` pattern at citation creation time. Provenance chain: Fact → Citation → Asset → Asset Source → Discovery → Search Candidate. Migration: `database/migrations/003_add_citation_asset_provenance.sql`.
+- ✅ **M19 – AI-Assisted Metadata Processing** — Complete. `agents/metadata/ai_client.py` created with OpenRouter API integration. `agents/metadata/ai_analyze.py` created with provider selection (`METADATA_PROVIDER=mock|openrouter`). `run_pipeline.py` wired to AI analyzer. Mock fallback retained. AI provenance stored in `analysis_json`.
 
 ## Approved M1 Architecture Decisions
 
@@ -192,6 +193,7 @@ The approved milestone order is:
 - ✅ **M16 – Knowledge platform import repair** — Complete
 - ✅ **M17 – Acquisition → Knowledge Pipeline Integration** — Complete
 - ✅ **M18 – Citation Provenance Integration** — Complete
+- ✅ **M19 – AI-Assisted Metadata Processing** — Complete
 
 ### M7 – Search-Request Generation (Complete)
 

@@ -39,7 +39,7 @@ STAGES: list[tuple[str, str]] = [
     ),
     (
         "Metadata Processing",
-        "agents.metadata.mock_analyze",
+        "agents.metadata.ai_analyze",
     ),
 ]
 

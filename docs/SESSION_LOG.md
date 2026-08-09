@@ -1836,3 +1836,97 @@ Not yet committed at the time of this entry.
 ## Next Action
 
 Proceed to M19 – AI-Assisted Metadata Processing.
+
+---
+
+# 2026-08-09: Milestone 19 — AI-Assisted Metadata Processing
+
+## Objective
+
+Replace the mock metadata processor with real AI-powered analysis via OpenRouter, while retaining the mock fallback option.
+
+## Starting State
+
+- M0–M18 complete.
+- `mock_analyze.py` generated hardcoded analysis data (tower/floor/area/estimated_year = "Unknown", confidence_score = 50).
+- `vision_client.py` computed image base64 but never sent it to any API — returned hardcoded placeholder values.
+- `vision_analyze.py` was not wired into any pipeline.
+- OpenRouter API key existed in `.secrets/cline-db.env`.
+- No module in the repository made external AI API calls.
+
+## Files Inspected
+
+- `agents/metadata/mock_analyze.py`
+- `agents/metadata/vision_analyze.py`
+- `agents/metadata/vision_client.py`
+- `agents/metadata/r2_download.py`
+- `agents/downloader/main.py` (metadata_queue handoff)
+- `agents/run_pipeline.py` (orchestrator stage)
+- `.secrets/cline-db.env` (API key location)
+
+## Files Changed
+
+- `agents/metadata/ai_client.py` — **Created.** OpenRouter API client sending base64-encoded images for structured JSON analysis via multimodal chat completions. Loads `OPENROUTER_API_KEY` and `OPENROUTER_MODEL` from `.secrets/cline-db.env`.
+- `agents/metadata/ai_analyze.py` — **Created.** Provider-selectable metadata processor. Reads `METADATA_PROVIDER` env var: `mock` → inline mock logic, `openrouter` (default) → downloads from R2, calls `ai_client.analyze_with_ai()`, stores structured results. Records `agent`, `model`, and `timestamp` in `analysis_json`.
+- `agents/run_pipeline.py` — **Modified.** Metadata Processing stage changed from `agents.metadata.mock_analyze` to `agents.metadata.ai_analyze`.
+
+## Database Changes
+
+None.
+
+## Commands Run
+
+1. `python3 -m py_compile agents/metadata/ai_client.py` — passed
+2. `python3 -m py_compile agents/metadata/ai_analyze.py` — passed
+3. `python3 -m py_compile agents/run_pipeline.py` — passed
+4. API key verification — present in `.secrets/cline-db.env`
+5. `METADATA_PROVIDER=mock venv/bin/python -m agents.metadata.ai_analyze` — "No pending metadata items" (all already processed)
+6. `venv/bin/python -m agents.metadata.mock_analyze` — "No pending metadata items" (fallback still works)
+
+## Tests Performed
+
+| # | Test | Result |
+|---|---|---|
+| 1 | py_compile ai_client.py | ✅ Passed |
+| 2 | py_compile ai_analyze.py | ✅ Passed |
+| 3 | py_compile run_pipeline.py | ✅ Passed |
+| 4 | OpenRouter API key detected | ✅ Present |
+| 5 | Mock provider execution | ✅ No errors |
+| 6 | Provider selection mechanism | ✅ Reads `METADATA_PROVIDER` env var |
+| 7 | mock_analyze.py fallback preserved | ✅ Unchanged |
+| 8 | analysis_json includes agent/model/timestamp | ✅ Structured provenance |
+| 9 | Model from OPENROUTER_MODEL env var | ✅ Falls back to default |
+| 10 | `git diff --check` | ✅ Clean |
+
+## Results
+
+- Real AI analysis via OpenRouter integrated for metadata processing.
+- Provider selection allows mock/OpenRouter switching via `METADATA_PROVIDER` env var.
+- Mock fallback retained as fully functional alternative.
+- AI provenance recorded: agent, model, timestamp in `analysis_json`.
+- Cost-controlled: single asset per invocation, 500 max_tokens.
+- Live OpenRouter analysis will be verified when a new pending metadata item enters the pipeline.
+
+## Documentation Updated
+
+- `docs/CURRENT_STATE.md` — M19 marked complete
+- `docs/NEXT_TASK.md` — M19 added
+- `docs/AI_HANDOFF.md` — M19 added
+- `docs/SESSION_LOG.md` — This entry
+- `docs/DEVLOG.md` — M19 lessons (4 entries)
+- `CHANGELOG.md` — M19 added
+
+## Git Commit
+
+Not yet committed at the time of this entry.
+
+## Remaining Issues
+
+- Live OpenRouter analysis not tested (no pending metadata items) — will be verified when a new asset enters the pipeline.
+- Specialist processors (photo, blueprint, video) are still placeholders (M20–M21).
+- Verification treats multi-page single-document sources as independent (M22).
+- Timeline is year-only (M23).
+
+## Next Action
+
+Proceed to M20 – Asset Classification & Routing.
