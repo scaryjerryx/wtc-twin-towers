@@ -1248,3 +1248,125 @@ Planned commit message:
 ## Next Action
 
 Proceed to M13 – R2 testability, then downloader implementation.
+
+---
+
+# 2026-08-09: Milestone 13 — Downloader Repair & R2 Integration
+
+## Objective
+
+Replace `test_r2.py` with a mocked R2 unit test, then implement downloader hardening: SHA-256 hashing, content-type detection, hash-based file deduplication, R2 upload, asset registration with all required fields, asset_sources provenance, and metadata_queue handoff.
+
+## Starting State
+
+- M0–M12 complete.
+- `agents/downloader/main.py` had inline `psycopg2.connect()`, no `discovery_id` join, no hash computation, no content-type detection, no asset_sources registration, no metadata_queue handoff, no transaction wrapping.
+- `agents/downloader/test_r2.py` performed live R2 operations.
+- `discovery_queue` had 2 rows with `discovery_id` populated (ids 74, 75), both `status='pending'`, both real Wikimedia Commons file page URLs.
+- `assets` had 4 legacy rows with NULL `file_hash`, `content_type`, and `source_id`.
+- `asset_sources` had 2 test rows from M12 verification.
+
+## Files Inspected
+
+- `agents/downloader/main.py` (pre-rewrite)
+- `agents/downloader/r2.py`
+- `agents/downloader/test_r2.py` (pre-rewrite)
+- `agents/downloader/register_asset.py` (M12)
+- `agents/discovery/database.py`
+- `agents/discovery/queue_discoveries.py`
+- `database/migrations/001_add_downloader_schema.sql`
+- `database/migrations/002_add_asset_sources_unique.sql`
+- Live `discovery_queue`, `assets`, `asset_sources`, `metadata_queue`, `sources` tables
+
+## Files Changed
+
+- `agents/downloader/main.py` — Complete rewrite (99 → 223 lines)
+- `agents/downloader/test_r2.py` — Replaced with mocked unit test (8 lines → unit test with `unittest.mock`)
+
+## Database Changes
+
+- 2 new `assets` rows (ids 5, 6) with `file_hash`, `content_type`, `source_id=4` (Wikimedia Commons)
+- 2 new `asset_sources` rows (ids 4→asset 5, 5→asset 6), all three URL forms populated
+- 2 new `metadata_queue` rows (ids 7→asset 5, 8→asset 6, status='pending')
+- `discovery_queue` rows 74 and 75: `status='pending'` → `'completed'`
+- No schema changes (M11 and M12 provided all needed schema)
+
+## Commands Run
+
+1. `python3 -m py_compile agents/downloader/test_r2.py` — passed
+2. `python3 -m py_compile agents/downloader/main.py` — passed
+3. `venv/bin/python -m agents.downloader.test_r2` — PASS
+4. `venv/bin/python -m agents.downloader.main` (first run) — processed queue 74, created asset 5
+5. `venv/bin/python -m agents.downloader.main` (second run) — processed queue 75, created asset 6
+6. Hash dedup test: reset queue 74 to pending, re-ran — "Asset reused: id=5", "asset_sources: already registered", "metadata_queue: skipped"
+
+## Tests Performed
+
+| # | Test | Result |
+|---|---|---|
+| 1 | Syntax check `test_r2.py` | ✅ Passed |
+| 2 | Syntax check `main.py` | ✅ Passed |
+| 3 | Mocked R2 test (no live calls) | ✅ PASS |
+| 4 | Queue 74: file_hash populated | ✅ SHA-256 hex string |
+| 5 | Queue 74: content_type populated | ✅ `text/html; charset=UTF-8` |
+| 6 | Queue 74: source_id resolved | ✅ 4 (Wikimedia Commons) |
+| 7 | Queue 74: asset_sources row created | ✅ id=4, all URL forms |
+| 8 | Queue 74: metadata_queue row created | ✅ id=7, status='pending' |
+| 9 | Queue 74: queue status completed | ✅ |
+| 10 | Queue 75: same verification | ✅ All checks passed |
+| 11 | No duplicate file_hash values | ✅ 0 rows |
+| 12 | Hash dedup: asset reused (skipped R2) | ✅ "Asset reused: id=5" |
+| 13 | Hash dedup: asset_sources already registered | ✅ No duplicate row |
+| 14 | Hash dedup: metadata_queue skipped | ✅ "skipped (asset already has metadata)" |
+| 15 | No pending rows with discovery_id | ✅ 0 |
+| 16 | HTTP 403 → failed_permanent + last_error | ✅ (observed on first attempt before User-Agent fix) |
+| 17 | `git diff --check` | ✅ No whitespace errors |
+
+## Results
+
+- Downloader successfully reads from `discovery_queue` with `discovery_id` filter.
+- Lease/claim pattern: `pending → in_progress → completed`.
+- SHA-256 hash computed and stored for every download.
+- Content-Type detected from HTTP response headers.
+- Hash-based dedup: reuses existing asset, skips redundant R2 upload and metadata_queue creation, still registers asset_sources provenance.
+- Source ID resolved from `sources` table via queue `source_name`.
+- Asset records created with all required fields (`source_id`, `file_hash`, `content_type`, `download_status`, `metadata_status`).
+- Asset sources provenance preserved (all three URL forms + timestamps).
+- Metadata handoff via `metadata_queue`.
+- Failure handling: `failed_permanent` + `last_error`.
+- Package-safe imports, transaction safety.
+
+## Key Decisions
+
+- Asset sources INSERT is inlined directly into the downloader's cursor (not using `register_asset_source()`) for transactional atomicity — `register_asset_source()` opens its own connection and cannot participate in the downloader's transaction.
+- `metadata_queue` creation is skipped when an existing asset is reused via hash dedup, because the asset already has metadata rows from its original download.
+- `asset_sources` registration ALWAYS occurs (even under hash dedup) because each retrieval event produces a separate provenance record — a new discovery URL referring to the same file is a separate retrieval event.
+
+## Documentation Updated
+
+- `docs/CURRENT_STATE.md` — M13 marked complete, M14 as next milestone
+- `docs/NEXT_TASK.md` — M13 complete, M14 active
+- `docs/AI_HANDOFF.md` — M13 complete, M14 current
+- `docs/SESSION_LOG.md` — This entry
+- `docs/DEVLOG.md` — M13 lessons (4 entries)
+- `CHANGELOG.md` — M13 added to completed list
+
+## Git Commit
+
+Not yet committed at the time of this entry.
+
+Planned commit message:
+
+`M13: Downloader repair & R2 integration — SHA-256 hashing, dedup, provenance`
+
+## Remaining Issues
+
+- Downloaded content is HTML file description pages, not raw images — Wikimedia Commons file page URLs need to be resolved to the actual media URL (e.g., following the "Original file" link). This affects asset_type classification (currently `unknown` instead of `image`).
+- Only 2 queue rows have `discovery_id` populated — 54 legacy rows are search-request URLs and cannot be downloaded.
+- Queue lease/claim pattern has no expiry mechanism — a crashed downloader would leave a row in `in_progress` permanently.
+- `metadata_queue` has no deduplication constraint — multiple rows per asset already exist from prior processing.
+- `run_pipeline.py` still uses old invocation patterns (M15 concern).
+
+## Next Action
+
+Proceed to M14 – Controlled end-to-end test.
