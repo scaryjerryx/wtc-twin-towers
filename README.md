@@ -61,65 +61,82 @@ The platform is being developed to support:
 
 ## Current Status
 
-### Completed Milestones
+### Acquisition Pipeline Phase — Complete
 
-✅ M0 – Backup Verification
+All 16 foundation and acquisition pipeline milestones (M0–M15) have been implemented, tested, and verified end-to-end.
 
-✅ M1 – Architecture Decisions
+The automated evidence acquisition pipeline is operational under a single orchestrator entry point.
 
-✅ M2 – Source Registry Reconciliation
+| Milestone | Purpose |
+|---|---|
+| M0 | Pre-flight backup |
+| M1 | Architecture decisions |
+| M2 | Source-registry reconciliation |
+| M3 | Limited writer role |
+| M4 | First schema migration |
+| M5 | Package/import repair |
+| M6 | Source seeding repair |
+| M7 | Search-request generation |
+| M8 | Controlled source search |
+| M9 | Human review & manual promotion |
+| M10 | Discovery queue repair |
+| M11 | Downloader schema additions |
+| M12 | Asset registration & provenance |
+| M13 | Downloader repair & R2 integration |
+| M14 | Controlled end-to-end test |
+| M15 | Orchestrator repair |
 
-✅ M3 – Limited Writer Role
+### Verified Acquisition Pipeline
 
-✅ M4 – First Schema Migration
+```text
+Sources (sources.json)
+    ↓
+Source Seeding (agents.discovery.main)
+    ↓
+Search Request Generation (agents.discovery.build_searches)
+    ↓
+Candidate Discovery (agents.discovery.find_candidates)
+    ↓
+Human Review (agents.discovery.manual_promote)
+    ↓
+Discovery Queue (agents.discovery.queue_discoveries)
+    ↓
+Downloader (agents.downloader.main)
+    ↓
+SHA-256 Deduplication & R2 Storage
+    ↓
+Asset Registration (assets table)
+    ↓
+Provenance Tracking (asset_sources table)
+    ↓
+Metadata Processing (agents.metadata.mock_analyze)
+```
 
-✅ M5 – Package / Import Repair
+### What Has Been Verified
 
-### Current Milestone
-
-🔄 M6 – Source Seeding Repair
+| Capability | Status |
+|---|---|
+| Package-safe Python invocation (`python -m`) | ✅ |
+| Idempotent stage execution (all 6 automated stages) | ✅ |
+| Queue lifecycle (pending → in_progress → completed) | ✅ |
+| SHA-256 file deduplication | ✅ |
+| Content-type detection from HTTP headers | ✅ |
+| R2 object storage with provenance | ✅ |
+| Asset registration with source_id, file_hash, content_type | ✅ |
+| Retrieval-event provenance (asset_sources table) | ✅ |
+| Metadata processing handoff (metadata_queue → ai_analysis) | ✅ |
+| Orchestrator execution (`sys.executable -m`) | ✅ |
+| Provenance chain traceability (candidate → discovery → queue → asset → provenance → metadata) | ✅ |
 
 ---
 
 ## Roadmap
 
-### Foundation
+### Foundation & Acquisition Pipeline
 
-✅ M0 – Backup Verification
+✅ M0 – M15 Complete
 
-✅ M1 – Architecture Decisions
-
-✅ M2 – Source Registry Reconciliation
-
-✅ M3 – Limited Writer Role
-
-✅ M4 – First Schema Migration
-
-✅ M5 – Package / Import Repair
-
----
-
-### Acquisition Pipeline
-
-🔄 M6 – Source Seeding Repair
-
-⬜ M7 – Search Request Generation
-
-⬜ M8 – Controlled Source Search
-
-⬜ M9 – Human Review & Promotion
-
-⬜ M10 – Discovery Queue Repair
-
-⬜ M11 – Downloader Schema Additions
-
-⬜ M12 – Asset Registration & Provenance
-
-⬜ M13 – Downloader Repair & R2 Integration
-
-⬜ M14 – Controlled End-to-End Test
-
-⬜ M15 – Orchestrator Repair
+All 16 foundation and acquisition pipeline milestones are complete. See the Current Status section above for the full milestone table and verified capabilities.
 
 ---
 

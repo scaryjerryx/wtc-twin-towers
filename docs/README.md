@@ -215,48 +215,97 @@ It is not the current project status.
 
 Use `CURRENT_STATE.md` and `NEXT_TASK.md` for current information.
 
-## Current Active Priority
+## Current Status
 
-The current active priority is:
+The acquisition pipeline repair phase (M0–M15) is **complete**.
 
-**Reconnect Existing Automated Evidence Gathering**
+All 16 milestones have been implemented, tested, and verified end-to-end. The automated evidence acquisition pipeline is operational under a single orchestrator entry point.
 
-The project must inspect, reconnect, repair, and test the existing systems under:
+| Milestone | Purpose | Status |
+|---|---|---|
+| M0 | Pre-flight backup | ✅ |
+| M1 | Architecture decisions | ✅ |
+| M2 | Source-registry reconciliation | ✅ |
+| M3 | Limited writer role | ✅ |
+| M4 | First schema migration | ✅ |
+| M5 | Package/import repair | ✅ |
+| M6 | Source seeding repair | ✅ |
+| M7 | Search-request generation | ✅ |
+| M8 | Controlled source search | ✅ |
+| M9 | Human review & manual promotion | ✅ |
+| M10 | Discovery queue repair | ✅ |
+| M11 | Downloader schema additions | ✅ |
+| M12 | Asset registration & provenance | ✅ |
+| M13 | Downloader repair & R2 integration | ✅ |
+| M14 | Controlled end-to-end test | ✅ |
+| M15 | Orchestrator repair | ✅ |
 
-- `agents/discovery/`
-- `agents/downloader/`
+## Completed Acquisition Pipeline
 
-Do not create a competing acquisition architecture.
+```
+Sources (sources.json)
+    ↓
+Source Seeding (agents.discovery.main)
+    ↓
+Search Request Generation (agents.discovery.build_searches)
+    ↓
+Candidate Discovery (agents.discovery.find_candidates)
+    ↓
+Human Review (agents.discovery.manual_promote)
+    ↓
+Discovery Queue (agents.discovery.queue_discoveries)
+    ↓
+Downloader (agents.downloader.main)
+    ↓
+SHA-256 Deduplication & R2 Storage
+    ↓
+Asset Registration (assets table)
+    ↓
+Provenance Tracking (asset_sources table)
+    ↓
+Metadata Processing (agents.metadata.mock_analyze)
+```
 
-The intended path is:
+## Completed Foundation
 
-Configured Sources
-↓
-Sources Table
-↓
-Search Definitions
-↓
-Search Candidates
-↓
-Candidate Review and Promotion
-↓
-Discoveries
-↓
-Discovery Queue
-↓
-Downloader
-↓
-Validation and Deduplication
-↓
-R2 Storage
-↓
-Asset Registration
-↓
-Metadata and Processing Queues
-↓
-Classification and Routing
-↓
-Existing Processing and Knowledge Engine
+The M0–M15 phase established:
+
+- **7 configured evidence sources** with idempotent seeding
+- **30 search requests** generated across 3 verified sources
+- **20 real WTC evidence candidates** discovered from Wikimedia Commons
+- **3 discovery records** promoted through human review
+- **3 downloads** with SHA-256 hashing and content-type detection
+- **7 asset records** with provenance tracking
+- **9 metadata_queue entries** for processing handoff
+- **1 writer role** (`wtc_writer`) with least-privilege grants
+- **2 database migrations** (M4, M11-M12) applied idempotently
+- **1 orchestrator** (`agents.run_pipeline`) connecting all automated stages
+
+### Verified Capabilities
+
+| Capability | Status |
+|---|---|
+| Package-safe Python invocation (`python -m`) | ✅ |
+| Idempotent stage execution (all 6 stages) | ✅ |
+| Queue lifecycle (pending → in_progress → completed) | ✅ |
+| SHA-256 file deduplication | ✅ |
+| Content-type detection from HTTP headers | ✅ |
+| R2 object storage with provenance | ✅ |
+| Asset registration with source_id, file_hash, content_type | ✅ |
+| Retrieval-event provenance (asset_sources) | ✅ |
+| Metadata processing handoff (metadata_queue → ai_analysis) | ✅ |
+| Orchestrator execution (`sys.executable -m`) | ✅ |
+| Provenance chain traceability (candidate → discovery → queue → asset → provenance → metadata) | ✅ |
+
+## Next Phase
+
+The next development phase should address:
+
+- Expanding evidence acquisition beyond the controlled three-candidate test
+- Integrating the acquisition pipeline with the knowledge engine (`agents.engine.run_engine`)
+- Classification and routing of downloaded assets
+- Real AI analysis integration (replacing mock metadata analysis)
+- Source-specific archive connectors and search URL templates for the 4 deferred sources
 
 The complete implementation instructions are maintained in:
 
