@@ -231,3 +231,4 @@ data/
 .secrets/
 # Local AI workflow rules
 .clinerules/
+storage/raw/
