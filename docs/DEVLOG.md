@@ -12,6 +12,7 @@ Completed:
 - M12
 - M13
 - M14
+- M15
 
 Major lessons:
 - M6 audit discovered an M5 regression (unqualified import in `main.py`). The regression was repaired as part of M6 implementation.
@@ -48,6 +49,10 @@ Major lessons:
 - M13: The lease/claim queue pattern (`pending → in_progress → completed`) prevents concurrent workers from processing the same row — the UPDATE to `in_progress` acts as a claim, and the WHERE clause filters only `status = 'pending' AND discovery_id IS NOT NULL`.
 - M14: The end-to-end test proved the full independent acquisition path works: candidate 123 → discovery 3 → queue 76 → asset 7 → asset_sources 7 → metadata_queue 9. All four URL links across the chain verified MATCH. Idempotency confirmed at every stage — re-running manual_promote, queue_discoveries, and downloader all produced zero new rows.
 - M14: The provenance chain is now fully traceable from a search_candidates row through discoveries, discovery_queue, assets, asset_sources, and metadata_queue — each stage preserves the original URL and links to the next via foreign keys.
+- M15: The orchestrator now uses `sys.executable -m` for package-safe subprocess invocation — `python agents/X/Y.py` patterns are replaced with `python -m agents.X.Y`. This ensures the same Python interpreter and package resolution across all stages.
+- M15: Manual promotion (`manual_promote.py --ids N`) is intentionally excluded from the automated orchestrator — human review is required before promoting evidence candidates to discoveries. The orchestrator will skip this stage if no approved discoveries are queued.
+- M15: `mock_analyze.py` was repaired to use the shared `agents.discovery.database.get_db_connection()` — the name "mock" refers to the hardcoded analysis values (tower=Unknown, etc.), not the module's role. It is the operational metadata processor pending real AI analysis integration.
+- M15: The full acquisition pipeline repair (M0–M15) is now complete. All 6 automated stages are connected under a single `python -m agents.run_pipeline` entry point, each stage independently idempotent.
 
 ## 2026-08-08
 

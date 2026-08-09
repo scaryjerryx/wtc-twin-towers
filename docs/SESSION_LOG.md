@@ -1458,3 +1458,95 @@ Not yet committed at the time of this entry.
 ## Next Action
 
 Proceed to M15 – Orchestrator repair.
+
+---
+
+# 2026-08-09: Milestone 15 — Orchestrator Repair
+
+## Objective
+
+Fix `run_pipeline.py` invocation mode (package-qualified via `sys.executable -m`), repair `mock_analyze.py` imports, and wire the now-operational acquisition pipeline.
+
+## Starting State
+
+- M0–M14 complete.
+- `agents/run_pipeline.py` used `subprocess.run(["python", "agents/downloader/main.py"])` — wrong invocation mode for package-qualified imports.
+- `agents/run_pipeline.py` called `agents/metadata/mock_analyze.py` — which had inline `psycopg2.connect()`.
+- `agents/metadata/mock_analyze.py` processed metadata_queue but used non-package-safe imports.
+
+## Files Inspected
+
+- `agents/run_pipeline.py` (pre-rewrite)
+- `agents/engine/run_engine.py`
+- `agents/ingestion/automated_ingestion.py`
+- `agents/discovery/discover.py` (legacy)
+- `agents/discovery/promote_searches.py` (legacy)
+- `agents/discovery/build_real_searches.py` (legacy)
+- `agents/metadata/main.py`
+- `agents/metadata/mock_analyze.py`
+
+## Files Changed
+
+- `agents/run_pipeline.py` — Complete rewrite (13 → 85 lines)
+- `agents/metadata/mock_analyze.py` — Import repair (inline psycopg2 → `from agents.discovery.database import get_db_connection`)
+
+## Database Changes
+
+None.
+
+## Commands Run
+
+1. `python3 -m py_compile agents/metadata/mock_analyze.py` — passed
+2. `python3 -m py_compile agents/run_pipeline.py` — passed
+3. `venv/bin/python -m agents.metadata.mock_analyze` — Processed Asset 5 (package-safe)
+4. `venv/bin/python -m agents.run_pipeline` — all 6 stages executed successfully
+
+## Tests Performed
+
+| # | Test | Result |
+|---|---|---|
+| 1 | Syntax check mock_analyze.py | ✅ Passed |
+| 2 | Syntax check run_pipeline.py | ✅ Passed |
+| 3 | mock_analyze standalone execution | ✅ Processed Asset 5 |
+| 4 | Orchestrator: Source Seeding | ✅ 7 "Already present" |
+| 5 | Orchestrator: Search Generation | ✅ 30 "Already present" |
+| 6 | Orchestrator: Candidate Discovery | ✅ 20 "Already present" |
+| 7 | Orchestrator: Discovery Queue | ✅ "No unqueued" |
+| 8 | Orchestrator: Downloader | ✅ "No pending" |
+| 9 | Orchestrator: Metadata Processing | ✅ Processed Asset 6 |
+| 10 | Orchestrator exit code | ✅ 0 |
+| 11 | No legacy invocation patterns | ✅ `sys.executable -m` only |
+| 12 | `git diff --check` | ✅ No whitespace errors |
+
+## Results
+
+- Orchestrator successfully executes all 6 automated stages using `python -m` package-safe invocation.
+- All stages idempotent — re-running processes only new or pending records.
+- Manual promotion intentionally excluded — human-in-the-loop step.
+- Legacy invocation patterns (`python agents/X/Y.py`) completely removed.
+- `mock_analyze.py` uses shared database connection helper.
+
+## Documentation Updated
+
+- `docs/CURRENT_STATE.md` — M15 marked complete, acquisition pipeline phase closed
+- `docs/NEXT_TASK.md` — M15 complete
+- `docs/AI_HANDOFF.md` — M15 complete
+- `docs/SESSION_LOG.md` — This entry
+- `docs/DEVLOG.md` — M15 lessons (4 entries)
+- `CHANGELOG.md` — M15 added to completed list
+
+## Git Commit
+
+Not yet committed at the time of this entry.
+
+## Remaining Issues
+
+- `mock_analyze.py` uses hardcoded mock analysis values — real AI analysis integration is a future milestone.
+- Only 3 of 20 evidence candidates have been fully processed — expansion to systematic acquisition is a future priority.
+- Acquisition pipeline and knowledge engine (`run_engine.py`) are not yet connected — the engine still uses the local PDF test harness.
+- Queue lease/claim has no expiry mechanism.
+- Downloaded content is HTML file description pages, not raw images.
+
+## Next Action
+
+The acquisition pipeline repair (M0–M15) is complete. Next: expand evidence acquisition, integrate with knowledge engine, or begin classification/routing work.

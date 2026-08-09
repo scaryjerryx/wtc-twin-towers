@@ -1,84 +1,79 @@
-import os
-import psycopg2
+"""M15 — Metadata Processing (Mock Analysis).
 
-from dotenv import load_dotenv
+Read one pending metadata_queue row, insert mock ai_analysis data,
+and update the queue and asset statuses to completed.
 
-load_dotenv()
+Usage:
+    python -m agents.metadata.mock_analyze
+"""
 
-conn = psycopg2.connect(
-    host="localhost",
-    dbname=os.getenv("POSTGRES_DB"),
-    user=os.getenv("POSTGRES_USER"),
-    password=os.getenv("POSTGRES_PASSWORD")
-)
+from agents.discovery.database import get_db_connection
 
-cur = conn.cursor()
 
-cur.execute("""
-    SELECT id, asset_id
-    FROM metadata_queue
-    WHERE status = 'pending'
-    LIMIT 1
-""")
+def main() -> None:
+    conn = get_db_connection()
+    cur = conn.cursor()
 
-item = cur.fetchone()
-
-if item:
-
-    queue_id = item[0]
-    asset_id = item[1]
-
-    cur.execute("""
-        INSERT INTO ai_analysis
-        (
-            asset_id,
-            tower,
-            floor,
-            area,
-            estimated_year,
-            confidence_score,
-            analysis_json
+    try:
+        cur.execute(
+            """
+            SELECT id, asset_id
+            FROM metadata_queue
+            WHERE status = 'pending'
+            LIMIT 1
+            """
         )
-        VALUES
-        (
-            %s,
-            %s,
-            %s,
-            %s,
-            %s,
-            %s,
-            %s
-        )
-    """,
-    (
-        asset_id,
-        "Unknown",
-        "Unknown",
-        "Unknown",
-        "Unknown",
-        50,
-        '{"agent":"mock"}'
-    ))
 
-    cur.execute("""
-        UPDATE metadata_queue
-        SET status = 'completed'
-        WHERE id = %s
-    """, (queue_id,))
+        item = cur.fetchone()
 
-    cur.execute("""
-        UPDATE assets
-        SET metadata_status = 'completed'
-        WHERE id = %s
-    """, (asset_id,))
+        if item:
+            queue_id = item[0]
+            asset_id = item[1]
 
-    conn.commit()
+            cur.execute(
+                """
+                INSERT INTO ai_analysis
+                    (asset_id, tower, floor, area, estimated_year,
+                     confidence_score, analysis_json)
+                VALUES
+                    (%s, %s, %s, %s, %s, %s, %s)
+                """,
+                (
+                    asset_id,
+                    "Unknown",
+                    "Unknown",
+                    "Unknown",
+                    "Unknown",
+                    50,
+                    '{"agent":"mock"}',
+                ),
+            )
 
-    print(f"Processed Asset {asset_id}")
+            cur.execute(
+                "UPDATE metadata_queue SET status = 'completed' WHERE id = %s",
+                (queue_id,),
+            )
 
-else:
+            cur.execute(
+                "UPDATE assets SET metadata_status = 'completed' WHERE id = %s",
+                (asset_id,),
+            )
 
-    print("No pending metadata items")
+            conn.commit()
 
-cur.close()
-conn.close()
+            print(f"Processed Asset {asset_id}")
+
+        else:
+            print("No pending metadata items")
+
+    except Exception:
+        conn.rollback()
+        raise
+
+    finally:
+        cur.close()
+        conn.close()
+
+
+if __name__ == "__main__":
+    main()

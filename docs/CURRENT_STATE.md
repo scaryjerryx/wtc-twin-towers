@@ -316,6 +316,7 @@ Do not create a competing acquisition subsystem.
 - ✅ **M12 – Asset registration & provenance** — Complete. `agents/downloader/register_asset.py` created with `register_asset_source()` function inserting one row per retrieval event into `asset_sources`. Unique index `unique_asset_source_retrieval` on `(asset_id, COALESCE(source_id, -1), original_url)` provides idempotency. Writer role gained INSERT on `asset_sources` and USAGE/SELECT on `asset_sources_id_seq`. Registration tested: first call inserts, repeated call with same params is a no-op, different URL creates a new retrieval event. Migration file: `database/migrations/002_add_asset_sources_unique.sql`.
 - ✅ **M13 – Downloader repair & R2 integration** — Complete. `agents/downloader/main.py` rewritten with package-safe imports, lease/claim queue pattern (`pending → in_progress → completed`), SHA-256 hashing, content-type detection from HTTP headers, hash-based file deduplication (reuses existing asset, skips redundant R2 upload, still registers `asset_sources` provenance, skips unnecessary `metadata_queue` creation), R2 upload via `agents.downloader.r2`, and failure handling (`failed_permanent` + `last_error`). `test_r2.py` replaced with mocked unit test (no live R2 calls). Two Wikimedia Commons files downloaded, assets 5 and 6 created with full provenance.
 - ✅ **M14 – Controlled end-to-end test** — Complete. Full independent acquisition path exercised: candidate 123 promoted to discovery 3, queued to discovery_queue 76, downloaded to asset 7 with SHA-256 hash and content-type, asset_sources provenance row created, metadata_queue handoff created. All four URL links verified MATCH across the chain. Idempotency confirmed: re-running all three stages produced zero new rows.
+- ✅ **M15 – Orchestrator repair** — Complete. `agents/run_pipeline.py` rewritten to use `sys.executable -m` package-safe invocation across 6 automated stages: source seeding, search generation, candidate discovery, queue creation, downloader, and metadata processing. `agents/metadata/mock_analyze.py` repaired with package-safe imports. Manual promotion remains a human-in-the-loop step outside orchestration. Legacy invocation patterns (`python agents/X/Y.py`) and legacy script references removed. Full orchestrator run verified: all 6 stages idempotent, exit code 0.
 
 The intended flow is:
 
@@ -435,17 +436,9 @@ This source document is test evidence and should not be committed to Git.
 
 ## Immediate Next Milestone
 
-The next milestone is M15 – Orchestrator repair.
+The acquisition pipeline repair is complete (M0–M15). All automated stages are operational and connected under the orchestrator.
 
-Fix `run_pipeline.py` invocation mode (package-qualified) and wire the now-operational acquisition path.
-
-The next milestone is complete when:
-
-1. `run_pipeline.py` uses package-qualified imports
-2. `python -m agents.run_pipeline` runs without import errors
-3. The orchestrator runs the discovery → queue → downloader → metadata chain
-4. Documentation is updated
-5. The Git diff is reviewed
+The next priority is to expand evidence acquisition beyond the controlled three-candidate test to systematic gathering from approved sources, and to integrate the acquisition pipeline with the knowledge engine.
 
 ## Current Development Rule
 

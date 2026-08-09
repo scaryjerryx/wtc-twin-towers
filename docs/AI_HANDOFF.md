@@ -472,7 +472,7 @@ The authoritative task definition is:
 - ✅ **M12 – `asset_sources` registration + privilege grant** — Complete. `agents/downloader/register_asset.py` created; idempotent via unique constraint. Writer role granted INSERT on `asset_sources` and USAGE/SELECT on `asset_sources_id_seq`. Migration: `database/migrations/002_add_asset_sources_unique.sql`.
 - ✅ **M13 – R2 testability, then downloader implementation** — Complete. `agents/downloader/main.py` rewritten with SHA-256 hashing, content-type detection, hash-based dedup, lease/claim queue pattern. `test_r2.py` replaced with mocked unit test.
 - ✅ **M14 – Controlled end-to-end test** — Complete. Full independent acquisition path verified end-to-end with provenance chain and idempotency.
-- 🔄 **M15 – Orchestrator repair** — Current active milestone.
+- ✅ **M15 – Orchestrator repair** — Complete. `agents/run_pipeline.py` rewritten with package-safe invocation across 6 automated stages. Legacy orchestration removed.
 
 ## Writer Role
 

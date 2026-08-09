@@ -17,9 +17,6 @@ All notable changes to this project will be documented in this file.
 - M12 – Asset Registration & Provenance
 - M13 – Downloader Repair & R2 Integration
 - M14 – Controlled End-to-End Test
-
-### Planned
-
 - M15 – Orchestrator Repair
 
 ---
