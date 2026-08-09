@@ -1750,3 +1750,89 @@ Not yet committed at the time of this entry.
 ## Next Action
 
 Proceed to M18 – Citation Provenance Integration.
+
+---
+
+# 2026-08-09: Milestone 18 — Citation Provenance Integration
+
+## Objective
+
+Create a traceable provenance chain from citations back to acquisition pipeline assets: Fact → Citation → Asset → Asset Source → Discovery → Search Candidate.
+
+## Starting State
+
+- M0–M17 complete.
+- Citations were created from `fact_sources` rows with `source_file` strings but no FK links to `assets` or `asset_sources`.
+- `fact_sources.source_file` used `acquisition_asset_{id}` identifiers from M17 but citations had no way to JOIN back to the assets table.
+- 55 existing citations from local PDF processing.
+
+## Files Inspected
+
+- `agents/knowledge/citation_loader.py`
+- `agents/knowledge/pdf_knowledge_pipeline.py`
+- `agents/ingestion/process_acquisition_assets.py`
+- `agents/downloader/register_asset.py`
+- Live `citations`, `fact_sources`, `assets`, `asset_sources` schemas
+
+## Files Changed
+
+- `database/migrations/003_add_citation_asset_provenance.sql` — **Created.** Adds `asset_id` (FK→assets) and `asset_source_id` (FK→asset_sources) nullable columns to `citations`.
+- `agents/knowledge/citation_loader.py` — **Modified.** Added `_resolve_acquisition_provenance()` function that parses `acquisition_asset_{id}` from `source_file`, resolves `asset_id` and `asset_source_id` FKs, and includes them in the citations INSERT.
+
+## Database Changes
+
+- `citations.asset_id` — nullable integer, FK to `assets(id)`
+- `citations.asset_source_id` — nullable integer, FK to `asset_sources(id)`
+- Existing 55 citations: NULL for both columns (backward compatible)
+
+## Commands Run
+
+1. Migration applied via Python DB connection — columns created
+2. Re-run migration — idempotent
+3. `python3 -m py_compile agents/knowledge/citation_loader.py` — passed
+4. `venv/bin/python -m agents.engine.run_engine` — all 6 stages completed
+
+## Tests Performed
+
+| # | Test | Result |
+|---|---|---|
+| 1 | Migration applied | ✅ Both columns created |
+| 2 | Re-run migration (idempotent) | ✅ No errors |
+| 3 | py_compile citation_loader.py | ✅ Passed |
+| 4 | Engine: all 6 stages | ✅ Completed |
+| 5 | Citation loading | ✅ 55 sources, 0 new |
+| 6 | Existing citations preserved | ✅ 55 total, 0 with asset_id (NULL FKs) |
+| 7 | `git diff --check` | ✅ Clean |
+
+## Results
+
+- Citation provenance FKs established: `asset_id` and `asset_source_id` on the `citations` table.
+- Provenance resolved at citation creation time via `acquisition_asset_{id}` pattern matching.
+- Local PDF citations unaffected — NULL FKs for non-matching source_file values.
+- Backward compatible — all existing citations preserved with NULL provenance FKs.
+- Full provenance chain now queryable via SQL JOINs.
+
+## Documentation Updated
+
+- `docs/CURRENT_STATE.md` — M18 marked complete
+- `docs/NEXT_TASK.md` — M18 added
+- `docs/AI_HANDOFF.md` — M18 added
+- `docs/SESSION_LOG.md` — This entry
+- `docs/DEVLOG.md` — M18 lessons (4 entries)
+- `CHANGELOG.md` — M18 added
+
+## Git Commit
+
+Not yet committed at the time of this entry.
+
+## Remaining Issues
+
+- No acquisition PDF assets exist to demonstrate populated FKs (all current assets are HTML) — provenance will be populated when a real PDF enters the pipeline.
+- AI analysis is still mock data (M19).
+- Specialist processors (photo, blueprint, video) are still placeholders (M20–M21).
+- Verification treats multi-page single-document sources as independent (M22).
+- Timeline is year-only (M23).
+
+## Next Action
+
+Proceed to M19 – AI-Assisted Metadata Processing.

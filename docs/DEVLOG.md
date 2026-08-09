@@ -15,6 +15,7 @@ Completed:
 - M15
 - M16
 - M17
+- M18
 
 Major lessons:
 - M6 audit discovered an M5 regression (unqualified import in `main.py`). The regression was repaired as part of M6 implementation.
@@ -63,6 +64,9 @@ Major lessons:
 - M17: All 7 current acquisition assets are HTML (Wikimedia Commons file pages), not PDF — so the M17 integration reports 0 eligible PDF assets but the code path is verified working. A genuine PDF download through the acquisition pipeline would be automatically picked up and processed.
 - M17: Provenance is preserved through explicit `source_file` identifiers (`acquisition_asset_{id}`), passed into `process_pdf()` as the `source_file` parameter. This allows `fact_sources` records to be traced back to the `assets` table and the full acquisition provenance chain.
 - M17: The local PDF ingestion test harness (`process_all_pdfs()`) is preserved as STEP 1b, after the acquisition asset step (STEP 1a). This means `run_engine.py` now processes both acquisition pipeline assets and locally placed test PDFs in a single run.
+- M18: Citation provenance is now populated at creation time — `citation_loader.py` parses `acquisition_asset_{id}` from `fact_sources.source_file` using the regex `^acquisition_asset_(\d+)$`, resolves `asset_id` directly and `asset_source_id` from the most recent `asset_sources` row. Local PDF source files (e.g., `WTCI-000721-L.PDF`) don't match the pattern and get NULL FKs — fully backward compatible.
+- M18: The `asset_source_id` FK resolves to the most recent retrieval event (`ORDER BY retrieved_at DESC LIMIT 1`) — this is correct because citations are created during the same engine run that processed the asset, so the most recent retrieval event is the one that produced the facts.
+- M18: The citations table unique constraint `(fact_id, source_file, source_page, citation_type)` does not include `asset_id` or `asset_source_id` — this preserves idempotency. The provenance columns are metadata that don't affect deduplication.
 
 ## 2026-08-08
 

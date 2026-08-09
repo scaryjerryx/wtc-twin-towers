@@ -319,6 +319,7 @@ Do not create a competing acquisition subsystem.
 - ✅ **M15 – Orchestrator repair** — Complete. `agents/run_pipeline.py` rewritten to use `sys.executable -m` package-safe invocation across 6 automated stages: source seeding, search generation, candidate discovery, queue creation, downloader, and metadata processing. `agents/metadata/mock_analyze.py` repaired with package-safe imports. Manual promotion remains a human-in-the-loop step outside orchestration. Legacy invocation patterns (`python agents/X/Y.py`) and legacy script references removed. Full orchestrator run verified: all 6 stages idempotent, exit code 0.
 - ✅ **M16 – Knowledge platform import repair** — Complete. All 20 files across `agents/knowledge/`, `agents/timeline/`, `agents/verification/`, `agents/metadata/`, `agents/search/`, `agents/engine/`, and `agents/router/` repaired. Every file now uses the shared `agents.discovery.database.get_db_connection()` instead of inline `psycopg2.connect()`. Module-level connection patterns replaced with `main()` functions. Import paths fixed in `route_asset.py` and `vision_analyze.py`. Engine and health report verified: no import errors, zero remaining `psycopg2.connect()` calls in repaired directories.
 - ✅ **M17 – Acquisition → Knowledge Pipeline Integration** — Complete. `agents/ingestion/process_acquisition_assets.py` created to query acquisition assets with PDF content type, download from R2, and process through the PDF knowledge pipeline with explicit `source_file` provenance identifiers (`acquisition_asset_{id}`). `agents/engine/run_engine.py` updated with STEP 1a for acquisition assets, retaining STEP 1b for local PDF ingestion. `agents/knowledge/pdf_knowledge_pipeline.py` updated to accept optional `source_file` parameter. Engine verified: 3 acquisition assets detected, 0 eligible (all HTML content type), all 6 stages completed without import errors. No schema changes.
+- ✅ **M18 – Citation Provenance Integration** — Complete. `citations.asset_id` (nullable FK→assets) and `citations.asset_source_id` (nullable FK→asset_sources) columns added. `citation_loader.py` updated with `_resolve_acquisition_provenance()` function that parses `acquisition_asset_{id}` source_file identifiers, resolves `asset_id` and `asset_source_id` at citation creation time, and inserts provenance FKs directly into the citations INSERT. Migration file: `database/migrations/003_add_citation_asset_provenance.sql`. Engine verified: 55 existing citations preserved with NULL FKs, backward compatible. Provenance chain established: Fact → Citation → Asset → Asset Source → Discovery → Search Candidate.
 
 The intended flow is:
 
@@ -438,9 +439,9 @@ This source document is test evidence and should not be committed to Git.
 
 ## Immediate Next Milestone
 
-Phase 1 (M0–M15), Phase 2.1 (M16), and Phase 2.2 (M17) are complete. The acquisition pipeline and knowledge engine are now connected, processed through a unified engine entry point with preserved provenance.
+Phase 1 (M0–M15) and Phase 2 (M16–M18) are complete. The acquisition pipeline, knowledge engine, and citation provenance are now integrated into a unified, traceable system.
 
-The next priority is citation provenance integration (M18), followed by AI-assisted metadata processing (M19), asset classification and routing (M20), specialist processor implementation (M21), independent-source verification (M22), and timeline event modeling (M23).
+The next priority is AI-assisted metadata processing (M19), followed by asset classification and routing (M20), specialist processor implementation (M21), independent-source verification (M22), and timeline event modeling (M23).
 
 ## Current Development Rule
 

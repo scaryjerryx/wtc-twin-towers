@@ -1,3 +1,5 @@
+import re
+
 from agents.discovery.database import get_db_connection
 
 
@@ -67,6 +69,30 @@ def ensure_citations_table(cur):
     )
 
 
+def _resolve_acquisition_provenance(cur, source_file):
+    """Parse acquisition_asset_{id} pattern and resolve provenance FKs.
+
+    Returns (asset_id, asset_source_id) or (None, None) for non-acquisition
+    source files (local PDFs, etc.).
+    """
+    match = re.match(r"^acquisition_asset_(\d+)$", source_file)
+    if match is None:
+        return None, None
+
+    asset_id = int(match.group(1))
+
+    # Find the most recent retrieval event for this asset
+    cur.execute(
+        "SELECT id FROM asset_sources WHERE asset_id = %s "
+        "ORDER BY retrieved_at DESC LIMIT 1",
+        (asset_id,),
+    )
+    row = cur.fetchone()
+    asset_source_id = row[0] if row else None
+
+    return asset_id, asset_source_id
+
+
 def load_citations():
 
     conn = get_db_connection()
@@ -102,6 +128,12 @@ def load_citations():
         source_page = row[2]
         confidence = row[3]
 
+        # Resolve acquisition provenance from source_file identifier
+        asset_id, asset_source_id = _resolve_acquisition_provenance(
+            cur,
+            source_file,
+        )
+
         cur.execute(
             """
             INSERT INTO citations
@@ -110,10 +142,14 @@ def load_citations():
                 source_file,
                 source_page,
                 confidence,
-                citation_type
+                citation_type,
+                asset_id,
+                asset_source_id
             )
             VALUES
             (
+                %s,
+                %s,
                 %s,
                 %s,
                 %s,
@@ -134,7 +170,9 @@ def load_citations():
                 source_file,
                 source_page,
                 confidence,
-                "fact_source"
+                "fact_source",
+                asset_id,
+                asset_source_id,
             )
         )
 
