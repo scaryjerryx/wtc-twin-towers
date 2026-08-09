@@ -10,10 +10,10 @@ All notable changes to this project will be documented in this file.
 
 - M6 – Source Seeding Repair
 - M7 – Search Request Generation
+- M8 – Controlled Source Search
 
 ### Planned
 
-- M8 – Controlled Source Search
 - M9 – Human Review & Promotion
 - M10 – Discovery Queue Repair
 - M11 – Downloader Schema Additions

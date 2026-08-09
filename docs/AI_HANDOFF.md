@@ -465,7 +465,8 @@ The authoritative task definition is:
 - ✅ **M5 – Package/import repair** — Complete. An M5 regression (unqualified import in `main.py`) was discovered during the M6 audit and repaired as part of M6 implementation.
 - ✅ **M6 – Source seeding repair** — Complete. Source seeding is now idempotent with URL upsert support, accurate per-row status reporting, module-relative path resolution, and all-or-nothing transaction safety.
 - ✅ **M7 – Search-request generation** — Complete. Search requests generated for 3 sources with verified search URL templates into `search_candidates` with `record_type = 'search_request'`. Idempotent via `ON CONFLICT DO NOTHING` backed by the M4 unique constraint. Legacy NULL `record_type` rows corrected. 4 sources deferred pending verified search URL templates. Package-safe execution verified.
-- 🔄 **M8 – Controlled source search** — Current active milestone.
+- ✅ **M8 – Controlled source search** — Complete. One controlled source search executed (Wikimedia Commons, "World Trade Center Plaza"). 20 evidence URL candidates extracted and stored in `search_candidates` with `record_type = 'evidence_candidate'`. Idempotent via `ON CONFLICT DO NOTHING` backed by the M4 unique constraint. `discoveries` and `discovery_queue` confirmed untouched. Package-safe execution verified.
+- 🔄 **M9 – Human review and manual promotion** — Current active milestone.
 
 ## Writer Role
 

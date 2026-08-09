@@ -787,3 +787,88 @@ Planned commit message:
 ## Next Action
 
 Proceed to M8 – Controlled source search.
+
+---
+
+## Session: 2026-08-09 — M8 Controlled Source Search
+
+### Objective
+
+Execute exactly one controlled source search (one approved source, one permitted search) and store returned evidence URL candidates into `search_candidates` with `record_type = 'evidence_candidate'`.
+
+### Starting State
+
+- M0–M7 complete
+- `search_candidates`: 30 `search_request` rows, 0 `evidence_candidate` rows
+- `discoveries`: 0 rows
+- `discovery_queue`: 54 rows (pre-existing)
+- `find_candidates.py`: 15-line hollow stub (print statements only)
+
+### Audit Findings
+
+- `find_candidates.py` performed no HTTP, no parsing, no database access
+- No code in the repository executed actual searches against configured sources
+- The M4 unique constraint on `(source_name, target, search_url)` and `record_type` column provided all needed schema support
+
+### Files Changed
+
+- `agents/discovery/find_candidates.py` — Complete rewrite (15 → 193 lines)
+  - Package-safe import: `from agents.discovery.database import get_db_connection`
+  - Reads one `search_request` from `search_candidates`
+  - Executes one HTTP GET with User-Agent, timeout, and status validation
+  - Parses HTML with BeautifulSoup
+  - Extracts Wikimedia Commons file page URLs via domain+path filter
+  - Inserts `evidence_candidate` rows idempotently via `ON CONFLICT DO NOTHING`
+  - Does NOT write to `discoveries` or `discovery_queue`
+
+### Database Changes
+
+- INSERT into `search_candidates` only (`record_type = 'evidence_candidate'`)
+- 20 evidence candidates inserted on first run
+- 0 inserts on second run (idempotency confirmed)
+- `discoveries`: 0 rows (confirmed untouched)
+- `discovery_queue`: 54 rows (confirmed unchanged)
+
+### Commands Run
+
+- `python -m py_compile agents/discovery/find_candidates.py` — passed
+- `python -m agents.discovery.find_candidates` — first run: 20 inserted
+- `python -m agents.discovery.find_candidates` — second run: 0 inserted, 20 already present
+- `SELECT record_type, count(*) FROM search_candidates GROUP BY record_type` — 30 search_request, 20 evidence_candidate
+- `SELECT count(*) FROM discoveries` — 0
+- `SELECT count(*) FROM discovery_queue` — 54
+
+### Results
+
+- 20 real WTC evidence candidates discovered from Wikimedia Commons
+- Candidates include historical photographs, aerial views, and architectural images
+- All candidates are Wikimedia Commons file pages with CC-compatible licensing
+- Idempotency confirmed — safe for repeated execution
+- No schema changes required
+
+### Documentation Updated
+
+- `docs/CURRENT_STATE.md`
+- `docs/NEXT_TASK.md`
+- `docs/AI_HANDOFF.md`
+- `docs/SESSION_LOG.md`
+- `docs/DEVLOG.md`
+- `CHANGELOG.md`
+
+### Git Commit
+
+Not yet committed at the time of this entry.
+
+Planned commit message:
+
+`M8: Controlled source search — 20 evidence candidates from Wikimedia Commons`
+
+### Remaining Issues
+
+- 20 evidence candidates require human review before promotion (M9)
+- `manual_promote.py` currently writes to legacy `discovered_urls` — needs rewrite for `discoveries` table (M9)
+- 4 sources still lack verified search URL templates
+
+### Next Action
+
+Proceed to M9 – Human review and manual promotion.

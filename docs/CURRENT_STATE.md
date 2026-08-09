@@ -309,7 +309,8 @@ Do not create a competing acquisition subsystem.
 - ✅ **M5 – Package/import repair** — Complete. `agents/discovery/main.py` import changed to package-qualified form. An M5 regression (unqualified import) was discovered during the M6 audit and repaired as part of M6 implementation.
 - ✅ **M6 – Source seeding repair** — Complete. Source seeding is now idempotent with URL upsert support, accurate per-row status reporting, module-relative path resolution, and all-or-nothing transaction safety. Package-safe execution verified.
 - ✅ **M7 – Search-request generation** — Complete. Search requests generated for 3 sources with verified search URL templates into `search_candidates` with `record_type = 'search_request'`. Idempotent via `ON CONFLICT DO NOTHING` backed by the M4 unique constraint. Legacy NULL `record_type` rows corrected. 4 sources deferred pending verified search URL templates. Package-safe execution verified.
-- 🔄 **M8 – Controlled source search** — Current active milestone.
+- ✅ **M8 – Controlled source search** — Complete. One controlled source search executed (Wikimedia Commons, "World Trade Center Plaza"). 20 evidence URL candidates extracted and stored in `search_candidates` with `record_type = 'evidence_candidate'`. Idempotent via `ON CONFLICT DO NOTHING` backed by the M4 unique constraint. `discoveries` and `discovery_queue` confirmed untouched. Package-safe execution verified.
+- 🔄 **M9 – Human review and manual promotion** — Current active milestone.
 
 The intended flow is:
 
@@ -429,15 +430,15 @@ This source document is test evidence and should not be committed to Git.
 
 ## Immediate Next Milestone
 
-The next milestone is M8 – Controlled source search.
+The next milestone is M9 – Human review and manual promotion.
 
-Execute exactly one controlled source search (one approved source, one permitted search) and store returned evidence URL candidates into `search_candidates` with `record_type = 'evidence_candidate'`.
+Review the 20 evidence candidates produced by M8 and manually promote approved candidates into the canonical `discoveries` table.
 
 The next milestone is complete when:
 
-1. One approved source search is executed
-2. Returned evidence URL candidates are stored with `record_type = 'evidence_candidate'`
-3. `discoveries` and `discovery_queue` remain untouched
+1. Evidence candidates from M8 are reviewed
+2. Approved candidates are promoted to `discoveries`
+3. `discovery_queue` remains untouched during promotion
 4. Package-safe execution is verified
 5. Targeted tests pass
 6. Documentation is updated

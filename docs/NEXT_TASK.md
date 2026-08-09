@@ -16,7 +16,8 @@
 - ✅ **M5 – Package/import repair** — Complete. An M5 regression (unqualified import in `main.py`) was discovered during the M6 audit and repaired as part of M6 implementation.
 - ✅ **M6 – Source seeding repair** — Complete. Source seeding is now idempotent with URL upsert support, accurate per-row status reporting, module-relative path resolution, and all-or-nothing transaction safety.
 - ✅ **M7 – Search-request generation** — Complete. Search requests generated for 3 sources with verified search URL templates into `search_candidates` with `record_type = 'search_request'`. Idempotent via `ON CONFLICT DO NOTHING` backed by the M4 unique constraint. Legacy NULL `record_type` rows corrected. 4 sources deferred pending verified search URL templates. Package-safe execution verified.
-- 🔄 **M8 – Controlled source search** — Current active milestone.
+- ✅ **M8 – Controlled source search** — Complete. One controlled source search executed (Wikimedia Commons, "World Trade Center Plaza"). 20 evidence URL candidates extracted and stored in `search_candidates` with `record_type = 'evidence_candidate'`. Idempotent via `ON CONFLICT DO NOTHING` backed by the M4 unique constraint. `discoveries` and `discovery_queue` confirmed untouched. Package-safe execution verified.
+- 🔄 **M9 – Human review and manual promotion** — Current active milestone.
 
 ## Approved M1 Architecture Decisions
 
@@ -171,8 +172,8 @@ The approved milestone order is:
 - ✅ **M5 – Package/import repair** — Complete
 - ✅ **M6 – Source seeding repair** — Complete
 - ✅ **M7 – Search-request generation** — Complete
-- 🔄 **M8 – Controlled source search** — Current
-- ⬜ **M9 – Human review and manual promotion** — Planned
+- ✅ **M8 – Controlled source search** — Complete
+- 🔄 **M9 – Human review and manual promotion** — Current
 - ⬜ **M10 – Discovery queue** — Planned
 - ⬜ **M11 – Downloader schema additions** — Planned
 - ⬜ **M12 – `asset_sources` registration + privilege grant** — Planned
@@ -213,7 +214,7 @@ Role:
 
 - Writer
 
-### M8 – Controlled Source Search (Current)
+### M8 – Controlled Source Search (Complete)
 
 Execute exactly one controlled source search (one approved source, one permitted search) and store returned evidence URL candidates.
 
