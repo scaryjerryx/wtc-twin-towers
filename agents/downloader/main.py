@@ -3,7 +3,7 @@ import requests
 import psycopg2
 
 from dotenv import load_dotenv
-from r2 import upload_file
+from agents.downloader.r2 import upload_file
 
 load_dotenv()
 

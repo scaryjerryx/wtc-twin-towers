@@ -1,4 +1,4 @@
-from r2 import upload_file
+from agents.downloader.r2 import upload_file
 
 upload_file(
     "storage/raw/3.jpg",

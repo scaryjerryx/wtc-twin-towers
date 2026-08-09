@@ -43,12 +43,7 @@ def store_entities(cur, entities):
         )
 
 
-def store_fact(
-    cur,
-    fact,
-    source_file,
-    source_page
-):
+def get_fact_id(cur, fact):
 
     cur.execute(
         """
@@ -56,15 +51,11 @@ def store_fact(
         (
             entity_id,
             fact_text,
-            confidence,
-            source_file,
-            source_page
+            confidence
         )
         VALUES
         (
             NULL,
-            %s,
-            %s,
             %s,
             %s
         )
@@ -73,9 +64,62 @@ def store_fact(
         """,
         (
             fact,
-            75,
+            75
+        )
+    )
+
+    cur.execute(
+        """
+        SELECT id
+        FROM facts
+        WHERE fact_text = %s
+        """,
+        (
+            fact,
+        )
+    )
+
+    row = cur.fetchone()
+
+    return row[0]
+
+
+def store_fact_source(
+    cur,
+    fact_id,
+    source_file,
+    source_page
+):
+
+    cur.execute(
+        """
+        INSERT INTO fact_sources
+        (
+            fact_id,
+            source_file,
+            source_page,
+            confidence
+        )
+        VALUES
+        (
+            %s,
+            %s,
+            %s,
+            %s
+        )
+        ON CONFLICT
+        (
+            fact_id,
             source_file,
             source_page
+        )
+        DO NOTHING
+        """,
+        (
+            fact_id,
+            source_file,
+            source_page,
+            75
         )
     )
 
@@ -111,16 +155,16 @@ def process_pdf(pdf_path):
         page_number = page_data["page"]
         text = page_data["text"]
 
+        print(
+            f"Processing page {page_number}"
+        )
+
         entities = extract_entities(
             text
         )
 
         facts = clean_facts(
             extract_facts(text)
-        )
-
-        print(
-            f"Processing page {page_number}"
         )
 
         for entity in entities:
@@ -130,9 +174,14 @@ def process_pdf(pdf_path):
 
             all_facts.add(fact)
 
-            store_fact(
+            fact_id = get_fact_id(
                 cur,
-                fact,
+                fact
+            )
+
+            store_fact_source(
+                cur,
+                fact_id,
                 source_file,
                 page_number
             )

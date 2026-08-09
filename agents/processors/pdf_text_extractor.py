@@ -1,7 +1,9 @@
 from PyPDF2 import PdfReader
+from pdf2image import convert_from_path
+import pytesseract
 
 
-def extract_text(pdf_path):
+def extract_with_pypdf2(pdf_path):
 
     reader = PdfReader(pdf_path)
 
@@ -15,3 +17,86 @@ def extract_text(pdf_path):
             all_text.append(text)
 
     return "\n".join(all_text)
+
+
+def extract_with_ocr(pdf_path):
+
+    pages = convert_from_path(
+        pdf_path,
+        dpi=300
+    )
+
+    all_text = []
+
+    for page_number, image in enumerate(
+        pages,
+        start=1
+    ):
+
+        print(
+            f"OCR page {page_number}/{len(pages)}"
+        )
+
+        text = pytesseract.image_to_string(
+            image
+        )
+
+        if text:
+            all_text.append(text)
+
+    return "\n".join(all_text)
+
+
+def extract_pages(pdf_path):
+
+    pages = convert_from_path(
+        pdf_path,
+        dpi=300
+    )
+
+    results = []
+
+    for page_number, image in enumerate(
+        pages,
+        start=1
+    ):
+
+        print(
+            f"OCR page {page_number}/{len(pages)}"
+        )
+
+        text = pytesseract.image_to_string(
+            image
+        )
+
+        results.append(
+            {
+                "page": page_number,
+                "text": text
+            }
+        )
+
+    return results
+
+
+def extract_text(pdf_path):
+
+    text = extract_with_pypdf2(
+        pdf_path
+    )
+
+    if len(text.strip()) > 100:
+
+        print(
+            "Using embedded PDF text"
+        )
+
+        return text
+
+    print(
+        "No embedded text found. Switching to OCR..."
+    )
+
+    return extract_with_ocr(
+        pdf_path
+    )
