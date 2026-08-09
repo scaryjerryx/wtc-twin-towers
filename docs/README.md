@@ -217,9 +217,9 @@ Use `CURRENT_STATE.md` and `NEXT_TASK.md` for current information.
 
 ## Current Status
 
-The acquisition pipeline repair phase (M0–M15) is **complete**.
+### Phase 1 — Foundation & Acquisition Pipeline ✅ Complete
 
-All 16 milestones have been implemented, tested, and verified end-to-end. The automated evidence acquisition pipeline is operational under a single orchestrator entry point.
+All 16 milestones (M0–M15) are complete. The automated evidence acquisition pipeline is operational.
 
 | Milestone | Purpose | Status |
 |---|---|---|
@@ -240,7 +240,22 @@ All 16 milestones have been implemented, tested, and verified end-to-end. The au
 | M14 | Controlled end-to-end test | ✅ |
 | M15 | Orchestrator repair | ✅ |
 
-## Completed Acquisition Pipeline
+### Phase 2 — Knowledge Platform Integration ✅ Complete
+
+All 8 milestones (M16–M23) are complete. The acquisition pipeline is integrated with the knowledge engine.
+
+| Milestone | Purpose | Status |
+|---|---|---|
+| M16 | Knowledge platform import repair | ✅ |
+| M17 | Acquisition → knowledge integration | ✅ |
+| M18 | Citation provenance integration | ✅ |
+| M19 | AI-assisted metadata processing | ✅ |
+| M20 | Asset classification & routing | ✅ |
+| M21 | Photo processing (OCR + AI) | ✅ |
+| M22 | Independent-source verification | ✅ |
+| M23 | Timeline event model | ✅ |
+
+### Completed Architecture
 
 ```
 Sources (sources.json)
@@ -263,49 +278,57 @@ Asset Registration (assets table)
     ↓
 Provenance Tracking (asset_sources table)
     ↓
-Metadata Processing (agents.metadata.mock_analyze)
+AI Metadata Processing (agents.metadata.ai_analyze)
+    ↓
+Knowledge Engine (agents.engine.run_engine)
+    ├── STEP 1a: Acquisition Asset Processing
+    ├── STEP 1b: Local PDF Ingestion
+    ├── STEP 2: Citation Loading
+    ├── STEP 3: Independent-Source Verification
+    ├── STEP 4: Relationship Building
+    ├── STEP 5: Timeline Building
+    └── STEP 6: Knowledge Graph Build (AI → entities/facts)
 ```
-
-## Completed Foundation
-
-The M0–M15 phase established:
-
-- **7 configured evidence sources** with idempotent seeding
-- **30 search requests** generated across 3 verified sources
-- **20 real WTC evidence candidates** discovered from Wikimedia Commons
-- **3 discovery records** promoted through human review
-- **3 downloads** with SHA-256 hashing and content-type detection
-- **7 asset records** with provenance tracking
-- **9 metadata_queue entries** for processing handoff
-- **1 writer role** (`wtc_writer`) with least-privilege grants
-- **2 database migrations** (M4, M11-M12) applied idempotently
-- **1 orchestrator** (`agents.run_pipeline`) connecting all automated stages
 
 ### Verified Capabilities
 
 | Capability | Status |
 |---|---|
 | Package-safe Python invocation (`python -m`) | ✅ |
-| Idempotent stage execution (all 6 stages) | ✅ |
+| Idempotent stage execution (all stages) | ✅ |
+| Evidence discovery (Wikimedia Commons) | ✅ |
 | Queue lifecycle (pending → in_progress → completed) | ✅ |
 | SHA-256 file deduplication | ✅ |
 | Content-type detection from HTTP headers | ✅ |
 | R2 object storage with provenance | ✅ |
 | Asset registration with source_id, file_hash, content_type | ✅ |
 | Retrieval-event provenance (asset_sources) | ✅ |
-| Metadata processing handoff (metadata_queue → ai_analysis) | ✅ |
-| Orchestrator execution (`sys.executable -m`) | ✅ |
-| Provenance chain traceability (candidate → discovery → queue → asset → provenance → metadata) | ✅ |
+| AI metadata analysis (OpenRouter) | ✅ |
+| Photo OCR (Tesseract + AI description) | ✅ |
+| Knowledge extraction (entities, facts) | ✅ |
+| Fact cleaning and validation | ✅ |
+| Citation loading with asset provenance | ✅ |
+| Independent-source verification | ✅ |
+| Relationship building (page co-occurrence) | ✅ |
+| Timeline events with provenance FKs | ✅ |
+| Provenance chain (candidate → discovery → queue → asset → provenance → fact → citation → timeline) | ✅ |
+
+### Database Foundation
+
+- 5 idempotent migrations (001–005)
+- 15+ operational tables
+- Full provenance chain via FK relationships
+- Writer role (`wtc_writer`) with least-privilege grants
 
 ## Next Phase
 
-The next development phase should address:
+Phase 3 planning is documented in the root `README.md`. Possibilities include:
 
-- Expanding evidence acquisition beyond the controlled three-candidate test
-- Integrating the acquisition pipeline with the knowledge engine (`agents.engine.run_engine`)
-- Classification and routing of downloaded assets
-- Real AI analysis integration (replacing mock metadata analysis)
-- Source-specific archive connectors and search URL templates for the 4 deferred sources
+- Specialist processors (blueprint, video, audio)
+- Additional evidence sources
+- API layer and Evidence Explorer frontend
+- Spatial hierarchy modelling
+- Digital twin foundations
 
 The complete implementation instructions are maintained in:
 
@@ -317,7 +340,7 @@ The complete implementation instructions are maintained in:
 
 The external workflow that discovers, downloads, validates, deduplicates, stores, registers, and queues historical evidence.
 
-This remains the current active priority.
+This is operational and verified end-to-end.
 
 ### Automated Local PDF Processing
 
@@ -333,19 +356,22 @@ This is not the finished evidence-gathering workflow.
 
 The traceable link between knowledge and its original evidence.
 
-Current fact provenance uses:
+Current provenance chain:
 
-Facts
-↓
-Fact Sources
-↓
-Citations
+```
+Timeline Event → Fact → Fact Source → Asset → Asset Source → Discovery → Search Candidate
+                    ↓              ↓
+                Citation ← Citation.asset_id
+```
 
 ### Verification
 
-The process of evaluating support for a claim.
+The process of evaluating support for a claim using independent-source counting.
 
-Current source-count scoring is an operational first version and does not yet measure independent evidence fully.
+Post-M22 verification model:
+- Counts distinct independent sources per fact (not fact_sources rows)
+- Composite key: `asset:{id}` for acquisition assets, `file:{source_file}` for local PDFs
+- Scoring: 0 sources → claim (50), 1 → supported (70), 2 → well_supported (85), 3+ → verified (95)
 
 ### Digital Twin
 

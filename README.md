@@ -35,58 +35,91 @@ Discovery
         ↓
 Acquisition
         ↓
-Processing
+Assets & Provenance
         ↓
-Evidence & Knowledge Graph
+AI Analysis
+        ↓
+OCR & Text Extraction
+        ↓
+Knowledge Extraction (Entities, Facts)
+        ↓
+Citations
+        ↓
+Independent-Source Verification
+        ↓
+Relationships
+        ↓
+Timeline Events
         ↓
 Evidence-Backed Digital Twin
 ```
-
-The platform is being developed to support:
-
-- Automated evidence discovery
-- Source validation
-- Historical document processing
-- Image processing
-- OCR and text extraction
-- Citation generation
-- Fact extraction
-- Entity extraction
-- Provenance tracking
-- Relationship analysis
-- Knowledge graph construction
-- Evidence-backed reconstruction workflows
 
 ---
 
 ## Current Status
 
-### Acquisition Pipeline Phase — Complete
+### Phase 1 — Foundation & Acquisition Pipeline ✅ Complete
 
-All 16 foundation and acquisition pipeline milestones (M0–M15) have been implemented, tested, and verified end-to-end.
+All 16 foundation and acquisition pipeline milestones (M0–M15) are complete. The automated evidence acquisition pipeline is operational under a single orchestrator entry point.
 
-The automated evidence acquisition pipeline is operational under a single orchestrator entry point.
+| Milestone | Purpose | Status |
+|---|---|---|
+| M0 | Pre-flight backup | ✅ |
+| M1 | Architecture decisions | ✅ |
+| M2 | Source-registry reconciliation | ✅ |
+| M3 | Limited writer role | ✅ |
+| M4 | First schema migration | ✅ |
+| M5 | Package/import repair | ✅ |
+| M6 | Source seeding repair | ✅ |
+| M7 | Search-request generation | ✅ |
+| M8 | Controlled source search | ✅ |
+| M9 | Human review & manual promotion | ✅ |
+| M10 | Discovery queue repair | ✅ |
+| M11 | Downloader schema additions | ✅ |
+| M12 | Asset registration & provenance | ✅ |
+| M13 | Downloader repair & R2 integration | ✅ |
+| M14 | Controlled end-to-end test | ✅ |
+| M15 | Orchestrator repair | ✅ |
 
-| Milestone | Purpose |
+### Phase 2 — Knowledge Platform Integration ✅ Complete
+
+All 8 knowledge platform milestones (M16–M23) are complete. The acquisition pipeline is integrated with the knowledge engine, AI metadata processing, independent-source verification, and persistent timeline events.
+
+| Milestone | Purpose | Status |
+|---|---|---|
+| M16 | Knowledge platform import repair | ✅ |
+| M17 | Acquisition → knowledge integration | ✅ |
+| M18 | Citation provenance integration | ✅ |
+| M19 | AI-assisted metadata processing | ✅ |
+| M20 | Asset classification & routing | ✅ |
+| M21 | Photo processing (OCR + AI) | ✅ |
+| M22 | Independent-source verification | ✅ |
+| M23 | Timeline event model | ✅ |
+
+### Verified Capabilities
+
+| Capability | Status |
 |---|---|
-| M0 | Pre-flight backup |
-| M1 | Architecture decisions |
-| M2 | Source-registry reconciliation |
-| M3 | Limited writer role |
-| M4 | First schema migration |
-| M5 | Package/import repair |
-| M6 | Source seeding repair |
-| M7 | Search-request generation |
-| M8 | Controlled source search |
-| M9 | Human review & manual promotion |
-| M10 | Discovery queue repair |
-| M11 | Downloader schema additions |
-| M12 | Asset registration & provenance |
-| M13 | Downloader repair & R2 integration |
-| M14 | Controlled end-to-end test |
-| M15 | Orchestrator repair |
+| Package-safe Python invocation (`python -m`) | ✅ |
+| Idempotent stage execution (all stages) | ✅ |
+| Evidence discovery (Wikimedia Commons) | ✅ |
+| Queue lifecycle (pending → in_progress → completed) | ✅ |
+| SHA-256 file deduplication | ✅ |
+| Content-type detection from HTTP headers | ✅ |
+| R2 object storage with provenance | ✅ |
+| Asset registration with source_id, file_hash, content_type | ✅ |
+| Retrieval-event provenance (asset_sources table) | ✅ |
+| AI metadata analysis (OpenRouter) | ✅ |
+| Photo OCR (Tesseract + AI description) | ✅ |
+| Knowledge extraction (entities, facts) | ✅ |
+| Fact cleaning and validation | ✅ |
+| Citation loading with asset provenance | ✅ |
+| Independent-source verification | ✅ |
+| Relationship building (page co-occurrence) | ✅ |
+| Timeline events with provenance FKs | ✅ |
+| Provenance chain (candidate → discovery → queue → asset → provenance → fact → citation → timeline) | ✅ |
 
-### Verified Acquisition Pipeline
+### Architecture Diagram
 
 ```text
 Sources (sources.json)
@@ -109,159 +142,95 @@ Asset Registration (assets table)
     ↓
 Provenance Tracking (asset_sources table)
     ↓
-Metadata Processing (agents.metadata.mock_analyze)
+AI Metadata Processing (agents.metadata.ai_analyze)
+    ↓
+Knowledge Engine (agents.engine.run_engine)
+    ├── STEP 1a: Acquisition Asset Processing
+    ├── STEP 1b: Local PDF Ingestion
+    ├── STEP 2: Citation Loading
+    ├── STEP 3: Independent-Source Verification
+    ├── STEP 4: Relationship Building
+    ├── STEP 5: Timeline Building
+    └── STEP 6: Knowledge Graph Build (AI → entities/facts)
 ```
 
-### What Has Been Verified
-
-| Capability | Status |
-|---|---|
-| Package-safe Python invocation (`python -m`) | ✅ |
-| Idempotent stage execution (all 6 automated stages) | ✅ |
-| Queue lifecycle (pending → in_progress → completed) | ✅ |
-| SHA-256 file deduplication | ✅ |
-| Content-type detection from HTTP headers | ✅ |
-| R2 object storage with provenance | ✅ |
-| Asset registration with source_id, file_hash, content_type | ✅ |
-| Retrieval-event provenance (asset_sources table) | ✅ |
-| Metadata processing handoff (metadata_queue → ai_analysis) | ✅ |
-| Orchestrator execution (`sys.executable -m`) | ✅ |
-| Provenance chain traceability (candidate → discovery → queue → asset → provenance → metadata) | ✅ |
-
 ---
 
-## Roadmap
+## Phase 3 Planning
 
-### Foundation & Acquisition Pipeline
+The following capabilities are under consideration for Phase 3. This is not a committed roadmap.
 
-✅ M0 – M15 Complete
+### Specialist Processors
+- Blueprint processing (drawing numbers, revision tracking)
+- Video processing (keyframe extraction, timestamp citations)
+- Audio processing (transcription, timestamp citations)
+- Route invocation (wiring `route_asset()` into the engine pipeline)
 
-All 16 foundation and acquisition pipeline milestones are complete. See the Current Status section above for the full milestone table and verified capabilities.
+### Evidence Expansion
+- Additional evidence sources beyond Wikimedia Commons
+- Source-specific search URL templates for deferred sources
+- Expanded research search capabilities
 
----
+### Platform Infrastructure
+- API layer for evidence and knowledge access
+- Evidence Explorer frontend
+- Dashboard enhancements
 
-### Knowledge Platform
-
-⬜ Knowledge Extraction Improvements
-
-⬜ Evidence Graph Expansion
-
-⬜ Citation Verification Improvements
-
-⬜ Entity Resolution Enhancements
-
-⬜ Timeline Reconstruction
-
----
-
-### Digital Twin
-
-⬜ Structural Model Framework
-
-⬜ Building & Floor Hierarchies
-
-⬜ Spatial Knowledge Integration
-
-⬜ Evidence-Backed Reconstruction System
-
-⬜ Interactive Digital Twin
-
----
-
-### Long-Term Vision
-
-Create the most complete evidence-backed digital reconstruction of the original World Trade Center complex, where every major reconstruction element can be traced to supporting historical sources, citations, and provenance records.
-
-
-## Development Roadmap
-
-### Phase 1 — Evidence Acquisition Engine
-
-Build a reliable evidence acquisition pipeline capable of:
-
-- Discovery
-- Candidate generation
-- Human review
-- Downloading
-- Validation
-- Deduplication
-- Asset registration
-
-### Phase 2 — Knowledge Platform
-
-Transform acquired evidence into:
-
-- Structured facts
-- Citations
-- Relationships
-- Research tools
-- Searchable knowledge
-
-### Phase 3 — Evidence-Backed Reconstruction
-
-Generate historically grounded reconstruction assets using verified evidence and documented provenance.
-
-### Phase 4 — Explorable Digital Twin
-
-Create a navigable digital reconstruction of the original World Trade Center complex with evidence links attached to reconstruction elements.
+### Digital Twin Foundations
+- Spatial hierarchy modelling (site → building → tower → floor → zone → space)
+- Time-aware reconstruction states
+- Evidence-backed geometry and materials
+- Explorable digital twin viewer
 
 ---
 
 ## Repository Structure
 
 ```text
-agents/         Discovery, acquisition and processing agents
-dashboard/      User interfaces and tooling
-database/       Database schema and migrations
-docs/           Plans, audits, architecture and project documentation
+agents/         Discovery, acquisition, processing, and knowledge agents
+dashboard/      Web dashboard for evidence and knowledge exploration
+database/       Database schema and migrations (5 migrations)
+docs/           Plans, audits, architecture, and project documentation
 research/       Research configuration and source definitions
 scripts/        Utility scripts and maintenance tools
-storage/        Asset storage integrations
+storage/        Local asset storage (development)
 ```
 
 ---
 
 ## Technology Stack
 
-- Python
-- PostgreSQL
-- OCR Processing
-- Historical Evidence Pipelines
-- Provenance Tracking
-- Citation Loading
-- Knowledge Graph Workflows
-- Digital Twin Research
+- Python 3
+- PostgreSQL (with 5 idempotent migrations)
+- Tesseract OCR
+- OpenRouter AI (DeepSeek V4 Flash)
+- R2 Object Storage
+- Docker (PostgreSQL, pgAdmin)
 
 ---
 
 ## Documentation
 
-Key project documents:
+Key project documents in `docs/`:
 
-- Mission
-- Current State
-- Next Task
-- Architecture
-- Master Plan
-- AI Handoff
-- Session Log
+| Document | Purpose |
+|---|---|
+| `MISSION.md` | Stable project charter |
+| `EVIDENCE_STANDARDS.md` | Evidence governance rules |
+| `MASTER_PLAN.md` | Enduring end-to-end roadmap |
+| `ARCHITECTURE.md` | Current technical architecture |
+| `CURRENT_STATE.md` | Current implementation status |
+| `NEXT_TASK.md` | Single active task |
+| `AI_HANDOFF.md` | Recovery context for new AI sessions |
+| `SESSION_LOG.md` | Chronological development history |
+| `DEVLOG.md` | Public-facing development journal |
+| `KNOWN_FACTS.md` | Human-reviewed baseline claims |
+| `SOURCE_REGISTRY.md` | Known and potential evidence sources |
 
 Project development follows a structured workflow:
 
 ```text
-Audit
- ↓
-Plan
- ↓
-Review
- ↓
-Implement
- ↓
-Verify
- ↓
-Document
- ↓
-Commit
+Audit → Plan → Review → Implement → Verify → Document → Commit
 ```
 
 ---
@@ -305,6 +274,8 @@ Evidence remains the source of truth.
 
 ## Status
 
-This repository is under active development.
+This repository is under active development. Phase 1 (M0–M15) and Phase 2 (M16–M23) are complete.
+
+Current version: **0.6.0**
 
 Current branch activity reflects the ongoing construction of the World Trade Center Evidence Engine and its supporting evidence-acquisition, provenance, citation, knowledge-graph, and digital-twin systems.
