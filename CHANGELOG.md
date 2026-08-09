@@ -14,6 +14,7 @@ All notable changes to this project will be documented in this file.
 - M9 – Human Review & Manual Promotion
 - M10 – Discovery Queue Repair
 - M11 – Downloader Schema Additions
+- M12 – Asset Registration & Provenance
 
 ### Planned
 

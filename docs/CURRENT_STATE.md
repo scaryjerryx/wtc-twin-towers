@@ -313,6 +313,7 @@ Do not create a competing acquisition subsystem.
 - ✅ **M9 – Human review and manual promotion** — Complete. `manual_promote.py` rewritten to read `evidence_candidate` rows from `search_candidates` and promote approved candidates into the canonical `discoveries` table with status `'approved'`. Package-safe imports, transaction safety, command-line ID selection, and application-level idempotency (query filters to `record_type='evidence_candidate' AND status='pending'` plus SELECT-before-INSERT). `export_candidates.py` updated with `--type` filtering. `export_discoveries.py` updated to read from `discoveries`. Two candidates promoted and verified. No schema changes.
 - ✅ **M10 – Discovery queue** — Complete. `queue_discoveries.py` rewritten to read from canonical `discoveries` table and INSERT into `discovery_queue` with `discovery_id` FK populated. Idempotent via LEFT JOIN on `discovery_id` plus `ON CONFLICT(target_url) DO NOTHING`. Silent-loss bug eliminated (unconditional UPDATE replaced by RETURNING clause). Package-safe imports, transaction safety. Two discoveries queued and linkage verified. No schema changes.
 - ✅ **M11 – Downloader schema additions** — Complete. `assets.file_hash` (text, unique index) and `assets.content_type` (text) columns added. `asset_sources` table created with 8 columns (`id`, `asset_id`, `source_id`, `original_url`, `normalised_url`, `final_effective_url`, `retrieved_at`, `created_at`) plus FK constraints to `assets` and `sources`. All DDL idempotent via `IF NOT EXISTS`. Legacy rows preserved (4 assets, file_hash/content_type NULL). Migration file: `database/migrations/001_add_downloader_schema.sql`.
+- ✅ **M12 – Asset registration & provenance** — Complete. `agents/downloader/register_asset.py` created with `register_asset_source()` function inserting one row per retrieval event into `asset_sources`. Unique index `unique_asset_source_retrieval` on `(asset_id, COALESCE(source_id, -1), original_url)` provides idempotency. Writer role gained INSERT on `asset_sources` and USAGE/SELECT on `asset_sources_id_seq`. Registration tested: first call inserts, repeated call with same params is a no-op, different URL creates a new retrieval event. Migration file: `database/migrations/002_add_asset_sources_unique.sql`.
 
 The intended flow is:
 
@@ -432,18 +433,25 @@ This source document is test evidence and should not be committed to Git.
 
 ## Immediate Next Milestone
 
-The next milestone is M12 – `asset_sources` registration + privilege grant.
+The next milestone is M13 – R2 testability, then downloader implementation.
 
-Implement `asset_sources` registration (one row per retrieval event) and add its privileges to the writer role via a separately reviewed grant.
+Replace `test_r2.py` with a mocked unit test, then implement downloader hardening: hash computation, content-type detection, URL and file-hash deduplication, R2 upload, asset record creation, and metadata handoff.
 
 The next milestone is complete when:
 
-1. Registration code inserts one row per retrieval event into `asset_sources`
-2. Writer role gains INSERT on `asset_sources` and USAGE/SELECT on its sequence
-3. Targeted test confirms a single `asset_sources` row with all three URL forms and `retrieved_at`
-4. Repeated registration creates a second row (new retrieval event) only if a new retrieval occurred
-5. Documentation is updated
-6. The Git diff is reviewed
+1. Mocked R2 test replaces the live test
+2. Downloader reads from `discovery_queue` with `discovery_id`
+3. Downloader computes SHA-256 file hash
+4. Downloader detects content type
+5. URL duplicates are prevented
+6. File-hash duplicates are prevented
+7. Downloaded files are uploaded to R2
+8. Valid asset records are created with hash, content_type, and source_id
+9. `asset_sources` rows are registered via `register_asset_source()`
+10. `metadata_queue` rows are created for processing handoff
+11. Repeated download is deduplicated by hash
+12. Documentation is updated
+13. The Git diff is reviewed
 
 ## Current Development Rule
 

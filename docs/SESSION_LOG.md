@@ -1141,3 +1141,110 @@ M11 – Downloader Schema Additions
 ### Next Action
 
 Proceed to M12 – `asset_sources` registration + privilege grant.
+
+---
+
+# 2026-08-09: Milestone 12 — Asset Registration & Provenance
+
+## Objective
+
+Implement `asset_sources` registration (one row per retrieval event) with idempotency, add writer-role privileges on `asset_sources` and its sequence, and verify provenance tracking.
+
+## Starting State
+
+- M0–M11 complete.
+- `asset_sources` table existed with 8 columns (M11), 0 rows.
+- Writer role had no grants on `asset_sources` or `asset_sources_id_seq`.
+- No code wrote to `asset_sources`.
+- 4 legacy assets existed, all with NULL `file_hash`, `content_type`, and `source_id`.
+- 2 approved discoveries existed, 2 queue rows with `discovery_id` populated.
+
+## Files Inspected
+
+- `database/migrations/001_add_downloader_schema.sql` — M11 schema reference
+- `agents/downloader/main.py` — current downloader behaviour (no asset_sources, no hash, inline DB connection)
+- `agents/downloader/r2.py` — R2 upload utility
+- `agents/discovery/database.py` — shared DB connection helper
+- `agents/discovery/queue_discoveries.py` — queue behaviour reference
+- Live `assets`, `asset_sources`, `discovery_queue`, `discoveries`, `sources` tables
+- Live `wtc_writer` role grants
+
+## Files Changed
+
+- `agents/downloader/register_asset.py` — Created. Provides `register_asset_source()` with package-safe import, transaction safety, and idempotency via unique constraint.
+- `database/migrations/002_add_asset_sources_unique.sql` — Created. Adds `UNIQUE INDEX unique_asset_source_retrieval ON asset_sources(asset_id, COALESCE(source_id, -1), original_url)`.
+
+## Database Changes
+
+- Unique index `unique_asset_source_retrieval` created (idempotent, re-run skipped).
+- `GRANT INSERT ON asset_sources TO wtc_writer`.
+- `GRANT USAGE, SELECT ON SEQUENCE asset_sources_id_seq TO wtc_writer`.
+- 2 test `asset_sources` rows inserted (ids 1 and 3).
+
+## Commands Run
+
+1. `python3 -m py_compile agents/downloader/register_asset.py` — passed
+2. Migration applied via `psql` — index created, re-run idempotent
+3. Grants applied via `psql` — verified via `information_schema`
+4. `venv/bin/python -m agents.downloader.register_asset 1 4 "URL-1"` — inserted id=1
+5. `venv/bin/python -m agents.downloader.register_asset 1 4 "URL-1"` — "Already registered" (idempotent)
+6. `venv/bin/python -m agents.downloader.register_asset 1 4 "URL-2"` — inserted id=3 (new retrieval event)
+7. Database verification: 2 rows, all URL forms populated, distinct `retrieved_at` timestamps
+
+## Tests Performed
+
+| # | Test | Result |
+|---|---|---|
+| 1 | Syntax check `register_asset.py` | ✅ Passed |
+| 2 | Migration applied (unique index created) | ✅ Created |
+| 3 | Migration re-run (idempotency) | ✅ "already exists, skipping" |
+| 4 | Writer role INSERT grant on `asset_sources` | ✅ Verified |
+| 5 | Writer role USAGE grant on `asset_sources_id_seq` | ✅ Verified |
+| 6 | First registration (asset=1, source=4, URL-1) | ✅ `asset_sources.id=1` |
+| 7 | Idempotent re-call (same params) | ✅ "Already registered", no duplicate |
+| 8 | Different URL (asset=1, source=4, URL-2) | ✅ `asset_sources.id=3`, second retrieval event |
+| 9 | All three URL forms populated | ✅ All non-NULL |
+| 10 | `retrieved_at` timestamps distinct | ✅ Two different timestamps |
+| 11 | `git diff --check` | ✅ No whitespace errors |
+
+## Results
+
+- `register_asset_source()` successfully inserts one row per unique retrieval event.
+- Idempotency confirmed: repeated calls with same parameters are safe no-ops.
+- New URL creates a new row (separate retrieval event).
+- Writer role now has INSERT on `asset_sources` and USAGE/SELECT on `asset_sources_id_seq`.
+- Provenance tracking verified: all three URL forms and `retrieved_at` preserved.
+
+## Decisions
+
+- Unique constraint key: `(asset_id, COALESCE(source_id, -1), original_url)` — `asset_id` changes when content changes (different hash → different asset), so a genuinely new retrieval event with different content automatically produces a new row. The `retrieved_at` column records the timestamp without being part of the key (avoiding sub-second idempotency failures).
+- Registration function reuses `agents.discovery.database.get_db_connection()` — no connection-code duplication.
+- Registration function accepts all three URL forms plus explicit `retrieved_at`; unique constraint covers only the identification fields.
+
+## Documentation Updated
+
+- `docs/CURRENT_STATE.md`
+- `docs/NEXT_TASK.md`
+- `docs/AI_HANDOFF.md`
+- `docs/SESSION_LOG.md` — This entry.
+- `docs/DEVLOG.md`
+- `CHANGELOG.md`
+
+## Git Commit
+
+Not yet committed at the time of this entry.
+
+Planned commit message:
+
+`M12: Asset registration & provenance — idempotent asset_sources registration with writer-role grants`
+
+## Remaining Issues
+
+- Downloader (`agents/downloader/main.py`) does not compute `file_hash`, detect `content_type`, use `discovery_id`, or call `register_asset_source()` (M13 concern).
+- Downloader has its own inline DB connection instead of reusing `agents.discovery.database` (M13 concern).
+- 4 legacy assets have NULL `file_hash`, `content_type`, and `source_id`.
+- `test_r2.py` performs live R2 operations — needs mocked test (M13 concern).
+
+## Next Action
+
+Proceed to M13 – R2 testability, then downloader implementation.

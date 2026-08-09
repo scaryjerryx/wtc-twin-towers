@@ -469,7 +469,8 @@ The authoritative task definition is:
 - ✅ **M9 – Human review and manual promotion** — Complete. `manual_promote.py` rewritten to read `evidence_candidate` rows from `search_candidates` and promote approved candidates into the canonical `discoveries` table with status `'approved'`. Package-safe imports, transaction safety, command-line ID selection, and application-level idempotency. `export_candidates.py` updated with `--type` filtering. `export_discoveries.py` updated to read from `discoveries`. Two candidates promoted and verified. No schema changes.
 - ✅ **M10 – Discovery queue** — Complete. `queue_discoveries.py` rewritten to read from canonical `discoveries` table and INSERT into `discovery_queue` with `discovery_id` FK populated. Idempotent via LEFT JOIN on `discovery_id` plus `ON CONFLICT(target_url) DO NOTHING`. Silent-loss bug eliminated. Two discoveries queued; discovery-to-queue linkage verified. No schema changes. 54 legacy queue rows preserved untouched.
 - ✅ **M11 – Downloader schema additions** — Complete. `assets.file_hash` (text, unique index) and `assets.content_type` (text) columns added. `asset_sources` table created with 8 columns plus FK constraints to `assets` and `sources`. All DDL idempotent via `IF NOT EXISTS`; rerun confirmed no-op. Legacy rows preserved. Migration: `database/migrations/001_add_downloader_schema.sql`.
-- 🔄 **M12 – `asset_sources` registration + privilege grant** — Current active milestone.
+- ✅ **M12 – `asset_sources` registration + privilege grant** — Complete. `agents/downloader/register_asset.py` created; idempotent via unique constraint. Writer role granted INSERT on `asset_sources` and USAGE/SELECT on `asset_sources_id_seq`. Migration: `database/migrations/002_add_asset_sources_unique.sql`.
+- 🔄 **M13 – R2 testability, then downloader implementation** — Current active milestone.
 
 ## Writer Role
 
@@ -477,11 +478,10 @@ The `wtc_writer` role exists in `wtc_evidence` with:
 
 - `LOGIN NOSUPERUSER NOCREATEDB NOCREATEROLE INHERIT NOREPLICATION`
 - `USAGE ON SCHEMA public`
-- `INSERT` on `sources`, `search_candidates`, `discoveries`, `assets`, `metadata_queue`
+- `INSERT` on `sources`, `search_candidates`, `discoveries`, `assets`, `metadata_queue`, `asset_sources`
 - `INSERT, UPDATE` on `discovery_queue`
-- `USAGE, SELECT` on `sources_id_seq`, `search_candidates_id_seq`, `discoveries_id_seq`, `discovery_queue_id_seq`, `assets_id_seq`, `metadata_queue_id_seq`
+- `USAGE, SELECT` on `sources_id_seq`, `search_candidates_id_seq`, `discoveries_id_seq`, `discovery_queue_id_seq`, `assets_id_seq`, `metadata_queue_id_seq`, `asset_sources_id_seq`
 - No DELETE, no DDL, no ownership, no superuser, no default privileges
-- No `asset_sources` grants (deferred to M12)
 
 Credentials are stored in `.secrets/wtc_writer.env` (not committed to Git).
 

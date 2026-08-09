@@ -9,6 +9,7 @@ Completed:
 - M9
 - M10
 - M11
+- M12
 
 Major lessons:
 - M6 audit discovered an M5 regression (unqualified import in `main.py`). The regression was repaired as part of M6 implementation.
@@ -36,6 +37,9 @@ Major lessons:
 - M11: `asset_sources.asset_id` is NOT NULL with FK — every retrieval event must reference an asset. `asset_sources.source_id` is nullable, matching the existing `assets.source_id → sources(id)` pattern.
 - M11: `asset_sources` idempotency key and writer-role grants are deferred to M12 — M11 is schema only.
 - M11: The migration file is in a dedicated `database/migrations/` directory, following operator feedback to keep migrations as separate SQL files rather than inline DDL in Python.
+- M12: `asset_sources` unique constraint `(asset_id, COALESCE(source_id, -1), original_url)` naturally encodes retrieval-event identity — `asset_id` changes when content changes (different hash → different asset), so a genuinely new retrieval event with different content produces a new row automatically. This resolves the tension between "one row per retrieval event" and idempotency without requiring `retrieved_at` in the key (which would break idempotency due to sub-second timestamp differences).
+- M12: The `register_asset_source()` function accepts all three URL forms (`original_url`, `normalised_url`, `final_effective_url`) plus explicit `retrieved_at`, but the unique constraint only covers `(asset_id, source_id, original_url)` — the other fields are preserved as metadata but don't affect idempotency.
+- M12: Reusing `agents.discovery.database.get_db_connection()` avoids connection-code duplication between discovery and downloader — future milestones should continue this pattern rather than creating per-module inline connections.
 
 ## 2026-08-08
 
