@@ -1,67 +1,94 @@
-import os
-import psycopg2
+"""M10 – Discovery Queue.
 
-from dotenv import load_dotenv
+Read approved discoveries from the canonical discoveries table and queue
+them into discovery_queue for the downloader, linking via discovery_id.
 
-load_dotenv()
+Usage:
+    python -m agents.discovery.queue_discoveries
 
-conn = psycopg2.connect(
-    host="localhost",
-    dbname=os.getenv("POSTGRES_DB"),
-    user=os.getenv("POSTGRES_USER"),
-    password=os.getenv("POSTGRES_PASSWORD")
-)
+Idempotency:
+    - LEFT JOIN on discovery_id ensures already-queued discoveries are excluded
+    - ON CONFLICT (target_url) DO NOTHING prevents duplicate queue rows
+    - No boolean flag to go stale — queue membership derived from JOIN
+    - Crash-safe: re-run re-queues only discoveries still missing queue rows
+"""
 
-cur = conn.cursor()
+import sys
 
-cur.execute("""
-    SELECT
-        id,
-        source_name,
-        target,
-        discovered_url
-    FROM discovered_urls
-    WHERE queued = FALSE
-""")
+from agents.discovery.database import get_db_connection
 
-rows = cur.fetchall()
 
-for row in rows:
+def main() -> None:
+    conn = get_db_connection()
+    cur = conn.cursor()
 
-    discovery_id = row[0]
-    source_name = row[1]
-    target = row[2]
-    discovered_url = row[3]
-
-    cur.execute(
-        """
-        INSERT INTO discovery_queue
-        (
-            source_name,
-            title,
-            target_url
+    try:
+        # ---- 1. Find approved discoveries not yet queued ------------------------
+        cur.execute(
+            """
+            SELECT d.id, d.source_name, d.target, d.discovered_url
+            FROM discoveries d
+            LEFT JOIN discovery_queue dq ON d.id = dq.discovery_id
+            WHERE dq.id IS NULL
+              AND d.status = 'approved'
+            ORDER BY d.id
+            """
         )
-        VALUES
-        (%s,%s,%s)
-        ON CONFLICT (target_url)
-        DO NOTHING
-        """,
-        (
-            source_name,
-            target,
-            discovered_url
-        )
-    )
+        discoveries = cur.fetchall()
 
-    cur.execute("""
-        UPDATE discovered_urls
-        SET queued = TRUE
-        WHERE id = %s
-    """, (discovery_id,))
+        if not discoveries:
+            print("No unqueued approved discoveries found.")
+            return
 
-    print(f"Queued: {target}")
+        queued = 0
+        already_present = 0
 
-conn.commit()
+        for discovery in discoveries:
+            discovery_id, source_name, target, discovered_url = discovery
 
-cur.close()
-conn.close()
+            cur.execute(
+                """
+                INSERT INTO discovery_queue
+                    (source_name, title, target_url, discovery_id, status)
+                VALUES
+                    (%s, %s, %s, %s, 'pending')
+                ON CONFLICT (target_url) DO NOTHING
+                RETURNING id
+                """,
+                (source_name, target, discovered_url, discovery_id),
+            )
+
+            if cur.fetchone() is not None:
+                queued += 1
+                print(
+                    f"Queued: [{discovery_id}] {target} → {discovered_url[:80]}"
+                )
+            else:
+                already_present += 1
+                print(
+                    f"Already present: [{discovery_id}] {target} → {discovered_url[:80]}"
+                )
+
+        conn.commit()
+
+        # ---- 2. Summary ----------------------------------------------------------
+        print()
+        print("Queue creation complete.")
+        print(f"  Queued           : {queued}")
+        print(f"  Already present  : {already_present}")
+        print(f"  Total eligible   : {len(discoveries)}")
+        print(f"  discovery_queue  : discovery_id FK populated")
+        print(f"  discovered_urls  : untouched")
+        print(f"  search_candidates: untouched")
+
+    except Exception:
+        conn.rollback()
+        raise
+
+    finally:
+        cur.close()
+        conn.close()
+
+
+if __name__ == "__main__":
+    main()

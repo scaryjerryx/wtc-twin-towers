@@ -234,7 +234,7 @@ The following components are documented or present in the repository, but their 
 - ✅ Candidate promotion
 - ✅ Manual candidate promotion
 - ✅ Discovery records
-- 🟡 Discovery queue creation
+- ✅ Discovery queue creation
 - 🟡 URL normalisation
 - 🟡 URL deduplication
 - ✅ Discovery diagnostics and exports
@@ -311,7 +311,8 @@ Do not create a competing acquisition subsystem.
 - ✅ **M7 – Search-request generation** — Complete. Search requests generated for 3 sources with verified search URL templates into `search_candidates` with `record_type = 'search_request'`. Idempotent via `ON CONFLICT DO NOTHING` backed by the M4 unique constraint. Legacy NULL `record_type` rows corrected. 4 sources deferred pending verified search URL templates. Package-safe execution verified.
 - ✅ **M8 – Controlled source search** — Complete. One controlled source search executed (Wikimedia Commons, "World Trade Center Plaza"). 20 evidence URL candidates extracted and stored in `search_candidates` with `record_type = 'evidence_candidate'`. Idempotent via `ON CONFLICT DO NOTHING` backed by the M4 unique constraint. `discoveries` and `discovery_queue` confirmed untouched. Package-safe execution verified.
 - ✅ **M9 – Human review and manual promotion** — Complete. `manual_promote.py` rewritten to read `evidence_candidate` rows from `search_candidates` and promote approved candidates into the canonical `discoveries` table with status `'approved'`. Package-safe imports, transaction safety, command-line ID selection, and application-level idempotency (query filters to `record_type='evidence_candidate' AND status='pending'` plus SELECT-before-INSERT). `export_candidates.py` updated with `--type` filtering. `export_discoveries.py` updated to read from `discoveries`. Two candidates promoted and verified. No schema changes.
-- 🔄 **M10 – Discovery queue** — Next active milestone.
+- ✅ **M10 – Discovery queue** — Complete. `queue_discoveries.py` rewritten to read from canonical `discoveries` table and INSERT into `discovery_queue` with `discovery_id` FK populated. Idempotent via LEFT JOIN on `discovery_id` plus `ON CONFLICT(target_url) DO NOTHING`. Silent-loss bug eliminated (unconditional UPDATE replaced by RETURNING clause). Package-safe imports, transaction safety. Two discoveries queued and linkage verified. No schema changes.
+- ⬜ **M11 – Downloader schema additions** — Next planned milestone.
 
 The intended flow is:
 
@@ -431,17 +432,17 @@ This source document is test evidence and should not be committed to Git.
 
 ## Immediate Next Milestone
 
-The next milestone is M9 – Human review and manual promotion.
+The next milestone is M11 – Downloader schema additions.
 
-Review the 20 evidence candidates produced by M8 and manually promote approved candidates into the canonical `discoveries` table.
+Add `assets.file_hash` (unique), `assets.content_type`, and create `asset_sources` table for retrieval-event provenance.
 
 The next milestone is complete when:
 
-1. Evidence candidates from M8 are reviewed
-2. Approved candidates are promoted to `discoveries`
-3. `discovery_queue` remains untouched during promotion
-4. Package-safe execution is verified
-5. Targeted tests pass
+1. Schema migration is idempotent and verified
+2. `assets.file_hash` unique index exists
+3. `asset_sources` table exists with approved columns
+4. No duplicate indexes created
+5. Legacy rows preserved
 6. Documentation is updated
 7. The Git diff is reviewed
 

@@ -18,7 +18,8 @@
 - ✅ **M7 – Search-request generation** — Complete. Search requests generated for 3 sources with verified search URL templates into `search_candidates` with `record_type = 'search_request'`. Idempotent via `ON CONFLICT DO NOTHING` backed by the M4 unique constraint. Legacy NULL `record_type` rows corrected. 4 sources deferred pending verified search URL templates. Package-safe execution verified.
 - ✅ **M8 – Controlled source search** — Complete. One controlled source search executed (Wikimedia Commons, "World Trade Center Plaza"). 20 evidence URL candidates extracted and stored in `search_candidates` with `record_type = 'evidence_candidate'`. Idempotent via `ON CONFLICT DO NOTHING` backed by the M4 unique constraint. `discoveries` and `discovery_queue` confirmed untouched. Package-safe execution verified.
 - ✅ **M9 – Human review and manual promotion** — Complete. `manual_promote.py` rewritten to read `evidence_candidate` rows from `search_candidates` and promote approved candidates into the canonical `discoveries` table with status `'approved'`. Package-safe imports, transaction safety, command-line ID selection, and application-level idempotency (query filters to `record_type='evidence_candidate' AND status='pending'` plus SELECT-before-INSERT). `export_candidates.py` updated with `--type` filtering. `export_discoveries.py` updated to read from `discoveries`. Two candidates promoted and verified. No schema changes.
-- 🔄 **M10 – Discovery queue** — Current active milestone.
+- ✅ **M10 – Discovery queue** — Complete. `queue_discoveries.py` rewritten to read from canonical `discoveries` table and INSERT into `discovery_queue` with `discovery_id` FK populated. Idempotent via LEFT JOIN on `discovery_id` plus `ON CONFLICT(target_url) DO NOTHING`. Silent-loss bug eliminated (unconditional UPDATE replaced by RETURNING clause). Package-safe imports, transaction safety. Two discoveries queued; discovery-to-queue linkage verified. No schema changes. 54 legacy queue rows preserved untouched.
+- 🔄 **M11 – Downloader schema additions** — Next active milestone.
 
 ## Approved M1 Architecture Decisions
 
@@ -175,8 +176,8 @@ The approved milestone order is:
 - ✅ **M7 – Search-request generation** — Complete
 - ✅ **M8 – Controlled source search** — Complete
 - ✅ **M9 – Human review and manual promotion** — Complete
-- 🔄 **M10 – Discovery queue** — Current
-- ⬜ **M11 – Downloader schema additions** — Planned
+- ✅ **M10 – Discovery queue** — Complete
+- 🔄 **M11 – Downloader schema additions** — Current
 - ⬜ **M12 – `asset_sources` registration + privilege grant** — Planned
 - ⬜ **M13 – R2 testability, then downloader implementation** — Planned
 - ⬜ **M14 – Controlled end-to-end test** — Planned

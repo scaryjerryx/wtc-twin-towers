@@ -12,10 +12,10 @@ All notable changes to this project will be documented in this file.
 - M7 – Search Request Generation
 - M8 – Controlled Source Search
 - M9 – Human Review & Manual Promotion
+- M10 – Discovery Queue Repair
 
 ### Planned
 
-- M10 – Discovery Queue Repair
 - M11 – Downloader Schema Additions
 - M12 – Asset Registration & Provenance
 - M13 – Downloader Repair & R2 Integration

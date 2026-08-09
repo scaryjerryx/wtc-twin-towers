@@ -7,6 +7,7 @@ Completed:
 - M7
 - M8
 - M9
+- M10
 
 Major lessons:
 - M6 audit discovered an M5 regression (unqualified import in `main.py`). The regression was repaired as part of M6 implementation.
@@ -24,6 +25,10 @@ Major lessons:
 - M9: Application-level idempotency is sufficient for single-process use when a database unique constraint is not yet available. The query-level status filter provides a first line of defence; the SELECT-before-INSERT provides a second.
 - M9: `export_candidates.py` and `export_discoveries.py` were also updated to use package-safe imports and read from the correct canonical tables.
 - M9: No schema changes were required — the `discoveries` table and `search_candidates.status` column already existed.
+- M10: `queue_discoveries.py` was reading from legacy `discovered_urls` instead of canonical `discoveries`, had a silent-loss bug (unconditional UPDATE even when INSERT was skipped), no `discovery_id` FK populated, and no package-safe imports. Completely rewritten with LEFT JOIN on `discovery_id` for source selection, RETURNING clause for insert detection, and transaction safety.
+- M10: The LEFT JOIN pattern eliminates the entire class of "flag-goes-stale" bugs — queue membership is derived from the join, not a mutable boolean column.
+- M10: The M4 schema migration provided everything needed: `discovery_id` FK, `attempt_count`, `last_error`, `next_retry`, status CHECK, and `unique_target_url` constraint. No additional schema changes were required.
+- M10: 54 legacy queue rows (including 11 fabricated `example.com` URLs from `discover.py`) were left untouched. Only the 2 canonical `discoveries` rows were queued.
 
 ## 2026-08-08
 

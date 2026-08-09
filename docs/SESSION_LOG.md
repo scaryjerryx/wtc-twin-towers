@@ -988,3 +988,89 @@ Planned commit message:
 ### Next Action
 
 Proceed to M10 – Discovery queue.
+
+---
+
+# 2026-08-09: Milestone 10 — Discovery Queue Repair
+
+## Objective
+
+Rewrite `queue_discoveries.py` to source from canonical `discoveries` table instead of legacy `discovered_urls`, populate `discovery_id` FK, eliminate the silent-loss bug, and provide idempotent queue creation.
+
+## Starting State
+
+- M0–M9 complete.
+- `queue_discoveries.py` read from legacy `discovered_urls` table (41 rows, all `queued=TRUE`)
+- Script had silent-loss bug: unconditional `UPDATE SET queued=TRUE` even when `ON CONFLICT DO NOTHING` skipped the INSERT
+- No `discovery_id` FK populated
+- Inline `psycopg2` connection (not package-safe)
+- 2 approved discoveries existed in `discoveries` with no matching queue rows
+- `discovery_queue` had 54 legacy rows (52 pending, 2 completed), all with `discovery_id=NULL`
+
+## Files Changed
+
+- `agents/discovery/queue_discoveries.py` — complete rewrite
+
+## Database Changes
+
+- 2 new `discovery_queue` rows inserted with `discovery_id=1` and `discovery_id=2`
+- 54 legacy rows preserved untouched (`discovery_id` still NULL)
+- No schema changes (M4 columns already existed)
+
+## Commands Run
+
+1. `python -m py_compile agents/discovery/queue_discoveries.py`
+2. `python -m agents.discovery.queue_discoveries` (first run — queued 2)
+3. `python -m agents.discovery.queue_discoveries` (second run — 0 unqueued, idempotent)
+4. Database verification: FK linkage, duplicate check, status distribution
+
+## Tests Performed
+
+| # | Test | Result |
+|---|---|---|
+| 1 | Syntax check | ✅ Passed |
+| 2 | First execution (2 queued) | ✅ 2 inserted, discovery_id=1 and 2 |
+| 3 | Second execution (idempotency) | ✅ 0 unqueued, no additional rows |
+| 4 | FK linkage: dq.target_url == d.discovered_url | ✅ Both MATCH |
+| 5 | Queue row count (was 54, now 56) | ✅ 2 new, 54 legacy untouched |
+| 6 | NULL FK check (54 legacy rows still NULL) | ✅ Preserved |
+| 7 | Duplicate target_url check | ✅ 0 duplicates |
+| 8 | `git diff --check` | ✅ No whitespace errors |
+| 9 | Package-safe invocation | ✅ `python -m agents.discovery.queue_discoveries` |
+
+## Results
+
+- `queue_discoveries.py` successfully reads from canonical `discoveries` table
+- `discovery_id` FK populated on all new queue rows
+- Silent-loss bug eliminated (RETURNING clause used instead of unconditional UPDATE)
+- Idempotent via LEFT JOIN on `discovery_id` + `ON CONFLICT(target_url) DO NOTHING`
+- Legacy rows preserved untouched
+- No schema changes required
+
+## Documentation Updated
+
+- `docs/CURRENT_STATE.md`
+- `docs/NEXT_TASK.md`
+- `docs/AI_HANDOFF.md`
+- `docs/SESSION_LOG.md`
+- `docs/DEVLOG.md`
+- `CHANGELOG.md`
+
+## Git Commit
+
+Not yet committed at the time of this entry.
+
+Planned commit message:
+
+`M10: Discovery queue repair — discoveries → discovery_queue with discovery_id FK`
+
+## Remaining Issues
+
+- Downloader (`agents/downloader/main.py`) does not use `discovery_id` when creating assets (M11 concern)
+- 11 fabricated `example.com` queue rows remain (from `discover.py`, out of scope)
+- 18 evidence candidates still pending review
+- Downloader needs `claimed_by`/`claimed_at` lease pattern (M13 concern)
+
+## Next Action
+
+Proceed to M11 – Downloader schema additions.
