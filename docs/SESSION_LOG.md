@@ -2012,3 +2012,58 @@ Not yet committed at the time of this entry.
 ## Next Action
 
 Proceed to M21 – Specialist Processor Implementation.
+
+## Session 2026-08-09 — M21 Photo Processing
+
+### Milestone
+
+✅ **M21 – Photo Processing**
+
+### What Was Done
+
+1. **photo_processor.py rewrite** — Replaced the 7-line placeholder with a full processor (372 lines):
+   - `ocr_image()` — Tesseract OCR via `pytesseract` + `PIL`, with graceful degradation on invalid images
+   - `query_ai_description()` — Lookup from `ai_analysis` table joined on `assets.local_path` or `assets.r2_key`
+   - `lookup_asset_id()` — Asset ID resolution for provenance source_file naming
+   - `store_fact()` — Idempotent fact insertion with `fact_sources` provenance, using `ON CONFLICT DO NOTHING`
+   - `process_photo()` — Orchestrates OCR → AI lookup → concatenation → extraction → storage → summary
+   - Reuses: `knowledge_extractor.extract_entities()`, `knowledge_extractor.extract_facts()`, `fact_cleaner.clean_facts()`
+
+2. **Provenance format** — Source files use `acquisition_asset_{id}_ocr` when asset ID is resolvable, with `photo_ocr_{filename}` fallback
+
+3. **Engine integration** — `knowledge_graph_builder.main()` wired into `run_engine.py` as STEP 6, reading `ai_analysis` rows where `knowledge_processed=FALSE` and extracting entities/facts from AI descriptions
+
+### Verification
+
+- `py_compile` — Both modified files compile clean in venv
+- `knowledge_graph_builder` — Executed successfully against live DB; processed 3 pending ai_analysis records
+- `photo_processor` — Tested with `storage/raw/2.jpg`; graceful degradation verified (invalid image, no AI description, early exit)
+- `git diff --check` — Clean
+- `git diff --stat` — 2 files changed, +376/-3
+
+### Files Modified
+
+- `agents/processors/photo_processor.py` — Full rewrite
+- `agents/engine/run_engine.py` — Added STEP 6 (knowledge graph build)
+- `docs/NEXT_TASK.md` — M21 added
+- `docs/CURRENT_STATE.md` — M21 added
+- `docs/AI_HANDOFF.md` — M21 added
+- `docs/SESSION_LOG.md` — This entry
+- `docs/DEVLOG.md` — M21 lessons
+- `CHANGELOG.md` — M21 added
+
+### Important Discoveries
+
+- `assets` table uses `local_path` not `file_path` — corrected both SQL queries in photo_processor
+- `2.jpg` in `storage/raw/` is not a valid image for PIL — OCR gracefully handles this
+- `knowledge_graph_builder` had already processed records 5-8 on a prior run, so only 9-11 needed marking
+
+### Remaining Issues
+
+- Photo processor not yet invoked from route_asset() or any pipeline stage
+- Blueprint and video processors still placeholders
+- Independent-source verification (M22) is next
+
+## Next Action
+
+M22 – Independent-Source Verification.

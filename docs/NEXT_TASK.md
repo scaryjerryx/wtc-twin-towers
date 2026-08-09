@@ -29,9 +29,7 @@
 - ✅ **M18 – Citation Provenance Integration** — Complete. `citations.asset_id` and `citations.asset_source_id` nullable FK columns added. `citation_loader.py` resolves provenance from `acquisition_asset_{id}` pattern at citation creation time. Provenance chain: Fact → Citation → Asset → Asset Source → Discovery → Search Candidate. Migration: `database/migrations/003_add_citation_asset_provenance.sql`.
 - ✅ **M19 – AI-Assisted Metadata Processing** — Complete. `agents/metadata/ai_client.py` created with OpenRouter API integration. `agents/metadata/ai_analyze.py` created with provider selection (`METADATA_PROVIDER=mock|openrouter`). `run_pipeline.py` wired to AI analyzer. Mock fallback retained. AI provenance stored in `analysis_json`.
 - ✅ **M20 – Asset Classification & Routing** — Complete. Canonical asset types (`photo/document/blueprint/video/audio/unknown`). Downloader MIME mapping normalized. AI classification refinement via confidence threshold (>60) in `ai_analyze.py`. Router normalized to canonical types. Routing invocation deferred to M21.
-
-- ✅ **M19 – AI-Assisted Metadata Processing** — Complete
-- ✅ **M20 – Asset Classification & Routing** — Complete
+- ✅ **M21 – Photo Processing** — Complete. `agents/processors/photo_processor.py` rewritten from 7-line placeholder to full processor with Tesseract OCR, AI description lookup, entity/fact extraction via `knowledge_extractor`, and `fact_cleaner` integration. Provenance stored as `acquisition_asset_{id}_ocr` in `fact_sources`. `knowledge_graph_builder` wired into `run_engine.py` as STEP 6 (reads `ai_analysis` rows, extracts entities/facts from AI descriptions). No schema changes. Photo processor tested with graceful degradation on missing OCR/AI data. Knowledge graph builder verified executing against live DB.
 
 ## Approved M1 Architecture Decisions
 

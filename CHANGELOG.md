@@ -23,6 +23,7 @@ All notable changes to this project will be documented in this file.
 - M18 – Citation Provenance Integration
 - M19 – AI-Assisted Metadata Processing
 - M20 – Asset Classification & Routing
+- M21 – Photo Processing
 
 ---
 

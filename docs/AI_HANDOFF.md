@@ -478,6 +478,7 @@ The authoritative task definition is:
 - ✅ **M18 – Citation Provenance Integration** — Complete. `citations.asset_id` and `citations.asset_source_id` FK columns added. `citation_loader.py` resolves acquisition provenance from `acquisition_asset_{id}` source_file identifiers at citation creation time. Full provenance chain established: Fact → Citation → Asset → Asset Source → Discovery → Search Candidate.
 - ✅ **M19 – AI-Assisted Metadata Processing** — Complete. OpenRouter AI integration for image analysis via `ai_client.py`. Provider-selectable metadata processing (`METADATA_PROVIDER`) via `ai_analyze.py`. Mock fallback preserved. Model and timestamp provenance recorded in `analysis_json`.
 - ✅ **M20 – Asset Classification & Routing** — Complete. Canonical asset types established. Hybrid classification: MIME-based from downloader, AI refinement (confidence > 60) from ai_analyze. Router normalized to canonical names. Routing invocation deferred to M21.
+- ✅ **M21 – Photo Processing** — Complete. `agents/processors/photo_processor.py` rewritten (372 lines): Tesseract OCR, AI description lookup, entity/fact extraction via `knowledge_extractor` + `fact_cleaner`. Provenance: `acquisition_asset_{id}_ocr`. `knowledge_graph_builder` wired into `run_engine.py` as STEP 6. No schema changes.
 
 ## Writer Role
 

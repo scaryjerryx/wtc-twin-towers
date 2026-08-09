@@ -89,3 +89,33 @@ Completed:
 Major lessons:
 - M4 exposed a record_type omission.
 - M3 revealed additional SELECT privileges may be required.
+
+## M21 – Photo Processing (2026-08-09)
+
+### Milestone
+
+Photo processor rewritten from 7-line placeholder to full processor.
+
+### Problem
+
+`agents/processors/photo_processor.py` was a placeholder returning a hardcoded dict. Photographs downloaded through the acquisition pipeline could not be OCR-processed or have entities/facts extracted from them.
+
+### Decisions
+
+- OCR via Tesseract (`pytesseract` + `PIL`) with graceful failure handling for invalid images
+- AI description lookup from `ai_analysis` table (records are already created by M19)
+- Combined OCR text + AI description before extraction (maximizes context for the extractor)
+- Reuse existing `knowledge_extractor.extract_entities()`, `knowledge_extractor.extract_facts()`, `fact_cleaner.clean_facts()`
+- Provenance format: `acquisition_asset_{id}_ocr` with `photo_ocr_{filename}` fallback for assets not yet in the database
+- `knowledge_graph_builder` wired into `run_engine.py` as STEP 6 (processes AI descriptions from `ai_analysis`)
+
+### Lessons
+
+- The `assets` table uses `local_path`, not `file_path` — schema inspection is essential before writing SQL
+- `knowledge_graph_builder` already existed but was disconnected from the engine — wiring it as Step 6 cost 12 lines
+- Photo processor gracefully degrades on invalid images (empty file, corrupted JPEG) — returns early with confidence=0 rather than raising
+- The current `knowledge_graph_builder` links all facts to all entities with confidence=50 — this is a coarse model that will need refinement in M22
+
+### Next Milestone
+
+M22 – Independent-Source Verification

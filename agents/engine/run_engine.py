@@ -22,6 +22,10 @@ from agents.timeline.timeline_builder import (
     build_timeline
 )
 
+from agents.knowledge.knowledge_graph_builder import (
+    main as build_knowledge_graph
+)
+
 
 def run_engine():
 
@@ -78,6 +82,14 @@ def run_engine():
     print()
 
     build_timeline()
+
+    print()
+    print("=" * 80)
+    print("STEP 6: KNOWLEDGE GRAPH BUILD")
+    print("=" * 80)
+    print()
+
+    build_knowledge_graph()
 
     print()
     print("=" * 80)
