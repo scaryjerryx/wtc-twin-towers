@@ -232,3 +232,6 @@ data/
 # Local AI workflow rules
 .clinerules/
 storage/raw/
+
+# Evidence corpus — excluded from source control
+WTC_CORPUS/

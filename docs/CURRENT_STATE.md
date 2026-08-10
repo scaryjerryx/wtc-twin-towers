@@ -1,12 +1,12 @@
-# World Trade Center Evidence Engine Current State
+# World Trade Center Reconstruction Project — Current State
 
 ## Last Updated
 
-August 9, 2026
+August 10, 2026
 
 ## Purpose
 
-This document provides a concise and current status of the World Trade Center Evidence Engine.
+This document provides a concise and current status of the World Trade Center Reconstruction Project, including both the Evidence Engine platform and the parallel evidence corpus acquisition campaign.
 
 It records:
 
@@ -14,6 +14,7 @@ It records:
 - What exists but still requires verification
 - What is currently being worked on
 - What remains planned
+- Current reconstruction readiness
 - The immediate next milestone
 
 For the enduring roadmap, see:
@@ -39,7 +40,7 @@ For the single active task, see:
 
 ## Current Overall State
 
-The evidence-processing and knowledge-engine foundation is working.
+The evidence-processing and knowledge-engine foundation is working. Phase 1 (M0–M15) and Phase 2 (M16–M23) are complete.
 
 The engine has successfully processed a scanned 39-page engineering PDF and demonstrated:
 
@@ -60,9 +61,61 @@ The engine has successfully processed a scanned 39-page engineering PDF and demo
 - Timeline filtering
 - Engine health reporting
 
-The external evidence-gathering pipeline is not yet confirmed as working end to end.
+The external evidence-gathering pipeline is operational and tested end-to-end.
 
-The immediate priority is to inspect, reconnect, test, and complete the existing discovery and downloader systems.
+## Reconstruction Readiness: ~50%
+
+In parallel with the Evidence Engine platform, a major evidence corpus acquisition campaign is underway. The project tracks reconstruction readiness across 9 areas:
+
+| Area | Readiness | Key Evidence |
+|---|---|---|
+| Site | 35% | NCSTAR references, Wikimedia SVG previews |
+| Plaza | 20% | NCSTAR references (limited) |
+| Tower A (WTC 1) | 65% | AA20a1 (895 PNGs), exterior wall XLS (floors 1-9 + 107-110), floor 96-A database |
+| Tower B (WTC 2) | 60% | Exterior wall schedules, panel schedule (B2, 25MB), floor 75-B database, upper wall AB2/AB3 |
+| Concourse | 10% | NCSTAR references (minimal) |
+| WTC 3-6 | 0% | No evidence |
+| WTC 7 | 55% | WTC7 OEM spec manual, NCSTAR 1-9 |
+| Observation Deck | 10% | NCSTAR references (minimal) |
+| Windows on the World | 10% | NCSTAR references (minimal) |
+| **Overall** | **~50%** | |
+
+### Evidence Corpus
+
+| Category | Files | Size |
+|---|---|---|
+| NCSTAR engineering reports | 9 PDFs | 520MB |
+| NCSTAR visual evidence | 657 images | 2.9GB |
+| WTCI drawing books | 14+ ZIPs + texts | Existing |
+| Tower A structural sheets (AA20a1) | 895 PNGs | Existing |
+| Gerrycan collections | 4 ZIPs | 546MB |
+| Exterior wall schedules | Multiple XLS | Existing |
+| Site plan SVGs/PNGs | 6 files | Existing |
+| **Total** | **~1,577+ files** | **~4.9GB+** |
+
+### Gap Status
+
+| ID | Gap | Status |
+|---|---|---|
+| CG-1 | Tower B Structural Drawings | ⚠️ Partially addressed — exterior wall + panel schedules + floor 75-B acquired. Sheet PNGs still missing. |
+| CG-2 | Architectural Floor Plans | ❌ Open — blocks all interior spatial modeling |
+| CG-3 | Site Plan & Plaza | ❌ Open — blocks site-level and plaza modeling |
+| CG-4 | Tower A Upper Wall Schedules | ✅ Closed — AB2/AB3 XLS covers floors 107-110 |
+| IG-1 | Construction Photographs | ⚠️ NCSTAR 1-8 only (657 images, damage-focused) |
+| IG-2 | Interior Photographs | ⚠️ NCSTAR 1-8 only (limited) |
+| IG-3 | Buildings 3-7 Documentation | ⚠️ WTC7 specs only |
+| IG-4 | MEP Drawings | ❌ Open |
+| IG-5 | Architectural Elevations | ❌ Open |
+| IG-6 | Foundation Documentation | ❌ Open |
+
+### Key Planning Documents
+
+| Document | Purpose |
+|---|---|
+| `docs/READINESS_50_TO_80_REPLAN.md` | Recalculated path from 50% to 80% (supersedes original 35% baseline) |
+| `docs/ARCHITECTURAL_ACQUISITION_CAMPAIGN.md` | Dedicated campaign for CG-2 and CG-3 — 11 sources ranked |
+| `docs/GERRYCAN_COLLECTION_ASSESSMENT.md` | Gerrycan collection inventory and readiness impact |
+| `docs/SESSION_SUMMARY_2026_08_10.md` | August 10 session summary |
 
 ## Working Components
 
@@ -126,6 +179,7 @@ The immediate priority is to inspect, reconnect, test, and complete the existing
 - ✅ Citation Loader
 - ✅ Citation deduplication
 - ✅ Fact-to-source traceability
+- ✅ Citation-to-asset provenance (M18)
 
 ### Fact Verification
 
@@ -135,12 +189,6 @@ The immediate priority is to inspect, reconnect, test, and complete the existing
 - ✅ Well-supported status for facts with two source records
 - ✅ Verified status for facts with three or more source records
 - ✅ Operational confidence scoring
-
-Current limitation:
-
-Source-record count is not yet the same as independent-source count.
-
-Several pages from one document may currently increase verification strength without representing independent evidence.
 
 ### Relationships and Knowledge Graph
 
@@ -152,12 +200,6 @@ Several pages from one document may currently increase verification strength wit
 - ✅ Relationship source-method attribution
 - ✅ Relationship Search v2
 - ✅ Relationship provenance display
-
-Current limitation:
-
-Page co-occurrence establishes an association signal.
-
-Page co-occurrence does not prove causation, containment, structural dependency, or design intent.
 
 ### Timeline and Search
 
@@ -171,10 +213,6 @@ Page co-occurrence does not prove causation, containment, structural dependency,
 - ✅ Supporting source-file display
 - ✅ Supporting source-page display
 
-Current limitation:
-
-Timeline extraction currently depends on explicit date-oriented fact patterns and does not yet represent a complete historical event model.
-
 ### Engine Operations
 
 - ✅ Master Engine Runner
@@ -183,6 +221,24 @@ Timeline extraction currently depends on explicit date-oriented fact patterns an
 - ✅ Relationship rebuilding in the engine workflow
 - ✅ Timeline generation in the engine workflow
 - ✅ Engine Health Report
+- ✅ Knowledge Graph Build (STEP 6)
+
+### Acquisition Pipeline
+
+- ✅ Source seeding (idempotent)
+- ✅ Search request generation
+- ✅ Candidate discovery (Wikimedia Commons)
+- ✅ Manual promotion
+- ✅ Discovery queue (lease/claim pattern)
+- ✅ Downloader (SHA-256, content-type, dedup)
+- ✅ R2 storage
+- ✅ Asset registration
+- ✅ Asset source provenance
+- ✅ AI metadata processing (OpenRouter)
+- ✅ Asset classification & routing
+- ✅ Photo processing (OCR + AI)
+- ✅ Orchestrator (package-safe, 6 stages)
+- ✅ End-to-end test (M14)
 
 ### Development Workflow
 
@@ -193,31 +249,16 @@ Timeline extraction currently depends on explicit date-oriented fact patterns an
 - ✅ DeepSeek V4 Flash selected for initial planning and routine development
 - ✅ Plan-first workflow adopted
 - ✅ File edits and commands remain approval-controlled
+
 ## Working Development Test Harness
 
 ### Automated Local PDF Processing
 
-Status:
+Status: 🧪 **Working Test Harness**
 
-🧪 **Working Test Harness**
+Component: `agents/ingestion/automated_ingestion.py`
 
-Component:
-
-`agents/ingestion/automated_ingestion.py`
-
-Current behaviour:
-
-- Reads PDFs from `data/incoming_pdfs/`
-- Processes each PDF
-- Moves successful files to `data/processed_pdfs/`
-- Moves failed files to `data/failed_pdfs/`
-- Rebuilds fact relationships after processing
-
-Important:
-
-This is not the finished automated evidence-acquisition workflow.
-
-The completed engine must discover and acquire evidence through the existing discovery and downloader systems without requiring permanent manual file placement.
+This is not the finished automated evidence-acquisition workflow. The completed engine must discover and acquire evidence through the existing discovery and downloader systems without requiring permanent manual file placement.
 
 ## Components Requiring Verification
 
@@ -241,23 +282,23 @@ The following components are documented or present in the repository, but their 
 
 ### Downloader and Storage
 
-- 🟡 Discovery-queue consumption
-- 🟡 HTTP response validation
-- 🟡 Content-type validation
-- 🟡 File downloading
-- 🟡 File-hash calculation
-- 🟡 File-hash deduplication
-- 🟡 R2 upload from the downloader
-- 🟡 Asset creation from downloaded evidence
-- 🟡 Acquisition failure handling
+- ✅ Discovery-queue consumption
+- ✅ HTTP response validation
+- ✅ Content-type validation
+- ✅ File downloading
+- ✅ File-hash calculation
+- ✅ File-hash deduplication
+- ✅ R2 upload from the downloader
+- ✅ Asset creation from downloaded evidence
+- ✅ Acquisition failure handling
 - 🟡 Retry handling
-- 🟡 Metadata queue creation
+- ✅ Metadata queue creation
 - 🟡 Processing-queue creation
 
 ### Classification and Routing
 
-- 🟡 Asset classification integration
-- 🟡 Classification confidence
+- ✅ Asset classification integration
+- ✅ Classification confidence
 - 🟡 Routing integration
 - 🟡 Routed processor invocation
 - 🟡 Processing-status updates
@@ -265,9 +306,9 @@ The following components are documented or present in the repository, but their 
 
 ### Specialist Processing
 
-- 🟡 Photo processing
-- 🟡 Image metadata extraction
-- 🟡 Image OCR
+- ✅ Photo processing
+- ✅ Image metadata extraction
+- ✅ Image OCR
 - 🟡 Blueprint and drawing processing
 - 🟡 Drawing-number and revision extraction
 - 🟡 Video processing
@@ -281,96 +322,56 @@ The following components are documented or present in the repository, but their 
 
 - 🟡 General query engine
 - 🟡 Graph-search components
-- 🟡 Metadata-analysis components
+- ✅ Metadata-analysis components
 - 🟡 Vision-analysis components
 - 🟡 R2-to-analysis retrieval
-- 🟡 AI-provider abstraction
-
-These components must not be marked complete solely because files or database tables exist.
+- ✅ AI-provider abstraction
 
 ## Current Active Priority
 
-🔄 **Reconnect Existing Automated Evidence Gathering**
+🔄 **Architectural Evidence Acquisition Campaign**
 
-Use the existing systems under:
+Closing CG-2 (Architectural Floor Plans) and CG-3 (Site Plans) — the two largest remaining blockers.
 
-- `agents/discovery/`
-- `agents/downloader/`
+The authoritative campaign plan is:
 
-Do not create a competing acquisition subsystem.
+- `docs/ARCHITECTURAL_ACQUISITION_CAMPAIGN.md`
 
 ## Milestone Progress
 
 - ✅ **M0 – Pre-flight backup** — Complete and passed.
 - ✅ **M1 – Architecture decisions** — Complete and approved.
 - ✅ **M2 – Source-registry reconciliation** — Complete.
-- ✅ **M3 – Limited writer role** — Complete. Role `wtc_writer` created with least-privilege grants on approved tables and sequences. Catalog verification passed. Runtime verification revealed additional SELECT privileges may be required for some operational queries; this will be addressed in a later milestone if necessary.
-- ✅ **M4 – First small schema migration** — Complete. `discovery_queue` gained `discovery_id`, `attempt_count`, `last_error`, and `next_retry` columns. `search_candidates` gained a unique constraint.
-- ✅ **M5 – Package/import repair** — Complete. `agents/discovery/main.py` import changed to package-qualified form. An M5 regression (unqualified import) was discovered during the M6 audit and repaired as part of M6 implementation.
-- ✅ **M6 – Source seeding repair** — Complete. Source seeding is now idempotent with URL upsert support, accurate per-row status reporting, module-relative path resolution, and all-or-nothing transaction safety. Package-safe execution verified.
-- ✅ **M7 – Search-request generation** — Complete. Search requests generated for 3 sources with verified search URL templates into `search_candidates` with `record_type = 'search_request'`. Idempotent via `ON CONFLICT DO NOTHING` backed by the M4 unique constraint. Legacy NULL `record_type` rows corrected. 4 sources deferred pending verified search URL templates. Package-safe execution verified.
-- ✅ **M8 – Controlled source search** — Complete. One controlled source search executed (Wikimedia Commons, "World Trade Center Plaza"). 20 evidence URL candidates extracted and stored in `search_candidates` with `record_type = 'evidence_candidate'`. Idempotent via `ON CONFLICT DO NOTHING` backed by the M4 unique constraint. `discoveries` and `discovery_queue` confirmed untouched. Package-safe execution verified.
-- ✅ **M9 – Human review and manual promotion** — Complete. `manual_promote.py` rewritten to read `evidence_candidate` rows from `search_candidates` and promote approved candidates into the canonical `discoveries` table with status `'approved'`. Package-safe imports, transaction safety, command-line ID selection, and application-level idempotency (query filters to `record_type='evidence_candidate' AND status='pending'` plus SELECT-before-INSERT). `export_candidates.py` updated with `--type` filtering. `export_discoveries.py` updated to read from `discoveries`. Two candidates promoted and verified. No schema changes.
-- ✅ **M10 – Discovery queue** — Complete. `queue_discoveries.py` rewritten to read from canonical `discoveries` table and INSERT into `discovery_queue` with `discovery_id` FK populated. Idempotent via LEFT JOIN on `discovery_id` plus `ON CONFLICT(target_url) DO NOTHING`. Silent-loss bug eliminated (unconditional UPDATE replaced by RETURNING clause). Package-safe imports, transaction safety. Two discoveries queued and linkage verified. No schema changes.
-- ✅ **M11 – Downloader schema additions** — Complete. `assets.file_hash` (text, unique index) and `assets.content_type` (text) columns added. `asset_sources` table created with 8 columns (`id`, `asset_id`, `source_id`, `original_url`, `normalised_url`, `final_effective_url`, `retrieved_at`, `created_at`) plus FK constraints to `assets` and `sources`. All DDL idempotent via `IF NOT EXISTS`. Legacy rows preserved (4 assets, file_hash/content_type NULL). Migration file: `database/migrations/001_add_downloader_schema.sql`.
-- ✅ **M12 – Asset registration & provenance** — Complete. `agents/downloader/register_asset.py` created with `register_asset_source()` function inserting one row per retrieval event into `asset_sources`. Unique index `unique_asset_source_retrieval` on `(asset_id, COALESCE(source_id, -1), original_url)` provides idempotency. Writer role gained INSERT on `asset_sources` and USAGE/SELECT on `asset_sources_id_seq`. Registration tested: first call inserts, repeated call with same params is a no-op, different URL creates a new retrieval event. Migration file: `database/migrations/002_add_asset_sources_unique.sql`.
-- ✅ **M13 – Downloader repair & R2 integration** — Complete. `agents/downloader/main.py` rewritten with package-safe imports, lease/claim queue pattern (`pending → in_progress → completed`), SHA-256 hashing, content-type detection from HTTP headers, hash-based file deduplication (reuses existing asset, skips redundant R2 upload, still registers `asset_sources` provenance, skips unnecessary `metadata_queue` creation), R2 upload via `agents.downloader.r2`, and failure handling (`failed_permanent` + `last_error`). `test_r2.py` replaced with mocked unit test (no live R2 calls). Two Wikimedia Commons files downloaded, assets 5 and 6 created with full provenance.
-- ✅ **M14 – Controlled end-to-end test** — Complete. Full independent acquisition path exercised: candidate 123 promoted to discovery 3, queued to discovery_queue 76, downloaded to asset 7 with SHA-256 hash and content-type, asset_sources provenance row created, metadata_queue handoff created. All four URL links verified MATCH across the chain. Idempotency confirmed: re-running all three stages produced zero new rows.
-- ✅ **M15 – Orchestrator repair** — Complete. `agents/run_pipeline.py` rewritten to use `sys.executable -m` package-safe invocation across 6 automated stages: source seeding, search generation, candidate discovery, queue creation, downloader, and metadata processing. `agents/metadata/mock_analyze.py` repaired with package-safe imports. Manual promotion remains a human-in-the-loop step outside orchestration. Legacy invocation patterns (`python agents/X/Y.py`) and legacy script references removed. Full orchestrator run verified: all 6 stages idempotent, exit code 0.
-- ✅ **M16 – Knowledge platform import repair** — Complete. All 20 files across `agents/knowledge/`, `agents/timeline/`, `agents/verification/`, `agents/metadata/`, `agents/search/`, `agents/engine/`, and `agents/router/` repaired. Every file now uses the shared `agents.discovery.database.get_db_connection()` instead of inline `psycopg2.connect()`. Module-level connection patterns replaced with `main()` functions. Import paths fixed in `route_asset.py` and `vision_analyze.py`. Engine and health report verified: no import errors, zero remaining `psycopg2.connect()` calls in repaired directories.
-- ✅ **M17 – Acquisition → Knowledge Pipeline Integration** — Complete. `agents/ingestion/process_acquisition_assets.py` created to query acquisition assets with PDF content type, download from R2, and process through the PDF knowledge pipeline with explicit `source_file` provenance identifiers (`acquisition_asset_{id}`). `agents/engine/run_engine.py` updated with STEP 1a for acquisition assets, retaining STEP 1b for local PDF ingestion. `agents/knowledge/pdf_knowledge_pipeline.py` updated to accept optional `source_file` parameter. Engine verified: 3 acquisition assets detected, 0 eligible (all HTML content type), all 6 stages completed without import errors. No schema changes.
-- ✅ **M18 – Citation Provenance Integration** — Complete. `citations.asset_id` (nullable FK→assets) and `citations.asset_source_id` (nullable FK→asset_sources) columns added. `citation_loader.py` updated with `_resolve_acquisition_provenance()` function that parses `acquisition_asset_{id}` source_file identifiers, resolves `asset_id` and `asset_source_id` at citation creation time, and inserts provenance FKs directly into the citations INSERT. Migration file: `database/migrations/003_add_citation_asset_provenance.sql`. Engine verified: 55 existing citations preserved with NULL FKs, backward compatible. Provenance chain established: Fact → Citation → Asset → Asset Source → Discovery → Search Candidate.
-- ✅ **M19 – AI-Assisted Metadata Processing** — Complete. `agents/metadata/ai_client.py` created: OpenRouter API client that sends base64-encoded images for structured analysis, configured via `OPENROUTER_API_KEY` and `OPENROUTER_MODEL` environment variables. `agents/metadata/ai_analyze.py` created: provider-selectable metadata processor supporting `METADATA_PROVIDER=mock` and `METADATA_PROVIDER=openrouter` (default). AI analysis stores `agent`, `model`, and `timestamp` in `analysis_json` for provenance. `agents/run_pipeline.py` updated to call `ai_analyze` instead of `mock_analyze`. `mock_analyze.py` preserved as fully functional fallback. Cost-controlled: single asset per invocation, 500 max_tokens, DeepSeek V4 Flash default model.
-- ✅ **M20 – Asset Classification & Routing** — Complete. Canonical asset type names established: `photo`, `document`, `blueprint`, `video`, `audio`, `unknown`. `agents/downloader/main.py` updated: MIME mapping uses canonical names (`image→photo`, `pdf→document`). `agents/metadata/ai_analyze.py` updated: AI classification refinement when confidence > 60 updates `assets.asset_type`. Mock provider skips classification (confidence 50 < 60). `agents/router/route_asset.py` normalized: `pdf→document`. Routing invocation deferred to M21. No schema changes.
-- ✅ **M21 – Photo Processing** — Complete. `agents/processors/photo_processor.py` rewritten from 7-line placeholder to full processor (372 lines) with: Tesseract OCR via `pytesseract`, AI description lookup from `ai_analysis`, concatenation of OCR + AI text, entity extraction via `knowledge_extractor`, fact extraction + `fact_cleaner` integration, idempotent storage in `entities`/`facts`/`fact_sources` tables. Provenance stored as `acquisition_asset_{id}_ocr` in `fact_sources.source_file` with fallback to `photo_ocr_{filename}`. `knowledge_graph_builder` wired into `run_engine.py` as STEP 6, reading `ai_analysis` rows where `knowledge_processed=FALSE`, extracting entities/facts from AI descriptions, and marking rows as processed. Photo processor tested with graceful degradation on missing OCR/AI data. Knowledge graph builder verified executing against live database. No schema changes.
-
-The intended flow is:
-
-Configured Sources
-↓
-Sources Table
-↓
-Search Definitions
-↓
-Search Candidates
-↓
-Candidate Review and Promotion
-↓
-Discoveries
-↓
-Discovery Queue
-↓
-Downloader
-↓
-Response and Content Validation
-↓
-File Hashing and Deduplication
-↓
-R2 Storage
-↓
-Asset Registration
-↓
-Metadata and Processing Queues
-↓
-Classification and Routing
-↓
-Existing Processing and Knowledge Engine
-
-The first step is a read-only, file-by-file and schema-aware audit.
-
-The authoritative implementation instructions are maintained in:
-
-- `docs/NEXT_TASK.md`
+- ✅ **M3 – Limited writer role** — Complete.
+- ✅ **M4 – First small schema migration** — Complete.
+- ✅ **M5 – Package/import repair** — Complete.
+- ✅ **M6 – Source seeding repair** — Complete.
+- ✅ **M7 – Search-request generation** — Complete.
+- ✅ **M8 – Controlled source search** — Complete.
+- ✅ **M9 – Human review and manual promotion** — Complete.
+- ✅ **M10 – Discovery queue** — Complete.
+- ✅ **M11 – Downloader schema additions** — Complete.
+- ✅ **M12 – Asset registration & provenance** — Complete.
+- ✅ **M13 – Downloader repair & R2 integration** — Complete.
+- ✅ **M14 – Controlled end-to-end test** — Complete.
+- ✅ **M15 – Orchestrator repair** — Complete.
+- ✅ **M16 – Knowledge platform import repair** — Complete.
+- ✅ **M17 – Acquisition → Knowledge Pipeline Integration** — Complete.
+- ✅ **M18 – Citation Provenance Integration** — Complete.
+- ✅ **M19 – AI-Assisted Metadata Processing** — Complete.
+- ✅ **M20 – Asset Classification & Routing** — Complete.
+- ✅ **M21 – Photo Processing** — Complete.
+- ✅ **M22 – Independent-Source Verification** — Complete.
+- ✅ **M23 – Timeline Event Model** — Complete.
 
 ## Planned Major Capabilities
 
-The following capabilities remain planned after automated evidence gathering is operational:
+The following capabilities remain planned:
 
 - ⬜ Scheduled evidence discovery
 - ⬜ Source-specific archive connectors
 - ⬜ Reliable acquisition retry queues
 - ⬜ Failure recovery
-- ⬜ Independent-source verification
 - ⬜ Contradiction management
 - ⬜ AI-assisted relevance classification
 - ⬜ AI-assisted document summarisation
@@ -390,6 +391,7 @@ The following capabilities remain planned after automated evidence gathering is 
 - ⬜ Evidence-backed materials and objects
 - ⬜ Explorable digital twin
 - ⬜ Evidence-linked historical walkthrough
+- ⬜ Living reconstruction with historical state transitions
 
 ## Current Database Foundation
 
@@ -401,6 +403,7 @@ The following capabilities remain planned after automated evidence gathering is 
 - `fact_sources`
 - `citations`
 - `relationships`
+- `timeline_events`
 
 ### Known or Expected Operational Tables
 
@@ -409,43 +412,12 @@ The following capabilities remain planned after automated evidence gathering is 
 - `discoveries`
 - `discovery_queue`
 - `assets`
+- `asset_sources`
 - `metadata_queue`
 - `ai_analysis`
-
-The operational discovery, downloader, asset, and queue schemas must be inspected before further integration work.
-
-## Current Evidence Test
-
-The scanned engineering document:
-
-`WTCI-000721-L.PDF`
-
-was used to validate:
-
-- OCR across 39 pages
-- Page-level text extraction
-- Entity extraction
-- Engineering fact extraction
-- Fact normalisation
-- Fact cleaning
-- Fact provenance
-- Citation loading
-- Fact verification
-- Relationship mining
-- Relationship confidence
-- Relationship search
-- Timeline filtering
-- Master engine execution
-- Engine health reporting
-
-This source document is test evidence and should not be committed to Git.
-
-## Immediate Next Milestone
-
-Phase 1 (M0–M15) and Phase 2 (M16–M18) are complete. The acquisition pipeline, knowledge engine, and citation provenance are now integrated into a unified, traceable system.
-
-The next priority is specialist processor implementation (M21), followed by independent-source verification (M22), and timeline event modeling (M23).
 
 ## Current Development Rule
 
 Do not begin the Digital Twin Layer or create a new acquisition architecture until the existing discovery and downloader pipeline has been audited, repaired, and tested end to end.
+
+Do not ingest evidence into the database. Do not modify code. Do not modify the database schema. The current phase is evidence corpus acquisition and planning only.

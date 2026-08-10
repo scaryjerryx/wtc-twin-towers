@@ -1,8 +1,8 @@
-# AI Handoff: World Trade Center Evidence Engine
+# AI Handoff: World Trade Center Reconstruction Project
 
 ## Purpose of This Document
 
-This document provides the essential context required for an AI development assistant to continue work on the World Trade Center Evidence Engine safely and accurately.
+This document provides the essential context required for an AI development assistant to continue work on the World Trade Center Reconstruction Project safely and accurately.
 
 The repository documentation and Git history are the authoritative project memory.
 
@@ -21,7 +21,7 @@ Before making significant changes, read:
 
 ## Project Mission
 
-Build an automated, transparent, citation-backed evidence engine capable of supporting the most historically accurate digital reconstruction of the original World Trade Center complex.
+Build an automated, transparent, citation-backed evidence engine capable of supporting the most historically accurate digital reconstruction of the original World Trade Center complex (1966-2001).
 
 The completed system must:
 
@@ -39,10 +39,68 @@ The completed system must:
 12. Build a searchable knowledge graph
 13. Support an evidence-backed digital twin
 14. Support an evidence-linked historical walkthrough
+15. Enable a living reconstruction with time-aware historical states
 
 Evidence takes priority over assumptions.
 
 Artificial intelligence may assist with processing and interpretation, but artificial intelligence must not become an uncited source of historical truth.
+
+## Reconstruction Vision
+
+### Living Reconstruction
+
+The reconstruction is not a single static model. It is a **living reconstruction** — a time-aware digital twin that can represent the WTC complex at any point in its history:
+
+- **Construction era (1966-1973):** The towers rising, steel erection, facade installation
+- **Operational era (1973-2001):** Completed complex with tenant spaces, plaza, observation deck, Windows on the World
+- **Post-1993 bombing:** Repairs and modifications
+
+### Two Timeline Model
+
+1. **Historical Timeline:** What actually happened — construction milestones, tenant changes, operational events, 1993 bombing, 2001 attacks
+2. **Reconstruction Timeline:** What evidence has been acquired and when — progressive filling of knowledge gaps
+
+## Current Reconstruction Readiness: ~50%
+
+| Area | Readiness |
+|---|---|
+| Site | 35% |
+| Plaza | 20% |
+| Tower A (WTC 1) | 65% |
+| Tower B (WTC 2) | 60% |
+| Concourse | 10% |
+| WTC 3-6 | 0% |
+| WTC 7 | 55% |
+| Observation Deck | 10% |
+| Windows on the World | 10% |
+| **Overall** | **~50%** |
+
+### Evidence Corpus
+
+- NCSTAR engineering reports: 9 PDFs (520MB)
+- NCSTAR visual evidence: 657 images (2.9GB)
+- WTCI drawing books: 14+ ZIPs + texts
+- Tower A structural sheets (AA20a1): 895 PNGs
+- Gerrycan collections: 4 ZIPs (546MB)
+- Exterior wall schedules: Multiple XLS
+- Site plan SVGs/PNGs: 6 files
+- **Total: ~1,577+ files, ~4.9GB+**
+
+### Gap Status
+
+| ID | Gap | Status |
+|---|---|---|
+| CG-1 | Tower B Structural Drawings | ⚠️ Partially addressed |
+| CG-2 | Architectural Floor Plans | ❌ Open |
+| CG-3 | Site Plan & Plaza | ❌ Open |
+| CG-4 | Tower A Upper Wall Schedules | ✅ Closed |
+
+### Key Planning Documents
+
+- `docs/READINESS_50_TO_80_REPLAN.md` — Path from 50% to 80%
+- `docs/ARCHITECTURAL_ACQUISITION_CAMPAIGN.md` — Campaign for CG-2 and CG-3
+- `docs/GERRYCAN_COLLECTION_ASSESSMENT.md` — Gerrycan inventory
+- `docs/SESSION_SUMMARY_2026_08_10.md` — Session summary
 
 ## Critical Acquisition Requirement
 
@@ -85,8 +143,6 @@ The repository already contains acquisition foundations under:
 
 Do not create a competing `agents/acquisition/` subsystem.
 
-Inspect and reuse the existing systems unless a documented audit proves that replacement is necessary.
-
 ## Current Working Foundation
 
 ### Package and Runtime
@@ -114,17 +170,6 @@ Working components include:
 - PDF analyser
 - PDF knowledge pipeline
 
-Primary file:
-
-- `agents/processors/pdf_text_extractor.py`
-
-Important functions include:
-
-- `extract_with_pypdf2()`
-- `extract_with_ocr()`
-- `extract_pages()`
-- `extract_text()`
-
 ### Knowledge Extraction
 
 Working components include:
@@ -142,14 +187,6 @@ Working components include:
 - Fact cleaning
 - Fact deduplication
 
-Important files include:
-
-- `agents/knowledge/knowledge_extractor.py`
-- `agents/knowledge/fact_normalizer.py`
-- `agents/knowledge/fact_cleaner.py`
-- `agents/knowledge/pdf_knowledge_pipeline.py`
-- `agents/knowledge/knowledge_pipeline.py`
-
 ### Provenance and Citations
 
 Working components include:
@@ -161,22 +198,7 @@ Working components include:
 - Citation table
 - Citation Loader
 - Citation deduplication
-
-Important file:
-
-- `agents/knowledge/citation_loader.py`
-
-Current provenance path:
-
-Facts
-↓
-Fact Sources
-↓
-Citations
-
-The `fact_sources` table is the authoritative scalable fact-provenance model.
-
-Legacy `source_file` and `source_page` fields may remain in `facts` for compatibility.
+- Citation-to-asset provenance (M18)
 
 ### Entity Resolution
 
@@ -189,14 +211,6 @@ Working components include:
 - Alias relationship reassignment
 - Entity Resolution v2
 
-Important file:
-
-- `agents/knowledge/entity_resolution.py`
-
-Database support:
-
-- `entity_aliases`
-
 ### Fact Verification
 
 Working components include:
@@ -205,22 +219,12 @@ Working components include:
 - Fact confidence updates
 - Verification-status updates
 
-Important file:
-
-- `agents/verification/fact_verifier.py`
-
 Current operational rules:
 
 - Zero source records: `claim`, confidence 50
 - One source record: `supported`, confidence 70
 - Two source records: `well_supported`, confidence 85
 - Three or more source records: `verified`, confidence 95
-
-Important limitation:
-
-Source-record count is not necessarily independent-source count.
-
-Several pages from one document may currently increase verification strength without representing independent evidence.
 
 ### Relationships
 
@@ -235,66 +239,30 @@ Working components include:
 - Relationship Search v2
 - Relationship provenance display
 
-Important files include:
-
-- `agents/knowledge/relationship_builder.py`
-- `agents/knowledge/fact_relationship_builder.py`
-- `agents/search/relationship_search.py`
-
-Current automatically generated relationship types include:
-
-- `appears_in`
-- `associated_with`
-
-Current automatic source method:
-
-- `page_cooccurrence`
-
-Important limitation:
-
-Page co-occurrence indicates an association signal.
-
-Page co-occurrence does not prove causation, containment, structural dependency, or design intent.
-
 ### Timeline
 
 Working component:
 
 - Timeline Builder v2
 
-Important file:
+### Acquisition Pipeline
 
-- `agents/timeline/timeline_builder.py`
+Working components include:
 
-Current behaviour:
-
-- Accepts explicit referenced-year facts
-- Rejects engineering identifiers that merely resemble years
-- Displays confidence
-- Displays verification status
-- Displays available source provenance
-
-Current limitation:
-
-The timeline does not yet represent a complete historical event model.
-
-### Local PDF Processing Test Harness
-
-Working component:
-
-- `agents/ingestion/automated_ingestion.py`
-
-Current directories:
-
-- `data/incoming_pdfs/`
-- `data/processed_pdfs/`
-- `data/failed_pdfs/`
-
-This component processes manually supplied PDFs and moves successful or failed files into the appropriate directory.
-
-This is a test harness.
-
-This is not the final automated evidence-gathering workflow.
+- Source seeding (idempotent)
+- Search request generation
+- Candidate discovery (Wikimedia Commons)
+- Manual promotion
+- Discovery queue (lease/claim pattern)
+- Downloader (SHA-256, content-type, dedup)
+- R2 storage
+- Asset registration
+- Asset source provenance
+- AI metadata processing (OpenRouter)
+- Asset classification & routing
+- Photo processing (OCR + AI)
+- Orchestrator (package-safe, 6 stages)
+- End-to-end test (M14)
 
 ### Engine Operations
 
@@ -306,21 +274,11 @@ Working components include:
 - Relationship rebuilding
 - Timeline generation
 - Engine Health Report
-
-Important files include:
-
-- `agents/engine/run_engine.py`
-- `agents/engine/health_report.py`
-
-The current Master Engine Runner operates the existing local processing workflow.
-
-The Master Engine Runner does not yet run a verified end-to-end external discovery and downloader pipeline.
+- Knowledge Graph Build (STEP 6)
 
 ## Confirmed Database Foundation
 
-Primary database:
-
-- `wtc_evidence`
+Primary database: `wtc_evidence`
 
 Confirmed knowledge tables include:
 
@@ -330,6 +288,7 @@ Confirmed knowledge tables include:
 - `fact_sources`
 - `citations`
 - `relationships`
+- `timeline_events`
 
 Known or expected operational tables include:
 
@@ -338,147 +297,9 @@ Known or expected operational tables include:
 - `discoveries`
 - `discovery_queue`
 - `assets`
+- `asset_sources`
 - `metadata_queue`
 - `ai_analysis`
-
-The discovery, downloader, asset, and queue schemas must be audited before integration changes are made.
-
-Known constraints include:
-
-- `unique_fact`
-- `unique_fact_source`
-- `unique_relationship`
-- Citation uniqueness protection
-- Entity-name uniqueness protection
-
-Do not assume undocumented schema details.
-
-Inspect the live PostgreSQL schema before proposing migrations.
-
-## Tested Evidence
-
-The scanned engineering document:
-
-- `WTCI-000721-L.PDF`
-
-was used to validate:
-
-- OCR across 39 pages
-- Page-level extraction
-- Entity extraction
-- Engineering fact extraction
-- Fact normalisation
-- Fact cleaning
-- Fact provenance
-- Citation loading
-- Fact verification
-- Relationship mining
-- Relationship confidence
-- Relationship search
-- Timeline filtering
-- Master engine execution
-- Engine health reporting
-
-This source document is test evidence.
-
-Do not commit the PDF to Git.
-
-## Components Requiring Audit
-
-The following areas must not be treated as complete merely because files or database tables exist.
-
-### Discovery
-
-- Trusted-source seeding
-- Search generation
-- Candidate creation
-- Candidate relevance assessment
-- Candidate promotion
-- Discovery creation
-- Discovery queue creation
-- URL normalisation
-- URL deduplication
-- Discovery exports and diagnostics
-
-### Downloader and Storage
-
-- Discovery-queue consumption
-- HTTP response validation
-- Content-type validation
-- File downloading
-- File hashing
-- File-hash deduplication
-- R2 upload from the downloader
-- Asset registration
-- Failure handling
-- Retry handling
-- Metadata queue creation
-- Processing queue creation
-
-### Classification and Routing
-
-- Asset classification
-- Classification confidence
-- Routing
-- Processor invocation
-- Processing-status updates
-- Failure routing
-
-### Specialist Processing
-
-- Photograph processing
-- Image OCR
-- Blueprint processing
-- Drawing-number and revision extraction
-- Video processing
-- Keyframe extraction
-- Timestamp citations
-- Audio transcription
-- Audio timestamp citations
-
-### Additional Search and Analysis
-
-- General query engine
-- Graph-search components
-- Metadata-analysis components
-- Vision-analysis components
-- R2 analysis retrieval
-- AI-provider abstraction
-
-## Current Active Task
-
-The single active task is:
-
-**Reconnect Existing Automated Evidence Gathering**
-
-The authoritative task definition is:
-
-- `docs/NEXT_TASK.md`
-
-## Milestone Progress
-
-- ✅ **M0 – Pre-flight backup** — Complete and passed.
-- ✅ **M1 – Architecture decisions** — Complete and approved.
-- ✅ **M2 – Source-registry reconciliation** — Complete.
-- ✅ **M3 – Limited writer role** — Complete. Role `wtc_writer` created with least-privilege grants on approved tables and sequences. Catalog verification passed. Runtime verification revealed additional SELECT privileges may be required for some operational queries; this will be addressed in a later milestone if necessary.
-- ✅ **M4 – First small schema migration** — Complete.
-- ✅ **M5 – Package/import repair** — Complete. An M5 regression (unqualified import in `main.py`) was discovered during the M6 audit and repaired as part of M6 implementation.
-- ✅ **M6 – Source seeding repair** — Complete. Source seeding is now idempotent with URL upsert support, accurate per-row status reporting, module-relative path resolution, and all-or-nothing transaction safety.
-- ✅ **M7 – Search-request generation** — Complete. Search requests generated for 3 sources with verified search URL templates into `search_candidates` with `record_type = 'search_request'`. Idempotent via `ON CONFLICT DO NOTHING` backed by the M4 unique constraint. Legacy NULL `record_type` rows corrected. 4 sources deferred pending verified search URL templates. Package-safe execution verified.
-- ✅ **M8 – Controlled source search** — Complete. One controlled source search executed (Wikimedia Commons, "World Trade Center Plaza"). 20 evidence URL candidates extracted and stored in `search_candidates` with `record_type = 'evidence_candidate'`. Idempotent via `ON CONFLICT DO NOTHING` backed by the M4 unique constraint. `discoveries` and `discovery_queue` confirmed untouched. Package-safe execution verified.
-- ✅ **M9 – Human review and manual promotion** — Complete. `manual_promote.py` rewritten to read `evidence_candidate` rows from `search_candidates` and promote approved candidates into the canonical `discoveries` table with status `'approved'`. Package-safe imports, transaction safety, command-line ID selection, and application-level idempotency. `export_candidates.py` updated with `--type` filtering. `export_discoveries.py` updated to read from `discoveries`. Two candidates promoted and verified. No schema changes.
-- ✅ **M10 – Discovery queue** — Complete. `queue_discoveries.py` rewritten to read from canonical `discoveries` table and INSERT into `discovery_queue` with `discovery_id` FK populated. Idempotent via LEFT JOIN on `discovery_id` plus `ON CONFLICT(target_url) DO NOTHING`. Silent-loss bug eliminated. Two discoveries queued; discovery-to-queue linkage verified. No schema changes. 54 legacy queue rows preserved untouched.
-- ✅ **M11 – Downloader schema additions** — Complete. `assets.file_hash` (text, unique index) and `assets.content_type` (text) columns added. `asset_sources` table created with 8 columns plus FK constraints to `assets` and `sources`. All DDL idempotent via `IF NOT EXISTS`; rerun confirmed no-op. Legacy rows preserved. Migration: `database/migrations/001_add_downloader_schema.sql`.
-- ✅ **M12 – `asset_sources` registration + privilege grant** — Complete. `agents/downloader/register_asset.py` created; idempotent via unique constraint. Writer role granted INSERT on `asset_sources` and USAGE/SELECT on `asset_sources_id_seq`. Migration: `database/migrations/002_add_asset_sources_unique.sql`.
-- ✅ **M13 – R2 testability, then downloader implementation** — Complete. `agents/downloader/main.py` rewritten with SHA-256 hashing, content-type detection, hash-based dedup, lease/claim queue pattern. `test_r2.py` replaced with mocked unit test.
-- ✅ **M14 – Controlled end-to-end test** — Complete. Full independent acquisition path verified end-to-end with provenance chain and idempotency.
-- ✅ **M15 – Orchestrator repair** — Complete. `agents/run_pipeline.py` rewritten with package-safe invocation across 6 automated stages. Legacy orchestration removed.
-- ✅ **M16 – Knowledge platform import repair** — Complete. All 20 knowledge, timeline, verification, metadata, search, engine, and router files now use the shared `get_db_connection()`. Zero remaining inline `psycopg2.connect()` calls.
-- ✅ **M17 – Acquisition → Knowledge Pipeline Integration** — Complete. The acquisition pipeline and knowledge engine are connected via `process_acquisition_assets()`. The engine now queries acquisition assets from R2, downloads and processes them through the PDF knowledge pipeline, preserving provenance with `source_file` identifiers.
-- ✅ **M18 – Citation Provenance Integration** — Complete. `citations.asset_id` and `citations.asset_source_id` FK columns added. `citation_loader.py` resolves acquisition provenance from `acquisition_asset_{id}` source_file identifiers at citation creation time. Full provenance chain established: Fact → Citation → Asset → Asset Source → Discovery → Search Candidate.
-- ✅ **M19 – AI-Assisted Metadata Processing** — Complete. OpenRouter AI integration for image analysis via `ai_client.py`. Provider-selectable metadata processing (`METADATA_PROVIDER`) via `ai_analyze.py`. Mock fallback preserved. Model and timestamp provenance recorded in `analysis_json`.
-- ✅ **M20 – Asset Classification & Routing** — Complete. Canonical asset types established. Hybrid classification: MIME-based from downloader, AI refinement (confidence > 60) from ai_analyze. Router normalized to canonical names. Routing invocation deferred to M21.
-- ✅ **M21 – Photo Processing** — Complete. `agents/processors/photo_processor.py` rewritten (372 lines): Tesseract OCR, AI description lookup, entity/fact extraction via `knowledge_extractor` + `fact_cleaner`. Provenance: `acquisition_asset_{id}_ocr`. `knowledge_graph_builder` wired into `run_engine.py` as STEP 6. No schema changes.
 
 ## Writer Role
 
@@ -488,51 +309,74 @@ The `wtc_writer` role exists in `wtc_evidence` with:
 - `USAGE ON SCHEMA public`
 - `INSERT` on `sources`, `search_candidates`, `discoveries`, `assets`, `metadata_queue`, `asset_sources`
 - `INSERT, UPDATE` on `discovery_queue`
-- `USAGE, SELECT` on `sources_id_seq`, `search_candidates_id_seq`, `discoveries_id_seq`, `discovery_queue_id_seq`, `assets_id_seq`, `metadata_queue_id_seq`, `asset_sources_id_seq`
-- No DELETE, no DDL, no ownership, no superuser, no default privileges
+- `USAGE, SELECT` on relevant sequences
+- No DELETE, no DDL, no ownership, no superuser
 
 Credentials are stored in `.secrets/wtc_writer.env` (not committed to Git).
 
-## Development Assistant Workflow
+## Current Active Task
 
-Current development tooling:
+The single active task is:
 
-- Cline
-- OpenRouter
-- DeepSeek V4 Flash
-- Server-side VS Code
-- SSH localhost tunnel
-- Plan mode before Act mode
-- Approval-controlled edits and commands
-- Cline checkpoints
+**Architectural Evidence Acquisition Campaign**
 
-The repository documentation and Git history are the authoritative project memory.
+Closing CG-2 (Architectural Floor Plans) and CG-3 (Site Plans).
 
-AI chat memory is not authoritative project memory.
+The authoritative task definition is:
 
-## Required Development Process
+- `docs/NEXT_TASK.md`
 
-Every task must follow this sequence:
+The authoritative campaign plan is:
 
-Read
-↓
-Audit
-↓
-Plan
-↓
-Approve
-↓
-Implement One Scoped Change
-↓
-Compile or Test
-↓
-Review Git Diff
-↓
-Update Documentation
-↓
-Commit
-↓
-Continue
+- `docs/ARCHITECTURAL_ACQUISITION_CAMPAIGN.md`
+
+## Current Phase Rules
+
+- Do not ingest evidence into the database
+- Do not modify code
+- Do not modify the database schema
+- Focus on evidence corpus acquisition and planning only
+- Produce analysis documents, not implementation
+
+## Milestone Progress
+
+- ✅ **M0 – Pre-flight backup** — Complete and passed.
+- ✅ **M1 – Architecture decisions** — Complete and approved.
+- ✅ **M2 – Source-registry reconciliation** — Complete.
+- ✅ **M3 – Limited writer role** — Complete.
+- ✅ **M4 – First small schema migration** — Complete.
+- ✅ **M5 – Package/import repair** — Complete.
+- ✅ **M6 – Source seeding repair** — Complete.
+- ✅ **M7 – Search-request generation** — Complete.
+- ✅ **M8 – Controlled source search** — Complete.
+- ✅ **M9 – Human review and manual promotion** — Complete.
+- ✅ **M10 – Discovery queue** — Complete.
+- ✅ **M11 – Downloader schema additions** — Complete.
+- ✅ **M12 – Asset registration & provenance** — Complete.
+- ✅ **M13 – Downloader repair & R2 integration** — Complete.
+- ✅ **M14 – Controlled end-to-end test** — Complete.
+- ✅ **M15 – Orchestrator repair** — Complete.
+- ✅ **M16 – Knowledge platform import repair** — Complete.
+- ✅ **M17 – Acquisition → Knowledge Pipeline Integration** — Complete.
+- ✅ **M18 – Citation Provenance Integration** — Complete.
+- ✅ **M19 – AI-Assisted Metadata Processing** — Complete.
+- ✅ **M20 – Asset Classification & Routing** — Complete.
+- ✅ **M21 – Photo Processing** — Complete.
+- ✅ **M22 – Independent-Source Verification** — Complete.
+- ✅ **M23 – Timeline Event Model** — Complete.
+
+## Current Strategic Boundary
+
+Do not begin:
+
+- Digital Twin schema development
+- Reconstruction geometry
+- Walkthrough development
+- Large-scale crawling
+- Broad AI enrichment
+- Unrelated database redesign
+
+until the architectural evidence acquisition campaign is complete and the existing discovery and downloader pipeline has been audited, repaired, and tested end to end.
 
 ## Non-Negotiable Rules
 
@@ -554,64 +398,6 @@ Continue
 - Review `git diff` after each change
 - Update documentation only after tests pass
 - Stop when the approved milestone is complete
-
-## AI Use Within the Evidence Engine
-
-AI may later assist with:
-
-- Evidence relevance scoring
-- Classification
-- Document summarisation
-- Structured fact suggestions
-- Entity suggestions
-- Relationship suggestions
-- Image interpretation
-- Drawing interpretation
-- Contradiction detection
-- Research assistance
-
-AI output must:
-
-- Be labelled as AI-assisted or AI-generated
-- Retain citations to source evidence
-- Preserve provider and model details
-- Preserve prompt or prompt-version information
-- Be validated before storage as authoritative knowledge
-- Remain separate from direct evidence
-- Be subject to human review for high-impact claims
-
-## Before Starting a New Development Session
-
-A new AI session must:
-
-1. Read the authoritative documentation
-2. Read `.clinerules`
-3. Inspect the relevant repository files
-4. Confirm the current task
-5. Confirm the working-tree status
-6. Produce a plan
-7. Wait for approval before editing
-
-The initial prompt should explicitly prohibit:
-
-- File edits
-- Database changes
-- New architecture
-- Destructive commands
-- Automatic commits
-
-## Current Strategic Boundary
-
-Do not begin:
-
-- Digital Twin schema development
-- Reconstruction geometry
-- Walkthrough development
-- Large-scale crawling
-- Broad AI enrichment
-- Unrelated database redesign
-
-until the existing discovery and downloader pipeline has been audited, repaired, and tested end to end.
 
 ## Recovery Procedure
 

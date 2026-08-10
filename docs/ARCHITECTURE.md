@@ -1,8 +1,8 @@
-# World Trade Center Evidence Engine Architecture
+# World Trade Center Reconstruction Project — Architecture
 
 ## Purpose
 
-This document describes the current technical architecture of the World Trade Center Evidence Engine.
+This document describes the current technical architecture of the World Trade Center Reconstruction Project, including both the Evidence Engine platform and the reconstruction vision.
 
 It identifies:
 
@@ -12,6 +12,7 @@ It identifies:
 - Working components
 - Components requiring verification
 - Current integration boundaries
+- Reconstruction layer (planned)
 
 For the enduring roadmap, see:
 
@@ -46,53 +47,78 @@ The architecture must follow these principles:
 
 ## High-Level Data Flow
 
-Configured Sources
-↓
-Discovery Layer
-↓
-Search Requests (`search_candidates`, `record_type = 'search_request'`)
-↓
-Evidence Candidates (`search_candidates`, `record_type = 'evidence_candidate'`)
-↓
-Discoveries
-↓
-Discovery Queue
-↓
-Downloader
-↓
-R2 Object Storage
-↓
-Asset Registration
-↓
-Metadata and Processing Queues
-↓
-Classification
-↓
-Routing
-↓
-Specialist Processors
-↓
-Knowledge Extraction
-↓
-Fact Normalisation and Cleaning
-↓
-Sources and Citations
-↓
-Verification
-↓
-Relationship Mining
-↓
-Search and Timeline
-↓
-Digital Twin Knowledge Model
-↓
-Evidence-Backed Reconstruction
+```text
+Historical Sources
+        ↓
+Discovery
+        ↓
+Acquisition
+        ↓
+Assets & Provenance
+        ↓
+AI Analysis
+        ↓
+OCR & Text Extraction
+        ↓
+Knowledge Extraction (Entities, Facts)
+        ↓
+Citations
+        ↓
+Independent-Source Verification
+        ↓
+Relationships
+        ↓
+Timeline Events
+        ↓
+Evidence-Backed Digital Twin
+```
+
+## Reconstruction Layer (Planned)
+
+The reconstruction layer sits above the evidence engine and consumes verified, cited knowledge to produce a time-aware digital twin.
+
+### Spatial Hierarchy
+
+```
+Site
+ ├── Building (WTC 1, WTC 2, WTC 3, WTC 4, WTC 5, WTC 6, WTC 7)
+ │    └── Tower
+ │         └── Floor
+ │              ├── Zone (Core, Tenant, Mechanical, Service)
+ │              └── Space (Office, Corridor, Elevator, Stairwell, Lobby, Restroom)
+ └── Plaza (Austin J. Tobin Plaza)
+      └── Concourse (Underground mall, PATH station, subway connections)
+```
+
+### Two Timeline Model
+
+1. **Historical Timeline:** What actually happened — construction milestones (1966-1973), operational era (1973-2001), 1993 bombing repairs, 2001 attacks
+2. **Reconstruction Timeline:** What evidence has been acquired and when — progressive filling of knowledge gaps
+
+### Living Reconstruction
+
+The reconstruction is time-aware — it can represent the WTC complex at any point in its history, with evidence-backed state transitions.
+
+### Current Reconstruction Readiness: ~50%
+
+| Area | Readiness |
+|---|---|
+| Site | 35% |
+| Plaza | 20% |
+| Tower A (WTC 1) | 65% |
+| Tower B (WTC 2) | 60% |
+| Concourse | 10% |
+| WTC 3-6 | 0% |
+| WTC 7 | 55% |
+| Observation Deck | 10% |
+| Windows on the World | 10% |
+| **Overall** | **~50%** |
 
 ## Current Integration Boundary
 
 The processing and knowledge layers have been tested using a scanned engineering PDF.
 
-The external evidence-gathering path is not yet confirmed as working end to end.
+The external evidence-gathering path is operational and tested end-to-end (M14).
 
 The current integration task is:
 
@@ -137,8 +163,6 @@ The repository contains components such as:
 - `agents/discovery/export_discoveries.py`
 - `agents/discovery/sources.json`
 
-The exact responsibility and current validity of every file must be confirmed by repository inspection.
-
 ## Intended Flow
 
 `sources.json`
@@ -166,25 +190,9 @@ A search request is not the same thing as a returned evidence URL.
 
 Legacy tables `discovered_urls` and `search_history` are preserved as read-only legacy data and are excluded from the new operational path.
 
-## Intended Responsibilities
-
-- Store trusted evidence sources
-- Generate source-specific searches
-- Record candidate URLs
-- Normalise URLs
-- Prevent duplicate candidates
-- Assess relevance
-- Promote approved candidates
-- Reject unsuitable candidates
-- Queue discoveries for downloading
-- Preserve discovery provenance
-- Export diagnostic reports
-
 ## Current Status
 
-**Under audit**
-
-The files exist, but the complete discovery workflow must be verified before the layer is marked working.
+**Operational** — tested end-to-end in M14.
 
 # Downloader Layer
 
@@ -196,6 +204,7 @@ The files exist, but the complete discovery workflow must be verified before the
 
 - `agents/downloader/main.py`
 - `agents/downloader/r2.py`
+- `agents/downloader/register_asset.py`
 - `agents/downloader/test_r2.py`
 
 ## Purpose
@@ -220,27 +229,9 @@ Asset Record
 ↓
 Metadata and Processing Queue
 
-## Intended Responsibilities
-
-- Read pending discovery records
-- Download permitted files
-- Validate HTTP responses
-- Validate content types
-- Preserve original URLs
-- Calculate cryptographic hashes
-- Prevent duplicate storage
-- Upload files to R2
-- Create asset records
-- Create processing jobs
-- Record failures
-- Retry recoverable failures
-- Preserve acquisition provenance
-
 ## Current Status
 
-**Under audit**
-
-R2 and downloader code exist, but their complete integration with discovery, assets, queues, and processors must be verified.
+**Operational** — tested end-to-end in M14.
 
 # Storage Layer
 
@@ -281,6 +272,7 @@ PostgreSQL stores:
 - Relationships
 - Verification status
 - Aliases
+- Timeline events
 
 # Asset and Queue Layer
 
@@ -343,9 +335,7 @@ Queue records should support:
 
 ## Current Status
 
-**Requires verification**
-
-Asset and queue components are documented as existing, but the complete acquisition-to-processing flow must be tested.
+**Operational** — tested end-to-end in M14.
 
 # Classification Layer
 
@@ -377,22 +367,9 @@ Determine the evidence type and assign a classification confidence.
 - Audio
 - Unknown
 
-## Inputs
-
-Classification may use:
-
-- File extension
-- MIME type
-- Embedded metadata
-- PDF structure
-- OCR sample
-- Source context
-- Deterministic rules
-- AI-assisted classification
-
 ## Current Status
 
-**Requires verification**
+**Operational** — M20 complete.
 
 # Routing Layer
 
@@ -408,28 +385,9 @@ Classification may use:
 
 Route classified assets to specialist processors.
 
-## Intended Routing
-
-Photograph
-→ Photo Processor
-
-PDF
-→ PDF Processor
-
-Blueprint or Drawing
-→ Blueprint Processor
-
-Video
-→ Video Processor
-
-Audio
-→ Audio Processor
-
 ## Current Status
 
-**Requires verification**
-
-Imports, package structure, queue integration, and processor availability must be inspected.
+**Requires verification** — routing invocation deferred.
 
 # Processing Layer
 
@@ -439,107 +397,33 @@ Imports, package structure, queue integration, and processor availability must b
 
 ## PDF Text Extractor
 
-File:
+File: `agents/processors/pdf_text_extractor.py`
 
-`agents/processors/pdf_text_extractor.py`
-
-Implemented responsibilities:
-
-- Embedded text extraction with PyPDF2
-- Detection of insufficient embedded text
-- OCR fallback using Tesseract
-- PDF rendering using pdf2image
-- Whole-document extraction
-- Page-level extraction
-- Page-number preservation
-
-Status:
-
-**Working**
+Status: **Working**
 
 ## PDF Analyzer
 
-File:
+File: `agents/processors/pdf_analyzer.py`
 
-`agents/processors/pdf_analyzer.py`
-
-Responsibilities:
-
-- Extract PDF text
-- Extract entities
-- Extract facts
-- Clean facts
-- Print analysis results
-
-Status:
-
-**Working**
+Status: **Working**
 
 ## PDF Processor
 
-File:
+File: `agents/processors/pdf_processor.py`
 
-`agents/processors/pdf_processor.py`
-
-Intended responsibilities:
-
-- Receive routed PDF assets
-- Coordinate extraction
-- Trigger OCR
-- Preserve asset identity
-- Pass results into knowledge processing
-
-Status:
-
-**Requires integration verification**
+Status: **Requires integration verification**
 
 ## Photo Processor
 
-Expected responsibilities:
+File: `agents/processors/photo_processor.py`
 
-- Image metadata extraction
-- Text and signage OCR
-- Visual description
-- Location suggestions
-- Object and feature detection
-- Evidence-linked analysis
-
-Status:
-
-**Requires repository verification**
+Status: **Working** — M21 complete (Tesseract OCR + AI description + entity/fact extraction)
 
 ## Blueprint Processor
 
-Expected responsibilities:
+File: `agents/processors/blueprint_processor.py`
 
-- Drawing-title recognition
-- Drawing-number recognition
-- Revision recognition
-- Sheet recognition
-- Floor and tower detection
-- Elevation extraction
-- Section and detail extraction
-- Structural and architectural feature extraction
-
-Status:
-
-**Requires repository verification**
-
-## Video and Audio Processors
-
-Expected responsibilities:
-
-- Media metadata
-- Keyframe extraction
-- Scene segmentation
-- Frame OCR
-- Speech-to-text
-- Transcripts
-- Timestamp-level provenance
-
-Status:
-
-**Requires repository verification**
+Status: **Requires repository verification**
 
 # Metadata and AI Analysis Layer
 
@@ -547,51 +431,18 @@ Status:
 
 `agents/metadata/`
 
-## Intended Components
+## Components
 
+- `agents/metadata/ai_analyze.py` — Provider-selectable metadata processing
+- `agents/metadata/ai_client.py` — OpenRouter API client
 - `agents/metadata/vision_analyze.py`
 - `agents/metadata/vision_client.py`
 - `agents/metadata/r2_download.py`
-
-## Intended Responsibilities
-
-- Read metadata jobs
-- Retrieve assets from R2
-- Send supported evidence to an analysis provider
-- Store descriptions, tags, observations, and confidence
-- Preserve provider and model information
-- Preserve source-asset identity
-## AI Provider Boundary
-
-AI provider access should remain behind a client abstraction.
-
-Possible providers include:
-
-- OpenRouter
-- DeepSeek
-- Kimi
-- Anthropic
-- OpenAI
-- Microsoft-hosted models
-- Local models
-
-AI analysis records should preserve:
-
-- Provider
-- Model
-- Prompt or prompt version
-- Input asset
-- Output
-- Confidence
-- Review status
-- Token usage
-- Cost information
+- `agents/metadata/mock_analyze.py` — Mock fallback
 
 ## Current Status
 
-**Requires audit**
-
-The existing metadata and vision pipeline must be inspected before AI integration is expanded.
+**Operational** — M19 complete.
 
 # Knowledge Layer
 
@@ -601,173 +452,57 @@ The existing metadata and vision pipeline must be inspected before AI integratio
 
 ## Knowledge Extractor
 
-File:
+File: `agents/knowledge/knowledge_extractor.py`
 
-`agents/knowledge/knowledge_extractor.py`
-
-Responsibilities:
-
-- Extract known entities
-- Extract engineering facts
-- Extract drawing-book references
-- Extract column types
-- Extract spandrel types
-- Extract strut types
-- Extract section references
-- Extract exterior-wall references
-- Extract explicit year references
-
-Status:
-
-**Working for current test documents**
-
-The extractor is currently rule-based and WTC-specific. Future expansion must preserve deterministic extraction while allowing validated AI-assisted suggestions.
+Status: **Working for current test documents**
 
 ## Fact Normalizer
 
-File:
+File: `agents/knowledge/fact_normalizer.py`
 
-`agents/knowledge/fact_normalizer.py`
-
-Responsibilities:
-
-- Convert OCR variants into canonical facts
-- Normalise drawing-book references
-- Normalise exterior-wall references
-- Normalise component types
-
-Status:
-
-**Working**
+Status: **Working**
 
 ## Fact Cleaner
 
-File:
+File: `agents/knowledge/fact_cleaner.py`
 
-`agents/knowledge/fact_cleaner.py`
-
-Responsibilities:
-
-- Reject invalid OCR-derived facts
-- Validate known component identifiers
-- Filter invalid section references
-- Filter implausible year values
-- Deduplicate cleaned output
-
-Status:
-
-**Working**
+Status: **Working**
 
 ## PDF Knowledge Pipeline
 
-File:
+File: `agents/knowledge/pdf_knowledge_pipeline.py`
 
-`agents/knowledge/pdf_knowledge_pipeline.py`
-
-Responsibilities:
-
-- Extract PDF pages
-- Process pages independently
-- Extract entities and facts
-- Clean facts
-- Insert or resolve facts
-- Store source-file provenance
-- Store source-page provenance
-
-Status:
-
-**Working**
+Status: **Working**
 
 ## General Knowledge Pipeline
 
-File:
+File: `agents/knowledge/knowledge_pipeline.py`
 
-`agents/knowledge/knowledge_pipeline.py`
-
-Responsibilities:
-
-- Read existing analysis descriptions
-- Extract entities and facts
-- Clean extracted facts
-- Store knowledge records
-
-Status:
-
-**Working for its current input source**
-
-The general knowledge pipeline is separate from the PDF-specific knowledge pipeline.
+Status: **Working for its current input source**
 
 ## Entity Resolution
 
-File:
+File: `agents/knowledge/entity_resolution.py`
 
-`agents/knowledge/entity_resolution.py`
-
-Responsibilities:
-
-- Maintain entity aliases
-- Resolve aliases to canonical names
-- Create canonical entities
-- Merge alias relationships
-- Reassign linked facts
-- Prevent duplicate canonical entities
-
-Database support:
-
-`entity_aliases`
-
-Status:
-
-**Working**
+Status: **Working**
 
 ## Fact Relationship Builder
 
-File:
+File: `agents/knowledge/fact_relationship_builder.py`
 
-`agents/knowledge/fact_relationship_builder.py`
-
-Responsibilities:
-
-- Group facts using page-level provenance
-- Mine page-co-occurrence relationships
-- Create missing fact entities
-- Insert or update relationships
-- Calculate evidence counts
-- Calculate relationship confidence
-- Record the source method
-
-Current relationship types include:
-
-- `appears_in`
-- `associated_with`
-
-Current source method:
-
-- `page_cooccurrence`
-
-Status:
-
-**Working**
-
-Page co-occurrence represents an association signal. Page co-occurrence does not prove causation, containment, structural dependency, or design intent.
+Status: **Working**
 
 ## Citation Loader
 
-File:
+File: `agents/knowledge/citation_loader.py`
 
-`agents/knowledge/citation_loader.py`
+Status: **Working** — M18 complete (citation-to-asset provenance)
 
-Responsibilities:
+## Knowledge Graph Builder
 
-- Read evidence from `fact_sources`
-- Create citation records
-- Preserve source-file information
-- Preserve source-page information
-- Prevent duplicate citations
+File: `agents/knowledge/knowledge_graph_builder.py`
 
-Status:
-
-**Working**
+Status: **Working** — M21 complete (STEP 6 in engine)
 
 # Verification Layer
 
@@ -777,15 +512,9 @@ Status:
 
 ## Fact Verifier
 
-File:
+File: `agents/verification/fact_verifier.py`
 
-`agents/verification/fact_verifier.py`
-
-Responsibilities:
-
-- Count evidence records supporting each fact
-- Update verification status
-- Update operational confidence
+Status: **Working**
 
 Current operational rules:
 
@@ -793,28 +522,6 @@ Current operational rules:
 - One source: supported, confidence 70
 - Two sources: well supported, confidence 85
 - Three or more sources: verified, confidence 95
-
-Status:
-
-**Working**
-
-## Verification Limitation
-
-Source-record count is not necessarily independent-source count.
-
-Several pages from one document may increase the current source count without representing several independent pieces of evidence.
-
-Future verification must account for:
-
-- Independent source count
-- Duplicate documents
-- Derivative copies
-- Source priority
-- Source authenticity
-- Directness
-- Date relevance
-- Contradictions
-- Human review
 
 # Search Layer
 
@@ -824,36 +531,16 @@ Future verification must account for:
 
 ## Relationship Search v2
 
-File:
+File: `agents/search/relationship_search.py`
 
-`agents/search/relationship_search.py`
-
-Responsibilities:
-
-- Search source and target entities
-- Display relationship type
-- Display relationship confidence
-- Display evidence count
-- Display source method
-- Display fact confidence
-- Display verification status
-- Display supporting source files
-- Display supporting source pages
-
-Status:
-
-**Working**
+Status: **Working**
 
 ## Additional Search Components
-
-Known files include:
 
 - `agents/search/query_engine.py`
 - `agents/search/graph_search.py`
 
-Status:
-
-**Requires verification**
+Status: **Requires verification**
 
 # Timeline Layer
 
@@ -863,53 +550,9 @@ Status:
 
 ## Timeline Builder
 
-File:
+File: `agents/timeline/timeline_builder.py`
 
-`agents/timeline/timeline_builder.py`
-
-Responsibilities:
-
-- Load explicit year facts
-- Reject technical identifiers that resemble calendar years
-- Display fact confidence
-- Display verification status
-- Display available source provenance
-
-Status:
-
-**Working**
-
-Current limitation:
-
-Timeline extraction depends on explicit date-oriented fact patterns and is not yet a complete historical event model.
-
-# Local Processing Test Harness
-
-## Location
-
-`agents/ingestion/`
-
-## Automated Ingestion
-
-File:
-
-`agents/ingestion/automated_ingestion.py`
-
-Responsibilities:
-
-- Read PDFs from `data/incoming_pdfs/`
-- Process each PDF
-- Move successful files to `data/processed_pdfs/`
-- Move failed files to `data/failed_pdfs/`
-- Rebuild fact relationships
-
-Status:
-
-**Working development test harness**
-
-This is not the final automated evidence-acquisition system.
-
-The completed acquisition workflow must use the discovery and downloader layers.
+Status: **Working** — M23 complete.
 
 # Engine Orchestration Layer
 
@@ -919,62 +562,25 @@ The completed acquisition workflow must use the discovery and downloader layers.
 
 ## Master Engine Runner
 
-File:
-
-`agents/engine/run_engine.py`
+File: `agents/engine/run_engine.py`
 
 Current workflow:
 
-1. Automated local PDF processing
-2. Citation loading
-3. Fact verification
-4. Relationship building
-5. Timeline generation
+1. STEP 1a: Acquisition Asset Processing
+2. STEP 1b: Local PDF Ingestion
+3. STEP 2: Citation Loading
+4. STEP 3: Independent-Source Verification
+5. STEP 4: Relationship Building
+6. STEP 5: Timeline Building
+7. STEP 6: Knowledge Graph Build
 
-Status:
-
-**Working for the current processing pipeline**
-
-Future integration should include:
-
-- Automated discovery
-- Candidate promotion
-- Discovery queue processing
-- Downloading
-- File validation
-- File deduplication
-- R2 storage
-- Asset registration
-- Classification
-- Routing
-- Specialist processing
-- Health reporting
-
-These additions must happen only after the existing discovery and downloader systems are audited and tested.
+Status: **Working**
 
 ## Engine Health Report
 
-File:
+File: `agents/engine/health_report.py`
 
-`agents/engine/health_report.py`
-
-Responsibilities:
-
-- Count entities
-- Count facts
-- Count fact sources
-- Count citations
-- Count relationships
-- Count entity aliases
-- Report fact-verification statuses
-- Report facts without sources
-- Report relationships without source methods
-- Report top source files
-- Report top relationships
-
-Status:
-
-**Working**
+Status: **Working**
 
 # Database Architecture
 
@@ -997,304 +603,22 @@ Known knowledge and operational tables include:
 - `fact_sources`
 - `citations`
 - `relationships`
-
-Discovery-related tables include:
-
-- `search_candidates` — records both `search_request` and `evidence_candidate` record types via a `record_type` field
-- `discoveries` — the canonical discovery record for all new rows
-- `discovery_queue`
-
-Legacy discovery tables (read-only, outside the new operational path):
-
-- `discovered_urls`
-- `search_history`
-
-The exact discovery and operational schemas will be confirmed during the migrations defined in the repair plan.
-
-## Entities
-
-Purpose:
-
-Store canonical entities.
-
-Examples:
-
-- World Trade Center
-- North Tower
-- South Tower
-- Drawing Book 1
-- Column Type 7000
-
-## Entity Aliases
-
-Purpose:
-
-Map alternate terminology to canonical entity names.
-
-Examples:
-
-- `WTC` maps to `World Trade Center`
-- `WTC 1` maps to `North Tower`
-- `WTC 2` maps to `South Tower`
-
-## Facts
-
-Purpose:
-
-Store unique canonical fact text and verification metadata.
-
-Known fields include:
-
-- `id`
-- `entity_id`
-- `fact_text`
-- `confidence`
-- `verification_status`
-- `source_file`
-- `source_page`
-
-The legacy `source_file` and `source_page` fields may remain for compatibility.
-
-The `fact_sources` table is the authoritative scalable provenance model.
-
-Important constraint:
-
-`unique_fact`
-
-## Fact Sources
-
-Purpose:
-
-Store multiple evidence locations for one canonical fact.
-
-Known fields include:
-
-- `id`
-- `fact_id`
-- `source_file`
-- `source_page`
-- `confidence`
-
-Important constraint:
-
-`unique_fact_source`
-
-## Citations
-
-Purpose:
-
-Provide the research-facing evidence citation layer.
-
-Known fields include:
-
-- `id`
-- `fact_id`
-- `source_file`
-- `source_page`
-- `confidence`
-- `citation_type`
-- `created_at`
-
-The citation schema should later support additional evidence types such as URLs, photographs, drawing sheets, frames, and timestamps.
-
-## Relationships
-
-Purpose:
-
-Store graph relationships between entities.
-
-Known fields include:
-
-- `id`
-- `source_entity_id`
-- `relationship_type`
-- `target_entity_id`
-- `confidence`
-- `evidence_count`
-- `source_method`
-- `created_at`
-
-Important constraint:
-
-`unique_relationship`
-
-## Current Provenance Model
-
-Facts
-↓
-Fact Sources
-↓
-Citations
-
-Future provenance must also support:
-
-- Original URLs
-- Archive references
-- R2 object keys
-- Drawing sheets
-- Drawing details
-- Image identifiers and regions
-- Video frames and timestamps
-- Audio timestamps
-- AI-analysis records
-- Human-review records
-
-# Python Package Architecture
-
-The `agents` directory is a Python package.
-
-Package directories should contain:
-
-`__init__.py`
-
-Internal imports should use package-qualified imports.
-
-Example:
-
-`from agents.knowledge.fact_cleaner import clean_facts`
-
-Package-dependent modules should be executed from the repository root using module mode.
-
-Example:
-
-`python -m agents.knowledge.pdf_knowledge_pipeline`
-
-Direct execution of package-dependent modules should generally be avoided.
-
-# Dependency Architecture
-
-## Python Dependencies
-
-Python packages are maintained in the root:
-
-`requirements.txt`
-
-Known dependencies include:
-
-- PyPDF2
-- pdf2image
-- pytesseract
-- psycopg2-binary
-- python-dotenv
-- requests
-- boto3
-- beautifulsoup4
-
-The root requirements file remains authoritative and should be reviewed before deployment.
-
-## System Dependencies
-
-Known system dependencies include:
-
-- Tesseract OCR
-- Poppler utilities
-- PostgreSQL client
-- Python virtual-environment support
-
-System dependencies cannot be represented fully in `requirements.txt`.
-
-Server bootstrap and deployment documentation must install system dependencies explicitly.
-
-# Development AI Workflow
-
-## Current Development Assistant
-
-The current repository-aware development workflow uses:
-
-- Cline
-- OpenRouter
-- DeepSeek V4 Flash
-- Plan mode before Act mode
-- Approval before file edits and terminal commands
-- Cline checkpoints enabled
-
-## Project Memory
-
-Repository documentation and Git history are the authoritative project memory.
-
-Model conversation history is not authoritative project memory.
-
-Before significant development work, Cline should read:
-
-- `docs/MISSION.md`
-- `docs/EVIDENCE_STANDARDS.md`
-- `docs/MASTER_PLAN.md`
-- `docs/ARCHITECTURE.md`
-- `docs/CURRENT_STATE.md`
-- `docs/NEXT_TASK.md`
-- `docs/AI_HANDOFF.md`
-- `.clinerules`
-
-## Safe Development Flow
-
-Read
-↓
-Audit
-↓
-Plan
-↓
-Approve
-↓
-Implement One Scoped Change
-↓
-Compile or Test
-↓
-Review Git Diff
-↓
-Update Documentation
-↓
-Commit
-
-Cline must not:
-
-- Duplicate existing systems
-- Change database schemas without explicit approval
-- Delete evidence
-- Commit secrets or API keys
-- Commit downloaded evidence files
-- Commit unreviewed changes
-- Treat AI output as historical evidence
-- Jump to unrelated roadmap phases
-- Replace working files without first reading them completely
-- run destructive commands without explicit approval
-
-# Current Architecture Task
-
-Inspect all relevant files under:
-
-- `agents/discovery/`
-- `agents/downloader/`
-
-The audit must identify:
-
-- File purpose
-- Imports and dependencies
-- Database tables used
-- Inputs
-- Outputs
-- Invocation method
-- Completion status
-- Duplicate responsibilities
-- Broken package imports
-- Missing queue transitions
-- Missing R2 integration
-- Missing asset registration
-- Missing processing handoff
-- Required tests
-
-The audit must also inspect the relevant database schemas for:
-
-- `sources`
+- `timeline_events`
 - `search_candidates`
 - `discoveries`
 - `discovery_queue`
-- `assets`
-- `metadata_queue`
 
-No files or database records should be changed during the initial audit.
+## Evidence Corpus
 
-After the audit, repairs must be implemented as small, tested milestones.
+The evidence corpus is stored in `WTC_CORPUS/` (excluded from source control via `.gitignore`).
 
-The authoritative task definition is maintained in:
-
-- `docs/NEXT_TASK.md`
+| Category | Files | Size |
+|---|---|---|
+| NCSTAR engineering reports | 9 PDFs | 520MB |
+| NCSTAR visual evidence | 657 images | 2.9GB |
+| WTCI drawing books | 14+ ZIPs + texts | Existing |
+| Tower A structural sheets (AA20a1) | 895 PNGs | Existing |
+| Gerrycan collections | 4 ZIPs | 546MB |
+| Exterior wall schedules | Multiple XLS | Existing |
+| Site plan SVGs/PNGs | 6 files | Existing |
+| **Total** | **~1,577+ files** | **~4.9GB+** |

@@ -1,0 +1,137 @@
+# WTC Corpus Reconstruction Assessment (Updated)
+
+## Date
+
+August 10, 2026 (updated with NIST NCSTAR 1-9A analysis)
+
+## NIST Corpus Inventory
+
+### Files Present
+
+| File | Size | Content |
+|---|---|---|
+| `NIST_WTC_Investigation_Reports.pdf` | 26MB | NCSTAR 1-9A: Global Structural Analysis of WTC 7 Response to Fires and Debris Impact |
+| `NIST_WTC_Investigation_Reports_djvu.txt` | 275KB | DJVU OCR text extraction of the above PDF |
+
+### Content Analysis
+
+The NIST PDF is **NCSTAR 1-9A** — a specialized report focused on WTC 7 (Building 7) structural analysis. It is NOT the full NCSTAR 1-1 through 1-9 collection. Key term frequency analysis:
+
+| Term | Mentions | Reconstruction Value |
+|---|---|---|
+| WTC 7 / Building 7 | 148 | **High** — extensive WTC 7 structural documentation |
+| Column | 528 | **High** — detailed column analysis for WTC 7 |
+| Core | 117 | **High** — core structural system documentation |
+| Tower A / WTC 1 / North Tower | 32 | **Moderate** — references to WTC 1 for comparison |
+| Exterior wall | 6 | **Low** — limited exterior wall discussion |
+| Foundation | 6 | **Low** — limited foundation references |
+| Tower B / WTC 2 / South Tower | 4 | **Low** — minimal Tower B content |
+| Spandrel | 2 | **Low** — minimal spandrel references |
+| Floor plan | 0 | ❌ No floor plans |
+| Site plan | 0 | ❌ No site plans |
+| Plaza | 0 | ❌ No plaza documentation |
+| Concourse | 0 | ❌ No concourse documentation |
+| Slurry wall / bathtub | 0 | ❌ No foundation wall documentation |
+| Elevator | 0 | ❌ No elevator documentation |
+
+### Reconstruction-Relevant Content Identified
+
+| Category | Present? | Detail |
+|---|---|---|
+| Floor plans | ❌ No | Zero mentions of "floor plan" |
+| Site plans | ❌ No | Zero mentions of "site plan" |
+| Exterior wall documentation | ⚠️ Minimal | 6 mentions, limited to WTC 7 exterior |
+| Foundation documentation | ⚠️ Minimal | 6 mentions, no slurry wall or bathtub content |
+| Tower A information | ⚠️ Partial | 32 mentions, used for comparison context |
+| Tower B information | ❌ No | Only 4 mentions, no structural detail |
+| WTC 7 information | ✅ Yes | 148 mentions — comprehensive WTC 7 structural analysis |
+| Plaza documentation | ❌ No | Zero mentions |
+| Concourse documentation | ❌ No | Zero mentions |
+| Column documentation | ✅ Yes | 528 mentions — detailed column analysis |
+| Core documentation | ✅ Yes | 117 mentions — core structural system |
+| Elevator documentation | ❌ No | Zero mentions |
+
+---
+
+## Updated Assessment Answers
+
+### A. What Evidence Categories Are Present?
+
+| Category | Present? | Source |
+|---|---|---|
+| Structural Drawing Books | ✅ Yes | Existing WTCI corpus (14 books) |
+| Structural Engineering Sheets | ✅ Yes | AA20a1 (895 PNGs, Tower A) |
+| Exterior Wall Schedules | ✅ Yes | XLS spreadsheet (Tower A, floors 1-9) |
+| Engineering Specifications | ✅ Yes | WTC7 OEM spec manual |
+| WTC 7 Structural Analysis | ✅ Yes | **NEW** — NIST NCSTAR 1-9A |
+| Construction Photographs | ❌ No | — |
+| Interior Photographs | ❌ No | — |
+| Floor Plans | ❌ No | — |
+| Site Plans | ⚠️ Partial | 3 SVG files (redirects only, not full-resolution) |
+| Architectural History | ❌ No | — |
+| Engineering Reports | ✅ Yes | **NEW** — NIST NCSTAR 1-9A (WTC 7 analysis) |
+
+### B. What Reconstruction-Critical Evidence Exists?
+
+**Tier 1 — Directly Usable:**
+- AA20a1 Tower A Structural Sheets (895 PNGs)
+- Exterior Wall Schedules (XLS, floors 1-9)
+- **NEW:** NIST NCSTAR 1-9A WTC 7 structural analysis (column layouts, core system, structural response)
+
+**Tier 2 — Supports Understanding:**
+- Drawing Book OCR text (14 books)
+- WTC7 OEM Specification Manual
+- **NEW:** NIST WTC 7 column and core documentation (528 column mentions, 117 core mentions)
+
+### C. What Evidence Appears Missing?
+
+All previously identified critical gaps remain:
+1. **Floor Plans** — still missing (NIST NCSTAR 1-9A has zero floor plan mentions)
+2. **Construction Photographs** — still missing
+3. **Interior Photographs** — still missing
+4. **Site Plans** — still missing (SVG files are redirects only)
+5. **Tower B Structural Drawings** — still missing
+6. **Buildings 3-6** — still missing
+7. **MEP Drawings** — still missing
+8. **Architectural Elevations** — still missing
+9. **Foundation/Slurry Wall** — still missing (NIST report has only 6 mentions, no detail)
+
+### D. Spatial Modelling Sufficiency
+
+| Level | Sufficient? | Assessment |
+|---|---|---|
+| Site | ❌ No | No site plans |
+| Building | ⚠️ Partial | Tower A structural + WTC 7 structural (new) |
+| Tower | ⚠️ Partial | Tower A + WTC 7; Tower B absent |
+| Floor | ❌ No | No floor plans |
+| Zone | ❌ No | No zone documentation |
+| Space | ❌ No | No space documentation |
+
+### E. Timeline State Viability
+
+No change — the NIST NCSTAR 1-9A is a post-collapse analysis document, not a historical construction document. It does not provide temporal evidence for year-by-year state generation.
+
+### F. What Should Be Ingested First?
+
+| Priority | Item | Rationale |
+|---|---|---|
+| 1 | AA20a1 Structural Sheets | Largest, highest-value |
+| 2 | Exterior Wall Schedules (XLS) | Structured data |
+| 3 | **NEW:** NIST NCSTAR 1-9A PDF | WTC 7 structural analysis |
+| 4 | WTC7 OEM Spec Manual (HOCR) | Best OCR quality |
+| 5 | Comprehensive DJVU corpus | After dedup |
+
+### G. What Should Not Be Ingested Yet?
+
+- Duplicate ZIPs
+- Site plan SVG redirects (120 bytes each — not real files)
+- JFK 9/11 incident logs
+- Finding aid XML
+
+---
+
+## Overall Assessment
+
+The NIST NCSTAR 1-9A report provides **significant WTC 7 structural documentation** (148 WTC 7 mentions, 528 column mentions, 117 core mentions) but does NOT contain floor plans, site plans, or plaza documentation. The full NCSTAR 1-1 through 1-9 collection (84 items) is still needed to address the critical gaps for floor plans and site plans.
+
+**WTC 7 readiness has improved significantly.** All other areas remain unchanged.

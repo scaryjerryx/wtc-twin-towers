@@ -1,0 +1,118 @@
+# Updated Corpus Readiness (Post-NIST Analysis)
+
+## Date
+
+August 10, 2026
+
+## NIST Acquisition Analysis
+
+The NIST PDF acquired is **NCSTAR 1-9A** — "Global Structural Analysis of the Response of World Trade Center Building 7 to Fires and Debris Impact Damage." This is a specialized WTC 7 structural analysis report, not the full NCSTAR 1-1 through 1-9 collection.
+
+### Content Summary
+
+| Metric | Value |
+|---|---|
+| File | `NIST_WTC_Investigation_Reports.pdf` (26MB) |
+| OCR text | `NIST_WTC_Investigation_Reports_djvu.txt` (275KB) |
+| Report | NCSTAR 1-9A (WTC 7 specific) |
+| WTC 7 mentions | 148 |
+| Column mentions | 528 |
+| Core mentions | 117 |
+| Tower A mentions | 32 |
+| Floor plan mentions | 0 |
+| Site plan mentions | 0 |
+| Plaza mentions | 0 |
+
+---
+
+## Readiness by Area
+
+| Area | Before NIST | After NIST | Change | Reason |
+|---|---|---|---|---|
+| **Site** | 0% | 0% | — | No site plan content in NCSTAR 1-9A |
+| **Plaza** | 0% | 0% | — | No plaza content in NCSTAR 1-9A |
+| **Tower A** | 5% | 8% | +3% | 32 Tower A references for comparison context |
+| **Tower B** | 0% | 1% | +1% | 4 Tower B mentions (minimal) |
+| **Concourse** | 0% | 0% | — | No concourse content |
+| **WTC 3-6** | 0% | 0% | — | No content for buildings 3-6 |
+| **WTC 7** | 5% | 25% | +20% | 148 WTC 7 mentions, 528 column mentions, 117 core mentions — comprehensive structural analysis |
+| **Observation Deck** | 0% | 0% | — | Not addressed |
+| **Windows on the World** | 0% | 0% | — | Not addressed |
+
+---
+
+## Reconstruction-State Readiness
+
+| State | Before | After | Change |
+|---|---|---|---|
+| 1966 | 0% | 0% | — |
+| 1967 | 0% | 0% | — |
+| 1968 | 0% | 0% | — |
+| 1969 | 2% | 2% | — |
+| 1970 | 2% | 2% | — |
+| 1971 | 2% | 2% | — |
+| 1972 | 2% | 2% | — |
+| 1973 (Opening) | 5% | 5% | — |
+| 1974-1992 | 5% | 5% | — |
+| 1993 | 5% | 5% | — |
+| 1994-2000 | 5% | 5% | — |
+| 2001 | 5% | 5% | — |
+
+**No change in timeline state readiness.** The NIST NCSTAR 1-9A is a post-collapse analysis document, not a historical construction document.
+
+---
+
+## Readiness Improvement from NIST Acquisition
+
+| Area | Improvement | Assessment |
+|---|---|---|
+| WTC 7 | +20% | Significant — comprehensive structural analysis of WTC 7 columns, core, and structural response |
+| Tower A | +3% | Minor — comparison references only |
+| Tower B | +1% | Negligible — 4 mentions only |
+| All other areas | 0% | No relevant content |
+
+**Overall readiness improvement:** +3% (from ~5% to ~8% overall, driven primarily by WTC 7 improvement)
+
+---
+
+## What Would Full NIST Collection Provide
+
+If the operator acquires the full NCSTAR 1-1 through 1-9 collection (84 items):
+
+| Area | Current | After Full NIST | Potential Increase |
+|---|---|---|---|
+| Site | 0% | 50% | +50% |
+| Plaza | 0% | 30% | +30% |
+| Tower A | 8% | 35% | +27% |
+| Tower B | 1% | 25% | +24% |
+| Concourse | 0% | 30% | +30% |
+| WTC 3-6 | 0% | 10% | +10% |
+| WTC 7 | 25% | 50% | +25% |
+
+**The full NIST collection remains the single highest-value acquisition target.** NCSTAR 1-1 contains floor plans, site diagrams, and exterior wall analysis that this NCSTAR 1-9A report does not.
+
+---
+
+## Evidence Still Missing
+
+| Gap | Rank | Status |
+|---|---|---|
+| CG-1: Tower B Structural Drawings | Critical | ❌ Not found |
+| CG-2: Architectural Floor Plans | Critical | ❌ Not in NCSTAR 1-9A (need NCSTAR 1-1) |
+| CG-3: Site Plan & Plaza | Critical | ❌ Not in NCSTAR 1-9A (need NCSTAR 1-1) |
+| CG-4: Tower A Upper Wall Schedules | Critical | ❌ Not in NCSTAR 1-9A (need NCSTAR 1-1) |
+| IG-1: Construction Photographs | Important | ❌ Not acquired |
+| IG-2: Interior Photographs | Important | ❌ Not acquired |
+| IG-3: Buildings 3-6 | Important | ❌ Not in NCSTAR 1-9A |
+| IG-4: MEP Drawings | Important | ❌ Not found |
+| IG-5: Architectural Elevations | Important | ❌ Not found |
+| IG-6: Foundation/Slurry Wall | Important | ❌ Not in NCSTAR 1-9A (need NCSTAR 1-1) |
+
+---
+
+## Recommended Next Steps
+
+1. **Acquire full NIST NCSTAR 1-1 through 1-9** — The operator must manually download from `https://archive.org/details/NIST_WTC_Investigation_Reports-861612`. NCSTAR 1-1 contains the floor plans, site diagrams, and exterior wall analysis that NCSTAR 1-9A does not.
+2. **Acquire Tower B structural drawings** — Inspect AA20a1 uploader's collections on Internet Archive
+3. **Acquire construction photographs** — Search Library of Congress Gottscho-Schleisner collection
+4. **Acquire full-resolution site plan SVGs** — Download from Wikimedia Commons file pages

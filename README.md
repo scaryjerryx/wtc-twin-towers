@@ -1,4 +1,4 @@
-# World Trade Center Evidence Engine
+# World Trade Center Reconstruction Project
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/8e0099d3-a2a4-468e-a975-e25c5fbdfc26" alt="World Trade Center Evidence Engine" width="100%">
@@ -6,11 +6,24 @@
 
 ## Mission
 
-The World Trade Center Evidence Engine is an evidence-driven historical research and reconstruction platform focused on the original World Trade Center complex.
+The World Trade Center Reconstruction Project is an evidence-driven historical research and reconstruction platform focused on the original World Trade Center complex (1966-2001).
 
-Its purpose is to discover, collect, preserve, verify, cite, and connect historical evidence while maintaining complete provenance, transparency, and traceability.
+Its purpose is to discover, collect, preserve, verify, cite, and connect historical evidence — then use that evidence to produce the most historically accurate digital reconstruction of the WTC complex possible, where every major reconstruction element can be traced directly to supporting historical sources.
 
-The long-term goal is to create the most historically accurate evidence-backed digital twin possible, where every major reconstruction element can be traced directly to supporting historical sources.
+### The Living Reconstruction Concept
+
+The reconstruction is not a single static model. It is a **living reconstruction** — a time-aware digital twin that can represent the WTC complex at any point in its history:
+
+- **Construction era (1966-1973):** The towers rising from the Hudson River site, steel erection, facade installation
+- **Operational era (1973-2001):** The completed complex with tenant spaces, plaza activity, observation deck, Windows on the World
+- **Post-1993 bombing:** Repairs and modifications after the basement-level attack
+
+### Two Timeline Model
+
+The project tracks two parallel timelines:
+
+1. **Historical Timeline:** What actually happened — construction milestones, tenant changes, operational events, the 1993 bombing, and the 2001 attacks
+2. **Reconstruction Timeline:** What evidence has been acquired and when — the progressive filling of knowledge gaps as the corpus grows
 
 ---
 
@@ -23,6 +36,7 @@ The long-term goal is to create the most historically accurate evidence-backed d
 - Preservation of uncertainty
 - Reproducible research workflows
 - Human-verifiable historical reconstruction
+- Distinction between design intent and as-built conditions
 
 ---
 
@@ -56,6 +70,59 @@ Evidence-Backed Digital Twin
 
 ---
 
+## Reconstruction Readiness: ~50%
+
+The project tracks reconstruction readiness across 9 areas of the WTC complex:
+
+| Area | Readiness | Key Evidence |
+|---|---|---|
+| Site | 35% | NCSTAR references, Wikimedia SVG previews |
+| Plaza | 20% | NCSTAR references (limited) |
+| Tower A (WTC 1) | 65% | AA20a1 structural sheets (895 PNGs), exterior wall XLS (floors 1-9 + 107-110), floor 96-A database |
+| Tower B (WTC 2) | 60% | Exterior wall schedules (floors 1-9), panel schedule (B2, 25MB), floor 75-B database, upper wall AB2/AB3 |
+| Concourse | 10% | NCSTAR references (minimal) |
+| WTC 3-6 | 0% | No evidence |
+| WTC 7 | 55% | WTC7 OEM spec manual, NCSTAR 1-9 |
+| Observation Deck | 10% | NCSTAR references (minimal) |
+| Windows on the World | 10% | NCSTAR references (minimal) |
+| **Overall** | **~50%** | |
+
+### Evidence Corpus
+
+| Category | Files | Size |
+|---|---|---|
+| NCSTAR engineering reports | 9 PDFs | 520MB |
+| NCSTAR visual evidence | 657 images | 2.9GB |
+| WTCI drawing books | 14+ ZIPs + texts | Existing |
+| Tower A structural sheets (AA20a1) | 895 PNGs | Existing |
+| Gerrycan collections | 4 ZIPs | 546MB |
+| Exterior wall schedules | Multiple XLS | Existing |
+| Site plan SVGs/PNGs | 6 files | Existing |
+| **Total** | **~1,577+ files** | **~4.9GB+** |
+
+### What Can Be Modeled Today
+
+- **Tower A structural skeleton** — high confidence (AA20a1 + NCSTAR 1-1)
+- **Tower A exterior wall envelope** — high confidence (XLS schedules, floors 1-9 + 107-110)
+- **Tower B exterior wall envelope** — medium-high confidence (panel schedule + wall schedules)
+- **Construction timeline 1966-1973** — high confidence (NCSTAR 1-1)
+- **WTC 7 structural system** — medium-high confidence (OEM specs + NCSTAR 1-9)
+
+### Remaining Critical Blockers
+
+| Blocker | Gap | Impact |
+|---|---|---|
+| Architectural floor plans | CG-2 | Blocks all interior spatial modeling |
+| Site plans | CG-3 | Blocks site-level and plaza modeling |
+| Tower B structural sheet PNGs | CG-1 (remaining) | Blocks Tower B structural skeleton |
+| Construction photographs | IG-1 | Blocks visual reference and as-built verification |
+
+### Prototype 0.1
+
+At ~65-70% readiness, Prototype 0.1 becomes feasible: structural skeletons of both towers + site footprint + construction timeline + visual reference photographs. This would demonstrate the evidence-to-reconstruction pipeline end-to-end.
+
+---
+
 ## Current Status
 
 ### Phase 1 — Foundation & Acquisition Pipeline ✅ Complete
@@ -83,7 +150,7 @@ All 16 foundation and acquisition pipeline milestones (M0–M15) are complete. T
 
 ### Phase 2 — Knowledge Platform Integration ✅ Complete
 
-All 8 knowledge platform milestones (M16–M23) are complete. The acquisition pipeline is integrated with the knowledge engine, AI metadata processing, independent-source verification, and persistent timeline events.
+All 8 knowledge platform milestones (M16–M23) are complete.
 
 | Milestone | Purpose | Status |
 |---|---|---|
@@ -170,6 +237,7 @@ The following capabilities are under consideration for Phase 3. This is not a co
 - Additional evidence sources beyond Wikimedia Commons
 - Source-specific search URL templates for deferred sources
 - Expanded research search capabilities
+- Architectural evidence acquisition campaign (CG-2, CG-3)
 
 ### Platform Infrastructure
 - API layer for evidence and knowledge access
@@ -181,6 +249,7 @@ The following capabilities are under consideration for Phase 3. This is not a co
 - Time-aware reconstruction states
 - Evidence-backed geometry and materials
 - Explorable digital twin viewer
+- Living reconstruction with historical state transitions
 
 ---
 
@@ -194,6 +263,7 @@ docs/           Plans, audits, architecture, and project documentation
 research/       Research configuration and source definitions
 scripts/        Utility scripts and maintenance tools
 storage/        Local asset storage (development)
+WTC_CORPUS/     Evidence corpus (excluded from source control)
 ```
 
 ---
@@ -226,6 +296,11 @@ Key project documents in `docs/`:
 | `DEVLOG.md` | Public-facing development journal |
 | `KNOWN_FACTS.md` | Human-reviewed baseline claims |
 | `SOURCE_REGISTRY.md` | Known and potential evidence sources |
+| `EVIDENCE_GAP_REPORT.md` | All identified evidence gaps |
+| `READINESS_50_TO_80_REPLAN.md` | Path from 50% to 80% readiness |
+| `ARCHITECTURAL_ACQUISITION_CAMPAIGN.md` | Campaign for CG-2 and CG-3 |
+| `GERRYCAN_COLLECTION_ASSESSMENT.md` | Gerrycan collection inventory |
+| `SESSION_SUMMARY_2026_08_10.md` | August 10 session summary |
 
 Project development follows a structured workflow:
 
@@ -240,16 +315,16 @@ Audit → Plan → Review → Implement → Verify → Document → Commit
 The project covers the original World Trade Center complex, including:
 
 - Twin Towers (WTC 1 & WTC 2)
-- Supporting buildings
-- Plaza areas
-- Observation facilities
-- Restaurants
-- Retail spaces
-- Transportation infrastructure
-- Structural systems
-- Architectural elements
-- Construction history
-- Operational history
+- Supporting buildings (WTC 3-7)
+- Austin J. Tobin Plaza
+- Underground concourse and transportation infrastructure
+- Observation Deck (WTC 1, floor 107)
+- Windows on the World restaurant (WTC 1, floor 107)
+- Structural systems (columns, spandrels, core, exterior wall)
+- Architectural elements (elevations, cladding, lobbies)
+- Construction history (1966-1973)
+- Operational history (1973-2001)
+- 1993 bombing damage and repairs
 - Changes over time
 
 The project is not limited to the Twin Towers and aims to model the wider World Trade Center complex as a connected historical environment.
@@ -276,6 +351,6 @@ Evidence remains the source of truth.
 
 This repository is under active development. Phase 1 (M0–M15) and Phase 2 (M16–M23) are complete.
 
-Current version: **0.6.0**
+Current version: **0.7.0**
 
-Current branch activity reflects the ongoing construction of the World Trade Center Evidence Engine and its supporting evidence-acquisition, provenance, citation, knowledge-graph, and digital-twin systems.
+Current branch activity reflects the ongoing construction of the World Trade Center Evidence Engine, its supporting evidence-acquisition, provenance, citation, knowledge-graph, and digital-twin systems, and the parallel evidence corpus acquisition campaign for reconstruction readiness.

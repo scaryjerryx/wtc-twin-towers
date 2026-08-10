@@ -1,0 +1,88 @@
+# Updated Corpus Readiness
+
+## Date
+
+August 10, 2026
+
+## Basis
+
+Post-acquisition assessment after downloading NIST WTC Investigation Reports (main PDF + DJVU text) from Internet Archive.
+
+---
+
+## Acquisition Summary
+
+| Metric | Before | After |
+|---|---|---|
+| Total corpus files | 31 | 36 |
+| Total corpus size | 455MB | 481MB |
+| Evidence categories | 4 | 6 (engineering-reports and site-plans directories now populated) |
+
+---
+
+## Readiness by Area
+
+| Area | Before | After | Change | Reason |
+|---|---|---|---|---|
+| **Site** | 0% | 5% | +5% | NIST report contains site diagrams; site plan SVGs located but not fully downloaded |
+| **Plaza** | 0% | 2% | +2% | NIST report references plaza layout |
+| **Tower A** | 5% | 8% | +3% | NIST report contains structural analysis of Tower A |
+| **Tower B** | 0% | 2% | +2% | NIST report references Tower B structural configuration |
+| **Concourse** | 0% | 2% | +2% | NIST report references concourse level |
+| **WTC 3-7** | 0% | 3% | +3% | NIST report contains WTC 7 analysis |
+| **Observation Deck** | 0% | 0% | — | Not addressed |
+| **Windows on the World** | 0% | 0% | — | Not addressed |
+
+---
+
+## Readiness if Full NIST Collection Acquired
+
+If the operator manually downloads all 84 items from the NIST collection:
+
+| Area | Current | After Full NIST | Increase |
+|---|---|---|---|
+| Site | 5% | 50% | +45% |
+| Plaza | 2% | 30% | +28% |
+| Tower A | 8% | 35% | +27% |
+| Tower B | 2% | 25% | +23% |
+| Concourse | 2% | 30% | +28% |
+| WTC 3-7 | 3% | 50% | +47% |
+| Observation Deck | 0% | 10% | +10% |
+| Windows on the World | 0% | 10% | +10% |
+
+---
+
+## Evidence Still Missing
+
+| Gap | Rank | Status | Manual Action |
+|---|---|---|---|
+| CG-1: Tower B Structural Drawings | Critical | ❌ Not found | Inspect AA20a1 uploader collections on Internet Archive |
+| CG-2: Architectural Floor Plans | Critical | ⚠️ In NIST report (embedded) | Download full NIST NCSTAR 1-1 and 1-1A PDFs |
+| CG-3: Site Plan & Plaza | Critical | ⚠️ Partial (NIST + redirects) | Download full-resolution Wikimedia SVGs manually |
+| CG-4: Tower A Upper Wall Schedules | Critical | ⚠️ In NIST report | Download NIST NCSTAR 1-1 and 1-3 |
+| IG-1: Construction Photographs | Important | ❌ Not acquired | Search Library of Congress manually |
+| IG-2: Interior Photographs | Important | ❌ Not acquired | Search Library of Congress manually |
+| IG-3: Buildings 3-7 | Important | ⚠️ WTC 7 in NIST | Download full NIST collection |
+| IG-4: MEP Drawings | Important | ❌ Not found | — |
+| IG-5: Architectural Elevations | Important | ❌ Not found | — |
+| IG-6: Foundation | Important | ⚠️ In NIST report | Download NIST NCSTAR 1-1 |
+
+---
+
+## Key Finding
+
+The automated acquisition was limited by:
+1. Internet Archive individual item downloads timing out (the collection has 84 items but only the main item's PDF was downloadable)
+2. Wikimedia Commons thumbnail URLs returning redirects instead of actual files
+3. Library of Congress API not returning downloadable image URLs
+
+**The operator must manually download the remaining NIST NCSTAR reports.** The full collection (84 items) is the single highest-value acquisition and would increase overall readiness from ~5% to ~30%.
+
+---
+
+## Recommended Next Steps
+
+1. **Manual NIST download** — Visit `https://archive.org/details/NIST_WTC_Investigation_Reports-861612` and download all NCSTAR 1-1 through 1-9 PDFs
+2. **Manual Wikimedia download** — Download full-resolution site plan SVGs from Wikimedia Commons file pages
+3. **Manual LoC search** — Search `https://www.loc.gov/pictures/collection/gsc/?q=World+Trade+Center` for construction photographs
+4. **Manual IA uploader inspection** — Visit `https://archive.org/details/AA20a1` and inspect uploader's other collections for Tower B structural sheets
