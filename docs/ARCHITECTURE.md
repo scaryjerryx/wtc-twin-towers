@@ -47,7 +47,7 @@ RECONSTRUCTION PLATFORM (Target — Browser-based 3D experience)
 | System | Role | Status |
 |--------|------|--------|
 | **Evidence Engine** | Automated discovery, acquisition, processing, and knowledge extraction | ✅ Operational |
-| **World Model** | Structured, time-aware, evidence-backed digital representation of the WTC | 🔧 Being designed |
+| **World Model** | Operational Seed Data Tier — Machine-Readable Data Output Layer (65 Verified Entities) | 🔧 Operational Seed Data |
 | **Reconstruction Platform** | Browser-based 3D experience with evidence citations | 📋 Planned |
 
 ### Key Architectural Decision
@@ -167,20 +167,20 @@ The public experiences the WTC as a construction journey released over 35 days:
 - Users can travel backward but not forward
 - After Day 35, full timeline unlocks as permanent archive
 
-### Current Reconstruction Readiness: ~65-70%
+### Current Reconstruction Readiness: ~73% (Direct-Evidence Verified Baseline)
 
 | Area | Readiness |
 |---|---|
 | Site | 40% |
 | Plaza | 25% |
-| **Tower A (WTC 1)** | **85%** |
-| Tower B (WTC 2) | 65% |
+| **Tower A (WTC 1)** | **90%** |
+| Tower B (WTC 2) | 40% |
 | Concourse | 30% |
 | WTC 3-6 | 0% |
 | WTC 7 | 60% |
 | **Observation Deck** | **95%** |
 | **Windows on the World** | **95%** |
-| **Overall** | **~65-70%** |
+| **Overall** | **~73%** |
 
 ## Current Integration Boundary
 

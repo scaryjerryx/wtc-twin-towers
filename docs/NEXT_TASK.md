@@ -1,6 +1,6 @@
 # Next Task
 
-## Architectural Evidence Acquisition Campaign
+## World Model Construction — Tower A Phase 1 Priority Blueprint Processing & PostgreSQL Seed Ingestion
 
 ### Status
 
@@ -8,26 +8,28 @@
 
 ## Objective
 
-Close CG-2 (Architectural Floor Plans) and CG-3 (Site Plan & Plaza Documentation) — the two largest remaining blockers to reconstruction readiness.
+Execute entity and relationship extraction on remaining Phase 1 priority blueprints (`A-A-31`, `A-A-121`, `A-A-145`) and perform database ingestion of verified machine-readable seed JSON files (`data/*.json`) into PostgreSQL `wtc_evidence`.
 
-The authoritative campaign plan is:
+The authoritative task and campaign plans are:
 
-- `docs/ARCHITECTURAL_ACQUISITION_CAMPAIGN.md`
+- `docs/TOWER_A_WORLD_MODEL_EXTRACTION_PLAN.md`
+- `docs/TOWER_A_PHASE1_DRAWING_CLASSIFICATION.md`
+- `docs/NEXT_BLUEPRINT_FOR_EXTRACTION.md`
 
-## Current Reconstruction Readiness: ~50%
+## Current Reconstruction Readiness: ~73% (Direct-Evidence Verified Baseline)
 
 | Area | Readiness |
 |---|---|
-| Site | 35% |
-| Plaza | 20% |
-| Tower A | 65% |
-| Tower B | 60% |
-| Concourse | 10% |
+| Site | 40% |
+| Plaza | 25% |
+| Tower A | 90% |
+| Tower B | 40% |
+| Concourse | 30% |
 | WTC 3-6 | 0% |
-| WTC 7 | 55% |
-| Observation Deck | 10% |
-| Windows on the World | 10% |
-| **Overall** | **~50%** |
+| WTC 7 | 60% |
+| Observation Deck | 95% |
+| Windows on the World | 95% |
+| **Overall** | **~73%** |
 
 ## Fastest Route: 50% → 70%
 

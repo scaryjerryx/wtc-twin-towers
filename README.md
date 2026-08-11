@@ -36,7 +36,7 @@ The Evidence Engine builds the World Model. The World Model powers the Reconstru
 
 ---
 
-## Reconstruction Readiness: ~65-70%
+## Reconstruction Readiness: ~73% (Direct-Evidence Verified Baseline)
 
 The project tracks reconstruction readiness across 9 areas of the WTC complex:
 
@@ -44,14 +44,14 @@ The project tracks reconstruction readiness across 9 areas of the WTC complex:
 |---|---|---|
 | Site | 40% | Foundation plans, site plan SVGs |
 | Plaza | 25% | Site context from architectural drawings |
-| **Tower A (WTC 1)** | **85%** | **211 architectural blueprints + AA20a1 structural sheets** |
-| Tower B (WTC 2) | 65% | Exterior wall schedules, applicable Tower A floor plans |
+| **Tower A (WTC 1)** | **90%** | **211 architectural blueprints + Phase 1 extractions (A-A-19, A-A-20, A-A-130)** |
+| Tower B (WTC 2) | 40% | ST-01..06 structural PNG extractions + exterior wall schedules |
 | Concourse | 30% | Sub-level architectural plans |
 | WTC 3-6 | 0% | No evidence |
 | WTC 7 | 60% | WTC7 OEM spec manual, NCSTAR 1-9 |
 | **Observation Deck** | **95%** | **107th Floor architectural plans** |
 | **Windows on the World** | **95%** | **107th Floor restaurant plans** |
-| **Overall** | **~65-70%** | |
+| **Overall** | **~73%** | **Direct-Evidence Verified Baseline Readiness** |
 
 ### Evidence Corpus
 
@@ -59,30 +59,32 @@ The project tracks reconstruction readiness across 9 areas of the WTC complex:
 |---|---|---|
 | Tower A architectural blueprints | 211 PNGs | 119MB |
 | Tower A structural sheets (AA20a1) | 895 PNGs | Existing |
+| Derived Tower B structural extractions | 12 PNGs | 2.5MB |
+| Machine-readable seed JSON datasets | 6 JSONs | `data/*.json` |
 | NCSTAR engineering reports | 9 PDFs | 520MB |
 | NCSTAR visual evidence | 657 images | 2.9GB |
 | WTCI drawing books | 14+ ZIPs + texts | Existing |
 | Gerrycan collections | 4 ZIPs | 546MB |
 | Exterior wall schedules | Multiple XLS | Existing |
 | Site plan SVGs/PNGs | 6 files | Existing |
-| **Total** | **~1,788+ files** | **~5.0GB+** |
+| **Total** | **~1,806+ files** | **~5.0GB+** |
 
 ### What Can Be Reconstructed Today
 
 - **Tower A complete architectural layout** — all 110 floors + 5 sub-levels (211 blueprints)
 - **Windows on the World** — full restaurant layout (107th Floor)
 - **Observation Deck** — complete deck layout (107th Floor)
-- **Sky Lobby 44** — full lobby layout
+- **Sky Lobby 44 & Sky Lobby 78** — full lobby layouts (`A-A-19`, `A-A-130`)
 - **All mechanical floors** — 7-8, 41-42, 75-76, 108-109
 - **All elevator zones** — 26 elevator/escalator drawings
-- **Tower A structural skeleton** — AA20a1 structural sheets
+- **Tower A & B structural skeletons** — AA20a1 structural sheets + ST-01..06 extractions
 - **Foundation and sub-levels** — Sub-Levels 1-5
 
 ### Remaining Critical Blockers
 
 | Blocker | Gap | Impact |
 |---|---|---|
-| Sky Lobby 78 drawings | CG-2 (remaining) | Upper zone vertical circulation |
+| PostgreSQL database seed ingestion | Operational | Ingestion of verified `data/*.json` seeds into `wtc_evidence` (SQL migration prepared) |
 | Tower B architectural drawings | CG-2 (Tower B) | Tower B interior modeling |
 | Site plans | CG-3 | Site-level and plaza modeling |
 | Construction photographs | IG-1 | Visual reference and as-built verification |
@@ -335,7 +337,7 @@ This repository is under active development. Phase 1 (M0–M15) and Phase 2 (M16
 
 Current version: **0.8.0**
 
-**August 11, 2026 — Strategic Milestone:** The Tower A architectural corpus (211 blueprints) has been acquired and assessed. CG-2 (Architectural Floor Plans) is substantially closed for Tower A. The project has shifted from "Can reconstruction be done?" to "How should reconstruction be represented and experienced?"
+**August 11, 2026 — Strategic Milestone:** Direct-evidence entity extractions completed for Tower B structural assets (ST-01..06) and Tower A Phase 1 blueprints (`A-A-19`, `A-A-20`, `A-A-130`), producing 65 verified entities and 109 spatial relationships in machine-readable JSON format (`data/*.json`). Overall complex readiness updated to ~73% (Direct-Evidence Verified Baseline).
 
 ---
 

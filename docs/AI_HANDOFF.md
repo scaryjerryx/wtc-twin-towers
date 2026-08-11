@@ -60,47 +60,52 @@ The reconstruction is not a single static model. It is a **living reconstruction
 1. **Historical Timeline:** What actually happened — construction milestones, tenant changes, operational events, 1993 bombing, 2001 attacks
 2. **Reconstruction Timeline:** What evidence has been acquired and when — progressive filling of knowledge gaps
 
-## Current Reconstruction Readiness: ~50%
+## Current Reconstruction Readiness: ~73% (Direct-Evidence Verified Baseline)
 
 | Area | Readiness |
 |---|---|
-| Site | 35% |
-| Plaza | 20% |
-| Tower A (WTC 1) | 65% |
-| Tower B (WTC 2) | 60% |
-| Concourse | 10% |
+| Site | 40% |
+| Plaza | 25% |
+| Tower A (WTC 1) | 90% |
+| Tower B (WTC 2) | 40% |
+| Concourse | 30% |
 | WTC 3-6 | 0% |
-| WTC 7 | 55% |
-| Observation Deck | 10% |
-| Windows on the World | 10% |
-| **Overall** | **~50%** |
+| WTC 7 | 60% |
+| Observation Deck | 95% |
+| Windows on the World | 95% |
+| **Overall** | **~73%** |
 
-### Evidence Corpus
+### Evidence Corpus & Structured Seed Outputs
 
+- Tower A architectural blueprints: 211 PNGs (119MB)
+- Tower A structural sheets (AA20a1): 895 PNGs
+- Derived Tower B structural extractions: 12 PNGs (ST-01..06) in `WTC_CORPUS/derived/`
+- Machine-readable seed JSON datasets: 6 JSONs in `data/` (`tower_b_world_model_seed.json`, `tower_b_world_model_validated.json`, `aa19_world_model_seed.json`, `aa20_world_model_seed.json`, `aa130_world_model_seed.json`, `wtc1_phase1_seed.json`)
 - NCSTAR engineering reports: 9 PDFs (520MB)
 - NCSTAR visual evidence: 657 images (2.9GB)
 - WTCI drawing books: 14+ ZIPs + texts
-- Tower A structural sheets (AA20a1): 895 PNGs
 - Gerrycan collections: 4 ZIPs (546MB)
 - Exterior wall schedules: Multiple XLS
 - Site plan SVGs/PNGs: 6 files
-- **Total: ~1,577+ files, ~4.9GB+**
+- **Total: ~1,806+ files, ~5.0GB+**
 
-### Gap Status
+### Gap & Execution Status
 
 | ID | Gap | Status |
 |---|---|---|
-| CG-1 | Tower B Structural Drawings | ⚠️ Partially addressed |
-| CG-2 | Architectural Floor Plans | ❌ Open |
+| CG-1 | Tower B Structural Drawings | ⚠️ 40% Direct Evidence Baseline — ST-01..06 extractions complete (20 entities verified) |
+| CG-2 | Architectural Floor Plans | 🔄 Phase 1 In Progress — A-A-19, A-A-20, A-A-130 extractions complete (65 entities verified, 109 relationships) |
 | CG-3 | Site Plan & Plaza | ❌ Open |
-| CG-4 | Tower A Upper Wall Schedules | ✅ Closed |
+| CG-4 | Tower A Upper Wall Schedules | ✅ Closed — AB2/AB3 XLS covers floors 107-110 |
+| Operational | PostgreSQL DB Ingestion | 🔄 In Progress — Seed JSON files written & validated; SQL migration scripts prepared for execution against `wtc_evidence` |
 
-### Key Planning Documents
+### Key Session Documents (August 11, 2026 Milestone)
 
-- `docs/READINESS_50_TO_80_REPLAN.md` — Path from 50% to 80%
-- `docs/ARCHITECTURAL_ACQUISITION_CAMPAIGN.md` — Campaign for CG-2 and CG-3
-- `docs/GERRYCAN_COLLECTION_ASSESSMENT.md` — Gerrycan inventory
-- `docs/SESSION_SUMMARY_2026_08_10.md` — Session summary
+- `data/wtc1_phase1_seed.json` — Consolidated WTC 1 Phase 1 seed dataset (39 unique entities, 61 relationships)
+- `data/tower_b_world_model_validated.json` — Verified Tower B structural seed dataset (20 entities)
+- `docs/AA130_WORLD_MODEL_EXTRACTION.md` — 78th Floor Sky Lobby extraction (26 entities, 48 relationships)
+- `docs/SESSION_SUMMARY_2026_08_11_WORLD_MODEL_MILESTONE.md` — Complete milestone summary
+- `docs/REPOSITORY_UPDATE_PLAN_VALIDATION.md` — Audit and validation report
 
 ## Critical Acquisition Requirement
 

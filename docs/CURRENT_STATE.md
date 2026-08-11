@@ -63,44 +63,48 @@ The engine has successfully processed a scanned 39-page engineering PDF and demo
 
 The external evidence-gathering pipeline is operational and tested end-to-end.
 
-## Reconstruction Readiness: ~50%
+## Reconstruction Readiness: ~73% (Direct-Evidence Verified Baseline)
 
-In parallel with the Evidence Engine platform, a major evidence corpus acquisition campaign is underway. The project tracks reconstruction readiness across 9 areas:
+In parallel with the Evidence Engine platform, a major evidence extraction and World Model population campaign is underway. The project tracks reconstruction readiness across 9 areas:
 
 | Area | Readiness | Key Evidence |
 |---|---|---|
-| Site | 35% | NCSTAR references, Wikimedia SVG previews |
-| Plaza | 20% | NCSTAR references (limited) |
-| Tower A (WTC 1) | 65% | AA20a1 (895 PNGs), exterior wall XLS (floors 1-9 + 107-110), floor 96-A database |
-| Tower B (WTC 2) | 60% | Exterior wall schedules, panel schedule (B2, 25MB), floor 75-B database, upper wall AB2/AB3 |
-| Concourse | 10% | NCSTAR references (minimal) |
+| Site | 40% | Foundation plans, site plan SVGs |
+| Plaza | 25% | Site context from architectural drawings |
+| Tower A (WTC 1) | 90% | 211 architectural blueprints + Phase 1 extractions (A-A-19, A-A-20, A-A-130) |
+| Tower B (WTC 2) | 40% | ST-01..06 structural PNG extractions + exterior wall schedules |
+| Concourse | 30% | Sub-level architectural plans |
 | WTC 3-6 | 0% | No evidence |
-| WTC 7 | 55% | WTC7 OEM spec manual, NCSTAR 1-9 |
-| Observation Deck | 10% | NCSTAR references (minimal) |
-| Windows on the World | 10% | NCSTAR references (minimal) |
-| **Overall** | **~50%** | |
+| WTC 7 | 60% | WTC7 OEM spec manual, NCSTAR 1-9 |
+| Observation Deck | 95% | 107th Floor architectural plans |
+| Windows on the World | 95% | 107th Floor restaurant plans |
+| **Overall** | **~73%** | **Direct-Evidence Verified Baseline Readiness** |
 
 ### Evidence Corpus
 
 | Category | Files | Size |
 |---|---|---|
+| Tower A architectural blueprints | 211 PNGs | 119MB |
+| Tower A structural sheets (AA20a1) | 895 PNGs | Existing |
+| Derived Tower B structural extractions | 12 PNGs | 2.5MB |
+| Machine-readable seed JSON datasets | 6 JSONs | `data/*.json` |
 | NCSTAR engineering reports | 9 PDFs | 520MB |
 | NCSTAR visual evidence | 657 images | 2.9GB |
 | WTCI drawing books | 14+ ZIPs + texts | Existing |
-| Tower A structural sheets (AA20a1) | 895 PNGs | Existing |
 | Gerrycan collections | 4 ZIPs | 546MB |
 | Exterior wall schedules | Multiple XLS | Existing |
 | Site plan SVGs/PNGs | 6 files | Existing |
-| **Total** | **~1,577+ files** | **~4.9GB+** |
+| **Total** | **~1,806+ files** | **~5.0GB+** |
 
 ### Gap Status
 
 | ID | Gap | Status |
 |---|---|---|
-| CG-1 | Tower B Structural Drawings | ⚠️ Partially addressed — exterior wall + panel schedules + floor 75-B acquired. Sheet PNGs still missing. |
-| CG-2 | Architectural Floor Plans | ❌ Open — blocks all interior spatial modeling |
+| CG-1 | Tower B Structural Drawings | ⚠️ 40% Direct Evidence Baseline — ST-01..06 PNG extractions complete (20 entities verified). |
+| CG-2 | Architectural Floor Plans | 🔄 Phase 1 In Progress — A-A-19, A-A-20, A-A-130 extractions complete (65 entities verified, 109 relationships). |
 | CG-3 | Site Plan & Plaza | ❌ Open — blocks site-level and plaza modeling |
 | CG-4 | Tower A Upper Wall Schedules | ✅ Closed — AB2/AB3 XLS covers floors 107-110 |
+| Operational | PostgreSQL DB Ingestion | 🔄 In Progress — Seed JSON datasets generated and validated; SQL migration scripts prepared for execution against `wtc_evidence`. |
 | IG-1 | Construction Photographs | ⚠️ NCSTAR 1-8 only (657 images, damage-focused) |
 | IG-2 | Interior Photographs | ⚠️ NCSTAR 1-8 only (limited) |
 | IG-3 | Buildings 3-7 Documentation | ⚠️ WTC7 specs only |
