@@ -2,17 +2,23 @@
 
 ## Purpose
 
-This document describes the current technical architecture of the World Trade Center Reconstruction Project, including both the Evidence Engine platform and the reconstruction vision.
+This document describes the technical architecture of the World Trade Center Reconstruction Project, including the Evidence Engine (current), the World Model (core asset), and the Reconstruction Platform (target).
 
-It identifies:
+For the complete project vision, see:
 
-- Existing subsystems
-- Current data flows
-- Database responsibilities
-- Working components
-- Components requiring verification
-- Current integration boundaries
-- Reconstruction layer (planned)
+- `docs/PROJECT_VISION_2026.md`
+
+For the reconstruction platform definition, see:
+
+- `docs/RECONSTRUCTION_PLATFORM_VISION.md`
+
+For the World Model architecture, see:
+
+- `docs/WORLD_MODEL_ARCHITECTURE.md`
+
+For the historical timeline experience, see:
+
+- `docs/HISTORICAL_TIMELINE_EXPERIENCE.md`
 
 For the enduring roadmap, see:
 
@@ -22,13 +28,33 @@ For current implementation status, see:
 
 - `docs/CURRENT_STATE.md`
 
-For the single active task, see:
+## System Architecture Overview
 
-- `docs/NEXT_TASK.md`
+The project consists of three major systems:
 
-For evidence rules, see:
+```
+EVIDENCE ENGINE (Current — Operational)
+        ↓
+    Builds and populates
+        ↓
+WORLD MODEL (Core Asset — Being designed)
+        ↓
+    Powers
+        ↓
+RECONSTRUCTION PLATFORM (Target — Browser-based 3D experience)
+```
 
-- `docs/EVIDENCE_STANDARDS.md`
+| System | Role | Status |
+|--------|------|--------|
+| **Evidence Engine** | Automated discovery, acquisition, processing, and knowledge extraction | ✅ Operational |
+| **World Model** | Structured, time-aware, evidence-backed digital representation of the WTC | 🔧 Being designed |
+| **Reconstruction Platform** | Browser-based 3D experience with evidence citations | 📋 Planned |
+
+### Key Architectural Decision
+
+**AI is a development tool, not a runtime dependency.**
+
+AI systems (Claude, Gemini, future multimodal models) assist with blueprint interpretation, evidence understanding, and code generation during development. The final Reconstruction Platform must function without requiring an active AI model.
 
 ## Architectural Principles
 
@@ -44,6 +70,8 @@ The architecture must follow these principles:
 8. Database changes require explicit review and migration planning.
 9. Processing stages should be idempotent where practical.
 10. Every working milestone must be tested, documented, reviewed, committed, and pushed.
+11. The Reconstruction Platform must be browser-first with no installation required.
+12. The World Model is the core asset — the Evidence Engine serves it, the Platform consumes it.
 
 ## High-Level Data Flow
 
@@ -70,49 +98,89 @@ Relationships
         ↓
 Timeline Events
         ↓
-Evidence-Backed Digital Twin
+World Model Population
+        ↓
+API Layer
+        ↓
+Reconstruction Platform (React Three Fiber)
 ```
 
-## Reconstruction Layer (Planned)
+## Reconstruction Platform (Target)
 
-The reconstruction layer sits above the evidence engine and consumes verified, cited knowledge to produce a time-aware digital twin.
+The Reconstruction Platform is the browser-based 3D experience that is the product of the project.
+
+### Target Technology Stack
+
+| Layer | Technology | Purpose |
+|-------|-----------|---------|
+| **World Database** | PostgreSQL | Structured WTC world model |
+| **API Layer** | TBD (Python/Node.js) | Serve world data to frontend |
+| **Frontend Framework** | Next.js | Application shell and routing |
+| **3D Rendering** | React Three Fiber | Browser-based 3D reconstruction |
+| **Evidence System** | Custom | Citation lookup and display |
+
+### Browser-First Requirements
+
+- Desktop browsers (Chrome, Firefox, Safari, Edge)
+- Mobile browsers (iOS Safari, Android Chrome)
+- Tablet browsers
+- No installation required
+- No downloadable client
+- No app-store dependency
 
 ### Spatial Hierarchy
 
 ```
-Site
- ├── Building (WTC 1, WTC 2, WTC 3, WTC 4, WTC 5, WTC 6, WTC 7)
- │    └── Tower
- │         └── Floor
- │              ├── Zone (Core, Tenant, Mechanical, Service)
- │              └── Space (Office, Corridor, Elevator, Stairwell, Lobby, Restroom)
- └── Plaza (Austin J. Tobin Plaza)
-      └── Concourse (Underground mall, PATH station, subway connections)
+World Trade Center Complex
+ └── Site (16-acre superblock)
+      ├── Building (WTC 1, WTC 2, WTC 3, WTC 4, WTC 5, WTC 6, WTC 7)
+      │    └── Tower
+      │         └── Floor
+      │              ├── Zone (Core, Tenant, Mechanical, Service)
+      │              └── Space (Office, Corridor, Elevator, Stairwell, Lobby, Restroom)
+      ├── Plaza (Austin J. Tobin Plaza)
+      │    └── Concourse (Underground mall, PATH station, subway connections)
+      └── Infrastructure (Transportation, utilities, services)
 ```
 
-### Two Timeline Model
+### Evidence Citation System
 
-1. **Historical Timeline:** What actually happened — construction milestones (1966-1973), operational era (1973-2001), 1993 bombing repairs, 2001 attacks
-2. **Reconstruction Timeline:** What evidence has been acquired and when — progressive filling of knowledge gaps
+Every reconstruction element supports evidence lookup:
 
-### Living Reconstruction
+```
+Reconstruction Element (Wall, Column, Room)
+        ↓
+Evidence Reference (Blueprint, Photo, Report)
+        ↓
+Source (Organization, Archive, Collection)
+        ↓
+Confidence (Verified, Supported, Inferred)
+        ↓
+Provenance (Acquisition date, URL, file hash)
+```
 
-The reconstruction is time-aware — it can represent the WTC complex at any point in its history, with evidence-backed state transitions.
+### Historical Timeline Experience
 
-### Current Reconstruction Readiness: ~50%
+The public experiences the WTC as a construction journey released over 35 days:
+
+- Day 1 (1966) → Day 35 (2001)
+- Users can travel backward but not forward
+- After Day 35, full timeline unlocks as permanent archive
+
+### Current Reconstruction Readiness: ~65-70%
 
 | Area | Readiness |
 |---|---|
-| Site | 35% |
-| Plaza | 20% |
-| Tower A (WTC 1) | 65% |
-| Tower B (WTC 2) | 60% |
-| Concourse | 10% |
+| Site | 40% |
+| Plaza | 25% |
+| **Tower A (WTC 1)** | **85%** |
+| Tower B (WTC 2) | 65% |
+| Concourse | 30% |
 | WTC 3-6 | 0% |
-| WTC 7 | 55% |
-| Observation Deck | 10% |
-| Windows on the World | 10% |
-| **Overall** | **~50%** |
+| WTC 7 | 60% |
+| **Observation Deck** | **95%** |
+| **Windows on the World** | **95%** |
+| **Overall** | **~65-70%** |
 
 ## Current Integration Boundary
 
@@ -614,11 +682,12 @@ The evidence corpus is stored in `WTC_CORPUS/` (excluded from source control via
 
 | Category | Files | Size |
 |---|---|---|
+| Tower A architectural blueprints | 211 PNGs | 119MB |
+| Tower A structural sheets (AA20a1) | 895 PNGs | Existing |
 | NCSTAR engineering reports | 9 PDFs | 520MB |
 | NCSTAR visual evidence | 657 images | 2.9GB |
 | WTCI drawing books | 14+ ZIPs + texts | Existing |
-| Tower A structural sheets (AA20a1) | 895 PNGs | Existing |
 | Gerrycan collections | 4 ZIPs | 546MB |
 | Exterior wall schedules | Multiple XLS | Existing |
 | Site plan SVGs/PNGs | 6 files | Existing |
-| **Total** | **~1,577+ files** | **~4.9GB+** |
+| **Total** | **~1,788+ files** | **~5.0GB+** |

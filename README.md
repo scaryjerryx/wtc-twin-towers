@@ -1,29 +1,26 @@
 # World Trade Center Reconstruction Project
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/8e0099d3-a2a4-468e-a975-e25c5fbdfc26" alt="World Trade Center Evidence Engine" width="100%">
+  <img src="https://github.com/user-attachments/assets/8e0099d3-a2a4-468e-a975-e25c5fbdfc26" alt="World Trade Center Reconstruction Platform" width="100%">
 </p>
 
 ## Mission
 
-The World Trade Center Reconstruction Project is an evidence-driven historical research and reconstruction platform focused on the original World Trade Center complex (1966-2001).
+The World Trade Center Reconstruction Project is building a **historically accurate, evidence-backed, browser-based, interactive reconstruction of the World Trade Center** — a living historical platform where every major reconstruction element can be traced directly to supporting historical sources.
 
-Its purpose is to discover, collect, preserve, verify, cite, and connect historical evidence — then use that evidence to produce the most historically accurate digital reconstruction of the WTC complex possible, where every major reconstruction element can be traced directly to supporting historical sources.
+The project exists to preserve, reconstruct, cite, and share the architectural legacy of one of the most important building complexes of the 20th century.
 
-### The Living Reconstruction Concept
+---
 
-The reconstruction is not a single static model. It is a **living reconstruction** — a time-aware digital twin that can represent the WTC complex at any point in its history:
+## What We Are Building
 
-- **Construction era (1966-1973):** The towers rising from the Hudson River site, steel erection, facade installation
-- **Operational era (1973-2001):** The completed complex with tenant spaces, plaza activity, observation deck, Windows on the World
-- **Post-1993 bombing:** Repairs and modifications after the basement-level attack
+| Component | Role |
+|-----------|------|
+| **Reconstruction Platform** | The product. A browser-based 3D experience of the WTC complex. |
+| **World Model** | The core asset. A structured, time-aware, evidence-backed digital representation. |
+| **Evidence Engine** | The supporting system. Automated discovery, acquisition, processing, and citation. |
 
-### Two Timeline Model
-
-The project tracks two parallel timelines:
-
-1. **Historical Timeline:** What actually happened — construction milestones, tenant changes, operational events, the 1993 bombing, and the 2001 attacks
-2. **Reconstruction Timeline:** What evidence has been acquired and when — the progressive filling of knowledge gaps as the corpus grows
+The Evidence Engine builds the World Model. The World Model powers the Reconstruction Platform. The Reconstruction Platform delivers the public experience.
 
 ---
 
@@ -34,92 +31,65 @@ The project tracks two parallel timelines:
 - Traceable citations
 - Transparent confidence levels
 - Preservation of uncertainty
-- Reproducible research workflows
-- Human-verifiable historical reconstruction
-- Distinction between design intent and as-built conditions
+- Browser-first accessibility (no installation required)
+- AI as a development tool, not a runtime dependency
 
 ---
 
-## Platform Pipeline
-
-```text
-Historical Sources
-        ↓
-Discovery
-        ↓
-Acquisition
-        ↓
-Assets & Provenance
-        ↓
-AI Analysis
-        ↓
-OCR & Text Extraction
-        ↓
-Knowledge Extraction (Entities, Facts)
-        ↓
-Citations
-        ↓
-Independent-Source Verification
-        ↓
-Relationships
-        ↓
-Timeline Events
-        ↓
-Evidence-Backed Digital Twin
-```
-
----
-
-## Reconstruction Readiness: ~50%
+## Reconstruction Readiness: ~65-70%
 
 The project tracks reconstruction readiness across 9 areas of the WTC complex:
 
 | Area | Readiness | Key Evidence |
 |---|---|---|
-| Site | 35% | NCSTAR references, Wikimedia SVG previews |
-| Plaza | 20% | NCSTAR references (limited) |
-| Tower A (WTC 1) | 65% | AA20a1 structural sheets (895 PNGs), exterior wall XLS (floors 1-9 + 107-110), floor 96-A database |
-| Tower B (WTC 2) | 60% | Exterior wall schedules (floors 1-9), panel schedule (B2, 25MB), floor 75-B database, upper wall AB2/AB3 |
-| Concourse | 10% | NCSTAR references (minimal) |
+| Site | 40% | Foundation plans, site plan SVGs |
+| Plaza | 25% | Site context from architectural drawings |
+| **Tower A (WTC 1)** | **85%** | **211 architectural blueprints + AA20a1 structural sheets** |
+| Tower B (WTC 2) | 65% | Exterior wall schedules, applicable Tower A floor plans |
+| Concourse | 30% | Sub-level architectural plans |
 | WTC 3-6 | 0% | No evidence |
-| WTC 7 | 55% | WTC7 OEM spec manual, NCSTAR 1-9 |
-| Observation Deck | 10% | NCSTAR references (minimal) |
-| Windows on the World | 10% | NCSTAR references (minimal) |
-| **Overall** | **~50%** | |
+| WTC 7 | 60% | WTC7 OEM spec manual, NCSTAR 1-9 |
+| **Observation Deck** | **95%** | **107th Floor architectural plans** |
+| **Windows on the World** | **95%** | **107th Floor restaurant plans** |
+| **Overall** | **~65-70%** | |
 
 ### Evidence Corpus
 
 | Category | Files | Size |
 |---|---|---|
+| Tower A architectural blueprints | 211 PNGs | 119MB |
+| Tower A structural sheets (AA20a1) | 895 PNGs | Existing |
 | NCSTAR engineering reports | 9 PDFs | 520MB |
 | NCSTAR visual evidence | 657 images | 2.9GB |
 | WTCI drawing books | 14+ ZIPs + texts | Existing |
-| Tower A structural sheets (AA20a1) | 895 PNGs | Existing |
 | Gerrycan collections | 4 ZIPs | 546MB |
 | Exterior wall schedules | Multiple XLS | Existing |
 | Site plan SVGs/PNGs | 6 files | Existing |
-| **Total** | **~1,577+ files** | **~4.9GB+** |
+| **Total** | **~1,788+ files** | **~5.0GB+** |
 
-### What Can Be Modeled Today
+### What Can Be Reconstructed Today
 
-- **Tower A structural skeleton** — high confidence (AA20a1 + NCSTAR 1-1)
-- **Tower A exterior wall envelope** — high confidence (XLS schedules, floors 1-9 + 107-110)
-- **Tower B exterior wall envelope** — medium-high confidence (panel schedule + wall schedules)
-- **Construction timeline 1966-1973** — high confidence (NCSTAR 1-1)
-- **WTC 7 structural system** — medium-high confidence (OEM specs + NCSTAR 1-9)
+- **Tower A complete architectural layout** — all 110 floors + 5 sub-levels (211 blueprints)
+- **Windows on the World** — full restaurant layout (107th Floor)
+- **Observation Deck** — complete deck layout (107th Floor)
+- **Sky Lobby 44** — full lobby layout
+- **All mechanical floors** — 7-8, 41-42, 75-76, 108-109
+- **All elevator zones** — 26 elevator/escalator drawings
+- **Tower A structural skeleton** — AA20a1 structural sheets
+- **Foundation and sub-levels** — Sub-Levels 1-5
 
 ### Remaining Critical Blockers
 
 | Blocker | Gap | Impact |
 |---|---|---|
-| Architectural floor plans | CG-2 | Blocks all interior spatial modeling |
-| Site plans | CG-3 | Blocks site-level and plaza modeling |
-| Tower B structural sheet PNGs | CG-1 (remaining) | Blocks Tower B structural skeleton |
-| Construction photographs | IG-1 | Blocks visual reference and as-built verification |
+| Sky Lobby 78 drawings | CG-2 (remaining) | Upper zone vertical circulation |
+| Tower B architectural drawings | CG-2 (Tower B) | Tower B interior modeling |
+| Site plans | CG-3 | Site-level and plaza modeling |
+| Construction photographs | IG-1 | Visual reference and as-built verification |
 
 ### Prototype 0.1
 
-At ~65-70% readiness, Prototype 0.1 becomes feasible: structural skeletons of both towers + site footprint + construction timeline + visual reference photographs. This would demonstrate the evidence-to-reconstruction pipeline end-to-end.
+At ~65-70% readiness, Prototype 0.1 is now **enabled**: Tower A structural + architectural model with special spaces, evidence citations, and construction timeline.
 
 ---
 
@@ -270,12 +240,22 @@ WTC_CORPUS/     Evidence corpus (excluded from source control)
 
 ## Technology Stack
 
+### Evidence Engine (Current)
 - Python 3
 - PostgreSQL (with 5 idempotent migrations)
 - Tesseract OCR
 - OpenRouter AI (DeepSeek V4 Flash)
 - R2 Object Storage
 - Docker (PostgreSQL, pgAdmin)
+
+### Reconstruction Platform (Target)
+- **PostgreSQL** — World Model database
+- **API Layer** — REST/GraphQL serving world data
+- **Next.js** — Application shell and routing
+- **React Three Fiber** — Browser-based 3D rendering
+- **Evidence Citation System** — Click-to-cite overlay
+
+**Browser-first.** No installation. No app store. Works on desktop, tablet, and mobile.
 
 ---
 
@@ -285,6 +265,12 @@ Key project documents in `docs/`:
 
 | Document | Purpose |
 |---|---|
+| `PROJECT_VISION_2026.md` | **NEW** — Complete project vision and strategic direction |
+| `RECONSTRUCTION_PLATFORM_VISION.md` | **NEW** — Browser-based platform definition |
+| `WORLD_MODEL_ARCHITECTURE.md` | **NEW** — World Model schema and API design |
+| `HISTORICAL_TIMELINE_EXPERIENCE.md` | **NEW** — Time-release construction journey |
+| `TOWER_A_ARCHITECTURAL_CORPUS_ASSESSMENT.md` | **NEW** — 211-drawing blueprint assessment |
+| `ARCHITECTURAL_READINESS_UPDATE.md` | **NEW** — Readiness recalculation |
 | `MISSION.md` | Stable project charter |
 | `EVIDENCE_STANDARDS.md` | Evidence governance rules |
 | `MASTER_PLAN.md` | Enduring end-to-end roadmap |
@@ -297,10 +283,6 @@ Key project documents in `docs/`:
 | `KNOWN_FACTS.md` | Human-reviewed baseline claims |
 | `SOURCE_REGISTRY.md` | Known and potential evidence sources |
 | `EVIDENCE_GAP_REPORT.md` | All identified evidence gaps |
-| `READINESS_50_TO_80_REPLAN.md` | Path from 50% to 80% readiness |
-| `ARCHITECTURAL_ACQUISITION_CAMPAIGN.md` | Campaign for CG-2 and CG-3 |
-| `GERRYCAN_COLLECTION_ASSESSMENT.md` | Gerrycan collection inventory |
-| `SESSION_SUMMARY_2026_08_10.md` | August 10 session summary |
 
 Project development follows a structured workflow:
 
@@ -351,6 +333,16 @@ Evidence remains the source of truth.
 
 This repository is under active development. Phase 1 (M0–M15) and Phase 2 (M16–M23) are complete.
 
-Current version: **0.7.0**
+Current version: **0.8.0**
 
-Current branch activity reflects the ongoing construction of the World Trade Center Evidence Engine, its supporting evidence-acquisition, provenance, citation, knowledge-graph, and digital-twin systems, and the parallel evidence corpus acquisition campaign for reconstruction readiness.
+**August 11, 2026 — Strategic Milestone:** The Tower A architectural corpus (211 blueprints) has been acquired and assessed. CG-2 (Architectural Floor Plans) is substantially closed for Tower A. The project has shifted from "Can reconstruction be done?" to "How should reconstruction be represented and experienced?"
+
+---
+
+## FINAL VISION
+
+A user opens a browser. They walk through the plaza, concourse, towers, restaurants, observation deck, and office floors. They travel through time from 1966 to 2001. They click any element and see the evidence that supports it. They understand how confident the reconstruction is.
+
+Every major reconstruction element can explain where it came from, what evidence supports it, and how confident the reconstruction is.
+
+This is not merely a model. This is a living historical reconstruction platform.
