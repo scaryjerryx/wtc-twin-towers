@@ -1,6 +1,6 @@
 # Next Task
 
-## World Model Construction — Tower A Phase 1 Priority Blueprint Processing & PostgreSQL Seed Ingestion
+## Phase 2 Database Design Preparation — Task 2.1: Spatial Geometry & 3D Coordinate Specification
 
 ### Status
 
@@ -8,28 +8,32 @@
 
 ## Objective
 
-Execute entity and relationship extraction on remaining Phase 1 priority blueprints (`A-A-31`, `A-A-121`, `A-A-145`) and perform database ingestion of verified machine-readable seed JSON files (`data/*.json`) into PostgreSQL `wtc_evidence`.
+Resolve PostGIS spatial geometry and 3D coordinate system standards (Task 2.1 in [`docs/PHASE_2_DATABASE_PREPARATION_ROADMAP.md`](file:///opt/wtc/wtc-twin-towers/docs/PHASE_2_DATABASE_PREPARATION_ROADMAP.md)) based on [`docs/WORLD_MODEL_SPECIFICATION_V1.md`](file:///opt/wtc/wtc-twin-towers/docs/WORLD_MODEL_SPECIFICATION_V1.md).
 
-The authoritative task and campaign plans are:
+Specifically, evaluate:
+- Native PostGIS 3D spatial volumes (`GEOMETRY(POLYGONZ)`) vs 2D plan footprints (`GEOMETRY(POLYGON)`) paired with numeric elevation bounds (`z_min`, `z_max`).
+- Alignment with Port Authority zero-datum elevation (+310.0 ft PA).
 
-- `docs/TOWER_A_WORLD_MODEL_EXTRACTION_PLAN.md`
-- `docs/TOWER_A_PHASE1_DRAWING_CLASSIFICATION.md`
-- `docs/NEXT_BLUEPRINT_FOR_EXTRACTION.md`
+The authoritative specifications and roadmap documents are:
+- `docs/WORLD_MODEL_SPECIFICATION_V1.md`
+- `docs/WORLD_MODEL_GOVERNANCE_AND_LIFECYCLE_RULES.md`
+- `docs/PHASE_2_DATABASE_PREPARATION_ROADMAP.md`
+- `docs/PHASE_1_WORLD_MODEL_COMPLETION.md`
 
-## Current Reconstruction Readiness: ~73% (Direct-Evidence Verified Baseline)
+## Current Reconstruction Readiness: ~75% (Direct-Evidence Verified Baseline)
 
 | Area | Readiness |
 |---|---|
 | Site | 40% |
 | Plaza | 25% |
-| Tower A | 90% |
-| Tower B | 40% |
-| Concourse | 30% |
+| Tower A (WTC 1) | 95% |
+| Tower B (WTC 2) | 40% |
+| Concourse | 90% |
 | WTC 3-6 | 0% |
 | WTC 7 | 60% |
 | Observation Deck | 95% |
 | Windows on the World | 95% |
-| **Overall** | **~73%** |
+| **Overall** | **~75%** |
 
 ## Fastest Route: 50% → 70%
 

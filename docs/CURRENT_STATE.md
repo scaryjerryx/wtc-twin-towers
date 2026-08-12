@@ -2,109 +2,59 @@
 
 ## Last Updated
 
-August 10, 2026
+August 12, 2026
 
 ## Purpose
 
-This document provides a concise and current status of the World Trade Center Reconstruction Project, including both the Evidence Engine platform and the parallel evidence corpus acquisition campaign.
-
-It records:
-
-- What is implemented and tested
-- What exists but still requires verification
-- What is currently being worked on
-- What remains planned
-- Current reconstruction readiness
-- The immediate next milestone
-
-For the enduring roadmap, see:
-
-- `docs/MASTER_PLAN.md`
-
-For the current technical architecture, see:
-
-- `docs/ARCHITECTURE.md`
-
-For the single active task, see:
-
-- `docs/NEXT_TASK.md`
-
-## Status Definitions
-
-- ✅ **Working**: Implemented and tested during development
-- 🟡 **Requires Verification**: Code or schema exists, but current end-to-end behaviour must be confirmed
-- 🔄 **In Progress**: Current active development priority
-- ⬜ **Planned**: Required but not yet implemented
-- 🧪 **Test Harness**: Working development mechanism, but not the finished production workflow
-- 📚 **Historical**: Retained for project history, but not current operational guidance
+This document provides a concise and current status of the World Trade Center Reconstruction Project, including the Evidence Engine, World Model seed datasets, and Phase 2 Database Design Preparation.
 
 ## Current Overall State
 
-The evidence-processing and knowledge-engine foundation is working. Phase 1 (M0–M15) and Phase 2 (M16–M23) are complete.
+- **Phase 1 World Model Construction Phase:** **✅ COMPLETE**. 164 verified unique entities and 82 master relationships cataloged across 6 vertical anchor elevations (-3.5m to +410.0m). Minimum Viable World Model (MVWM) target milestone passed (+14 entities over threshold).
+- **Phase 2 Database Design Preparation Phase:** **🔄 OPEN (Active Phase)**. Currently executing Task 2.1 (Spatial Geometry & 3D Coordinate Specification) following [`docs/WORLD_MODEL_SPECIFICATION_V1.md`](file:///opt/wtc/wtc-twin-towers/docs/WORLD_MODEL_SPECIFICATION_V1.md) and [`docs/PHASE_2_DATABASE_PREPARATION_ROADMAP.md`](file:///opt/wtc/wtc-twin-towers/docs/PHASE_2_DATABASE_PREPARATION_ROADMAP.md).
 
-The engine has successfully processed a scanned 39-page engineering PDF and demonstrated:
+## Reconstruction Readiness: ~75% (Direct-Evidence Verified Baseline)
 
-- OCR
-- Page-level extraction
-- Entity extraction
-- Engineering fact extraction
-- Fact normalisation
-- Fact cleaning
-- Fact deduplication
-- Source-file provenance
-- Source-page provenance
-- Citation loading
-- Evidence-based fact verification
-- Relationship mining
-- Relationship confidence scoring
-- Relationship search
-- Timeline filtering
-- Engine health reporting
-
-The external evidence-gathering pipeline is operational and tested end-to-end.
-
-## Reconstruction Readiness: ~73% (Direct-Evidence Verified Baseline)
-
-In parallel with the Evidence Engine platform, a major evidence extraction and World Model population campaign is underway. The project tracks reconstruction readiness across 9 areas:
+The project tracks reconstruction readiness across 9 areas of the WTC complex:
 
 | Area | Readiness | Key Evidence |
 |---|---|---|
 | Site | 40% | Foundation plans, site plan SVGs |
 | Plaza | 25% | Site context from architectural drawings |
-| Tower A (WTC 1) | 90% | 211 architectural blueprints + Phase 1 extractions (A-A-19, A-A-20, A-A-130) |
+| **Tower A (WTC 1)** | **95%** | **211 architectural blueprints + Phase 1 extractions (A-A-18, A-A-19, A-A-20, A-A-31, A-A-121, A-A-130, A-A-145)** |
 | Tower B (WTC 2) | 40% | ST-01..06 structural PNG extractions + exterior wall schedules |
-| Concourse | 30% | Sub-level architectural plans |
+| **Concourse** | **90%** | **Sub-level architectural plans (A-A-18)** |
 | WTC 3-6 | 0% | No evidence |
 | WTC 7 | 60% | WTC7 OEM spec manual, NCSTAR 1-9 |
-| Observation Deck | 95% | 107th Floor architectural plans |
-| Windows on the World | 95% | 107th Floor restaurant plans |
-| **Overall** | **~73%** | **Direct-Evidence Verified Baseline Readiness** |
+| **Observation Deck** | **95%** | **107th Floor architectural plans (A-A-145)** |
+| **Windows on the World** | **95%** | **107th Floor restaurant plans (A-A-145)** |
+| **Overall** | **~75%** | **Direct-Evidence Verified Baseline Readiness** |
 
-### Evidence Corpus
+### Evidence Corpus & Seed Datasets
 
 | Category | Files | Size |
 |---|---|---|
 | Tower A architectural blueprints | 211 PNGs | 119MB |
 | Tower A structural sheets (AA20a1) | 895 PNGs | Existing |
 | Derived Tower B structural extractions | 12 PNGs | 2.5MB |
-| Machine-readable seed JSON datasets | 6 JSONs | `data/*.json` |
+| Machine-readable seed JSON datasets | 7 JSONs | `data/*.json` (164 verified entities, 82 relationships) |
 | NCSTAR engineering reports | 9 PDFs | 520MB |
 | NCSTAR visual evidence | 657 images | 2.9GB |
 | WTCI drawing books | 14+ ZIPs + texts | Existing |
 | Gerrycan collections | 4 ZIPs | 546MB |
 | Exterior wall schedules | Multiple XLS | Existing |
 | Site plan SVGs/PNGs | 6 files | Existing |
-| **Total** | **~1,806+ files** | **~5.0GB+** |
+| **Total** | **~1,807+ files** | **~5.0GB+** |
 
 ### Gap Status
 
 | ID | Gap | Status |
 |---|---|---|
 | CG-1 | Tower B Structural Drawings | ⚠️ 40% Direct Evidence Baseline — ST-01..06 PNG extractions complete (20 entities verified). |
-| CG-2 | Architectural Floor Plans | 🔄 Phase 1 In Progress — A-A-19, A-A-20, A-A-130 extractions complete (65 entities verified, 109 relationships). |
+| CG-2 | Architectural Floor Plans | ✅ Phase 1 Complete — A-A-18, 19, 20, 31, 121, 130, 145 extractions complete (144 WTC 1 entities verified, 82 master relationships). |
 | CG-3 | Site Plan & Plaza | ❌ Open — blocks site-level and plaza modeling |
 | CG-4 | Tower A Upper Wall Schedules | ✅ Closed — AB2/AB3 XLS covers floors 107-110 |
-| Operational | PostgreSQL DB Ingestion | 🔄 In Progress — Seed JSON datasets generated and validated; SQL migration scripts prepared for execution against `wtc_evidence`. |
+| Operational | PostgreSQL DB Ingestion | 🔄 Phase 2 Active — Seed JSON datasets generated and validated; PostgreSQL PostGIS DDL schema design in preparation under `WORLD_MODEL_SPECIFICATION_V1.md`. |
 | IG-1 | Construction Photographs | ⚠️ NCSTAR 1-8 only (657 images, damage-focused) |
 | IG-2 | Interior Photographs | ⚠️ NCSTAR 1-8 only (limited) |
 | IG-3 | Buildings 3-7 Documentation | ⚠️ WTC7 specs only |

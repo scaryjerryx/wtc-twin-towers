@@ -47,7 +47,7 @@ RECONSTRUCTION PLATFORM (Target — Browser-based 3D experience)
 | System | Role | Status |
 |--------|------|--------|
 | **Evidence Engine** | Automated discovery, acquisition, processing, and knowledge extraction | ✅ Operational |
-| **World Model** | Operational Seed Data Tier — Machine-Readable Data Output Layer (65 Verified Entities) | 🔧 Operational Seed Data |
+| **World Model** | Phase 2 Database Design Preparation Tier — Authoritative Specification v1.0 & Approved 6-Tier Hierarchy | 🔄 Phase 2 Database Preparation (164 Verified Entities) |
 | **Reconstruction Platform** | Browser-based 3D experience with evidence citations | 📋 Planned |
 
 ### Key Architectural Decision
@@ -128,19 +128,15 @@ The Reconstruction Platform is the browser-based 3D experience that is the produ
 - No downloadable client
 - No app-store dependency
 
-### Spatial Hierarchy
+### Approved 6-Tier Spatial Containment Hierarchy
 
-```
-World Trade Center Complex
- └── Site (16-acre superblock)
-      ├── Building (WTC 1, WTC 2, WTC 3, WTC 4, WTC 5, WTC 6, WTC 7)
-      │    └── Tower
-      │         └── Floor
-      │              ├── Zone (Core, Tenant, Mechanical, Service)
-      │              └── Space (Office, Corridor, Elevator, Stairwell, Lobby, Restroom)
-      ├── Plaza (Austin J. Tobin Plaza)
-      │    └── Concourse (Underground mall, PATH station, subway connections)
-      └── Infrastructure (Transportation, utilities, services)
+```text
+World Trade Center Complex (Site)
+ └── Building (WTC 1, WTC 2, WTC 3-7, PATH Terminal; attribute: structure_type)
+      └── Floor (Sub-Grade B6 to Floor 110 / Roof Elevation Datums)
+           ├── Zone (Core, Concourse, MER, Louver, Glazing Envelope Zones)
+           └── Space (Enclosed Rooms, Retail Arcades, Transit Halls, Kitchens)
+                └── Element (Columns, Chillers, Elevators, Stairs, Window Walls)
 ```
 
 ### Evidence Citation System

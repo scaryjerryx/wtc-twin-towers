@@ -60,52 +60,54 @@ The reconstruction is not a single static model. It is a **living reconstruction
 1. **Historical Timeline:** What actually happened — construction milestones, tenant changes, operational events, 1993 bombing, 2001 attacks
 2. **Reconstruction Timeline:** What evidence has been acquired and when — progressive filling of knowledge gaps
 
-## Current Reconstruction Readiness: ~73% (Direct-Evidence Verified Baseline)
+## C## Reconstruction Readiness: ~75% (Direct-Evidence Verified Baseline)
 
 | Area | Readiness |
 |---|---|
 | Site | 40% |
 | Plaza | 25% |
-| Tower A (WTC 1) | 90% |
+| Tower A (WTC 1) | 95% |
 | Tower B (WTC 2) | 40% |
-| Concourse | 30% |
+| Concourse | 90% |
 | WTC 3-6 | 0% |
 | WTC 7 | 60% |
 | Observation Deck | 95% |
 | Windows on the World | 95% |
-| **Overall** | **~73%** |
+| **Overall** | **~75%** |
 
 ### Evidence Corpus & Structured Seed Outputs
 
 - Tower A architectural blueprints: 211 PNGs (119MB)
 - Tower A structural sheets (AA20a1): 895 PNGs
 - Derived Tower B structural extractions: 12 PNGs (ST-01..06) in `WTC_CORPUS/derived/`
-- Machine-readable seed JSON datasets: 6 JSONs in `data/` (`tower_b_world_model_seed.json`, `tower_b_world_model_validated.json`, `aa19_world_model_seed.json`, `aa20_world_model_seed.json`, `aa130_world_model_seed.json`, `wtc1_phase1_seed.json`)
+- Machine-readable seed JSON datasets: 7 JSONs in `data/` (`aa18_world_model_seed.json`, `aa19_world_model_seed.json`, `aa20_world_model_seed.json`, `aa31_world_model_seed.json`, `aa121_world_model_seed.json`, `aa130_world_model_seed.json`, `aa145_world_model_seed.json`, `wtc1_world_model_v1.json`, `tower_b_world_model_validated.json`)
 - NCSTAR engineering reports: 9 PDFs (520MB)
 - NCSTAR visual evidence: 657 images (2.9GB)
 - WTCI drawing books: 14+ ZIPs + texts
 - Gerrycan collections: 4 ZIPs (546MB)
 - Exterior wall schedules: Multiple XLS
 - Site plan SVGs/PNGs: 6 files
-- **Total: ~1,806+ files, ~5.0GB+**
+- **Total: ~1,807+ files, ~5.0GB+ (164 Verified Unique Entities & 82 Master Relationships)**
 
 ### Gap & Execution Status
 
 | ID | Gap | Status |
 |---|---|---|
 | CG-1 | Tower B Structural Drawings | ⚠️ 40% Direct Evidence Baseline — ST-01..06 extractions complete (20 entities verified) |
-| CG-2 | Architectural Floor Plans | 🔄 Phase 1 In Progress — A-A-19, A-A-20, A-A-130 extractions complete (65 entities verified, 109 relationships) |
+| CG-2 | Architectural Floor Plans | ✅ Phase 1 Complete — A-A-18, 19, 20, 31, 121, 130, 145 extractions complete (144 WTC 1 entities verified, 82 master relationships) |
 | CG-3 | Site Plan & Plaza | ❌ Open |
 | CG-4 | Tower A Upper Wall Schedules | ✅ Closed — AB2/AB3 XLS covers floors 107-110 |
-| Operational | PostgreSQL DB Ingestion | 🔄 In Progress — Seed JSON files written & validated; SQL migration scripts prepared for execution against `wtc_evidence` |
+| Operational | PostgreSQL DB Ingestion | 🔄 Phase 2 Active — Seed JSON files written & validated; PostgreSQL PostGIS DDL schema design in preparation under `WORLD_MODEL_SPECIFICATION_V1.md` |
 
-### Key Session Documents (August 11, 2026 Milestone)
+### Key Session Handoff Documents (August 12, 2026 Milestone)
 
-- `data/wtc1_phase1_seed.json` — Consolidated WTC 1 Phase 1 seed dataset (39 unique entities, 61 relationships)
-- `data/tower_b_world_model_validated.json` — Verified Tower B structural seed dataset (20 entities)
-- `docs/AA130_WORLD_MODEL_EXTRACTION.md` — 78th Floor Sky Lobby extraction (26 entities, 48 relationships)
-- `docs/SESSION_SUMMARY_2026_08_11_WORLD_MODEL_MILESTONE.md` — Complete milestone summary
-- `docs/REPOSITORY_UPDATE_PLAN_VALIDATION.md` — Audit and validation report
+- `docs/PHASE_1_WORLD_MODEL_COMPLETION.md` — Official phase closure and handoff report
+- `docs/WORLD_MODEL_SPECIFICATION_V1.md` — Authoritative World Model specification v1.0
+- `docs/WORLD_MODEL_GOVERNANCE_AND_LIFECYCLE_RULES.md` — Entity & relationship governance rules
+- `docs/PHASE_2_DATABASE_PREPARATION_ROADMAP.md` — Authoritative roadmap for Phase 2 Database Design Preparation
+- `docs/CANONICAL_WORLD_MODEL_REVIEW.md` — Approved 6-tier spatial hierarchy review
+- `data/wtc1_world_model_v1.json` — Consolidated master seed dataset (114 WTC 1 unique entities)
+- `data/tower_b_world_model_validated.json` — Verified Tower B structural seed dataset (20 entities)ON.md` — Audit and validation report
 
 ## Critical Acquisition Requirement
 

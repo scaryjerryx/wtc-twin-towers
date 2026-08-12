@@ -36,7 +36,7 @@ The Evidence Engine builds the World Model. The World Model powers the Reconstru
 
 ---
 
-## Reconstruction Readiness: ~73% (Direct-Evidence Verified Baseline)
+## Reconstruction Readiness: ~75% (Direct-Evidence Verified Baseline)
 
 The project tracks reconstruction readiness across 9 areas of the WTC complex:
 
@@ -44,300 +44,74 @@ The project tracks reconstruction readiness across 9 areas of the WTC complex:
 |---|---|---|
 | Site | 40% | Foundation plans, site plan SVGs |
 | Plaza | 25% | Site context from architectural drawings |
-| **Tower A (WTC 1)** | **90%** | **211 architectural blueprints + Phase 1 extractions (A-A-19, A-A-20, A-A-130)** |
+| **Tower A (WTC 1)** | **95%** | **211 architectural blueprints + Phase 1 extractions (A-A-18, A-A-19, A-A-20, A-A-31, A-A-121, A-A-130, A-A-145)** |
 | Tower B (WTC 2) | 40% | ST-01..06 structural PNG extractions + exterior wall schedules |
-| Concourse | 30% | Sub-level architectural plans |
+| **Concourse** | **90%** | **Sub-level architectural plans (A-A-18)** |
 | WTC 3-6 | 0% | No evidence |
 | WTC 7 | 60% | WTC7 OEM spec manual, NCSTAR 1-9 |
-| **Observation Deck** | **95%** | **107th Floor architectural plans** |
-| **Windows on the World** | **95%** | **107th Floor restaurant plans** |
-| **Overall** | **~73%** | **Direct-Evidence Verified Baseline Readiness** |
+| **Observation Deck** | **95%** | **107th Floor architectural plans (A-A-145)** |
+| **Windows on the World** | **95%** | **107th Floor restaurant plans (A-A-145)** |
+| **Overall** | **~75%** | **Direct-Evidence Verified Baseline Readiness** |
 
-### Evidence Corpus
+### Evidence Corpus & Master Seed Datasets
 
 | Category | Files | Size |
 |---|---|---|
 | Tower A architectural blueprints | 211 PNGs | 119MB |
 | Tower A structural sheets (AA20a1) | 895 PNGs | Existing |
 | Derived Tower B structural extractions | 12 PNGs | 2.5MB |
-| Machine-readable seed JSON datasets | 6 JSONs | `data/*.json` |
+| Machine-readable seed JSON datasets | 7 JSONs | `data/*.json` (164 verified entities, 82 relationships) |
 | NCSTAR engineering reports | 9 PDFs | 520MB |
 | NCSTAR visual evidence | 657 images | 2.9GB |
 | WTCI drawing books | 14+ ZIPs + texts | Existing |
 | Gerrycan collections | 4 ZIPs | 546MB |
 | Exterior wall schedules | Multiple XLS | Existing |
 | Site plan SVGs/PNGs | 6 files | Existing |
-| **Total** | **~1,806+ files** | **~5.0GB+** |
+| **Total** | **~1,807+ files** | **~5.0GB+** |
 
 ### What Can Be Reconstructed Today
 
 - **Tower A complete architectural layout** — all 110 floors + 5 sub-levels (211 blueprints)
-- **Windows on the World** — full restaurant layout (107th Floor)
-- **Observation Deck** — complete deck layout (107th Floor)
+- **Sub-Grade Concourse & PATH Terminal** — full sub-level 1 concourse layout (`A-A-18`)
+- **Windows on the World** — full restaurant & culinary kitchen layout (107th Floor `A-A-145`)
+- **Observation Deck** — complete indoor deck layout (107th Floor `A-A-145`)
 - **Sky Lobby 44 & Sky Lobby 78** — full lobby layouts (`A-A-19`, `A-A-130`)
-- **All mechanical floors** — 7-8, 41-42, 75-76, 108-109
+- **Primary Mechanical Plants** — Floors 7 and 75 MER plants (`A-A-31`, `A-A-121`)
 - **All elevator zones** — 26 elevator/escalator drawings
 - **Tower A & B structural skeletons** — AA20a1 structural sheets + ST-01..06 extractions
-- **Foundation and sub-levels** — Sub-Levels 1-5
+- **Foundation and sub-levels** — Sub-Levels 1-5 + Slurry Wall Bathtub Foundation
 
 ### Remaining Critical Blockers
 
 | Blocker | Gap | Impact |
 |---|---|---|
-| PostgreSQL database seed ingestion | Operational | Ingestion of verified `data/*.json` seeds into `wtc_evidence` (SQL migration prepared) |
+| PostgreSQL database seed ingestion | Operational | Phase 2 Database Design Preparation active; ingestion of 164 verified `data/*.json` seeds into `wtc_evidence` pending DDL schema design |
 | Tower B architectural drawings | CG-2 (Tower B) | Tower B interior modeling |
 | Site plans | CG-3 | Site-level and plaza modeling |
 | Construction photographs | IG-1 | Visual reference and as-built verification |
-
-### Prototype 0.1
-
-At ~65-70% readiness, Prototype 0.1 is now **enabled**: Tower A structural + architectural model with special spaces, evidence citations, and construction timeline.
 
 ---
 
 ## Current Status
 
-### Phase 1 — Foundation & Acquisition Pipeline ✅ Complete
+### Phase 1 — World Model Construction Phase ✅ COMPLETE
 
-All 16 foundation and acquisition pipeline milestones (M0–M15) are complete. The automated evidence acquisition pipeline is operational under a single orchestrator entry point.
+All Phase 1 blueprint extractions (`A-A-18`, `A-A-19`, `A-A-20`, `A-A-31`, `A-A-121`, `A-A-130`, `A-A-145`) and seed consolidations are complete. The Minimum Viable World Model (MVWM) target has been passed (**164 verified unique entities & 82 master relationships** cataloged across 6 vertical anchor elevations).
 
-| Milestone | Purpose | Status |
-|---|---|---|
-| M0 | Pre-flight backup | ✅ |
-| M1 | Architecture decisions | ✅ |
-| M2 | Source-registry reconciliation | ✅ |
-| M3 | Limited writer role | ✅ |
-| M4 | First schema migration | ✅ |
-| M5 | Package/import repair | ✅ |
-| M6 | Source seeding repair | ✅ |
-| M7 | Search-request generation | ✅ |
-| M8 | Controlled source search | ✅ |
-| M9 | Human review & manual promotion | ✅ |
-| M10 | Discovery queue repair | ✅ |
-| M11 | Downloader schema additions | ✅ |
-| M12 | Asset registration & provenance | ✅ |
-| M13 | Downloader repair & R2 integration | ✅ |
-| M14 | Controlled end-to-end test | ✅ |
-| M15 | Orchestrator repair | ✅ |
+- **Approved Spatial Hierarchy:** Streamlined **6-Tier Spatial Containment Hierarchy** (`Site` ──► `Building` ──► `Floor` ──► `Zone` ──► `Space` ──► `Element`).
+- **Approved Specifications:** [`docs/WORLD_MODEL_SPECIFICATION_V1.md`](file:///opt/wtc/wtc-twin-towers/docs/WORLD_MODEL_SPECIFICATION_V1.md) and [`docs/WORLD_MODEL_GOVERNANCE_AND_LIFECYCLE_RULES.md`](file:///opt/wtc/wtc-twin-towers/docs/WORLD_MODEL_GOVERNANCE_AND_LIFECYCLE_RULES.md).
 
-### Phase 2 — Knowledge Platform Integration ✅ Complete
+### Phase 2 — Database Design Preparation 🔄 OPEN
 
-All 8 knowledge platform milestones (M16–M23) are complete.
-
-| Milestone | Purpose | Status |
-|---|---|---|
-| M16 | Knowledge platform import repair | ✅ |
-| M17 | Acquisition → knowledge integration | ✅ |
-| M18 | Citation provenance integration | ✅ |
-| M19 | AI-assisted metadata processing | ✅ |
-| M20 | Asset classification & routing | ✅ |
-| M21 | Photo processing (OCR + AI) | ✅ |
-| M22 | Independent-source verification | ✅ |
-| M23 | Timeline event model | ✅ |
-
-### Verified Capabilities
-
-| Capability | Status |
-|---|---|
-| Package-safe Python invocation (`python -m`) | ✅ |
-| Idempotent stage execution (all stages) | ✅ |
-| Evidence discovery (Wikimedia Commons) | ✅ |
-| Queue lifecycle (pending → in_progress → completed) | ✅ |
-| SHA-256 file deduplication | ✅ |
-| Content-type detection from HTTP headers | ✅ |
-| R2 object storage with provenance | ✅ |
-| Asset registration with source_id, file_hash, content_type | ✅ |
-| Retrieval-event provenance (asset_sources table) | ✅ |
-| AI metadata analysis (OpenRouter) | ✅ |
-| Photo OCR (Tesseract + AI description) | ✅ |
-| Knowledge extraction (entities, facts) | ✅ |
-| Fact cleaning and validation | ✅ |
-| Citation loading with asset provenance | ✅ |
-| Independent-source verification | ✅ |
-| Relationship building (page co-occurrence) | ✅ |
-| Timeline events with provenance FKs | ✅ |
-| Provenance chain (candidate → discovery → queue → asset → provenance → fact → citation → timeline) | ✅ |
-
-### Architecture Diagram
-
-```text
-Sources (sources.json)
-    ↓
-Source Seeding (agents.discovery.main)
-    ↓
-Search Request Generation (agents.discovery.build_searches)
-    ↓
-Candidate Discovery (agents.discovery.find_candidates)
-    ↓
-Human Review (agents.discovery.manual_promote)
-    ↓
-Discovery Queue (agents.discovery.queue_discoveries)
-    ↓
-Downloader (agents.downloader.main)
-    ↓
-SHA-256 Deduplication & R2 Storage
-    ↓
-Asset Registration (assets table)
-    ↓
-Provenance Tracking (asset_sources table)
-    ↓
-AI Metadata Processing (agents.metadata.ai_analyze)
-    ↓
-Knowledge Engine (agents.engine.run_engine)
-    ├── STEP 1a: Acquisition Asset Processing
-    ├── STEP 1b: Local PDF Ingestion
-    ├── STEP 2: Citation Loading
-    ├── STEP 3: Independent-Source Verification
-    ├── STEP 4: Relationship Building
-    ├── STEP 5: Timeline Building
-    └── STEP 6: Knowledge Graph Build (AI → entities/facts)
-```
-
----
-
-## Phase 3 Planning
-
-The following capabilities are under consideration for Phase 3. This is not a committed roadmap.
-
-### Specialist Processors
-- Blueprint processing (drawing numbers, revision tracking)
-- Video processing (keyframe extraction, timestamp citations)
-- Audio processing (transcription, timestamp citations)
-- Route invocation (wiring `route_asset()` into the engine pipeline)
-
-### Evidence Expansion
-- Additional evidence sources beyond Wikimedia Commons
-- Source-specific search URL templates for deferred sources
-- Expanded research search capabilities
-- Architectural evidence acquisition campaign (CG-2, CG-3)
-
-### Platform Infrastructure
-- API layer for evidence and knowledge access
-- Evidence Explorer frontend
-- Dashboard enhancements
-
-### Digital Twin Foundations
-- Spatial hierarchy modelling (site → building → tower → floor → zone → space)
-- Time-aware reconstruction states
-- Evidence-backed geometry and materials
-- Explorable digital twin viewer
-- Living reconstruction with historical state transitions
-
----
-
-## Repository Structure
-
-```text
-agents/         Discovery, acquisition, processing, and knowledge agents
-dashboard/      Web dashboard for evidence and knowledge exploration
-database/       Database schema and migrations (5 migrations)
-docs/           Plans, audits, architecture, and project documentation
-research/       Research configuration and source definitions
-scripts/        Utility scripts and maintenance tools
-storage/        Local asset storage (development)
-WTC_CORPUS/     Evidence corpus (excluded from source control)
-```
-
----
-
-## Technology Stack
-
-### Evidence Engine (Current)
-- Python 3
-- PostgreSQL (with 5 idempotent migrations)
-- Tesseract OCR
-- OpenRouter AI (DeepSeek V4 Flash)
-- R2 Object Storage
-- Docker (PostgreSQL, pgAdmin)
-
-### Reconstruction Platform (Target)
-- **PostgreSQL** — World Model database
-- **API Layer** — REST/GraphQL serving world data
-- **Next.js** — Application shell and routing
-- **React Three Fiber** — Browser-based 3D rendering
-- **Evidence Citation System** — Click-to-cite overlay
-
-**Browser-first.** No installation. No app store. Works on desktop, tablet, and mobile.
-
----
-
-## Documentation
-
-Key project documents in `docs/`:
-
-| Document | Purpose |
-|---|---|
-| `PROJECT_VISION_2026.md` | **NEW** — Complete project vision and strategic direction |
-| `RECONSTRUCTION_PLATFORM_VISION.md` | **NEW** — Browser-based platform definition |
-| `WORLD_MODEL_ARCHITECTURE.md` | **NEW** — World Model schema and API design |
-| `HISTORICAL_TIMELINE_EXPERIENCE.md` | **NEW** — Time-release construction journey |
-| `TOWER_A_ARCHITECTURAL_CORPUS_ASSESSMENT.md` | **NEW** — 211-drawing blueprint assessment |
-| `ARCHITECTURAL_READINESS_UPDATE.md` | **NEW** — Readiness recalculation |
-| `MISSION.md` | Stable project charter |
-| `EVIDENCE_STANDARDS.md` | Evidence governance rules |
-| `MASTER_PLAN.md` | Enduring end-to-end roadmap |
-| `ARCHITECTURE.md` | Current technical architecture |
-| `CURRENT_STATE.md` | Current implementation status |
-| `NEXT_TASK.md` | Single active task |
-| `AI_HANDOFF.md` | Recovery context for new AI sessions |
-| `SESSION_LOG.md` | Chronological development history |
-| `DEVLOG.md` | Public-facing development journal |
-| `KNOWN_FACTS.md` | Human-reviewed baseline claims |
-| `SOURCE_REGISTRY.md` | Known and potential evidence sources |
-| `EVIDENCE_GAP_REPORT.md` | All identified evidence gaps |
-
-Project development follows a structured workflow:
-
-```text
-Audit → Plan → Review → Implement → Verify → Document → Commit
-```
-
----
-
-## Research Focus
-
-The project covers the original World Trade Center complex, including:
-
-- Twin Towers (WTC 1 & WTC 2)
-- Supporting buildings (WTC 3-7)
-- Austin J. Tobin Plaza
-- Underground concourse and transportation infrastructure
-- Observation Deck (WTC 1, floor 107)
-- Windows on the World restaurant (WTC 1, floor 107)
-- Structural systems (columns, spandrels, core, exterior wall)
-- Architectural elements (elevations, cladding, lobbies)
-- Construction history (1966-1973)
-- Operational history (1973-2001)
-- 1993 bombing damage and repairs
-- Changes over time
-
-The project is not limited to the Twin Towers and aims to model the wider World Trade Center complex as a connected historical environment.
-
----
-
-## Evidence Standards
-
-Every major claim, fact, relationship, reconstruction element, or historical assertion should be:
-
-- Supported by evidence where available
-- Linked to sources
-- Linked to citations
-- Assigned confidence levels
-- Open to verification
-- Open to challenge
-- Traceable back to original material
-
-Evidence remains the source of truth.
+Active phase focusing on spatial geometry specs, PostGIS 3D coordinate standards, relational graph Specs, and automated Python seed data validation test suites prior to PostgreSQL DDL schema implementation.
 
 ---
 
 ## Status
 
-This repository is under active development. Phase 1 (M0–M15) and Phase 2 (M16–M23) are complete.
+Current version: **1.0.0-world-model-phase1-complete**
 
-Current version: **0.8.0**
-
-**August 11, 2026 — Strategic Milestone:** Direct-evidence entity extractions completed for Tower B structural assets (ST-01..06) and Tower A Phase 1 blueprints (`A-A-19`, `A-A-20`, `A-A-130`), producing 65 verified entities and 109 spatial relationships in machine-readable JSON format (`data/*.json`). Overall complex readiness updated to ~73% (Direct-Evidence Verified Baseline).
+**August 12, 2026 — Strategic Milestone:** Phase 1 World Model Construction is officially **COMPLETE**. 164 verified unique entities and 82 master relationships across 6 vertical anchor elevations (-3.5m to +410.0m) cataloged in `data/*.json`. Project formally transitions to **Phase 2: Database Design Preparation**.
 
 ---
 
