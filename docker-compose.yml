@@ -1,23 +1,73 @@
+version: '3.8'
+
 services:
   postgres:
-    image: postgres:16
-    container_name: wtc-postgres
-    restart: unless-stopped
-    env_file:
-      - .env
+    image: postgis/postgis:16-3.4
+    container_name: wtc1_postgres
+    restart: always
+    environment:
+      POSTGRES_DB: wtc_evidence
+      POSTGRES_USER: wtc_admin
+      POSTGRES_PASSWORD: ChangeThisToSomethingLongAndRandom
     ports:
       - "5432:5432"
     volumes:
-      - postgres_data:/var/lib/postgresql/data
+      - pgdata:/var/lib/postgresql/data
+      - ./sql/schema.sql:/docker-entrypoint-initdb.d/01_schema.sql
+      - ./sql/indexes.sql:/docker-entrypoint-initdb.d/02_indexes.sql
+      - ./sql/constraints.sql:/docker-entrypoint-initdb.d/03_constraints.sql
+      - ./sql/views.sql:/docker-entrypoint-initdb.d/04_views.sql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U wtc_admin -d wtc_evidence"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
-  pgadmin:
-    image: dpage/pgadmin4
-    container_name: wtc-pgadmin
-    restart: unless-stopped
-    env_file:
-      - .env
+  neo4j:
+    image: neo4j:5.15.0
+    container_name: wtc1_neo4j
+    restart: always
+    environment:
+      NEO4J_AUTH: neo4j/ChangeThisPassword123
+      NEO4J_PLUGINS: '["apoc"]'
+      NEO4J_dbms_security_procedures_unrestricted: "apoc.*"
     ports:
-      - "5050:80"
+      - "7474:7474"
+      - "7687:7687"
+    volumes:
+      - neo4jdata:/data
+      - ./neo4j/constraints.cypher:/var/lib/neo4j/import/constraints.cypher
+      - ./neo4j/indexes.cypher:/var/lib/neo4j/import/indexes.cypher
+      - ./neo4j/load_model.cypher:/var/lib/neo4j/import/load_model.cypher
+    healthcheck:
+      test: ["CMD-SHELL", "wget --no-verbose --tries=1 --spider http://localhost:7474 || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  api:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: wtc1_api_server
+    restart: always
+    environment:
+      POSTGRES_HOST: postgres
+      POSTGRES_PORT: 5432
+      POSTGRES_DB: wtc_evidence
+      POSTGRES_USER: wtc_admin
+      POSTGRES_PASSWORD: ChangeThisToSomethingLongAndRandom
+      NEO4J_URI: bolt://neo4j:7687
+      NEO4J_USER: neo4j
+      NEO4J_PASSWORD: ChangeThisPassword123
+    ports:
+      - "8000:8000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      neo4j:
+        condition: service_healthy
 
 volumes:
-  postgres_data:
+  pgdata:
+  neo4jdata:
