@@ -119,3 +119,26 @@ Photo processor rewritten from 7-line placeholder to full processor.
 ### Next Milestone
 
 M22 – Independent-Source Verification
+
+## 2026-08-12 & 2026-08-13 (Phase 5 Strategic Realignment & Reconstruction Baseline)
+
+### Milestone
+
+Adopted ADR-006 and ADR-006A; established Gemini as PRIMARY RECONSTRUCTION ENGINE; executed Phase 5 Real Reconstruction Sessions 001–003, Corroboration Review 001, and World Model Consolidation 001; applied release tag `v1.0-phase5-realigned`.
+
+### Major Accomplishments
+
+1. **ADR-006 Adoption:** Reclassified Gemini Multi-Modal Architectural Analysis as **PRIMARY RECONSTRUCTION ENGINE**. OCR and Vector Extraction reclassified as **SUPPORTING EVIDENCE SOURCES** (`docs/ADR-006_GEMINI_PRIMARY_RECONSTRUCTION_ENGINE.md`).
+2. **ADR-006A Realignment:** Adopted Evidence-Quality & Architectural-Reasoning Confidence Scoring Model (Option B), eliminating legacy OCR-centric confidence formulas (`docs/ADR-006A_CONFIDENCE_ASSESSMENT_REALIGNMENT.md`).
+3. **Phase 5 Real Reconstruction Sessions:**
+   - **Session 001 (Sheet A-A-121):** Core elevation analysis (`docs/PHASE_5_REAL_RECONSTRUCTION_SESSION_001.md`).
+   - **Session 002 (Sheet A-A-18):** Sub-grade plan B1/B2 analysis (`docs/PHASE_5_REAL_RECONSTRUCTION_SESSION_002.md`).
+   - **Session 003 (Sheet A-A-101):** Core column & riser schedule analysis (`docs/PHASE_5_REAL_RECONSTRUCTION_SESSION_003.md`).
+4. **Corroboration & Consolidation Reviews:**
+   - **Corroboration Review 001:** Core Box Column 501 (`wtc1_structural_col_501`) matched across 3 independent sheets (`A-A-121`, `A-A-18`, `A-A-101`) and promoted to **`VALIDATED`** state (Score 100/100) (`docs/PHASE_5_CORROBORATION_REVIEW_001.md`).
+   - **World Model Consolidation 001:** Consolidated candidate set (1 VALIDATED Entity, 2 CORROBORATED Entities, 3 DRAFT_SEED Entities) (`docs/PHASE_5_WORLD_MODEL_CONSOLIDATION_001.md`).
+5. **Repository Maintenance & Clean Commit:**
+   - Completed repository alignment audit (`docs/POST_ADR006_REPOSITORY_ALIGNMENT_AUDIT.md`) and remediation (`docs/REPOSITORY_ALIGNMENT_REMEDIATION_REPORT.md`).
+   - Relocated historical milestone reviews to `docs/archive/`.
+   - Staged, committed, and applied release tag **`v1.0-phase5-realigned`**. Working tree 100% clean (`nothing to commit, working tree clean`).
+
