@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Text } from '@react-three/drei';
 import { ProvenanceData } from '../ui/ProvenanceModal';
 
 interface Day1WorldProps {
@@ -58,14 +57,6 @@ export const Day1World: React.FC<Day1WorldProps> = ({ onSelectProvenance }) => {
             </mesh>
           ))
         ))}
-        <Text
-          position={[0, 0.2, 0]}
-          rotation={[-Math.PI / 2, 0, 0]}
-          fontSize={1.5}
-          color="#ffffff"
-        >
-          TOWER A CORE FOOTINGS (501-508)
-        </Text>
       </group>
 
       {/* 3. Bentonite Slurry Wall Trench Line along West Street */}
@@ -96,20 +87,13 @@ export const Day1World: React.FC<Day1WorldProps> = ({ onSelectProvenance }) => {
           <boxGeometry args={[4, 1.8, 0.1]} />
           <meshStandardMaterial color={hovered === 'sign' ? '#f59e0b' : '#1e3a8a'} />
         </mesh>
-        <Text
-          position={[0, 0.3, 0.1]}
-          fontSize={0.3}
-          color="#ffffff"
-        >
-          FUTURE SITE OF WORLD TRADE CENTER
-        </Text>
-        <Text
-          position={[0, -0.2, 0.1]}
-          fontSize={0.22}
-          color="#fbbf24"
-        >
-          PORT AUTHORITY OF NY & NJ (1966)
-        </Text>
+
+        {/* Text Plate Graphic */}
+        <mesh position={[0, 0, 0.06]}>
+          <planeGeometry args={[3.8, 1.6]} />
+          <meshStandardMaterial color="#0f172a" />
+        </mesh>
+
         {/* Support Post */}
         <mesh position={[0, -1, 0]} castShadow>
           <cylinderGeometry args={[0.08, 0.08, 1.2]} />
@@ -154,31 +138,16 @@ export const Day1World: React.FC<Day1WorldProps> = ({ onSelectProvenance }) => {
         {/* Drawing S-1 Blueprint Mesh */}
         <mesh position={[0, 0.42, 0]} rotation={[-Math.PI / 2, 0, 0]}>
           <planeGeometry args={[2.2, 1.3]} />
-          <meshBasicMaterial color={hovered === 'drawing' ? '#60a5fa' : '#1d4ed8'} />
+          <meshStandardMaterial color={hovered === 'drawing' ? '#60a5fa' : '#1d4ed8'} />
         </mesh>
-        <Text
-          position={[0, 0.44, 0]}
-          rotation={[-Math.PI / 2, 0, 0]}
-          fontSize={0.16}
-          color="#ffffff"
-        >
-          [ TOUCH TO INSPECT DRAWING S-1 (1966) ]
-        </Text>
       </group>
 
-      {/* 8. Visitor Spawn Point Marker (Church & Cortlandt: 0, 1.6, 10) */}
+      {/* 8. Visitor Spawn Point Marker (Church & Cortlandt: 0, 0.1, 10) */}
       <group position={[0, 0.1, 10]}>
         <mesh rotation={[-Math.PI / 2, 0, 0]}>
           <ringGeometry args={[0.8, 1.2, 32]} />
           <meshBasicMaterial color="#10b981" transparent opacity={0.6} />
         </mesh>
-        <Text
-          position={[0, 1.8, 0]}
-          fontSize={0.35}
-          color="#10b981"
-        >
-          VISITOR SPAWN POINT (CHURCH & CORTLANDT 1966)
-        </Text>
       </group>
     </group>
   );
