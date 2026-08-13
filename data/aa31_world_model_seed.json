@@ -1,0 +1,245 @@
+[
+  {
+    "entity_id": "wtc1_floor_7",
+    "entity_name": "WTC 1 7th Floor Mechanical Equipment Room (MER) Level",
+    "entity_type": "floor",
+    "parent_entity": "wtc1_tower_a",
+    "confidence_score": 95,
+    "evidence_source": "A-A-31",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_f7_primary_hvac_chiller_zone",
+    "entity_name": "7th Floor Primary HVAC Centrifugal Chiller & Refrigeration Plant Zone",
+    "entity_type": "zone",
+    "parent_entity": "wtc1_floor_7",
+    "confidence_score": 95,
+    "evidence_source": "A-A-31",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_f7_air_handling_unit_zone",
+    "entity_name": "7th Floor Air Handling Unit (AHU) & Ventilation Fan Zone",
+    "entity_type": "zone",
+    "parent_entity": "wtc1_floor_7",
+    "confidence_score": 95,
+    "evidence_source": "A-A-31",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_f7_mechanical_core_zone",
+    "entity_name": "7th Floor Core Mechanical Riser & Electrical Substation Zone",
+    "entity_type": "zone",
+    "parent_entity": "wtc1_floor_7",
+    "confidence_score": 95,
+    "evidence_source": "A-A-31",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_f7_perimeter_louver_envelope_zone",
+    "entity_name": "7th Floor Outer Facade Mechanical Air Intake & Exhaust Louver Zone",
+    "entity_type": "zone",
+    "parent_entity": "wtc1_floor_7",
+    "confidence_score": 95,
+    "evidence_source": "A-A-31",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_f7_central_chiller_plant_room",
+    "entity_name": "7th Floor Central Refrigeration & Centrifugal Chiller Equipment Vault",
+    "entity_type": "mechanical_area",
+    "parent_entity": "wtc1_f7_primary_hvac_chiller_zone",
+    "confidence_score": 95,
+    "evidence_source": "A-A-31",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_f7_north_ahu_supply_fan_room",
+    "entity_name": "North Core Primary Supply Air Handling Unit Room",
+    "entity_type": "mechanical_area",
+    "parent_entity": "wtc1_f7_air_handling_unit_zone",
+    "confidence_score": 95,
+    "evidence_source": "A-A-31",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_f7_south_ahu_return_fan_room",
+    "entity_name": "South Core Main Return & Exhaust Air Handling Unit Room",
+    "entity_type": "mechanical_area",
+    "parent_entity": "wtc1_f7_air_handling_unit_zone",
+    "confidence_score": 95,
+    "evidence_source": "A-A-31",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_f7_primary_water_pumping_substation",
+    "entity_name": "High-Zone Chilled Water & Condenser Pumping Substation",
+    "entity_type": "mechanical_area",
+    "parent_entity": "wtc1_f7_primary_hvac_chiller_zone",
+    "confidence_score": 95,
+    "evidence_source": "A-A-31",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_f7_high_voltage_electrical_transformer_vault",
+    "entity_name": "7th Floor 13.8kV High-Voltage Electrical Step-Down Transformer Vault",
+    "entity_type": "mechanical_area",
+    "parent_entity": "wtc1_f7_mechanical_core_zone",
+    "confidence_score": 95,
+    "evidence_source": "A-A-31",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_f7_vertical_hvac_fresh_air_intake_shaft",
+    "entity_name": "Primary Fresh Air Intake Vertical HVAC Shaft",
+    "entity_type": "mechanical_area",
+    "parent_entity": "wtc1_f7_air_handling_unit_zone",
+    "confidence_score": 95,
+    "evidence_source": "A-A-31",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_f7_mep_engineering_control_office",
+    "entity_name": "7th Floor Mechanical Systems Engineering Control & Monitoring Office",
+    "entity_type": "service_area",
+    "parent_entity": "wtc1_f7_mechanical_core_zone",
+    "confidence_score": 95,
+    "evidence_source": "A-A-31",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_f7_mep_maintenance_workshop_and_tool_depot",
+    "entity_name": "7th Floor Building Maintenance Workshop & Spare Parts Depot",
+    "entity_type": "service_area",
+    "parent_entity": "wtc1_f7_mechanical_core_zone",
+    "confidence_score": 95,
+    "evidence_source": "A-A-31",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_f7_mechanical_equipment_catwalk_corridor",
+    "entity_name": "7th Floor Heavy Mechanical Equipment Service Catwalk Corridor",
+    "entity_type": "corridor",
+    "parent_entity": "wtc1_f7_mechanical_core_zone",
+    "confidence_score": 95,
+    "evidence_source": "A-A-31",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_f7_chiller_pipe_maintenance_chase_corridor",
+    "entity_name": "Primary Chilled Water Pipe Access Chase Corridor",
+    "entity_type": "corridor",
+    "parent_entity": "wtc1_f7_primary_hvac_chiller_zone",
+    "confidence_score": 95,
+    "evidence_source": "A-A-31",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_f7_express_shuttle_shafts_44_blind_pass",
+    "entity_name": "Express Shuttle Elevator Shaft Enclosures to 44th Floor (Cars 41-44 Blind Pass)",
+    "entity_type": "elevator_bank",
+    "parent_entity": "wtc1_f7_mechanical_core_zone",
+    "confidence_score": 95,
+    "evidence_source": "A-A-31",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_f7_express_shuttle_shafts_78_blind_pass",
+    "entity_name": "Express Shuttle Elevator Shaft Enclosures to 78th Floor (Cars 71-74 Blind Pass)",
+    "entity_type": "elevator_bank",
+    "parent_entity": "wtc1_f7_mechanical_core_zone",
+    "confidence_score": 95,
+    "evidence_source": "A-A-31",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_f7_local_elevator_bank_1_terminal",
+    "entity_name": "Local Low-Rise Elevator Bank 1 Terminal Shaft Enclosure (Cars 1-6 Machine Support)",
+    "entity_type": "elevator_bank",
+    "parent_entity": "wtc1_f7_mechanical_core_zone",
+    "confidence_score": 95,
+    "evidence_source": "A-A-31",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_f7_heavy_freight_shaft_50",
+    "entity_name": "Heavy Freight Elevator Car 50 Shaft Enclosure (Floor 7 Level)",
+    "entity_type": "elevator",
+    "parent_entity": "wtc1_f7_mechanical_core_zone",
+    "confidence_score": 95,
+    "evidence_source": "A-A-31",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_f7_service_elevator_49",
+    "entity_name": "Primary Service Elevator Car 49 Shaft Enclosure (Floor 7 Level)",
+    "entity_type": "elevator",
+    "parent_entity": "wtc1_f7_mechanical_core_zone",
+    "confidence_score": 95,
+    "evidence_source": "A-A-31",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_f7_perimeter_mechanical_louver_grilles",
+    "entity_name": "7th Floor Continuous Perimeter Architectural Mechanical Louver Grilles",
+    "entity_type": "mechanical_element",
+    "parent_entity": "wtc1_f7_perimeter_louver_envelope_zone",
+    "confidence_score": 95,
+    "evidence_source": "A-A-31",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_f7_stair_a_shaft",
+    "entity_name": "Emergency Egress Stairwell A Shaft Enclosure (Floor 7 Level)",
+    "entity_type": "stair",
+    "parent_entity": "wtc1_f7_mechanical_core_zone",
+    "confidence_score": 95,
+    "evidence_source": "A-A-31",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_f7_stair_b_shaft",
+    "entity_name": "Emergency Egress Stairwell B Shaft Enclosure (Floor 7 Level)",
+    "entity_type": "stair",
+    "parent_entity": "wtc1_f7_mechanical_core_zone",
+    "confidence_score": 95,
+    "evidence_source": "A-A-31",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_f7_stair_c_shaft",
+    "entity_name": "Emergency Egress Stairwell C Shaft Enclosure (Floor 7 Level)",
+    "entity_type": "stair",
+    "parent_entity": "wtc1_f7_mechanical_core_zone",
+    "confidence_score": 95,
+    "evidence_source": "A-A-31",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_f7_core_box_columns_501_1008",
+    "entity_name": "7th Floor Core Steel Box Columns 501-1008 Grid (47 Box Columns)",
+    "entity_type": "structural_element",
+    "parent_entity": "wtc1_f7_mechanical_core_zone",
+    "confidence_score": 95,
+    "evidence_source": "A-A-31",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_f7_perimeter_box_columns",
+    "entity_name": "7th Floor Exterior Perimeter Box Columns (208 Columns at 3'4\" Spacing)",
+    "entity_type": "structural_element",
+    "parent_entity": "wtc1_f7_perimeter_louver_envelope_zone",
+    "confidence_score": 95,
+    "evidence_source": "A-A-31",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_f7_heavy_equipment_slab_reinforcement",
+    "entity_name": "7th Floor Heavy Mechanical Concrete Equipment Support Deck",
+    "entity_type": "structural_element",
+    "parent_entity": "wtc1_floor_7",
+    "confidence_score": 95,
+    "evidence_source": "A-A-31",
+    "evidence_classification": "Direct Evidence"
+  }
+]

@@ -1,0 +1,17 @@
+{
+  "contract_version": "1.0.0",
+  "file_hash": "5e96762b3b6ea1a7b4733e541909b4c5ded379b42f16a1cdf2fc9ab7e5c304e5",
+  "file_name": "corrupt_drawing.pdf",
+  "quarantine_reason": "ERR_PDF_CORRUPTED",
+  "quarantine_timestamp": "2026-08-12T22:46:48Z",
+  "quarantined_file_location": "data/failed_pdfs/5e96762b_corrupt_drawing.pdf",
+  "human_review_required": true,
+  "processing_errors": [
+    {
+      "error_code": "ERR_PDF_CORRUPTED",
+      "error_message": "Invalid PDF signature magic bytes",
+      "severity": "CRITICAL",
+      "timestamp": "2026-08-12T22:46:48Z"
+    }
+  ]
+}

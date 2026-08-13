@@ -1,0 +1,236 @@
+[
+  {
+    "entity_id": "wtc1_floor_1_core_plan",
+    "entity_name": "WTC 1 1st Floor Core Plan & Column Grid",
+    "entity_type": "floor",
+    "parent_entity": "wtc1_tower_a",
+    "confidence_score": 95,
+    "evidence_source": "A-A-20",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_f1_core_structural_grid_zone",
+    "entity_name": "WTC 1 1st Floor Core Heavy Column Structural Zone",
+    "entity_type": "zone",
+    "parent_entity": "wtc1_floor_1_core_plan",
+    "confidence_score": 95,
+    "evidence_source": "A-A-20",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_f1_elevator_shaft_core_zone",
+    "entity_name": "WTC 1 1st Floor Core Elevator Shaft Bank Zone",
+    "entity_type": "zone",
+    "parent_entity": "wtc1_floor_1_core_plan",
+    "confidence_score": 95,
+    "evidence_source": "A-A-20",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_f1_egress_stair_core_zone",
+    "entity_name": "WTC 1 1st Floor Core Egress Stairwell Zone",
+    "entity_type": "zone",
+    "parent_entity": "wtc1_floor_1_core_plan",
+    "confidence_score": 95,
+    "evidence_source": "A-A-20",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_f1_mep_chase_core_zone",
+    "entity_name": "WTC 1 1st Floor Core Mechanical Riser & Utility Chase Zone",
+    "entity_type": "zone",
+    "parent_entity": "wtc1_floor_1_core_plan",
+    "confidence_score": 95,
+    "evidence_source": "A-A-20",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_f1_corner_core_columns_501_502_1001_1002",
+    "entity_name": "Core Corner Heavy Box Columns 501, 502, 1001, 1002",
+    "entity_type": "structural_element",
+    "parent_entity": "wtc1_f1_core_structural_grid_zone",
+    "confidence_score": 95,
+    "evidence_source": "A-A-20",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_f1_north_south_core_line_columns_503_508",
+    "entity_name": "Core North-South Outer Line Box Columns 503-508",
+    "entity_type": "structural_element",
+    "parent_entity": "wtc1_f1_core_structural_grid_zone",
+    "confidence_score": 95,
+    "evidence_source": "A-A-20",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_f1_east_west_core_line_columns_601_608",
+    "entity_name": "Core East-West Outer Line Box Columns 601-608",
+    "entity_type": "structural_element",
+    "parent_entity": "wtc1_f1_core_structural_grid_zone",
+    "confidence_score": 95,
+    "evidence_source": "A-A-20",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_f1_interior_core_columns_701_908",
+    "entity_name": "Core Interior Structural Grid Columns 701-908",
+    "entity_type": "structural_element",
+    "parent_entity": "wtc1_f1_core_structural_grid_zone",
+    "confidence_score": 95,
+    "evidence_source": "A-A-20",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_f1_core_heavy_channel_beams",
+    "entity_name": "Core Perimeter Heavy Steel Channel Beams",
+    "entity_type": "structural_element",
+    "parent_entity": "wtc1_f1_core_structural_grid_zone",
+    "confidence_score": 95,
+    "evidence_source": "A-A-20",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_f1_core_diagonal_bracing_nodes",
+    "entity_name": "Ground Level Core Diagonal Wind Bracing Nodes",
+    "entity_type": "structural_element",
+    "parent_entity": "wtc1_f1_core_structural_grid_zone",
+    "confidence_score": 95,
+    "evidence_source": "A-A-20",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_f1_express_shuttle_shafts_44",
+    "entity_name": "Express Shuttle Elevator Shaft Enclosures to 44th Floor Sky Lobby (Cars 41-44)",
+    "entity_type": "elevator",
+    "parent_entity": "wtc1_f1_elevator_shaft_core_zone",
+    "confidence_score": 95,
+    "evidence_source": "A-A-20",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_f1_express_shuttle_shafts_78",
+    "entity_name": "Express Shuttle Elevator Shaft Enclosures to 78th Floor Sky Lobby (Cars 71-74)",
+    "entity_type": "elevator",
+    "parent_entity": "wtc1_f1_elevator_shaft_core_zone",
+    "confidence_score": 95,
+    "evidence_source": "A-A-20",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_f1_local_elevator_bank_1_shafts",
+    "entity_name": "Local Elevator Shaft Bank 1 (Cars 1-6 Shaft Enclosures)",
+    "entity_type": "elevator",
+    "parent_entity": "wtc1_f1_elevator_shaft_core_zone",
+    "confidence_score": 95,
+    "evidence_source": "A-A-20",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_f1_local_elevator_bank_2_shafts",
+    "entity_name": "Local Elevator Shaft Bank 2 (Cars 9-14 Shaft Enclosures)",
+    "entity_type": "elevator",
+    "parent_entity": "wtc1_f1_elevator_shaft_core_zone",
+    "confidence_score": 95,
+    "evidence_source": "A-A-20",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_f1_local_elevator_bank_3_shafts",
+    "entity_name": "Local Elevator Shaft Bank 3 (Cars 17-22 Shaft Enclosures)",
+    "entity_type": "elevator",
+    "parent_entity": "wtc1_f1_elevator_shaft_core_zone",
+    "confidence_score": 95,
+    "evidence_source": "A-A-20",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_f1_local_elevator_bank_4_shafts",
+    "entity_name": "Local Elevator Shaft Bank 4 (Cars 25-30 Shaft Enclosures)",
+    "entity_type": "elevator",
+    "parent_entity": "wtc1_f1_elevator_shaft_core_zone",
+    "confidence_score": 95,
+    "evidence_source": "A-A-20",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_f1_heavy_freight_shaft_50",
+    "entity_name": "Heavy Freight Shaft 50 Structural Concrete Vault Enclosure",
+    "entity_type": "elevator",
+    "parent_entity": "wtc1_f1_elevator_shaft_core_zone",
+    "confidence_score": 95,
+    "evidence_source": "A-A-20",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_f1_service_shaft_49",
+    "entity_name": "Primary Service Shaft 49 Structural Concrete Wall Enclosure",
+    "entity_type": "elevator",
+    "parent_entity": "wtc1_f1_elevator_shaft_core_zone",
+    "confidence_score": 95,
+    "evidence_source": "A-A-20",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_f1_stair_a_enclosure",
+    "entity_name": "Emergency Egress Stairwell A 2-Hour Fire-Rated Core Wall Enclosure",
+    "entity_type": "stair",
+    "parent_entity": "wtc1_f1_egress_stair_core_zone",
+    "confidence_score": 95,
+    "evidence_source": "A-A-20",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_f1_stair_b_enclosure",
+    "entity_name": "Emergency Egress Stairwell B 2-Hour Fire-Rated Core Wall Enclosure",
+    "entity_type": "stair",
+    "parent_entity": "wtc1_f1_egress_stair_core_zone",
+    "confidence_score": 95,
+    "evidence_source": "A-A-20",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_f1_stair_c_enclosure",
+    "entity_name": "Emergency Egress Stairwell C 2-Hour Fire-Rated Core Wall Enclosure",
+    "entity_type": "stair",
+    "parent_entity": "wtc1_f1_egress_stair_core_zone",
+    "confidence_score": 95,
+    "evidence_source": "A-A-20",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_f1_central_mep_riser_shaft_north",
+    "entity_name": "Primary North Core HVAC Air Supply & Exhaust Riser Shaft",
+    "entity_type": "mechanical_area",
+    "parent_entity": "wtc1_f1_mep_chase_core_zone",
+    "confidence_score": 95,
+    "evidence_source": "A-A-20",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_f1_central_mep_riser_shaft_south",
+    "entity_name": "Primary South Core HVAC & Hydronic Piping Riser Shaft",
+    "entity_type": "mechanical_area",
+    "parent_entity": "wtc1_f1_mep_chase_core_zone",
+    "confidence_score": 95,
+    "evidence_source": "A-A-20",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_f1_plumbing_and_drainage_chase",
+    "entity_name": "Primary Vertical Plumbing & Fire Standpipe Core Chase",
+    "entity_type": "mechanical_area",
+    "parent_entity": "wtc1_f1_mep_chase_core_zone",
+    "confidence_score": 95,
+    "evidence_source": "A-A-20",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_f1_core_telecom_and_data_riser",
+    "entity_name": "Main Building Telecommunications & Fiber Optic Riser Vault",
+    "entity_type": "space",
+    "parent_entity": "wtc1_f1_mep_chase_core_zone",
+    "confidence_score": 95,
+    "evidence_source": "A-A-20",
+    "evidence_classification": "Direct Evidence"
+  }
+]

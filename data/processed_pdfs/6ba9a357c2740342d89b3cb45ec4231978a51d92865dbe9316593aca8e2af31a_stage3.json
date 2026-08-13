@@ -1,0 +1,109 @@
+{
+  "contract_version": "1.0.0",
+  "source_file_hash": "6ba9a357c2740342d89b3cb45ec4231978a51d92865dbe9316593aca8e2af31a",
+  "source_sheet_code": "A-A-18",
+  "parsing_timestamp": "2026-08-12T22:46:48Z",
+  "detected_entities": [
+    {
+      "entity_id": "wtc1_poly_fan_room_101",
+      "entity_name": "Sub-grade Fan Room 101",
+      "category": "service_area",
+      "bounding_box": {
+        "x_min": 982100.0,
+        "y_min": 198200.0,
+        "x_max": 982300.0,
+        "y_max": 198400.0
+      },
+      "wkt_geometry": "POLYGON((982100.0 198200.0, 982300.0 198200.0, 982300.0 198400.0, 982100.0 198400.0, 982100.0 198200.0))",
+      "confidence_score": 95,
+      "evidence_citation": {
+        "source_id": "src_yamasaki_drawings",
+        "sheet_code": "A-A-18"
+      }
+    },
+    {
+      "entity_id": "wtc1_poly_core_mech_zone",
+      "entity_name": "Sub-grade Mechanical Core Zone",
+      "category": "mechanical_area",
+      "bounding_box": {
+        "x_min": 982340.0,
+        "y_min": 198200.0,
+        "x_max": 982740.0,
+        "y_max": 198600.0
+      },
+      "wkt_geometry": "POLYGON((982340.0 198200.0, 982740.0 198200.0, 982740.0 198600.0, 982340.0 198600.0, 982340.0 198200.0))",
+      "confidence_score": 95,
+      "evidence_citation": {
+        "source_id": "src_yamasaki_drawings",
+        "sheet_code": "A-A-18"
+      }
+    },
+    {
+      "entity_id": "wtc1_poly_elevator_shaft_b1",
+      "entity_name": "Sub-grade Elevator Bank B1",
+      "category": "elevator_bank",
+      "bounding_box": {
+        "x_min": 982180.0,
+        "y_min": 198440.0,
+        "x_max": 982300.0,
+        "y_max": 198560.0
+      },
+      "wkt_geometry": "POLYGON((982180.0 198440.0, 982300.0 198440.0, 982300.0 198560.0, 982180.0 198560.0, 982180.0 198440.0))",
+      "confidence_score": 95,
+      "evidence_citation": {
+        "source_id": "src_yamasaki_drawings",
+        "sheet_code": "A-A-18"
+      }
+    }
+  ],
+  "ocr_results": [
+    {
+      "ocr_id": "txt_fan_room_101",
+      "extracted_text": "SUB-GRADE FAN ROOM 101",
+      "text_alias": null,
+      "confidence": 95,
+      "bounding_box": {
+        "x_min": 982150.0,
+        "y_min": 198250.0,
+        "x_max": 982250.0,
+        "y_max": 198280.0
+      },
+      "associated_entity_id": "wtc1_poly_fan_room_101"
+    },
+    {
+      "ocr_id": "txt_col_501",
+      "extracted_text": "COL 501",
+      "text_alias": null,
+      "confidence": 95,
+      "bounding_box": {
+        "x_min": 982150.0,
+        "y_min": 198250.0,
+        "x_max": 982250.0,
+        "y_max": 198280.0
+      },
+      "associated_entity_id": "wtc1_poly_core_mech_zone"
+    }
+  ],
+  "symbol_detections": [
+    {
+      "symbol_id": "sym_north_1",
+      "symbol_type": "NORTH_ARROW",
+      "orientation_deg": 0,
+      "confidence_score": 99
+    }
+  ],
+  "confidence_summary": {
+    "average_confidence": 95.0,
+    "min_confidence": 95,
+    "max_confidence": 95,
+    "low_confidence_count": 0
+  },
+  "human_review_status": {
+    "requires_human_review": false,
+    "review_reason": null,
+    "flagged_entity_ids": []
+  },
+  "validation_status": "VALIDATED",
+  "quarantine_status": false,
+  "processing_errors": []
+}

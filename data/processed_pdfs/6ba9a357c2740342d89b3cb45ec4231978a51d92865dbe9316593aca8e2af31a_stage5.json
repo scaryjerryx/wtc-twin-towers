@@ -1,0 +1,68 @@
+{
+  "contract_version": "1.0.0",
+  "source_file_hash": "6ba9a357c2740342d89b3cb45ec4231978a51d92865dbe9316593aca8e2af31a",
+  "source_sheet_code": "A-A-18",
+  "resolution_timestamp": "2026-08-12T22:46:48Z",
+  "deduplicated_entities": [
+    {
+      "entity_id": "wtc1_poly_fan_room_101",
+      "resolution_action": "CORROBORATE_CITATION",
+      "category": "service_area",
+      "name": "Sub-grade Fan Room 101",
+      "wkt_geometry": "POLYGON((982100.0 198200.0, 982300.0 198200.0, 982300.0 198400.0, 982100.0 198400.0, 982100.0 198200.0))",
+      "confidence_score": 97,
+      "lifecycle_state": "CORROBORATED"
+    },
+    {
+      "entity_id": "wtc1_poly_core_mech_zone",
+      "resolution_action": "INSERT_NEW",
+      "category": "mechanical_area",
+      "name": "Sub-grade Mechanical Core Zone",
+      "wkt_geometry": "POLYGON((982340.0 198200.0, 982740.0 198200.0, 982740.0 198600.0, 982340.0 198600.0, 982340.0 198200.0))",
+      "confidence_score": 95,
+      "lifecycle_state": "DRAFT_SEED"
+    },
+    {
+      "entity_id": "wtc1_poly_elevator_shaft_b1",
+      "resolution_action": "INSERT_NEW",
+      "category": "elevator_bank",
+      "name": "Sub-grade Elevator Bank B1",
+      "wkt_geometry": "POLYGON((982180.0 198440.0, 982300.0 198440.0, 982300.0 198560.0, 982180.0 198560.0, 982180.0 198440.0))",
+      "confidence_score": 95,
+      "lifecycle_state": "DRAFT_SEED"
+    }
+  ],
+  "deduplicated_relationships": [
+    {
+      "relationship_id": "rel_aa18_10",
+      "subject_entity_id": "wtc1_f1_fan_room_101",
+      "relationship_type": "CONTAINS",
+      "object_entity_id": "wtc1_f1_chiller_unit_1",
+      "confidence_score": 95
+    }
+  ],
+  "evidence_reconciliation": {
+    "total_citations_linked": 3,
+    "new_sources_registered": 0,
+    "corroborated_citations": 1
+  },
+  "confidence_reconciliation": {
+    "average_reconciled_confidence": 95.7,
+    "min_reconciled_confidence": 95,
+    "max_reconciled_confidence": 97
+  },
+  "conflict_resolution_log": [],
+  "human_review_status": {
+    "requires_human_review": false,
+    "review_reason": null,
+    "flagged_entity_ids": []
+  },
+  "validation_status": "VALIDATED",
+  "quarantine_status": false,
+  "processing_errors": [],
+  "audit_metadata": {
+    "pipeline_stage": "Stage_5_PostGIS_Deduplication",
+    "processor_id": "dedup_engine_v1",
+    "execution_duration_ms": 120
+  }
+}

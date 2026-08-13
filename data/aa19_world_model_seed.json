@@ -1,0 +1,227 @@
+[
+  {
+    "entity_id": "wtc1_floor_1",
+    "entity_name": "WTC 1 1st Floor Plaza Lobby Level",
+    "entity_type": "floor",
+    "parent_entity": "wtc1_tower_a",
+    "confidence_score": 95,
+    "evidence_source": "A-A-19",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_f1_core_zone",
+    "entity_name": "WTC 1 1st Floor Central Service & Elevator Core Zone",
+    "entity_type": "zone",
+    "parent_entity": "wtc1_floor_1",
+    "confidence_score": 95,
+    "evidence_source": "A-A-19",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_f1_plaza_lobby_concourse_zone",
+    "entity_name": "WTC 1 1st Floor Main Plaza Passenger Concourse Zone",
+    "entity_type": "zone",
+    "parent_entity": "wtc1_floor_1",
+    "confidence_score": 95,
+    "evidence_source": "A-A-19",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_f1_exterior_wall_envelope_zone",
+    "entity_name": "WTC 1 1st Floor Perimeter Facade Envelope Zone",
+    "entity_type": "zone",
+    "parent_entity": "wtc1_floor_1",
+    "confidence_score": 95,
+    "evidence_source": "A-A-19",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_f1_service_mezzanine_zone",
+    "entity_name": "WTC 1 1st Floor Service & Loading Access Zone",
+    "entity_type": "zone",
+    "parent_entity": "wtc1_floor_1",
+    "confidence_score": 95,
+    "evidence_source": "A-A-19",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_f1_east_plaza_entrance_lobby",
+    "entity_name": "WTC 1 East Main Entrance Lobby Hall (Plaza Access)",
+    "entity_type": "space",
+    "parent_entity": "wtc1_f1_plaza_lobby_concourse_zone",
+    "confidence_score": 95,
+    "evidence_source": "A-A-19",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_f1_west_street_entrance_lobby",
+    "entity_name": "WTC 1 West Entrance Hall (West Street Access)",
+    "entity_type": "space",
+    "parent_entity": "wtc1_f1_plaza_lobby_concourse_zone",
+    "confidence_score": 95,
+    "evidence_source": "A-A-19",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_f1_north_elevator_hall",
+    "entity_name": "WTC 1 North Passenger Elevator Access Corridor",
+    "entity_type": "corridor",
+    "parent_entity": "wtc1_f1_plaza_lobby_concourse_zone",
+    "confidence_score": 95,
+    "evidence_source": "A-A-19",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_f1_south_elevator_hall",
+    "entity_name": "WTC 1 South Passenger Elevator Access Corridor",
+    "entity_type": "corridor",
+    "parent_entity": "wtc1_f1_plaza_lobby_concourse_zone",
+    "confidence_score": 95,
+    "evidence_source": "A-A-19",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_f1_express_shuttle_bank_44",
+    "entity_name": "Express Shuttle Elevator Bank to 44th Floor Sky Lobby (Cars 41-44)",
+    "entity_type": "elevator_bank",
+    "parent_entity": "wtc1_f1_core_zone",
+    "confidence_score": 95,
+    "evidence_source": "A-A-19",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_f1_express_shuttle_bank_78",
+    "entity_name": "Express Shuttle Elevator Bank to 78th Floor Sky Lobby (Cars 71-74)",
+    "entity_type": "elevator_bank",
+    "parent_entity": "wtc1_f1_core_zone",
+    "confidence_score": 95,
+    "evidence_source": "A-A-19",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_f1_local_elevator_bank_1",
+    "entity_name": "Local Elevator Bank 1 - Low Rise Floors 9-24 (Cars 1-6)",
+    "entity_type": "elevator_bank",
+    "parent_entity": "wtc1_f1_core_zone",
+    "confidence_score": 95,
+    "evidence_source": "A-A-19",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_f1_local_elevator_bank_2",
+    "entity_name": "Local Elevator Bank 2 - Low-Mid Rise Floors 25-40 (Cars 9-14)",
+    "entity_type": "elevator_bank",
+    "parent_entity": "wtc1_f1_core_zone",
+    "confidence_score": 95,
+    "evidence_source": "A-A-19",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_f1_local_elevator_bank_3",
+    "entity_name": "Local Elevator Bank 3 - Mid-High Rise Floors 45-62 (Cars 17-22)",
+    "entity_type": "elevator_bank",
+    "parent_entity": "wtc1_f1_core_zone",
+    "confidence_score": 95,
+    "evidence_source": "A-A-19",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_f1_local_elevator_bank_4",
+    "entity_name": "Local Elevator Bank 4 - High Rise Floors 63-82 (Cars 25-30)",
+    "entity_type": "elevator_bank",
+    "parent_entity": "wtc1_f1_core_zone",
+    "confidence_score": 95,
+    "evidence_source": "A-A-19",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_f1_heavy_freight_elevator_50",
+    "entity_name": "Heavy Freight Elevator Car 50 (B6 to Floor 110)",
+    "entity_type": "elevator",
+    "parent_entity": "wtc1_f1_core_zone",
+    "confidence_score": 95,
+    "evidence_source": "A-A-19",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_f1_service_elevator_49",
+    "entity_name": "Primary Service Elevator Car 49 (Sub-grade to Floor 108)",
+    "entity_type": "elevator",
+    "parent_entity": "wtc1_f1_core_zone",
+    "confidence_score": 95,
+    "evidence_source": "A-A-19",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_f1_stair_a",
+    "entity_name": "Emergency Egress Stairwell A Shaft (Core North-West)",
+    "entity_type": "stair",
+    "parent_entity": "wtc1_f1_core_zone",
+    "confidence_score": 95,
+    "evidence_source": "A-A-19",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_f1_stair_b",
+    "entity_name": "Emergency Egress Stairwell B Shaft (Core Center)",
+    "entity_type": "stair",
+    "parent_entity": "wtc1_f1_core_zone",
+    "confidence_score": 95,
+    "evidence_source": "A-A-19",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_f1_stair_c",
+    "entity_name": "Emergency Egress Stairwell C Shaft (Core South-East)",
+    "entity_type": "stair",
+    "parent_entity": "wtc1_f1_core_zone",
+    "confidence_score": 95,
+    "evidence_source": "A-A-19",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_f1_fire_command_center",
+    "entity_name": "Master Fire Command Center & Security Control Room",
+    "entity_type": "service_area",
+    "parent_entity": "wtc1_f1_core_zone",
+    "confidence_score": 95,
+    "evidence_source": "A-A-19",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_f1_main_electrical_switchgear_room",
+    "entity_name": "1st Floor Primary Electrical Switchgear Room",
+    "entity_type": "mechanical_area",
+    "parent_entity": "wtc1_f1_core_zone",
+    "confidence_score": 95,
+    "evidence_source": "A-A-19",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_f1_core_box_columns_501_1008",
+    "entity_name": "Core Steel Box Columns 501-1008 Grid (47 Heavy Columns)",
+    "entity_type": "structural_element",
+    "parent_entity": "wtc1_f1_core_zone",
+    "confidence_score": 95,
+    "evidence_source": "A-A-19",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_f1_perimeter_box_columns",
+    "entity_name": "Exterior Perimeter Box Columns (208 Columns at 3'4\" Spacing)",
+    "entity_type": "structural_element",
+    "parent_entity": "wtc1_f1_exterior_wall_envelope_zone",
+    "confidence_score": 95,
+    "evidence_source": "A-A-19",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_f1_tree_column_transfer_base",
+    "entity_name": "Plaza Lobby Tree Column Transfer Structural Modules",
+    "entity_type": "structural_element",
+    "parent_entity": "wtc1_f1_exterior_wall_envelope_zone",
+    "confidence_score": 95,
+    "evidence_source": "A-A-19",
+    "evidence_classification": "Direct Evidence"
+  }
+]

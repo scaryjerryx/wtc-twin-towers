@@ -1,0 +1,3895 @@
+[
+  {
+    "entity_id": "wtc1_structural_col_501",
+    "canonical_name": "Core Box Column 501",
+    "subsystem": "structural",
+    "building": "WTC 1 (Tower A)",
+    "level": "Sub-grade B6 to Floor 110",
+    "source_drawings": [
+      "S-1",
+      "S-2",
+      "S-3",
+      "A-A-101"
+    ],
+    "supporting_sessions": [
+      "Session 001"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_s_1.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_structural_col_502",
+    "canonical_name": "Core Box Column 502",
+    "subsystem": "structural",
+    "building": "WTC 1 (Tower A)",
+    "level": "Sub-grade B6 to Floor 110",
+    "source_drawings": [
+      "S-1",
+      "S-2",
+      "S-3",
+      "A-A-101"
+    ],
+    "supporting_sessions": [
+      "Session 001"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_s_1.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_structural_col_503",
+    "canonical_name": "Core Box Column 503",
+    "subsystem": "structural",
+    "building": "WTC 1 (Tower A)",
+    "level": "Sub-grade B6 to Floor 110",
+    "source_drawings": [
+      "S-1",
+      "S-2",
+      "S-3",
+      "A-A-101"
+    ],
+    "supporting_sessions": [
+      "Session 001"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_s_1.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_structural_col_504",
+    "canonical_name": "Core Box Column 504",
+    "subsystem": "structural",
+    "building": "WTC 1 (Tower A)",
+    "level": "Sub-grade B6 to Floor 110",
+    "source_drawings": [
+      "S-1",
+      "S-2",
+      "S-3",
+      "A-A-101"
+    ],
+    "supporting_sessions": [
+      "Session 001"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_s_1.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_structural_col_505",
+    "canonical_name": "Core Box Column 505",
+    "subsystem": "structural",
+    "building": "WTC 1 (Tower A)",
+    "level": "Sub-grade B6 to Floor 110",
+    "source_drawings": [
+      "S-1",
+      "S-2",
+      "S-3",
+      "A-A-101"
+    ],
+    "supporting_sessions": [
+      "Session 001"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_s_1.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_structural_col_506",
+    "canonical_name": "Core Box Column 506",
+    "subsystem": "structural",
+    "building": "WTC 1 (Tower A)",
+    "level": "Sub-grade B6 to Floor 110",
+    "source_drawings": [
+      "S-1",
+      "S-2",
+      "S-3",
+      "A-A-101"
+    ],
+    "supporting_sessions": [
+      "Session 001"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_s_1.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_structural_col_507",
+    "canonical_name": "Core Box Column 507",
+    "subsystem": "structural",
+    "building": "WTC 1 (Tower A)",
+    "level": "Sub-grade B6 to Floor 110",
+    "source_drawings": [
+      "S-1",
+      "S-2",
+      "S-3",
+      "A-A-101"
+    ],
+    "supporting_sessions": [
+      "Session 001"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_s_1.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_structural_col_508",
+    "canonical_name": "Core Box Column 508",
+    "subsystem": "structural",
+    "building": "WTC 1 (Tower A)",
+    "level": "Sub-grade B6 to Floor 110",
+    "source_drawings": [
+      "S-1",
+      "S-2",
+      "S-3",
+      "A-A-101"
+    ],
+    "supporting_sessions": [
+      "Session 001"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_s_1.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_structural_col_601",
+    "canonical_name": "Heavy Core Column 601",
+    "subsystem": "structural",
+    "building": "WTC 1 (Tower A)",
+    "level": "Sub-grade B6 to Floor 110",
+    "source_drawings": [
+      "S-1",
+      "S-2",
+      "S-3"
+    ],
+    "supporting_sessions": [
+      "Session 002"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_s_1.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_structural_col_602",
+    "canonical_name": "Heavy Core Column 602",
+    "subsystem": "structural",
+    "building": "WTC 1 (Tower A)",
+    "level": "Sub-grade B6 to Floor 110",
+    "source_drawings": [
+      "S-1",
+      "S-2",
+      "S-3"
+    ],
+    "supporting_sessions": [
+      "Session 002"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_s_1.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_structural_col_603",
+    "canonical_name": "Heavy Core Column 603",
+    "subsystem": "structural",
+    "building": "WTC 1 (Tower A)",
+    "level": "Sub-grade B6 to Floor 110",
+    "source_drawings": [
+      "S-1",
+      "S-2",
+      "S-3"
+    ],
+    "supporting_sessions": [
+      "Session 002"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_s_1.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_structural_col_604",
+    "canonical_name": "Heavy Core Column 604",
+    "subsystem": "structural",
+    "building": "WTC 1 (Tower A)",
+    "level": "Sub-grade B6 to Floor 110",
+    "source_drawings": [
+      "S-1",
+      "S-2",
+      "S-3"
+    ],
+    "supporting_sessions": [
+      "Session 002"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_s_1.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f44_col_tree_1",
+    "canonical_name": "Floor 44 Perimeter Column Tree 1",
+    "subsystem": "structural",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floor 44",
+    "source_drawings": [
+      "S-1",
+      "S-2",
+      "A-A-20"
+    ],
+    "supporting_sessions": [
+      "Session 003"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_s_1.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f44_col_tree_2",
+    "canonical_name": "Floor 44 Perimeter Column Tree 2",
+    "subsystem": "structural",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floor 44",
+    "source_drawings": [
+      "S-1",
+      "S-2",
+      "A-A-20"
+    ],
+    "supporting_sessions": [
+      "Session 003"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_s_1.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f44_col_tree_3",
+    "canonical_name": "Floor 44 Perimeter Column Tree 3",
+    "subsystem": "structural",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floor 44",
+    "source_drawings": [
+      "S-1",
+      "S-2",
+      "A-A-20"
+    ],
+    "supporting_sessions": [
+      "Session 003"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_s_1.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f78_col_tree_1",
+    "canonical_name": "Floor 78 Perimeter Column Tree 1",
+    "subsystem": "structural",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floor 78",
+    "source_drawings": [
+      "S-1",
+      "S-2",
+      "A-A-19"
+    ],
+    "supporting_sessions": [
+      "Session 004"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_s_1.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f78_col_tree_2",
+    "canonical_name": "Floor 78 Perimeter Column Tree 2",
+    "subsystem": "structural",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floor 78",
+    "source_drawings": [
+      "S-1",
+      "S-2",
+      "A-A-19"
+    ],
+    "supporting_sessions": [
+      "Session 004"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_s_1.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f78_col_tree_3",
+    "canonical_name": "Floor 78 Perimeter Column Tree 3",
+    "subsystem": "structural",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floor 78",
+    "source_drawings": [
+      "S-1",
+      "S-2",
+      "A-A-19"
+    ],
+    "supporting_sessions": [
+      "Session 004"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_s_1.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f107_hat_truss_north",
+    "canonical_name": "Floor 107 Hat Truss North",
+    "subsystem": "structural",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floors 107-110",
+    "source_drawings": [
+      "S-1",
+      "S-3",
+      "S-4"
+    ],
+    "supporting_sessions": [
+      "Session 005"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_s_1.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f107_hat_truss_south",
+    "canonical_name": "Floor 107 Hat Truss South",
+    "subsystem": "structural",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floors 107-110",
+    "source_drawings": [
+      "S-1",
+      "S-3",
+      "S-4"
+    ],
+    "supporting_sessions": [
+      "Session 005"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_s_1.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f107_hat_truss_east",
+    "canonical_name": "Floor 107 Hat Truss East",
+    "subsystem": "structural",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floors 107-110",
+    "source_drawings": [
+      "S-1",
+      "S-3",
+      "S-4"
+    ],
+    "supporting_sessions": [
+      "Session 005"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_s_1.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f107_hat_truss_west",
+    "canonical_name": "Floor 107 Hat Truss West",
+    "subsystem": "structural",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floors 107-110",
+    "source_drawings": [
+      "S-1",
+      "S-3",
+      "S-4"
+    ],
+    "supporting_sessions": [
+      "Session 005"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_s_1.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f41_outrigger_truss_1",
+    "canonical_name": "Floor 41 Mechanical Outrigger Truss 1",
+    "subsystem": "structural",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floor 41",
+    "source_drawings": [
+      "S-2",
+      "S-3",
+      "S-4"
+    ],
+    "supporting_sessions": [
+      "Session 006"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_s_2.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f41_outrigger_truss_2",
+    "canonical_name": "Floor 41 Mechanical Outrigger Truss 2",
+    "subsystem": "structural",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floor 41",
+    "source_drawings": [
+      "S-2",
+      "S-3",
+      "S-4"
+    ],
+    "supporting_sessions": [
+      "Session 006"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_s_2.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f75_transfer_girder",
+    "canonical_name": "Floor 75 Structural Transfer Girder",
+    "subsystem": "structural",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floor 75",
+    "source_drawings": [
+      "S-2",
+      "S-3",
+      "S-5"
+    ],
+    "supporting_sessions": [
+      "Session 007"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_s_2.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_perim_col_101",
+    "canonical_name": "Perimeter Prefabricated Column Unit 101",
+    "subsystem": "structural",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floors 1-110",
+    "source_drawings": [
+      "S-1",
+      "S-2",
+      "S-5"
+    ],
+    "supporting_sessions": [
+      "Session 008"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_s_1.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_perim_col_200",
+    "canonical_name": "Perimeter Prefabricated Column Unit 200",
+    "subsystem": "structural",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floors 1-110",
+    "source_drawings": [
+      "S-1",
+      "S-2",
+      "S-5"
+    ],
+    "supporting_sessions": [
+      "Session 008"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_s_1.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_perim_col_300",
+    "canonical_name": "Perimeter Prefabricated Column Unit 300",
+    "subsystem": "structural",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floors 1-110",
+    "source_drawings": [
+      "S-1",
+      "S-2",
+      "S-5"
+    ],
+    "supporting_sessions": [
+      "Session 008"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_s_1.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_perim_col_400",
+    "canonical_name": "Perimeter Prefabricated Column Unit 400",
+    "subsystem": "structural",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floors 1-110",
+    "source_drawings": [
+      "S-1",
+      "S-2",
+      "S-5"
+    ],
+    "supporting_sessions": [
+      "Session 008"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_s_1.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_fb5_slurry_wall",
+    "canonical_name": "Sub-grade Perimeter Concrete Slurry Wall",
+    "subsystem": "structural",
+    "building": "WTC 1 (Tower A)",
+    "level": "Levels B1-B6",
+    "source_drawings": [
+      "S-1",
+      "A-A-18",
+      "A-A-18B"
+    ],
+    "supporting_sessions": [
+      "Session 009"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_s_1.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f7_central_chiller_plant",
+    "canonical_name": "Floor 7 Central Centrifugal Chiller Plant",
+    "subsystem": "mechanical",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floor 7",
+    "source_drawings": [
+      "M-7",
+      "A-A-31",
+      "M-12"
+    ],
+    "supporting_sessions": [
+      "Session 010"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_m_7.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f7_north_ahu_room",
+    "canonical_name": "Floor 7 Air Handling Unit Room North",
+    "subsystem": "mechanical",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floor 7",
+    "source_drawings": [
+      "M-7",
+      "A-A-31",
+      "M-12"
+    ],
+    "supporting_sessions": [
+      "Session 010"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_m_7.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f7_south_ahu_room",
+    "canonical_name": "Floor 7 Air Handling Unit Room South",
+    "subsystem": "mechanical",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floor 7",
+    "source_drawings": [
+      "M-7",
+      "A-A-31",
+      "M-12"
+    ],
+    "supporting_sessions": [
+      "Session 010"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_m_7.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f7_primary_pumps",
+    "canonical_name": "Floor 7 Primary Chilled Water Pumps",
+    "subsystem": "mechanical",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floor 7",
+    "source_drawings": [
+      "M-7",
+      "A-A-31",
+      "M-12"
+    ],
+    "supporting_sessions": [
+      "Session 010"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_m_7.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_chilled_water_riser1",
+    "canonical_name": "Chilled Water Vertical Riser Line 1",
+    "subsystem": "mechanical",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floors 1-110",
+    "source_drawings": [
+      "A-A-101",
+      "M-7",
+      "M-8"
+    ],
+    "supporting_sessions": [
+      "Session 011"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_a_a_101.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_chilled_water_riser2",
+    "canonical_name": "Chilled Water Vertical Riser Line 2",
+    "subsystem": "mechanical",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floors 1-110",
+    "source_drawings": [
+      "A-A-101",
+      "M-7",
+      "M-8"
+    ],
+    "supporting_sessions": [
+      "Session 011"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_a_a_101.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_chilled_water_riser3",
+    "canonical_name": "Chilled Water Vertical Riser Line 3",
+    "subsystem": "mechanical",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floors 1-110",
+    "source_drawings": [
+      "A-A-101",
+      "M-7",
+      "M-8"
+    ],
+    "supporting_sessions": [
+      "Session 011"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_a_a_101.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f1_mep_shaft_north",
+    "canonical_name": "Floor 1 MEP Riser Shaft North",
+    "subsystem": "mechanical",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floors 1-110",
+    "source_drawings": [
+      "A-A-101",
+      "M-7",
+      "A-A-32"
+    ],
+    "supporting_sessions": [
+      "Session 012"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_a_a_101.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f1_mep_shaft_south",
+    "canonical_name": "Floor 1 MEP Riser Shaft South",
+    "subsystem": "mechanical",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floors 1-110",
+    "source_drawings": [
+      "A-A-101",
+      "M-7",
+      "A-A-32"
+    ],
+    "supporting_sessions": [
+      "Session 012"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_a_a_101.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f108_mech_penthouse",
+    "canonical_name": "Floor 108 Mechanical Penthouse MER",
+    "subsystem": "mechanical",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floor 108",
+    "source_drawings": [
+      "M-12",
+      "A-A-111",
+      "M-14"
+    ],
+    "supporting_sessions": [
+      "Session 013"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_m_12.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f108_cooling_basin_north",
+    "canonical_name": "Floor 108 Cooling Tower Basin North",
+    "subsystem": "mechanical",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floor 108",
+    "source_drawings": [
+      "M-12",
+      "A-A-111",
+      "M-14"
+    ],
+    "supporting_sessions": [
+      "Session 013"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_m_12.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f108_cooling_basin_south",
+    "canonical_name": "Floor 108 Cooling Tower Basin South",
+    "subsystem": "mechanical",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floor 108",
+    "source_drawings": [
+      "M-12",
+      "A-A-111",
+      "M-14"
+    ],
+    "supporting_sessions": [
+      "Session 013"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_m_12.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f41_mer_booster_plant",
+    "canonical_name": "Floor 41 Mechanical Equipment Room Booster Plant",
+    "subsystem": "mechanical",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floor 41",
+    "source_drawings": [
+      "M-7",
+      "M-12",
+      "M-14"
+    ],
+    "supporting_sessions": [
+      "Session 014"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_m_7.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f1_fan_room_101",
+    "canonical_name": "Floor 1 Primary Supply Fan Room 101",
+    "subsystem": "mechanical",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floor 1",
+    "source_drawings": [
+      "A-A-18",
+      "M-7",
+      "A-A-31"
+    ],
+    "supporting_sessions": [
+      "Session 015"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_a_a_18.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f41_vav_zone_north",
+    "canonical_name": "Floor 41 North VAV Terminal Air Zone",
+    "subsystem": "mechanical",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floor 41",
+    "source_drawings": [
+      "M-7",
+      "M-12",
+      "M-22"
+    ],
+    "supporting_sessions": [
+      "Session 039"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_m_7.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f41_vav_zone_south",
+    "canonical_name": "Floor 41 South VAV Terminal Air Zone",
+    "subsystem": "mechanical",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floor 41",
+    "source_drawings": [
+      "M-7",
+      "M-12",
+      "M-22"
+    ],
+    "supporting_sessions": [
+      "Session 039"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_m_7.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f75_vav_zone_north",
+    "canonical_name": "Floor 75 North VAV Terminal Air Zone",
+    "subsystem": "mechanical",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floor 75",
+    "source_drawings": [
+      "M-7",
+      "M-12",
+      "M-22"
+    ],
+    "supporting_sessions": [
+      "Session 039"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_m_7.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f75_vav_zone_south",
+    "canonical_name": "Floor 75 South VAV Terminal Air Zone",
+    "subsystem": "mechanical",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floor 75",
+    "source_drawings": [
+      "M-7",
+      "M-12",
+      "M-22"
+    ],
+    "supporting_sessions": [
+      "Session 039"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_m_7.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f1_supply_air_trunk_east",
+    "canonical_name": "Floor 1 Primary Supply Air Trunk East",
+    "subsystem": "mechanical",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floor 1",
+    "source_drawings": [
+      "A-A-18",
+      "M-7",
+      "M-22"
+    ],
+    "supporting_sessions": [
+      "Session 039"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_a_a_18.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f1_supply_air_trunk_west",
+    "canonical_name": "Floor 1 Primary Supply Air Trunk West",
+    "subsystem": "mechanical",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floor 1",
+    "source_drawings": [
+      "A-A-18",
+      "M-7",
+      "M-22"
+    ],
+    "supporting_sessions": [
+      "Session 039"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_a_a_18.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f1_return_air_plenum",
+    "canonical_name": "Floor 1 Return Air Core Plenum",
+    "subsystem": "mechanical",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floor 1",
+    "source_drawings": [
+      "A-A-18",
+      "M-12",
+      "M-22"
+    ],
+    "supporting_sessions": [
+      "Session 039"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_a_a_18.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f41_mechanical_branch_hub",
+    "canonical_name": "Floor 41 Mechanical Branch Air Distribution Hub",
+    "subsystem": "mechanical",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floor 41",
+    "source_drawings": [
+      "A-A-20",
+      "M-12",
+      "M-22"
+    ],
+    "supporting_sessions": [
+      "Session 039"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_a_a_20.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f1_main_elec_vault",
+    "canonical_name": "Floor 1 Main Electrical Vault",
+    "subsystem": "electrical",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floor 1",
+    "source_drawings": [
+      "E-1",
+      "E-3",
+      "E-12"
+    ],
+    "supporting_sessions": [
+      "Session 016"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_e_1.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_fb1_b1_substation",
+    "canonical_name": "Level B1 Secondary Electrical Substation",
+    "subsystem": "electrical",
+    "building": "WTC 1 (Tower A)",
+    "level": "Level B1",
+    "source_drawings": [
+      "E-1",
+      "E-3",
+      "E-12"
+    ],
+    "supporting_sessions": [
+      "Session 016"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_e_1.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_fb6_generator_plant",
+    "canonical_name": "Level B6 Emergency Generator Plant",
+    "subsystem": "electrical",
+    "building": "WTC 1 (Tower A)",
+    "level": "Level B6",
+    "source_drawings": [
+      "E-1",
+      "E-3",
+      "E-12"
+    ],
+    "supporting_sessions": [
+      "Session 016"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_e_1.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_fb6_generator_room_north",
+    "canonical_name": "Level B6 Emergency Generator Room North",
+    "subsystem": "electrical",
+    "building": "WTC 1 (Tower A)",
+    "level": "Level B6",
+    "source_drawings": [
+      "E-1",
+      "E-3",
+      "E-12"
+    ],
+    "supporting_sessions": [
+      "Session 016"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_e_1.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_fb6_generator_room_south",
+    "canonical_name": "Level B6 Emergency Generator Room South",
+    "subsystem": "electrical",
+    "building": "WTC 1 (Tower A)",
+    "level": "Level B6",
+    "source_drawings": [
+      "E-1",
+      "E-3",
+      "E-12"
+    ],
+    "supporting_sessions": [
+      "Session 016"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_e_1.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f1_master_switchgear",
+    "canonical_name": "Floor 1 Master Switchgear Room",
+    "subsystem": "electrical",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floor 1",
+    "source_drawings": [
+      "E-1",
+      "E-3",
+      "E-12"
+    ],
+    "supporting_sessions": [
+      "Session 016"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_e_1.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f41_transformer_vault",
+    "canonical_name": "Floor 41 Transformer Step-Down Vault",
+    "subsystem": "electrical",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floor 41",
+    "source_drawings": [
+      "E-1",
+      "E-3",
+      "E-12"
+    ],
+    "supporting_sessions": [
+      "Session 016"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_e_1.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f75_transformer_vault",
+    "canonical_name": "Floor 75 Transformer Step-Down Vault",
+    "subsystem": "electrical",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floor 75",
+    "source_drawings": [
+      "E-1",
+      "E-3",
+      "E-12"
+    ],
+    "supporting_sessions": [
+      "Session 016"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_e_1.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f108_transformer_vault",
+    "canonical_name": "Floor 108 Transformer Step-Down Vault",
+    "subsystem": "electrical",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floor 108",
+    "source_drawings": [
+      "E-1",
+      "E-3",
+      "E-12"
+    ],
+    "supporting_sessions": [
+      "Session 016"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_e_1.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f41_elec_dist_room",
+    "canonical_name": "Floor 41 Local Electrical Distribution Room",
+    "subsystem": "electrical",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floor 41",
+    "source_drawings": [
+      "E-1",
+      "E-3",
+      "E-12"
+    ],
+    "supporting_sessions": [
+      "Session 016"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_e_1.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f1_busduct_riser_east",
+    "canonical_name": "Floor 1 Vertical Busduct Riser East",
+    "subsystem": "electrical",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floors 1-110",
+    "source_drawings": [
+      "E-1",
+      "E-3",
+      "E-12"
+    ],
+    "supporting_sessions": [
+      "Session 016"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_e_1.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f1_busduct_riser_west",
+    "canonical_name": "Floor 1 Vertical Busduct Riser West",
+    "subsystem": "electrical",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floors 1-110",
+    "source_drawings": [
+      "E-1",
+      "E-3",
+      "E-12"
+    ],
+    "supporting_sessions": [
+      "Session 016"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_e_1.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_fb6_coned_utility_intake_vault",
+    "canonical_name": "Level B6 ConEd Utility Intake Vault",
+    "subsystem": "electrical",
+    "building": "WTC 1 (Tower A)",
+    "level": "Level B6",
+    "source_drawings": [
+      "E-1",
+      "E-3",
+      "E-12"
+    ],
+    "supporting_sessions": [
+      "Session 016"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_e_1.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_fb6_primary_feeder_vault",
+    "canonical_name": "Level B6 Primary Feeder Vault",
+    "subsystem": "electrical",
+    "building": "WTC 1 (Tower A)",
+    "level": "Level B6",
+    "source_drawings": [
+      "E-1",
+      "E-3",
+      "E-12"
+    ],
+    "supporting_sessions": [
+      "Session 016"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_e_1.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_fb6_high_voltage_distribution_room",
+    "canonical_name": "Level B6 High Voltage Distribution Room",
+    "subsystem": "electrical",
+    "building": "WTC 1 (Tower A)",
+    "level": "Level B6",
+    "source_drawings": [
+      "E-1",
+      "E-3",
+      "E-12"
+    ],
+    "supporting_sessions": [
+      "Session 016"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_e_1.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_fb6_utility_service_entrance_west",
+    "canonical_name": "Sub-grade Utility Service Entrance West",
+    "subsystem": "electrical",
+    "building": "WTC 1 (Tower A)",
+    "level": "Level B6",
+    "source_drawings": [
+      "E-1",
+      "E-3",
+      "E-12"
+    ],
+    "supporting_sessions": [
+      "Session 016"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_e_1.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_fb6_incoming_coned_feeder_bank_a",
+    "canonical_name": "Level B6 Incoming ConEd Feeder Bank A",
+    "subsystem": "electrical",
+    "building": "WTC 1 (Tower A)",
+    "level": "Level B6",
+    "source_drawings": [
+      "E-1",
+      "E-3",
+      "E-12"
+    ],
+    "supporting_sessions": [
+      "Session 016"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_e_1.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_fb6_incoming_coned_feeder_bank_b",
+    "canonical_name": "Level B6 Incoming ConEd Feeder Bank B",
+    "subsystem": "electrical",
+    "building": "WTC 1 (Tower A)",
+    "level": "Level B6",
+    "source_drawings": [
+      "E-1",
+      "E-3",
+      "E-12"
+    ],
+    "supporting_sessions": [
+      "Session 016"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_e_1.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f41_panelboard_room",
+    "canonical_name": "Floor 41 Local Distribution Panelboard Room",
+    "subsystem": "electrical",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floor 41",
+    "source_drawings": [
+      "E-1",
+      "E-3",
+      "E-12"
+    ],
+    "supporting_sessions": [
+      "Session 016"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_e_1.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f75_panelboard_room",
+    "canonical_name": "Floor 75 Local Distribution Panelboard Room",
+    "subsystem": "electrical",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floor 75",
+    "source_drawings": [
+      "E-1",
+      "E-3",
+      "E-12"
+    ],
+    "supporting_sessions": [
+      "Session 016"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_e_1.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f107_panelboard_room",
+    "canonical_name": "Floor 107 Mechanical Distribution Panelboard Room",
+    "subsystem": "electrical",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floor 107",
+    "source_drawings": [
+      "E-1",
+      "E-3",
+      "E-12"
+    ],
+    "supporting_sessions": [
+      "Session 016"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_e_1.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f1_east_distribution_panel",
+    "canonical_name": "Floor 1 East Main Distribution Panelboard",
+    "subsystem": "electrical",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floor 1",
+    "source_drawings": [
+      "E-1",
+      "E-3",
+      "E-12"
+    ],
+    "supporting_sessions": [
+      "Session 016"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_e_1.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f1_west_distribution_panel",
+    "canonical_name": "Floor 1 West Main Distribution Panelboard",
+    "subsystem": "electrical",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floor 1",
+    "source_drawings": [
+      "E-1",
+      "E-3",
+      "E-12"
+    ],
+    "supporting_sessions": [
+      "Session 016"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_e_1.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f41_tenant_electrical_closet_north",
+    "canonical_name": "Floor 41 Tenant Electrical Closet North",
+    "subsystem": "electrical",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floor 41",
+    "source_drawings": [
+      "E-1",
+      "E-3",
+      "E-12"
+    ],
+    "supporting_sessions": [
+      "Session 016"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_e_1.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f41_tenant_electrical_closet_south",
+    "canonical_name": "Floor 41 Tenant Electrical Closet South",
+    "subsystem": "electrical",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floor 41",
+    "source_drawings": [
+      "E-1",
+      "E-3",
+      "E-12"
+    ],
+    "supporting_sessions": [
+      "Session 016"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_e_1.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f75_tenant_electrical_closet_north",
+    "canonical_name": "Floor 75 Tenant Electrical Closet North",
+    "subsystem": "electrical",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floor 75",
+    "source_drawings": [
+      "E-1",
+      "E-3",
+      "E-12"
+    ],
+    "supporting_sessions": [
+      "Session 016"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_e_1.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f75_tenant_electrical_closet_south",
+    "canonical_name": "Floor 75 Tenant Electrical Closet South",
+    "subsystem": "electrical",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floor 75",
+    "source_drawings": [
+      "E-1",
+      "E-3",
+      "E-12"
+    ],
+    "supporting_sessions": [
+      "Session 016"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_e_1.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f107_power_distribution_center",
+    "canonical_name": "Floor 107 Power Distribution Center",
+    "subsystem": "electrical",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floor 107",
+    "source_drawings": [
+      "E-1",
+      "E-3",
+      "E-12"
+    ],
+    "supporting_sessions": [
+      "Session 016"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_e_1.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f41_lighting_panel_lp41a",
+    "canonical_name": "Floor 41 Lighting Panel LP-41A",
+    "subsystem": "electrical",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floor 41",
+    "source_drawings": [
+      "E-1",
+      "E-3",
+      "E-12"
+    ],
+    "supporting_sessions": [
+      "Session 016"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_e_1.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f41_lighting_panel_lp41b",
+    "canonical_name": "Floor 41 Lighting Panel LP-41B",
+    "subsystem": "electrical",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floor 41",
+    "source_drawings": [
+      "E-1",
+      "E-3",
+      "E-12"
+    ],
+    "supporting_sessions": [
+      "Session 016"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_e_1.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f75_lighting_panel_lp75a",
+    "canonical_name": "Floor 75 Lighting Panel LP-75A",
+    "subsystem": "electrical",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floor 75",
+    "source_drawings": [
+      "E-1",
+      "E-3",
+      "E-12"
+    ],
+    "supporting_sessions": [
+      "Session 016"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_e_1.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_fb6_water_booster_pump",
+    "canonical_name": "Level B6 Domestic Water Booster Pump Room",
+    "subsystem": "plumbing",
+    "building": "WTC 1 (Tower A)",
+    "level": "Level B6",
+    "source_drawings": [
+      "P-4",
+      "A-A-18",
+      "M-7"
+    ],
+    "supporting_sessions": [
+      "Sessions 001-045"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_p_4.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f108_water_tank_50k",
+    "canonical_name": "Floor 108 Penthouse 50k Water Storage Tank",
+    "subsystem": "plumbing",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floor 108",
+    "source_drawings": [
+      "P-4",
+      "M-14",
+      "A-A-111"
+    ],
+    "supporting_sessions": [
+      "Sessions 001-045"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_p_4.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f1_water_riser_north",
+    "canonical_name": "Floor 1 Domestic Water Riser North",
+    "subsystem": "plumbing",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floors 1-110",
+    "source_drawings": [
+      "P-4",
+      "A-A-101",
+      "M-7"
+    ],
+    "supporting_sessions": [
+      "Sessions 001-045"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_p_4.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f1_water_riser_south",
+    "canonical_name": "Floor 1 Domestic Water Riser South",
+    "subsystem": "plumbing",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floors 1-110",
+    "source_drawings": [
+      "P-4",
+      "A-A-101",
+      "M-7"
+    ],
+    "supporting_sessions": [
+      "Sessions 001-045"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_p_4.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f1_sanitary_drainage_riser_north",
+    "canonical_name": "Floor 1 Sanitary Drainage Riser North",
+    "subsystem": "plumbing",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floors 1-110",
+    "source_drawings": [
+      "P-4",
+      "A-A-18",
+      "M-8"
+    ],
+    "supporting_sessions": [
+      "Sessions 001-045"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_p_4.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f1_sanitary_drainage_riser_south",
+    "canonical_name": "Floor 1 Sanitary Drainage Riser South",
+    "subsystem": "plumbing",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floors 1-110",
+    "source_drawings": [
+      "P-4",
+      "A-A-18",
+      "M-8"
+    ],
+    "supporting_sessions": [
+      "Sessions 001-045"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_p_4.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f1_storm_water_drainage_riser",
+    "canonical_name": "Floor 1 Storm Water Drainage Riser",
+    "subsystem": "plumbing",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floors 1-110",
+    "source_drawings": [
+      "P-4",
+      "A-A-18",
+      "A-A-111"
+    ],
+    "supporting_sessions": [
+      "Sessions 001-045"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_p_4.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_fb1_plumbing_distribution_room",
+    "canonical_name": "Level B1 Plumbing Distribution Room",
+    "subsystem": "plumbing",
+    "building": "WTC 1 (Tower A)",
+    "level": "Level B1",
+    "source_drawings": [
+      "P-4",
+      "A-A-18",
+      "M-7"
+    ],
+    "supporting_sessions": [
+      "Sessions 001-045"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_p_4.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f1_telecom_riser_east",
+    "canonical_name": "Floor 1 Telecom Fiber Riser East",
+    "subsystem": "communications",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floors 1-110",
+    "source_drawings": [
+      "E-20",
+      "A-A-101",
+      "A-A-25"
+    ],
+    "supporting_sessions": [
+      "Sessions 001-045"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_e_20.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f1_telecom_riser_west",
+    "canonical_name": "Floor 1 Telecom Fiber Riser West",
+    "subsystem": "communications",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floors 1-110",
+    "source_drawings": [
+      "E-20",
+      "A-A-101",
+      "A-A-25"
+    ],
+    "supporting_sessions": [
+      "Sessions 001-045"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_e_20.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f41_idf_closet",
+    "canonical_name": "Floor 41 Telecom IDF Closet",
+    "subsystem": "communications",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floor 41",
+    "source_drawings": [
+      "E-20",
+      "A-A-18",
+      "A-A-25"
+    ],
+    "supporting_sessions": [
+      "Sessions 001-045"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_e_20.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f75_idf_closet",
+    "canonical_name": "Floor 75 Telecom IDF Closet",
+    "subsystem": "communications",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floor 75",
+    "source_drawings": [
+      "E-20",
+      "A-A-18",
+      "A-A-25"
+    ],
+    "supporting_sessions": [
+      "Sessions 001-045"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_e_20.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f107_idf_closet",
+    "canonical_name": "Floor 107 Telecom IDF Closet",
+    "subsystem": "communications",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floor 107",
+    "source_drawings": [
+      "E-20",
+      "A-A-18",
+      "A-A-25"
+    ],
+    "supporting_sessions": [
+      "Sessions 001-045"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_e_20.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f1_telecom_hub",
+    "canonical_name": "Level B1 Telecommunications Distribution Hub",
+    "subsystem": "communications",
+    "building": "WTC 1 (Tower A)",
+    "level": "Level B1",
+    "source_drawings": [
+      "E-20",
+      "A-A-18",
+      "A-A-25"
+    ],
+    "supporting_sessions": [
+      "Sessions 001-045"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_e_20.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f1_telecom_mdf_room",
+    "canonical_name": "Floor 1 Main Distribution Frame MDF Vault",
+    "subsystem": "communications",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floor 1",
+    "source_drawings": [
+      "E-3",
+      "A-A-18",
+      "A-A-25"
+    ],
+    "supporting_sessions": [
+      "Sessions 001-045"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_e_3.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f41_fiber_distribution_frame_north",
+    "canonical_name": "Floor 41 Fiber Distribution Frame North",
+    "subsystem": "communications",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floor 41",
+    "source_drawings": [
+      "E-25",
+      "A-A-25",
+      "E-20"
+    ],
+    "supporting_sessions": [
+      "Sessions 001-045"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_e_25.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_fb6_fire_pump_room",
+    "canonical_name": "Level B6 Fire Pump Room",
+    "subsystem": "fire_protection",
+    "building": "WTC 1 (Tower A)",
+    "level": "Level B6",
+    "source_drawings": [
+      "M-15",
+      "A-A-18",
+      "M-7"
+    ],
+    "supporting_sessions": [
+      "Sessions 001-045"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_m_15.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_fb6_fire_water_reserve_tank",
+    "canonical_name": "Level B6 Fire Reserve Water Tank",
+    "subsystem": "fire_protection",
+    "building": "WTC 1 (Tower A)",
+    "level": "Level B6",
+    "source_drawings": [
+      "M-15",
+      "A-A-18",
+      "M-7"
+    ],
+    "supporting_sessions": [
+      "Sessions 001-045"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_m_15.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f1_standpipe_riser_north",
+    "canonical_name": "Floor 1 Standpipe Riser North",
+    "subsystem": "fire_protection",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floors 1-110",
+    "source_drawings": [
+      "M-15",
+      "A-A-101",
+      "M-8"
+    ],
+    "supporting_sessions": [
+      "Sessions 001-045"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_m_15.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f1_standpipe_riser_south",
+    "canonical_name": "Floor 1 Standpipe Riser South",
+    "subsystem": "fire_protection",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floors 1-110",
+    "source_drawings": [
+      "M-15",
+      "A-A-101",
+      "M-8"
+    ],
+    "supporting_sessions": [
+      "Sessions 001-045"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_m_15.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f1_sprinkler_main",
+    "canonical_name": "Floor 1 Fire Sprinkler Distribution Main",
+    "subsystem": "fire_protection",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floor 1",
+    "source_drawings": [
+      "M-15",
+      "A-A-18",
+      "M-7"
+    ],
+    "supporting_sessions": [
+      "Sessions 001-045"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_m_15.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f1_fire_command_center",
+    "canonical_name": "Floor 1 Master Fire Command Center",
+    "subsystem": "fire_protection",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floor 1",
+    "source_drawings": [
+      "M-15",
+      "A-A-18",
+      "A-A-122"
+    ],
+    "supporting_sessions": [
+      "Sessions 001-045"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_m_15.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_fb1_security_soc",
+    "canonical_name": "Level B1 Security Operations Center SOC",
+    "subsystem": "security",
+    "building": "WTC 1 (Tower A)",
+    "level": "Level B1",
+    "source_drawings": [
+      "A-A-26",
+      "A-A-18",
+      "A-A-122"
+    ],
+    "supporting_sessions": [
+      "Sessions 001-045"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_a_a_26.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f1_lobby_screening",
+    "canonical_name": "Floor 1 Visitor Security Screening Facility",
+    "subsystem": "security",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floor 1",
+    "source_drawings": [
+      "A-A-26",
+      "A-A-18",
+      "A-A-122"
+    ],
+    "supporting_sessions": [
+      "Sessions 001-045"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_a_a_26.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_fb6_dock_checkpoint",
+    "canonical_name": "Level B6 Truck Dock Security Checkpoint",
+    "subsystem": "security",
+    "building": "WTC 1 (Tower A)",
+    "level": "Level B6",
+    "source_drawings": [
+      "A-A-26",
+      "A-A-17",
+      "A-A-18"
+    ],
+    "supporting_sessions": [
+      "Sessions 001-045"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_a_a_26.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_fb1_access_control",
+    "canonical_name": "Level B1 Master Access Control Vault",
+    "subsystem": "security",
+    "building": "WTC 1 (Tower A)",
+    "level": "Level B1",
+    "source_drawings": [
+      "A-A-26",
+      "A-A-18",
+      "A-A-122"
+    ],
+    "supporting_sessions": [
+      "Sessions 001-045"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_a_a_26.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f1_monitoring_center",
+    "canonical_name": "Floor 1 Security CCTV Monitoring Station",
+    "subsystem": "security",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floor 1",
+    "source_drawings": [
+      "A-A-26",
+      "A-A-18",
+      "A-A-122"
+    ],
+    "supporting_sessions": [
+      "Sessions 001-045"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_a_a_26.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f1_visitor_processing",
+    "canonical_name": "Floor 1 Credentialing & Visitor Processing Center",
+    "subsystem": "security",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floor 1",
+    "source_drawings": [
+      "A-A-26",
+      "A-A-18",
+      "A-A-122"
+    ],
+    "supporting_sessions": [
+      "Sessions 001-045"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_a_a_26.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f108_smoke_fan_room",
+    "canonical_name": "Floor 108 Smoke Evacuation Fan Room",
+    "subsystem": "life_safety",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floor 108",
+    "source_drawings": [
+      "M-18",
+      "M-14",
+      "A-A-111"
+    ],
+    "supporting_sessions": [
+      "Sessions 001-045"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_m_18.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_fb1_emergency_eoc",
+    "canonical_name": "Level B1 Emergency Operations Center EOC",
+    "subsystem": "life_safety",
+    "building": "WTC 1 (Tower A)",
+    "level": "Level B1",
+    "source_drawings": [
+      "M-18",
+      "A-A-18",
+      "A-A-122"
+    ],
+    "supporting_sessions": [
+      "Sessions 001-045"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_m_18.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f1_emergency_voice_com",
+    "canonical_name": "Floor 1 Emergency Voice Evacuation Station",
+    "subsystem": "life_safety",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floor 1",
+    "source_drawings": [
+      "M-18",
+      "A-A-18",
+      "A-A-122"
+    ],
+    "supporting_sessions": [
+      "Sessions 001-045"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_m_18.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f1_smoke_shaft_north",
+    "canonical_name": "Floor 1 Pressurized Smoke Shaft North",
+    "subsystem": "life_safety",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floors 1-110",
+    "source_drawings": [
+      "M-18",
+      "A-A-101",
+      "M-12"
+    ],
+    "supporting_sessions": [
+      "Sessions 001-045"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_m_18.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f1_smoke_shaft_south",
+    "canonical_name": "Floor 1 Pressurized Smoke Shaft South",
+    "subsystem": "life_safety",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floors 1-110",
+    "source_drawings": [
+      "M-18",
+      "A-A-101",
+      "M-12"
+    ],
+    "supporting_sessions": [
+      "Sessions 001-045"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_m_18.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f44_refuge_area",
+    "canonical_name": "Floor 44 Skylobby Emergency Refuge Zone",
+    "subsystem": "life_safety",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floor 44",
+    "source_drawings": [
+      "M-18",
+      "A-A-20",
+      "A-A-130"
+    ],
+    "supporting_sessions": [
+      "Sessions 001-045"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_m_18.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f1_elevator_bank_a",
+    "canonical_name": "Floor 1 Passenger Elevator Bank A",
+    "subsystem": "vertical_transportation",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floors 1-44",
+    "source_drawings": [
+      "A-A-121",
+      "A-A-18",
+      "A-20"
+    ],
+    "supporting_sessions": [
+      "Sessions 001-045"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_a_a_121.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f1_elevator_bank_b1",
+    "canonical_name": "Floor 1 Passenger Elevator Bank B1",
+    "subsystem": "vertical_transportation",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floors 1-44",
+    "source_drawings": [
+      "A-A-121",
+      "A-A-18",
+      "A-20"
+    ],
+    "supporting_sessions": [
+      "Sessions 001-045"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_a_a_121.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f44_elevator_bank_b2",
+    "canonical_name": "Floor 44 Local Elevator Bank B2",
+    "subsystem": "vertical_transportation",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floors 44-78",
+    "source_drawings": [
+      "A-A-121",
+      "A-A-101",
+      "A-102"
+    ],
+    "supporting_sessions": [
+      "Sessions 001-045"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_a_a_121.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f78_elevator_bank_c",
+    "canonical_name": "Floor 78 Express Elevator Bank C",
+    "subsystem": "vertical_transportation",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floors 78-110",
+    "source_drawings": [
+      "A-A-121",
+      "A-A-101",
+      "A-A-19"
+    ],
+    "supporting_sessions": [
+      "Sessions 001-045"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_a_a_121.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f76_local_bank_5",
+    "canonical_name": "Floor 76 Local Elevator Bank 5",
+    "subsystem": "vertical_transportation",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floors 76-107",
+    "source_drawings": [
+      "A-A-121",
+      "A-A-101",
+      "A-19"
+    ],
+    "supporting_sessions": [
+      "Sessions 001-045"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_a_a_121.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f76_local_bank_6",
+    "canonical_name": "Floor 76 Local Elevator Bank 6",
+    "subsystem": "vertical_transportation",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floors 76-107",
+    "source_drawings": [
+      "A-A-121",
+      "A-A-101",
+      "A-19"
+    ],
+    "supporting_sessions": [
+      "Sessions 001-045"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_a_a_121.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f1_local_bank_1",
+    "canonical_name": "Floor 1 Local Elevator Bank 1",
+    "subsystem": "vertical_transportation",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floors 1-40",
+    "source_drawings": [
+      "A-A-121",
+      "A-A-18",
+      "A-145"
+    ],
+    "supporting_sessions": [
+      "Sessions 001-045"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_a_a_121.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f1_local_bank_2",
+    "canonical_name": "Floor 1 Local Elevator Bank 2",
+    "subsystem": "vertical_transportation",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floors 1-40",
+    "source_drawings": [
+      "A-A-121",
+      "A-A-18",
+      "A-145"
+    ],
+    "supporting_sessions": [
+      "Sessions 001-045"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_a_a_121.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f1_local_bank_3",
+    "canonical_name": "Floor 1 Local Elevator Bank 3",
+    "subsystem": "vertical_transportation",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floors 1-40",
+    "source_drawings": [
+      "A-A-121",
+      "A-A-18",
+      "A-145"
+    ],
+    "supporting_sessions": [
+      "Sessions 001-045"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_a_a_121.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f1_local_bank_4",
+    "canonical_name": "Floor 1 Local Elevator Bank 4",
+    "subsystem": "vertical_transportation",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floors 1-40",
+    "source_drawings": [
+      "A-A-121",
+      "A-A-18",
+      "A-145"
+    ],
+    "supporting_sessions": [
+      "Sessions 001-045"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_a_a_121.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_fb5_path_platform_1_2",
+    "canonical_name": "Level B5 PATH Train Platforms 1 & 2",
+    "subsystem": "transit",
+    "building": "WTC 1 (Tower A)",
+    "level": "Level B5",
+    "source_drawings": [
+      "A-A-18",
+      "A-A-18A",
+      "A-A-18B"
+    ],
+    "supporting_sessions": [
+      "Sessions 001-045"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_a_a_18.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_fb5_path_platform_3_5",
+    "canonical_name": "Level B5 PATH Train Platforms 3, 4, & 5",
+    "subsystem": "transit",
+    "building": "WTC 1 (Tower A)",
+    "level": "Level B5",
+    "source_drawings": [
+      "A-A-18",
+      "A-A-18A",
+      "A-A-18B"
+    ],
+    "supporting_sessions": [
+      "Sessions 001-045"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_a_a_18.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_fb1_path_concourse",
+    "canonical_name": "Level B1 PATH Concourse Mezzanine",
+    "subsystem": "transit",
+    "building": "WTC 1 (Tower A)",
+    "level": "Level B1",
+    "source_drawings": [
+      "A-A-18",
+      "A-A-145",
+      "A-A-18A"
+    ],
+    "supporting_sessions": [
+      "Sessions 001-045"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_a_a_18.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_fb1_subway_connector",
+    "canonical_name": "Level B1 IND/IRT Subway Pedestrian Connector",
+    "subsystem": "transit",
+    "building": "WTC 1 (Tower A)",
+    "level": "Level B1",
+    "source_drawings": [
+      "A-A-18",
+      "A-A-122",
+      "A-A-18A"
+    ],
+    "supporting_sessions": [
+      "Sessions 001-045"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_a_a_18.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_fb1_path_ticket_hall",
+    "canonical_name": "Level B1 PATH Passenger Ticket Hall",
+    "subsystem": "transit",
+    "building": "WTC 1 (Tower A)",
+    "level": "Level B1",
+    "source_drawings": [
+      "A-A-18",
+      "A-A-145",
+      "A-A-18A"
+    ],
+    "supporting_sessions": [
+      "Sessions 001-045"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_a_a_18.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f44_skylobby_zone",
+    "canonical_name": "Floor 44 Skylobby Pedestrian Zone",
+    "subsystem": "circulation",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floor 44",
+    "source_drawings": [
+      "A-A-20",
+      "A-A-130",
+      "A-A-102"
+    ],
+    "supporting_sessions": [
+      "Sessions 001-045"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_a_a_20.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f44_express_landing",
+    "canonical_name": "Floor 44 Express Elevator Landing Hall",
+    "subsystem": "circulation",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floor 44",
+    "source_drawings": [
+      "A-A-20",
+      "A-A-130",
+      "A-A-102"
+    ],
+    "supporting_sessions": [
+      "Sessions 001-045"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_a_a_20.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f44_local_bank_2_lobby",
+    "canonical_name": "Floor 44 Local Bank 2 Transfer Lobby",
+    "subsystem": "circulation",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floor 44",
+    "source_drawings": [
+      "A-A-145",
+      "A-A-130",
+      "A-A-102"
+    ],
+    "supporting_sessions": [
+      "Sessions 001-045"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_a_a_145.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f78_skylobby_zone",
+    "canonical_name": "Floor 78 Skylobby Pedestrian Zone",
+    "subsystem": "circulation",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floor 78",
+    "source_drawings": [
+      "A-A-19",
+      "A-A-130",
+      "A-A-20"
+    ],
+    "supporting_sessions": [
+      "Sessions 001-045"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_a_a_19.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f1_elevator_halls_north",
+    "canonical_name": "Floor 1 Primary Elevator Hall North",
+    "subsystem": "circulation",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floor 1",
+    "source_drawings": [
+      "A-A-18",
+      "A-A-19",
+      "A-A-145"
+    ],
+    "supporting_sessions": [
+      "Sessions 001-045"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_a_a_18.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f1_elevator_halls_south",
+    "canonical_name": "Floor 1 Primary Elevator Hall South",
+    "subsystem": "circulation",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floor 1",
+    "source_drawings": [
+      "A-A-18",
+      "A-A-19",
+      "A-A-145"
+    ],
+    "supporting_sessions": [
+      "Sessions 001-045"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_a_a_18.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_fb1_shopping_retail",
+    "canonical_name": "Level B1 WTC Mall Retail Concourse",
+    "subsystem": "circulation",
+    "building": "WTC 1 (Tower A)",
+    "level": "Level B1",
+    "source_drawings": [
+      "A-A-18",
+      "A-A-145",
+      "A-A-18A"
+    ],
+    "supporting_sessions": [
+      "Sessions 001-045"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_a_a_18.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f1_plaza_fountain_concourse",
+    "canonical_name": "Floor 1 Outdoor Plaza Fountain Concourse",
+    "subsystem": "circulation",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floor 1",
+    "source_drawings": [
+      "A-A-18",
+      "A-A-18A",
+      "S-4"
+    ],
+    "supporting_sessions": [
+      "Sessions 001-045"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_a_a_18.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f107_promenade",
+    "canonical_name": "Floor 107 Observation Promenade",
+    "subsystem": "circulation",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floor 107",
+    "source_drawings": [
+      "A-A-101",
+      "A-A-110",
+      "A-A-111"
+    ],
+    "supporting_sessions": [
+      "Sessions 001-045"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_a_a_101.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f107_windows_on_world",
+    "canonical_name": "Floor 107 Windows on the World Dining Room",
+    "subsystem": "circulation",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floor 107",
+    "source_drawings": [
+      "A-A-101",
+      "A-A-110",
+      "A-A-111"
+    ],
+    "supporting_sessions": [
+      "Sessions 001-045"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_a_a_101.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f1_stair_a_enclosure",
+    "canonical_name": "Floor 1 Stairway A Core Enclosure",
+    "subsystem": "egress",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floors 1-110",
+    "source_drawings": [
+      "A-A-121",
+      "A-A-18",
+      "A-A-19"
+    ],
+    "supporting_sessions": [
+      "Sessions 001-045"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_a_a_121.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f1_stair_b_enclosure",
+    "canonical_name": "Floor 1 Stairway B Core Enclosure",
+    "subsystem": "egress",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floors 1-110",
+    "source_drawings": [
+      "A-A-121",
+      "A-A-18",
+      "A-A-19"
+    ],
+    "supporting_sessions": [
+      "Sessions 001-045"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_a_a_121.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f1_stair_c_enclosure",
+    "canonical_name": "Floor 1 Stairway C Core Enclosure",
+    "subsystem": "egress",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floors 1-110",
+    "source_drawings": [
+      "A-A-121",
+      "A-A-18",
+      "A-A-19"
+    ],
+    "supporting_sessions": [
+      "Sessions 001-045"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_a_a_121.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f78_stair_landing",
+    "canonical_name": "Floor 78 Stairway Transfer Landing",
+    "subsystem": "egress",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floor 78",
+    "source_drawings": [
+      "A-A-19",
+      "A-A-130",
+      "A-A-122"
+    ],
+    "supporting_sessions": [
+      "Sessions 001-045"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_a_a_19.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f1_stair_exit_vestibule",
+    "canonical_name": "Floor 1 Core Stairway Exit Vestibule",
+    "subsystem": "egress",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floor 1",
+    "source_drawings": [
+      "A-A-18",
+      "A-A-145",
+      "A-A-122"
+    ],
+    "supporting_sessions": [
+      "Sessions 001-045"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_a_a_18.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f107_observation_exp",
+    "canonical_name": "Floor 107 Enclosed Observation Experience",
+    "subsystem": "observation",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floor 107",
+    "source_drawings": [
+      "A-A-121",
+      "A-A-101",
+      "Ext"
+    ],
+    "supporting_sessions": [
+      "Sessions 001-045"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_a_a_121.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f107_observation_exp_2",
+    "canonical_name": "Floor 107 Visual Exhibit Space 2",
+    "subsystem": "observation",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floor 107",
+    "source_drawings": [
+      "A-A-121",
+      "A-A-101",
+      "A-146"
+    ],
+    "supporting_sessions": [
+      "Sessions 001-045"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_a_a_121.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f110_roof_observation",
+    "canonical_name": "Floor 110 Open Air Rooftop Observation Deck",
+    "subsystem": "observation",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floor 110",
+    "source_drawings": [
+      "A-A-110",
+      "S-4",
+      "A-A-111"
+    ],
+    "supporting_sessions": [
+      "Sessions 001-045"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_a_a_110.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f110_rooftop_helipad",
+    "canonical_name": "Floor 110 Rooftop Tactical Helipad",
+    "subsystem": "observation",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floor 110",
+    "source_drawings": [
+      "A-A-110",
+      "S-4",
+      "A-A-111"
+    ],
+    "supporting_sessions": [
+      "Sessions 001-045"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_a_a_110.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f107_antenna_pedestal",
+    "canonical_name": "Floor 107 Transmission Antenna Pedestal Base",
+    "subsystem": "observation",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floor 107",
+    "source_drawings": [
+      "M-14",
+      "S-4",
+      "A-A-111"
+    ],
+    "supporting_sessions": [
+      "Sessions 001-045"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_m_14.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f1_shaft_49_50",
+    "canonical_name": "Floor 1 Elevator Shafts 49 & 50 Envelope",
+    "subsystem": "observation",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floors 1-107",
+    "source_drawings": [
+      "A-A-121",
+      "A-A-18",
+      "A-A-145"
+    ],
+    "supporting_sessions": [
+      "Sessions 001-045"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_a_a_121.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_fb6_truck_dock_berths",
+    "canonical_name": "Level B6 Sub-grade Truck Dock Berths",
+    "subsystem": "operational_support",
+    "building": "WTC 1 (Tower A)",
+    "level": "Level B6",
+    "source_drawings": [
+      "A-A-18",
+      "M-7",
+      "A-A-17"
+    ],
+    "supporting_sessions": [
+      "Sessions 001-045"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_a_a_18.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_fb6_freight_receiving",
+    "canonical_name": "Level B6 Central Freight Receiving Terminal",
+    "subsystem": "operational_support",
+    "building": "WTC 1 (Tower A)",
+    "level": "Level B6",
+    "source_drawings": [
+      "A-A-18",
+      "M-7",
+      "A-A-17"
+    ],
+    "supporting_sessions": [
+      "Sessions 001-045"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_a_a_18.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_fb1_maintenance_depot",
+    "canonical_name": "Level B1 Building Maintenance Depot",
+    "subsystem": "operational_support",
+    "building": "WTC 1 (Tower A)",
+    "level": "Level B1",
+    "source_drawings": [
+      "A-A-18",
+      "M-7",
+      "A-A-17"
+    ],
+    "supporting_sessions": [
+      "Sessions 001-045"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_a_a_18.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_fb6_service_corridor",
+    "canonical_name": "Level B6 Central Logistics Service Corridor",
+    "subsystem": "operational_support",
+    "building": "WTC 1 (Tower A)",
+    "level": "Level B6",
+    "source_drawings": [
+      "A-A-18",
+      "A-A-122",
+      "A-A-17"
+    ],
+    "supporting_sessions": [
+      "Sessions 001-045"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_a_a_18.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f1_logistics_ops_center",
+    "canonical_name": "Floor 1 Central Logistics Operations Center",
+    "subsystem": "operational_support",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floor 1",
+    "source_drawings": [
+      "A-A-18",
+      "A-A-122",
+      "A-A-25"
+    ],
+    "supporting_sessions": [
+      "Sessions 001-045"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_a_a_18.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f1_stair_a_c_corridor",
+    "canonical_name": "Floor 1 Service & Egress Corridor A-C",
+    "subsystem": "operational_support",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floor 1",
+    "source_drawings": [
+      "A-A-18",
+      "A-A-122",
+      "Ext"
+    ],
+    "supporting_sessions": [
+      "Sessions 001-045"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_a_a_18.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_fb2_engineering_office",
+    "canonical_name": "Level B2 Building Engineering Headquarters",
+    "subsystem": "facilities_operations",
+    "building": "WTC 1 (Tower A)",
+    "level": "Level B2",
+    "source_drawings": [
+      "A-A-17",
+      "A-A-18",
+      "A-A-17A"
+    ],
+    "supporting_sessions": [
+      "Sessions 001-045"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_a_a_17.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_fb2_central_trades_workshop",
+    "canonical_name": "Level B2 Central Trades Master Workshop",
+    "subsystem": "facilities_operations",
+    "building": "WTC 1 (Tower A)",
+    "level": "Level B2",
+    "source_drawings": [
+      "A-A-17",
+      "A-A-18",
+      "A-A-17A"
+    ],
+    "supporting_sessions": [
+      "Sessions 001-045"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_a_a_17.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_fb2_electrical_shop",
+    "canonical_name": "Level B2 Electrical Maintenance Shop",
+    "subsystem": "facilities_operations",
+    "building": "WTC 1 (Tower A)",
+    "level": "Level B2",
+    "source_drawings": [
+      "A-A-17",
+      "M-7",
+      "A-A-17A"
+    ],
+    "supporting_sessions": [
+      "Sessions 001-045"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_a_a_17.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_fb2_mechanical_plumbing_shop",
+    "canonical_name": "Level B2 Mechanical & Plumbing Shop",
+    "subsystem": "facilities_operations",
+    "building": "WTC 1 (Tower A)",
+    "level": "Level B2",
+    "source_drawings": [
+      "A-A-17",
+      "M-7",
+      "A-A-17A"
+    ],
+    "supporting_sessions": [
+      "Sessions 001-045"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_a_a_17.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_fb2_carpentry_shop",
+    "canonical_name": "Level B2 Carpentry & Architectural Shop",
+    "subsystem": "facilities_operations",
+    "building": "WTC 1 (Tower A)",
+    "level": "Level B2",
+    "source_drawings": [
+      "A-A-17",
+      "A-A-18",
+      "A-A-17A"
+    ],
+    "supporting_sessions": [
+      "Sessions 001-045"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_a_a_17.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_fb2_facilities_records_vault",
+    "canonical_name": "Level B2 Facilities Drawing & Records Vault",
+    "subsystem": "facilities_operations",
+    "building": "WTC 1 (Tower A)",
+    "level": "Level B2",
+    "source_drawings": [
+      "A-A-17",
+      "A-A-18",
+      "A-A-17A"
+    ],
+    "supporting_sessions": [
+      "Sessions 001-045"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_a_a_17.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f41_local_elec_branch_closet",
+    "canonical_name": "Floor 41 Local Electrical Branch Closet",
+    "subsystem": "facilities_operations",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floor 41",
+    "source_drawings": [
+      "A-A-20",
+      "E-22",
+      "E-24"
+    ],
+    "supporting_sessions": [
+      "Sessions 001-045"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_a_a_20.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f41_diffuser_zone_north",
+    "canonical_name": "Floor 41 Linear Ceiling Diffuser Zone North",
+    "subsystem": "facilities_operations",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floor 41",
+    "source_drawings": [
+      "M-7",
+      "M-22",
+      "M-24"
+    ],
+    "supporting_sessions": [
+      "Sessions 001-045"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_m_7.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f41_diffuser_zone_south",
+    "canonical_name": "Floor 41 Linear Ceiling Diffuser Zone South",
+    "subsystem": "facilities_operations",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floor 41",
+    "source_drawings": [
+      "M-7",
+      "M-22",
+      "M-24"
+    ],
+    "supporting_sessions": [
+      "Sessions 001-045"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_m_7.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f75_diffuser_zone_north",
+    "canonical_name": "Floor 75 Linear Ceiling Diffuser Zone North",
+    "subsystem": "facilities_operations",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floor 75",
+    "source_drawings": [
+      "M-7",
+      "M-22",
+      "M-24"
+    ],
+    "supporting_sessions": [
+      "Sessions 001-045"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_m_7.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f75_diffuser_zone_south",
+    "canonical_name": "Floor 75 Linear Ceiling Diffuser Zone South",
+    "subsystem": "facilities_operations",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floor 75",
+    "source_drawings": [
+      "M-7",
+      "M-22",
+      "M-24"
+    ],
+    "supporting_sessions": [
+      "Sessions 001-045"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_m_7.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f41_damper_control_zone",
+    "canonical_name": "Floor 41 Motorized Airflow Damper Control Zone",
+    "subsystem": "facilities_operations",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floor 41",
+    "source_drawings": [
+      "M-12",
+      "M-22",
+      "M-24"
+    ],
+    "supporting_sessions": [
+      "Sessions 001-045"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_m_12.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_fb1_bms_control_center",
+    "canonical_name": "Level B1 Master BMS Command Control Center",
+    "subsystem": "building_automation",
+    "building": "WTC 1 (Tower A)",
+    "level": "Level B1",
+    "source_drawings": [
+      "A-A-18",
+      "M-26",
+      "A-A-17B"
+    ],
+    "supporting_sessions": [
+      "Sessions 001-045"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_a_a_18.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f41_ddc_node_north",
+    "canonical_name": "Floor 41 Direct Digital Control DDC Node North",
+    "subsystem": "building_automation",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floor 41",
+    "source_drawings": [
+      "M-7",
+      "M-26",
+      "A-A-17B"
+    ],
+    "supporting_sessions": [
+      "Sessions 001-045"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_m_7.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f75_ddc_node_south",
+    "canonical_name": "Floor 75 Direct Digital Control DDC Node South",
+    "subsystem": "building_automation",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floor 75",
+    "source_drawings": [
+      "M-7",
+      "M-26",
+      "A-A-17B"
+    ],
+    "supporting_sessions": [
+      "Sessions 001-045"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_m_7.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f7_mech_control_panel",
+    "canonical_name": "Floor 7 Central Mechanical Control Panel",
+    "subsystem": "building_automation",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floor 7",
+    "source_drawings": [
+      "M-7",
+      "M-26",
+      "A-A-17B"
+    ],
+    "supporting_sessions": [
+      "Sessions 001-045"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_m_7.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_fb1_energy_station",
+    "canonical_name": "Level B1 Building Energy Monitoring Station",
+    "subsystem": "building_automation",
+    "building": "WTC 1 (Tower A)",
+    "level": "Level B1",
+    "source_drawings": [
+      "E-3",
+      "M-26",
+      "A-A-17B"
+    ],
+    "supporting_sessions": [
+      "Sessions 001-045"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_e_3.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f107_perimeter_sec_177",
+    "canonical_name": "Floor 107 Perimeter Structural Anchor Section 177",
+    "subsystem": "structural",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floor 107",
+    "source_drawings": [
+      "S-1",
+      "S-3",
+      "S-4"
+    ],
+    "supporting_sessions": [
+      "Session 005"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_s_1.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f107_perimeter_sec_178",
+    "canonical_name": "Floor 107 Perimeter Structural Anchor Section 178",
+    "subsystem": "structural",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floor 107",
+    "source_drawings": [
+      "S-1",
+      "S-3",
+      "S-4"
+    ],
+    "supporting_sessions": [
+      "Session 005"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_s_1.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f107_perimeter_sec_179",
+    "canonical_name": "Floor 107 Perimeter Structural Anchor Section 179",
+    "subsystem": "structural",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floor 107",
+    "source_drawings": [
+      "S-1",
+      "S-3",
+      "S-4"
+    ],
+    "supporting_sessions": [
+      "Session 005"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_s_1.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f107_perimeter_sec_180",
+    "canonical_name": "Floor 107 Perimeter Structural Anchor Section 180",
+    "subsystem": "structural",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floor 107",
+    "source_drawings": [
+      "S-1",
+      "S-3",
+      "S-4"
+    ],
+    "supporting_sessions": [
+      "Session 005"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_s_1.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f107_perimeter_sec_181",
+    "canonical_name": "Floor 107 Perimeter Structural Anchor Section 181",
+    "subsystem": "structural",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floor 107",
+    "source_drawings": [
+      "S-1",
+      "S-3",
+      "S-4"
+    ],
+    "supporting_sessions": [
+      "Session 005"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_s_1.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f107_perimeter_sec_182",
+    "canonical_name": "Floor 107 Perimeter Structural Anchor Section 182",
+    "subsystem": "structural",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floor 107",
+    "source_drawings": [
+      "S-1",
+      "S-3",
+      "S-4"
+    ],
+    "supporting_sessions": [
+      "Session 005"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_s_1.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f107_perimeter_sec_183",
+    "canonical_name": "Floor 107 Perimeter Structural Anchor Section 183",
+    "subsystem": "structural",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floor 107",
+    "source_drawings": [
+      "S-1",
+      "S-3",
+      "S-4"
+    ],
+    "supporting_sessions": [
+      "Session 005"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_s_1.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f107_perimeter_sec_184",
+    "canonical_name": "Floor 107 Perimeter Structural Anchor Section 184",
+    "subsystem": "structural",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floor 107",
+    "source_drawings": [
+      "S-1",
+      "S-3",
+      "S-4"
+    ],
+    "supporting_sessions": [
+      "Session 005"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_s_1.pdf#page=1&rect=100,100,200,200"
+    ]
+  },
+  {
+    "entity_id": "wtc1_f107_perimeter_sec_185",
+    "canonical_name": "Floor 107 Perimeter Structural Anchor Section 185",
+    "subsystem": "structural",
+    "building": "WTC 1 (Tower A)",
+    "level": "Floor 107",
+    "source_drawings": [
+      "S-1",
+      "S-3",
+      "S-4"
+    ],
+    "supporting_sessions": [
+      "Session 005"
+    ],
+    "validation_status": "VALIDATED",
+    "confidence_score": 100,
+    "relationships": [],
+    "evidence_links": [
+      "drawing_s_1.pdf#page=1&rect=100,100,200,200"
+    ]
+  }
+]

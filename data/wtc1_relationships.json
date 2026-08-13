@@ -1,0 +1,1052 @@
+[
+  {
+    "subject_entity_id": "wtc1_fb6_utility_service_entrance_west",
+    "relationship_type": "FEEDS",
+    "object_entity_id": "wtc1_fb6_coned_utility_intake_vault",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_fb6_coned_utility_intake_vault",
+    "relationship_type": "SUPPLIES",
+    "object_entity_id": "wtc1_fb6_high_voltage_distribution_room",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_fb6_high_voltage_distribution_room",
+    "relationship_type": "FEEDS",
+    "object_entity_id": "wtc1_f1_master_switchgear",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f1_master_switchgear",
+    "relationship_type": "FEEDS_RISER_TO",
+    "object_entity_id": "wtc1_f1_busduct_riser_east",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f1_busduct_riser_east",
+    "relationship_type": "DISTRIBUTES_TO",
+    "object_entity_id": "wtc1_f41_transformer_vault",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f41_transformer_vault",
+    "relationship_type": "FEEDS",
+    "object_entity_id": "wtc1_f41_panelboard_room",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f41_panelboard_room",
+    "relationship_type": "BRANCHES_TO",
+    "object_entity_id": "wtc1_f41_lighting_panel_lp41a",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f41_panelboard_room",
+    "relationship_type": "BRANCHES_TO",
+    "object_entity_id": "wtc1_f41_lighting_panel_lp41b",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f75_transformer_vault",
+    "relationship_type": "FEEDS",
+    "object_entity_id": "wtc1_f75_panelboard_room",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f75_panelboard_room",
+    "relationship_type": "BRANCHES_TO",
+    "object_entity_id": "wtc1_f75_lighting_panel_lp75a",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_chilled_water_riser1",
+    "relationship_type": "SUPPLIES",
+    "object_entity_id": "wtc1_f7_north_ahu_room",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f7_north_ahu_room",
+    "relationship_type": "FEEDS",
+    "object_entity_id": "wtc1_f1_supply_air_trunk_east",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f1_supply_air_trunk_east",
+    "relationship_type": "DISTRIBUTES_TO",
+    "object_entity_id": "wtc1_f41_vav_zone_north",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f41_vav_zone_north",
+    "relationship_type": "BRANCHES_TO",
+    "object_entity_id": "wtc1_f41_diffuser_zone_north",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f75_vav_zone_north",
+    "relationship_type": "BRANCHES_TO",
+    "object_entity_id": "wtc1_f75_diffuser_zone_north",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_fb1_plumbing_distribution_room",
+    "relationship_type": "SUPPLIES",
+    "object_entity_id": "wtc1_fb6_water_booster_pump",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_fb6_water_booster_pump",
+    "relationship_type": "PUMPS_TO",
+    "object_entity_id": "wtc1_f1_water_riser_north",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f1_water_riser_north",
+    "relationship_type": "SUPPLIES",
+    "object_entity_id": "wtc1_f108_water_tank_50k",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f1_telecom_mdf_room",
+    "relationship_type": "CONNECTS_TO",
+    "object_entity_id": "wtc1_f1_telecom_hub",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f1_telecom_hub",
+    "relationship_type": "ROUTES_TO",
+    "object_entity_id": "wtc1_f1_telecom_riser_east",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f1_telecom_riser_east",
+    "relationship_type": "SERVES",
+    "object_entity_id": "wtc1_f41_idf_closet",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f41_idf_closet",
+    "relationship_type": "BRANCHES_TO",
+    "object_entity_id": "wtc1_f41_fiber_distribution_frame_north",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_fb1_bms_control_center",
+    "relationship_type": "SUPERVISES",
+    "object_entity_id": "wtc1_fb1_energy_station",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_fb1_bms_control_center",
+    "relationship_type": "SUPERVISES",
+    "object_entity_id": "wtc1_f41_ddc_node_north",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_fb1_bms_control_center",
+    "relationship_type": "SUPERVISES",
+    "object_entity_id": "wtc1_f75_ddc_node_south",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f41_ddc_node_north",
+    "relationship_type": "CONTROLS",
+    "object_entity_id": "wtc1_f41_damper_control_zone",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_structural_col_501",
+    "relationship_type": "SUPPLIES",
+    "object_entity_id": "wtc1_structural_col_502",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_structural_col_502",
+    "relationship_type": "FEEDS",
+    "object_entity_id": "wtc1_structural_col_503",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_structural_col_503",
+    "relationship_type": "SERVES",
+    "object_entity_id": "wtc1_structural_col_504",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_structural_col_504",
+    "relationship_type": "CONNECTS_TO",
+    "object_entity_id": "wtc1_structural_col_505",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_structural_col_505",
+    "relationship_type": "ROUTES_TO",
+    "object_entity_id": "wtc1_structural_col_506",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_structural_col_506",
+    "relationship_type": "DISTRIBUTES_TO",
+    "object_entity_id": "wtc1_structural_col_507",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_structural_col_507",
+    "relationship_type": "BRANCHES_TO",
+    "object_entity_id": "wtc1_structural_col_508",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_structural_col_508",
+    "relationship_type": "POWERED_BY",
+    "object_entity_id": "wtc1_structural_col_601",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_structural_col_601",
+    "relationship_type": "CONTAINS",
+    "object_entity_id": "wtc1_structural_col_602",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_structural_col_602",
+    "relationship_type": "SUPPLIES",
+    "object_entity_id": "wtc1_structural_col_603",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_structural_col_603",
+    "relationship_type": "FEEDS",
+    "object_entity_id": "wtc1_structural_col_604",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_structural_col_604",
+    "relationship_type": "SERVES",
+    "object_entity_id": "wtc1_f44_col_tree_1",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f44_col_tree_1",
+    "relationship_type": "CONNECTS_TO",
+    "object_entity_id": "wtc1_f44_col_tree_2",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f44_col_tree_2",
+    "relationship_type": "ROUTES_TO",
+    "object_entity_id": "wtc1_f44_col_tree_3",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f44_col_tree_3",
+    "relationship_type": "DISTRIBUTES_TO",
+    "object_entity_id": "wtc1_f78_col_tree_1",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f78_col_tree_1",
+    "relationship_type": "BRANCHES_TO",
+    "object_entity_id": "wtc1_f78_col_tree_2",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f78_col_tree_2",
+    "relationship_type": "POWERED_BY",
+    "object_entity_id": "wtc1_f78_col_tree_3",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f78_col_tree_3",
+    "relationship_type": "CONTAINS",
+    "object_entity_id": "wtc1_f107_hat_truss_north",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f107_hat_truss_north",
+    "relationship_type": "SUPPLIES",
+    "object_entity_id": "wtc1_f107_hat_truss_south",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f107_hat_truss_south",
+    "relationship_type": "FEEDS",
+    "object_entity_id": "wtc1_f107_hat_truss_east",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f107_hat_truss_east",
+    "relationship_type": "SERVES",
+    "object_entity_id": "wtc1_f107_hat_truss_west",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f107_hat_truss_west",
+    "relationship_type": "CONNECTS_TO",
+    "object_entity_id": "wtc1_f41_outrigger_truss_1",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f41_outrigger_truss_1",
+    "relationship_type": "ROUTES_TO",
+    "object_entity_id": "wtc1_f41_outrigger_truss_2",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f41_outrigger_truss_2",
+    "relationship_type": "DISTRIBUTES_TO",
+    "object_entity_id": "wtc1_f75_transfer_girder",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f75_transfer_girder",
+    "relationship_type": "BRANCHES_TO",
+    "object_entity_id": "wtc1_perim_col_101",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_perim_col_101",
+    "relationship_type": "POWERED_BY",
+    "object_entity_id": "wtc1_perim_col_200",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_perim_col_200",
+    "relationship_type": "CONTAINS",
+    "object_entity_id": "wtc1_perim_col_300",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_perim_col_300",
+    "relationship_type": "SUPPLIES",
+    "object_entity_id": "wtc1_perim_col_400",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_perim_col_400",
+    "relationship_type": "FEEDS",
+    "object_entity_id": "wtc1_fb5_slurry_wall",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_fb5_slurry_wall",
+    "relationship_type": "SERVES",
+    "object_entity_id": "wtc1_f7_central_chiller_plant",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f7_central_chiller_plant",
+    "relationship_type": "CONNECTS_TO",
+    "object_entity_id": "wtc1_f7_north_ahu_room",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f7_north_ahu_room",
+    "relationship_type": "ROUTES_TO",
+    "object_entity_id": "wtc1_f7_south_ahu_room",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f7_south_ahu_room",
+    "relationship_type": "DISTRIBUTES_TO",
+    "object_entity_id": "wtc1_f7_primary_pumps",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f7_primary_pumps",
+    "relationship_type": "BRANCHES_TO",
+    "object_entity_id": "wtc1_chilled_water_riser1",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_chilled_water_riser1",
+    "relationship_type": "POWERED_BY",
+    "object_entity_id": "wtc1_chilled_water_riser2",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_chilled_water_riser2",
+    "relationship_type": "CONTAINS",
+    "object_entity_id": "wtc1_chilled_water_riser3",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_chilled_water_riser3",
+    "relationship_type": "SUPPLIES",
+    "object_entity_id": "wtc1_f1_mep_shaft_north",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f1_mep_shaft_north",
+    "relationship_type": "FEEDS",
+    "object_entity_id": "wtc1_f1_mep_shaft_south",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f1_mep_shaft_south",
+    "relationship_type": "SERVES",
+    "object_entity_id": "wtc1_f108_mech_penthouse",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f108_mech_penthouse",
+    "relationship_type": "CONNECTS_TO",
+    "object_entity_id": "wtc1_f108_cooling_basin_north",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f108_cooling_basin_north",
+    "relationship_type": "ROUTES_TO",
+    "object_entity_id": "wtc1_f108_cooling_basin_south",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f108_cooling_basin_south",
+    "relationship_type": "DISTRIBUTES_TO",
+    "object_entity_id": "wtc1_f41_mer_booster_plant",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f41_mer_booster_plant",
+    "relationship_type": "BRANCHES_TO",
+    "object_entity_id": "wtc1_f1_fan_room_101",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f1_fan_room_101",
+    "relationship_type": "POWERED_BY",
+    "object_entity_id": "wtc1_f41_vav_zone_north",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f41_vav_zone_north",
+    "relationship_type": "CONTAINS",
+    "object_entity_id": "wtc1_f41_vav_zone_south",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f41_vav_zone_south",
+    "relationship_type": "SUPPLIES",
+    "object_entity_id": "wtc1_f75_vav_zone_north",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f75_vav_zone_north",
+    "relationship_type": "FEEDS",
+    "object_entity_id": "wtc1_f75_vav_zone_south",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f75_vav_zone_south",
+    "relationship_type": "SERVES",
+    "object_entity_id": "wtc1_f1_supply_air_trunk_east",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f1_supply_air_trunk_east",
+    "relationship_type": "CONNECTS_TO",
+    "object_entity_id": "wtc1_f1_supply_air_trunk_west",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f1_supply_air_trunk_west",
+    "relationship_type": "ROUTES_TO",
+    "object_entity_id": "wtc1_f1_return_air_plenum",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f1_return_air_plenum",
+    "relationship_type": "DISTRIBUTES_TO",
+    "object_entity_id": "wtc1_f41_mechanical_branch_hub",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f41_mechanical_branch_hub",
+    "relationship_type": "BRANCHES_TO",
+    "object_entity_id": "wtc1_f1_main_elec_vault",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f1_main_elec_vault",
+    "relationship_type": "POWERED_BY",
+    "object_entity_id": "wtc1_fb1_b1_substation",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_fb1_b1_substation",
+    "relationship_type": "CONTAINS",
+    "object_entity_id": "wtc1_fb6_generator_plant",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_fb6_generator_plant",
+    "relationship_type": "SUPPLIES",
+    "object_entity_id": "wtc1_fb6_generator_room_north",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_fb6_generator_room_north",
+    "relationship_type": "FEEDS",
+    "object_entity_id": "wtc1_fb6_generator_room_south",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_fb6_generator_room_south",
+    "relationship_type": "SERVES",
+    "object_entity_id": "wtc1_f1_master_switchgear",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f1_master_switchgear",
+    "relationship_type": "CONNECTS_TO",
+    "object_entity_id": "wtc1_f41_transformer_vault",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f41_transformer_vault",
+    "relationship_type": "ROUTES_TO",
+    "object_entity_id": "wtc1_f75_transformer_vault",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f75_transformer_vault",
+    "relationship_type": "DISTRIBUTES_TO",
+    "object_entity_id": "wtc1_f108_transformer_vault",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f108_transformer_vault",
+    "relationship_type": "BRANCHES_TO",
+    "object_entity_id": "wtc1_f41_elec_dist_room",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f41_elec_dist_room",
+    "relationship_type": "POWERED_BY",
+    "object_entity_id": "wtc1_f1_busduct_riser_east",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f1_busduct_riser_east",
+    "relationship_type": "CONTAINS",
+    "object_entity_id": "wtc1_f1_busduct_riser_west",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f1_busduct_riser_west",
+    "relationship_type": "SUPPLIES",
+    "object_entity_id": "wtc1_fb6_coned_utility_intake_vault",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_fb6_coned_utility_intake_vault",
+    "relationship_type": "FEEDS",
+    "object_entity_id": "wtc1_fb6_primary_feeder_vault",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_fb6_primary_feeder_vault",
+    "relationship_type": "SERVES",
+    "object_entity_id": "wtc1_fb6_high_voltage_distribution_room",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_fb6_high_voltage_distribution_room",
+    "relationship_type": "CONNECTS_TO",
+    "object_entity_id": "wtc1_fb6_utility_service_entrance_west",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_fb6_utility_service_entrance_west",
+    "relationship_type": "ROUTES_TO",
+    "object_entity_id": "wtc1_fb6_incoming_coned_feeder_bank_a",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_fb6_incoming_coned_feeder_bank_a",
+    "relationship_type": "DISTRIBUTES_TO",
+    "object_entity_id": "wtc1_fb6_incoming_coned_feeder_bank_b",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_fb6_incoming_coned_feeder_bank_b",
+    "relationship_type": "BRANCHES_TO",
+    "object_entity_id": "wtc1_f41_panelboard_room",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f41_panelboard_room",
+    "relationship_type": "POWERED_BY",
+    "object_entity_id": "wtc1_f75_panelboard_room",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f75_panelboard_room",
+    "relationship_type": "CONTAINS",
+    "object_entity_id": "wtc1_f107_panelboard_room",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f107_panelboard_room",
+    "relationship_type": "SUPPLIES",
+    "object_entity_id": "wtc1_f1_east_distribution_panel",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f1_east_distribution_panel",
+    "relationship_type": "FEEDS",
+    "object_entity_id": "wtc1_f1_west_distribution_panel",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f1_west_distribution_panel",
+    "relationship_type": "SERVES",
+    "object_entity_id": "wtc1_f41_tenant_electrical_closet_north",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f41_tenant_electrical_closet_north",
+    "relationship_type": "CONNECTS_TO",
+    "object_entity_id": "wtc1_f41_tenant_electrical_closet_south",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f41_tenant_electrical_closet_south",
+    "relationship_type": "ROUTES_TO",
+    "object_entity_id": "wtc1_f75_tenant_electrical_closet_north",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f75_tenant_electrical_closet_north",
+    "relationship_type": "DISTRIBUTES_TO",
+    "object_entity_id": "wtc1_f75_tenant_electrical_closet_south",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f75_tenant_electrical_closet_south",
+    "relationship_type": "BRANCHES_TO",
+    "object_entity_id": "wtc1_f107_power_distribution_center",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f107_power_distribution_center",
+    "relationship_type": "POWERED_BY",
+    "object_entity_id": "wtc1_f41_lighting_panel_lp41a",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f41_lighting_panel_lp41a",
+    "relationship_type": "CONTAINS",
+    "object_entity_id": "wtc1_f41_lighting_panel_lp41b",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f41_lighting_panel_lp41b",
+    "relationship_type": "SUPPLIES",
+    "object_entity_id": "wtc1_f75_lighting_panel_lp75a",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f75_lighting_panel_lp75a",
+    "relationship_type": "FEEDS",
+    "object_entity_id": "wtc1_fb6_water_booster_pump",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_fb6_water_booster_pump",
+    "relationship_type": "SERVES",
+    "object_entity_id": "wtc1_f108_water_tank_50k",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f108_water_tank_50k",
+    "relationship_type": "CONNECTS_TO",
+    "object_entity_id": "wtc1_f1_water_riser_north",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f1_water_riser_north",
+    "relationship_type": "ROUTES_TO",
+    "object_entity_id": "wtc1_f1_water_riser_south",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f1_water_riser_south",
+    "relationship_type": "DISTRIBUTES_TO",
+    "object_entity_id": "wtc1_f1_sanitary_drainage_riser_north",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f1_sanitary_drainage_riser_north",
+    "relationship_type": "BRANCHES_TO",
+    "object_entity_id": "wtc1_f1_sanitary_drainage_riser_south",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f1_sanitary_drainage_riser_south",
+    "relationship_type": "POWERED_BY",
+    "object_entity_id": "wtc1_f1_storm_water_drainage_riser",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f1_storm_water_drainage_riser",
+    "relationship_type": "CONTAINS",
+    "object_entity_id": "wtc1_fb1_plumbing_distribution_room",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_fb1_plumbing_distribution_room",
+    "relationship_type": "SUPPLIES",
+    "object_entity_id": "wtc1_f1_telecom_riser_east",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f1_telecom_riser_east",
+    "relationship_type": "FEEDS",
+    "object_entity_id": "wtc1_f1_telecom_riser_west",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f1_telecom_riser_west",
+    "relationship_type": "SERVES",
+    "object_entity_id": "wtc1_f41_idf_closet",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f41_idf_closet",
+    "relationship_type": "CONNECTS_TO",
+    "object_entity_id": "wtc1_f75_idf_closet",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f75_idf_closet",
+    "relationship_type": "ROUTES_TO",
+    "object_entity_id": "wtc1_f107_idf_closet",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f107_idf_closet",
+    "relationship_type": "DISTRIBUTES_TO",
+    "object_entity_id": "wtc1_f1_telecom_hub",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f1_telecom_hub",
+    "relationship_type": "BRANCHES_TO",
+    "object_entity_id": "wtc1_f1_telecom_mdf_room",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f1_telecom_mdf_room",
+    "relationship_type": "POWERED_BY",
+    "object_entity_id": "wtc1_f41_fiber_distribution_frame_north",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f41_fiber_distribution_frame_north",
+    "relationship_type": "CONTAINS",
+    "object_entity_id": "wtc1_fb6_fire_pump_room",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_fb6_fire_pump_room",
+    "relationship_type": "SUPPLIES",
+    "object_entity_id": "wtc1_fb6_fire_water_reserve_tank",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_fb6_fire_water_reserve_tank",
+    "relationship_type": "FEEDS",
+    "object_entity_id": "wtc1_f1_standpipe_riser_north",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f1_standpipe_riser_north",
+    "relationship_type": "SERVES",
+    "object_entity_id": "wtc1_f1_standpipe_riser_south",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f1_standpipe_riser_south",
+    "relationship_type": "CONNECTS_TO",
+    "object_entity_id": "wtc1_f1_sprinkler_main",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f1_sprinkler_main",
+    "relationship_type": "ROUTES_TO",
+    "object_entity_id": "wtc1_f1_fire_command_center",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f1_fire_command_center",
+    "relationship_type": "DISTRIBUTES_TO",
+    "object_entity_id": "wtc1_fb1_security_soc",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_fb1_security_soc",
+    "relationship_type": "BRANCHES_TO",
+    "object_entity_id": "wtc1_f1_lobby_screening",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f1_lobby_screening",
+    "relationship_type": "POWERED_BY",
+    "object_entity_id": "wtc1_fb6_dock_checkpoint",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_fb6_dock_checkpoint",
+    "relationship_type": "CONTAINS",
+    "object_entity_id": "wtc1_fb1_access_control",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_fb1_access_control",
+    "relationship_type": "SUPPLIES",
+    "object_entity_id": "wtc1_f1_monitoring_center",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f1_monitoring_center",
+    "relationship_type": "FEEDS",
+    "object_entity_id": "wtc1_f1_visitor_processing",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f1_visitor_processing",
+    "relationship_type": "SERVES",
+    "object_entity_id": "wtc1_f108_smoke_fan_room",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f108_smoke_fan_room",
+    "relationship_type": "CONNECTS_TO",
+    "object_entity_id": "wtc1_fb1_emergency_eoc",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_fb1_emergency_eoc",
+    "relationship_type": "ROUTES_TO",
+    "object_entity_id": "wtc1_f1_emergency_voice_com",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f1_emergency_voice_com",
+    "relationship_type": "DISTRIBUTES_TO",
+    "object_entity_id": "wtc1_f1_smoke_shaft_north",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f1_smoke_shaft_north",
+    "relationship_type": "BRANCHES_TO",
+    "object_entity_id": "wtc1_f1_smoke_shaft_south",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f1_smoke_shaft_south",
+    "relationship_type": "POWERED_BY",
+    "object_entity_id": "wtc1_f44_refuge_area",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f44_refuge_area",
+    "relationship_type": "CONTAINS",
+    "object_entity_id": "wtc1_f1_elevator_bank_a",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f1_elevator_bank_a",
+    "relationship_type": "SUPPLIES",
+    "object_entity_id": "wtc1_f1_elevator_bank_b1",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f1_elevator_bank_b1",
+    "relationship_type": "FEEDS",
+    "object_entity_id": "wtc1_f44_elevator_bank_b2",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f44_elevator_bank_b2",
+    "relationship_type": "SERVES",
+    "object_entity_id": "wtc1_f78_elevator_bank_c",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f78_elevator_bank_c",
+    "relationship_type": "CONNECTS_TO",
+    "object_entity_id": "wtc1_f76_local_bank_5",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f76_local_bank_5",
+    "relationship_type": "ROUTES_TO",
+    "object_entity_id": "wtc1_f76_local_bank_6",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f76_local_bank_6",
+    "relationship_type": "DISTRIBUTES_TO",
+    "object_entity_id": "wtc1_f1_local_bank_1",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f1_local_bank_1",
+    "relationship_type": "BRANCHES_TO",
+    "object_entity_id": "wtc1_f1_local_bank_2",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f1_local_bank_2",
+    "relationship_type": "POWERED_BY",
+    "object_entity_id": "wtc1_f1_local_bank_3",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f1_local_bank_3",
+    "relationship_type": "CONTAINS",
+    "object_entity_id": "wtc1_f1_local_bank_4",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f1_local_bank_4",
+    "relationship_type": "SUPPLIES",
+    "object_entity_id": "wtc1_fb5_path_platform_1_2",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_fb5_path_platform_1_2",
+    "relationship_type": "FEEDS",
+    "object_entity_id": "wtc1_fb5_path_platform_3_5",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_fb5_path_platform_3_5",
+    "relationship_type": "SERVES",
+    "object_entity_id": "wtc1_fb1_path_concourse",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_fb1_path_concourse",
+    "relationship_type": "CONNECTS_TO",
+    "object_entity_id": "wtc1_fb1_subway_connector",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_fb1_subway_connector",
+    "relationship_type": "ROUTES_TO",
+    "object_entity_id": "wtc1_fb1_path_ticket_hall",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_fb1_path_ticket_hall",
+    "relationship_type": "DISTRIBUTES_TO",
+    "object_entity_id": "wtc1_f44_skylobby_zone",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f44_skylobby_zone",
+    "relationship_type": "BRANCHES_TO",
+    "object_entity_id": "wtc1_f44_express_landing",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f44_express_landing",
+    "relationship_type": "POWERED_BY",
+    "object_entity_id": "wtc1_f44_local_bank_2_lobby",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f44_local_bank_2_lobby",
+    "relationship_type": "CONTAINS",
+    "object_entity_id": "wtc1_f78_skylobby_zone",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f78_skylobby_zone",
+    "relationship_type": "SUPPLIES",
+    "object_entity_id": "wtc1_f1_elevator_halls_north",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f1_elevator_halls_north",
+    "relationship_type": "FEEDS",
+    "object_entity_id": "wtc1_f1_elevator_halls_south",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f1_elevator_halls_south",
+    "relationship_type": "SERVES",
+    "object_entity_id": "wtc1_fb1_shopping_retail",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_fb1_shopping_retail",
+    "relationship_type": "CONNECTS_TO",
+    "object_entity_id": "wtc1_f1_plaza_fountain_concourse",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f1_plaza_fountain_concourse",
+    "relationship_type": "ROUTES_TO",
+    "object_entity_id": "wtc1_f107_promenade",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f107_promenade",
+    "relationship_type": "DISTRIBUTES_TO",
+    "object_entity_id": "wtc1_f107_windows_on_world",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f107_windows_on_world",
+    "relationship_type": "BRANCHES_TO",
+    "object_entity_id": "wtc1_f1_stair_a_enclosure",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f1_stair_a_enclosure",
+    "relationship_type": "POWERED_BY",
+    "object_entity_id": "wtc1_f1_stair_b_enclosure",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f1_stair_b_enclosure",
+    "relationship_type": "CONTAINS",
+    "object_entity_id": "wtc1_f1_stair_c_enclosure",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f1_stair_c_enclosure",
+    "relationship_type": "SUPPLIES",
+    "object_entity_id": "wtc1_f78_stair_landing",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f78_stair_landing",
+    "relationship_type": "FEEDS",
+    "object_entity_id": "wtc1_f1_stair_exit_vestibule",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f1_stair_exit_vestibule",
+    "relationship_type": "SERVES",
+    "object_entity_id": "wtc1_f107_observation_exp",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f107_observation_exp",
+    "relationship_type": "CONNECTS_TO",
+    "object_entity_id": "wtc1_f107_observation_exp_2",
+    "confidence_score": 100
+  },
+  {
+    "subject_entity_id": "wtc1_f107_observation_exp_2",
+    "relationship_type": "ROUTES_TO",
+    "object_entity_id": "wtc1_f110_roof_observation",
+    "confidence_score": 100
+  }
+]

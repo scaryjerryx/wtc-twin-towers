@@ -1,0 +1,81 @@
+{
+  "contract_version": "1.0.0",
+  "source_file_hash": "6ba9a357c2740342d89b3cb45ec4231978a51d92865dbe9316593aca8e2af31a",
+  "source_sheet_code": "A-A-18",
+  "extraction_timestamp": "2026-08-12T22:46:48Z",
+  "coordinate_system": {
+    "srid": 2263,
+    "projection_name": "NAD83 / New York Long Island (ftUS)",
+    "drawing_scale": "1/8\" = 1'-0\"",
+    "unit": "us_survey_feet"
+  },
+  "vector_objects": {
+    "polylines": [
+      {
+        "polyline_id": "line_grid_1",
+        "cad_layer": "GRID_LINES",
+        "vertex_count": 2,
+        "wkt_geometry": "LINESTRING(982100.00 198200.00, 982100.00 199000.00)"
+      },
+      {
+        "polyline_id": "line_grid_2",
+        "cad_layer": "GRID_LINES",
+        "vertex_count": 2,
+        "wkt_geometry": "LINESTRING(982100.00 198200.00, 982900.00 198200.00)"
+      }
+    ],
+    "polygons": [
+      {
+        "polygon_id": "poly_fan_room_101",
+        "cad_layer": "WALLS",
+        "vertex_count": 5,
+        "wkt_geometry": "POLYGON((982100.0 198200.0, 982300.0 198200.0, 982300.0 198400.0, 982100.0 198400.0, 982100.0 198200.0))",
+        "area_sq_ft": 40000.0,
+        "is_valid": true
+      },
+      {
+        "polygon_id": "poly_core_mech_zone",
+        "cad_layer": "WALLS",
+        "vertex_count": 5,
+        "wkt_geometry": "POLYGON((982340.0 198200.0, 982740.0 198200.0, 982740.0 198600.0, 982340.0 198600.0, 982340.0 198200.0))",
+        "area_sq_ft": 160000.0,
+        "is_valid": true
+      },
+      {
+        "polygon_id": "poly_elevator_shaft_b1",
+        "cad_layer": "WALLS",
+        "vertex_count": 5,
+        "wkt_geometry": "POLYGON((982180.0 198440.0, 982300.0 198440.0, 982300.0 198560.0, 982180.0 198560.0, 982180.0 198440.0))",
+        "area_sq_ft": 14400.0,
+        "is_valid": true
+      }
+    ],
+    "text_annotations": [
+      {
+        "text_id": "txt_fan_room_101",
+        "text_content": "SUB-GRADE FAN ROOM 101",
+        "cad_layer": "ANNO",
+        "bounding_box_wkt": "POLYGON((982140.00 198240.00, 982220.00 198240.00, 982220.00 198260.00, 982140.00 198260.00, 982140.00 198240.00))",
+        "associated_polygon_id": "poly_fan_room_101"
+      },
+      {
+        "text_id": "txt_col_501",
+        "text_content": "COL 501",
+        "cad_layer": "ANNO",
+        "bounding_box_wkt": "POLYGON((982350.00 198450.00, 982390.00 198450.00, 982390.00 198470.00, 982350.00 198470.00, 982350.00 198450.00))",
+        "associated_polygon_id": "poly_core_mech_zone"
+      }
+    ]
+  },
+  "geometry_validation": {
+    "total_geometries": 3,
+    "valid_geometries": 3,
+    "repaired_geometries": 0,
+    "invalid_geometries": 0,
+    "pass_rate_percentage": 100.0
+  },
+  "confidence_score": 98,
+  "validation_status": "VALIDATED",
+  "quarantine_status": false,
+  "processing_errors": []
+}

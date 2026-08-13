@@ -1,0 +1,281 @@
+[
+  {
+    "entity_id": "wtc1_floor_107",
+    "entity_name": "WTC 1 107th Floor Windows on the World & Indoor Observation Deck Level",
+    "entity_type": "floor",
+    "parent_entity": "wtc1_tower_a",
+    "confidence_score": 95,
+    "evidence_source": "A-A-145",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_f107_windows_on_the_world_restaurant_zone",
+    "entity_name": "107th Floor Windows on the World Main Dining & Function Suite Zone",
+    "entity_type": "zone",
+    "parent_entity": "wtc1_floor_107",
+    "confidence_score": 95,
+    "evidence_source": "A-A-145",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_f107_indoor_observation_deck_zone",
+    "entity_name": "107th Floor Public Indoor Observation Deck & Promenade Zone",
+    "entity_type": "zone",
+    "parent_entity": "wtc1_floor_107",
+    "confidence_score": 95,
+    "evidence_source": "A-A-145",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_f107_culinary_kitchen_and_service_zone",
+    "entity_name": "107th Floor Main Commercial Kitchen & Hospitality Service Zone",
+    "entity_type": "zone",
+    "parent_entity": "wtc1_floor_107",
+    "confidence_score": 95,
+    "evidence_source": "A-A-145",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_f107_top_tower_core_zone",
+    "entity_name": "107th Floor Elevator Terminal & Egress Stairwell Core Zone",
+    "entity_type": "zone",
+    "parent_entity": "wtc1_floor_107",
+    "confidence_score": 95,
+    "evidence_source": "A-A-145",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_f107_panoramic_window_envelope_zone",
+    "entity_name": "107th Floor Continuous Floor-to-Ceiling Perimeter Glazing Envelope Zone",
+    "entity_type": "zone",
+    "parent_entity": "wtc1_floor_107",
+    "confidence_score": 95,
+    "evidence_source": "A-A-145",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_f107_windows_on_the_world_main_dining_room",
+    "entity_name": "Windows on the World Main Dining Room (North-East Tiered Seating)",
+    "entity_type": "space",
+    "parent_entity": "wtc1_f107_windows_on_the_world_restaurant_zone",
+    "confidence_score": 95,
+    "evidence_source": "A-A-145",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_f107_the_great_bar_and_lounge",
+    "entity_name": "The Great Bar & Cocktail Lounge (North Perimeter Panoramic Bar)",
+    "entity_type": "space",
+    "parent_entity": "wtc1_f107_windows_on_the_world_restaurant_zone",
+    "confidence_score": 95,
+    "evidence_source": "A-A-145",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_f107_cellar_in_the_sky_dining_room",
+    "entity_name": "Cellar in the Sky Exclusive Gourmet Dining Salon",
+    "entity_type": "space",
+    "parent_entity": "wtc1_f107_windows_on_the_world_restaurant_zone",
+    "confidence_score": 95,
+    "evidence_source": "A-A-145",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_f107_hudson_river_suite_banquet_hall",
+    "entity_name": "Hudson River Suite Private Banquet & Function Hall",
+    "entity_type": "space",
+    "parent_entity": "wtc1_f107_windows_on_the_world_restaurant_zone",
+    "confidence_score": 95,
+    "evidence_source": "A-A-145",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_f107_bayberry_and_perkins_conference_suite",
+    "entity_name": "Bayberry & Perkins Private Dining and Conference Suite",
+    "entity_type": "space",
+    "parent_entity": "wtc1_f107_windows_on_the_world_restaurant_zone",
+    "confidence_score": 95,
+    "evidence_source": "A-A-145",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_f107_indoor_observation_deck_promenade",
+    "entity_name": "107th Floor Indoor Observation Deck Public Promenade",
+    "entity_type": "space",
+    "parent_entity": "wtc1_f107_indoor_observation_deck_zone",
+    "confidence_score": 95,
+    "evidence_source": "A-A-145",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_f107_observation_deck_gift_shop_and_souvenirs",
+    "entity_name": "107th Floor Official Souvenir Shop & Gift Gallery",
+    "entity_type": "space",
+    "parent_entity": "wtc1_f107_indoor_observation_deck_zone",
+    "confidence_score": 95,
+    "evidence_source": "A-A-145",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_f107_observation_deck_photo_exhibit_lounge",
+    "entity_name": "107th Floor WTC Construction Photo Exhibit & Visitor Lounge",
+    "entity_type": "space",
+    "parent_entity": "wtc1_f107_indoor_observation_deck_zone",
+    "confidence_score": 95,
+    "evidence_source": "A-A-145",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_f107_express_elevator_reception_foyer",
+    "entity_name": "107th Floor Express Elevator Passenger Reception Foyer",
+    "entity_type": "space",
+    "parent_entity": "wtc1_f107_top_tower_core_zone",
+    "confidence_score": 95,
+    "evidence_source": "A-A-145",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_f107_main_commercial_kitchen_complex",
+    "entity_name": "107th Floor Primary Master Commercial Kitchen Complex",
+    "entity_type": "kitchen_area",
+    "parent_entity": "wtc1_f107_culinary_kitchen_and_service_zone",
+    "confidence_score": 95,
+    "evidence_source": "A-A-145",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_f107_pastry_and_bakery_prep_kitchen",
+    "entity_name": "Windows on the World Pastry & Bakery Preparation Kitchen",
+    "entity_type": "kitchen_area",
+    "parent_entity": "wtc1_f107_culinary_kitchen_and_service_zone",
+    "confidence_score": 95,
+    "evidence_source": "A-A-145",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_f107_master_sommelier_wine_cellar_vault",
+    "entity_name": "Master Wine Cellar Vault (Storage for 10,000+ Vintage Bottles)",
+    "entity_type": "service_area",
+    "parent_entity": "wtc1_f107_culinary_kitchen_and_service_zone",
+    "confidence_score": 95,
+    "evidence_source": "A-A-145",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_f107_dishwashing_and_stewarding_facility",
+    "entity_name": "Dishwashing, Warewashing & Stewarding Service Depot",
+    "entity_type": "service_area",
+    "parent_entity": "wtc1_f107_culinary_kitchen_and_service_zone",
+    "confidence_score": 95,
+    "evidence_source": "A-A-145",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_f107_express_shuttle_bank_78_terminal",
+    "entity_name": "Express Shuttle Elevator Bank 78 Terminal Discharges (Cars 71-74)",
+    "entity_type": "elevator_bank",
+    "parent_entity": "wtc1_f107_top_tower_core_zone",
+    "confidence_score": 95,
+    "evidence_source": "A-A-145",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_f107_local_elevator_bank_4_terminal",
+    "entity_name": "Local High-Rise Elevator Bank 4 Terminal Landing (Cars 25-30)",
+    "entity_type": "elevator_bank",
+    "parent_entity": "wtc1_f107_top_tower_core_zone",
+    "confidence_score": 95,
+    "evidence_source": "A-A-145",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_f107_heavy_freight_shaft_50_terminal",
+    "entity_name": "Heavy Freight Elevator Car 50 Shaft Enclosure (Floor 107 Terminal)",
+    "entity_type": "elevator",
+    "parent_entity": "wtc1_f107_top_tower_core_zone",
+    "confidence_score": 95,
+    "evidence_source": "A-A-145",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_f107_service_elevator_49_terminal",
+    "entity_name": "Primary Service Elevator Car 49 Shaft Enclosure (Floor 107 Terminal)",
+    "entity_type": "elevator",
+    "parent_entity": "wtc1_f107_top_tower_core_zone",
+    "confidence_score": 95,
+    "evidence_source": "A-A-145",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_f107_stair_a_shaft",
+    "entity_name": "Emergency Egress Stairwell A Shaft Enclosure (Floor 107 Level)",
+    "entity_type": "stair",
+    "parent_entity": "wtc1_f107_top_tower_core_zone",
+    "confidence_score": 95,
+    "evidence_source": "A-A-145",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_f107_stair_b_shaft",
+    "entity_name": "Emergency Egress Stairwell B Shaft Enclosure (Floor 107 Level)",
+    "entity_type": "stair",
+    "parent_entity": "wtc1_f107_top_tower_core_zone",
+    "confidence_score": 95,
+    "evidence_source": "A-A-145",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_f107_stair_c_shaft",
+    "entity_name": "Emergency Egress Stairwell C Shaft Enclosure (Floor 107 Level)",
+    "entity_type": "stair",
+    "parent_entity": "wtc1_f107_top_tower_core_zone",
+    "confidence_score": 95,
+    "evidence_source": "A-A-145",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_f107_roof_access_stair_to_108",
+    "entity_name": "Structural Access Stairwell to Floor 108 Upper MER & Roof",
+    "entity_type": "stair",
+    "parent_entity": "wtc1_f107_top_tower_core_zone",
+    "confidence_score": 95,
+    "evidence_source": "A-A-145",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_f107_core_box_columns_501_1008",
+    "entity_name": "107th Floor Core Steel Box Columns 501-1008 Grid (47 Box Columns)",
+    "entity_type": "structural_element",
+    "parent_entity": "wtc1_f107_top_tower_core_zone",
+    "confidence_score": 95,
+    "evidence_source": "A-A-145",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_f107_perimeter_box_columns",
+    "entity_name": "107th Floor Exterior Perimeter Box Columns (208 Columns at 3'4\" Spacing)",
+    "entity_type": "structural_element",
+    "parent_entity": "wtc1_f107_panoramic_window_envelope_zone",
+    "confidence_score": 95,
+    "evidence_source": "A-A-145",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_f107_floor_to_ceiling_window_wall_glazing",
+    "entity_name": "107th Floor Continuous Floor-to-Ceiling Panoramic Glass Window Wall",
+    "entity_type": "architectural_element",
+    "parent_entity": "wtc1_f107_panoramic_window_envelope_zone",
+    "confidence_score": 95,
+    "evidence_source": "A-A-145",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_f107_tiered_dining_platform_structure",
+    "entity_name": "Windows on the World Tiered Steel Dining Platform Support Structures",
+    "entity_type": "structural_element",
+    "parent_entity": "wtc1_f107_windows_on_the_world_restaurant_zone",
+    "confidence_score": 95,
+    "evidence_source": "A-A-145",
+    "evidence_classification": "Direct Evidence"
+  }
+]

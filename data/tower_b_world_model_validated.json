@@ -1,0 +1,342 @@
+[
+  {
+    "entity_id": "wtc2_building",
+    "entity_name": "World Trade Center 2",
+    "entity_type": "building",
+    "parent_entity": "wtc_superblock_site",
+    "confidence_score": 95,
+    "evidence_source": "NCSTAR_1-2_Fig_7-37_Pg341",
+    "evidence_classification": "Direct Evidence",
+    "validation_status": "VALID",
+    "validated_at": "2026-08-11T19:57:38Z",
+    "validation_rules": [
+      "P1_EVIDENCE_FIRST",
+      "P7_NO_SYMMETRY_ASSUMPTIONS",
+      "P8_EPISTEMIC_TRANSPARENCY",
+      "P14_PRESERVE_BUILDABILITY"
+    ]
+  },
+  {
+    "entity_id": "wtc2_tower_b",
+    "entity_name": "Tower B (South Tower)",
+    "entity_type": "tower",
+    "parent_entity": "wtc2_building",
+    "confidence_score": 95,
+    "evidence_source": "NCSTAR_1-1_Fig_2-12_Pg28",
+    "evidence_classification": "Direct Evidence",
+    "validation_status": "VALID",
+    "validated_at": "2026-08-11T19:57:38Z",
+    "validation_rules": [
+      "P1_EVIDENCE_FIRST",
+      "P7_NO_SYMMETRY_ASSUMPTIONS",
+      "P8_EPISTEMIC_TRANSPARENCY",
+      "P14_PRESERVE_BUILDABILITY"
+    ]
+  },
+  {
+    "entity_id": "wtc2_floors_1_9",
+    "entity_name": "WTC 2 Base Plaza Floors 1-9",
+    "entity_type": "floor",
+    "parent_entity": "wtc2_tower_b",
+    "confidence_score": 95,
+    "evidence_source": "NCSTAR_1-1_Fig_5-1_Pg130",
+    "evidence_classification": "Direct Evidence",
+    "validation_status": "VALID",
+    "validated_at": "2026-08-11T19:57:38Z",
+    "validation_rules": [
+      "P1_EVIDENCE_FIRST",
+      "P7_NO_SYMMETRY_ASSUMPTIONS",
+      "P8_EPISTEMIC_TRANSPARENCY",
+      "P14_PRESERVE_BUILDABILITY"
+    ]
+  },
+  {
+    "entity_id": "wtc2_floors_10_106",
+    "entity_name": "WTC 2 Typical Office Floors 10-106",
+    "entity_type": "floor",
+    "parent_entity": "wtc2_tower_b",
+    "confidence_score": 95,
+    "evidence_source": "NCSTAR_1-1_Fig_5-3_Pg132",
+    "evidence_classification": "Direct Evidence",
+    "validation_status": "VALID",
+    "validated_at": "2026-08-11T19:57:38Z",
+    "validation_rules": [
+      "P1_EVIDENCE_FIRST",
+      "P7_NO_SYMMETRY_ASSUMPTIONS",
+      "P8_EPISTEMIC_TRANSPARENCY",
+      "P14_PRESERVE_BUILDABILITY"
+    ]
+  },
+  {
+    "entity_id": "wtc2_mechanical_floors",
+    "entity_name": "WTC 2 Mechanical Floors (7-8, 41-42, 75-76, 108-109)",
+    "entity_type": "floor",
+    "parent_entity": "wtc2_tower_b",
+    "confidence_score": 95,
+    "evidence_source": "NCSTAR_1-2_Fig_7-32_Pg332",
+    "evidence_classification": "Direct Evidence",
+    "validation_status": "VALID",
+    "validated_at": "2026-08-11T19:57:38Z",
+    "validation_rules": [
+      "P1_EVIDENCE_FIRST",
+      "P7_NO_SYMMETRY_ASSUMPTIONS",
+      "P8_EPISTEMIC_TRANSPARENCY",
+      "P14_PRESERVE_BUILDABILITY"
+    ]
+  },
+  {
+    "entity_id": "wtc2_floor_110_roof",
+    "entity_name": "WTC 2 Roof Level (Floor 110)",
+    "entity_type": "floor",
+    "parent_entity": "wtc2_tower_b",
+    "confidence_score": 95,
+    "evidence_source": "NCSTAR_1-2_Fig_7-33_Pg334",
+    "evidence_classification": "Direct Evidence",
+    "validation_status": "VALID",
+    "validated_at": "2026-08-11T19:57:38Z",
+    "validation_rules": [
+      "P1_EVIDENCE_FIRST",
+      "P7_NO_SYMMETRY_ASSUMPTIONS",
+      "P8_EPISTEMIC_TRANSPARENCY",
+      "P14_PRESERVE_BUILDABILITY"
+    ]
+  },
+  {
+    "entity_id": "wtc2_core_zone",
+    "entity_name": "WTC 2 Core Zone",
+    "entity_type": "zone",
+    "parent_entity": "wtc2_floors_10_106",
+    "confidence_score": 95,
+    "evidence_source": "NCSTAR_1-2_Fig_7-37_Pg341",
+    "evidence_classification": "Direct Evidence",
+    "validation_status": "VALID",
+    "validated_at": "2026-08-11T19:57:38Z",
+    "validation_rules": [
+      "P1_EVIDENCE_FIRST",
+      "P7_NO_SYMMETRY_ASSUMPTIONS",
+      "P8_EPISTEMIC_TRANSPARENCY",
+      "P14_PRESERVE_BUILDABILITY"
+    ]
+  },
+  {
+    "entity_id": "wtc2_tenant_zone",
+    "entity_name": "WTC 2 Tenant Zone",
+    "entity_type": "zone",
+    "parent_entity": "wtc2_floors_10_106",
+    "confidence_score": 95,
+    "evidence_source": "NCSTAR_1-1_Fig_5-3_Pg132",
+    "evidence_classification": "Direct Evidence",
+    "validation_status": "VALID",
+    "validated_at": "2026-08-11T19:57:38Z",
+    "validation_rules": [
+      "P1_EVIDENCE_FIRST",
+      "P7_NO_SYMMETRY_ASSUMPTIONS",
+      "P8_EPISTEMIC_TRANSPARENCY",
+      "P14_PRESERVE_BUILDABILITY"
+    ]
+  },
+  {
+    "entity_id": "wtc2_mechanical_zone",
+    "entity_name": "WTC 2 Mechanical Zone",
+    "entity_type": "zone",
+    "parent_entity": "wtc2_mechanical_floors",
+    "confidence_score": 95,
+    "evidence_source": "NCSTAR_1-2_Fig_7-32_Pg332",
+    "evidence_classification": "Direct Evidence",
+    "validation_status": "VALID",
+    "validated_at": "2026-08-11T19:57:38Z",
+    "validation_rules": [
+      "P1_EVIDENCE_FIRST",
+      "P7_NO_SYMMETRY_ASSUMPTIONS",
+      "P8_EPISTEMIC_TRANSPARENCY",
+      "P14_PRESERVE_BUILDABILITY"
+    ]
+  },
+  {
+    "entity_id": "wtc2_roof_zone",
+    "entity_name": "WTC 2 Roof Zone",
+    "entity_type": "zone",
+    "parent_entity": "wtc2_floor_110_roof",
+    "confidence_score": 95,
+    "evidence_source": "NCSTAR_1-2_Fig_7-33_Pg334",
+    "evidence_classification": "Direct Evidence",
+    "validation_status": "VALID",
+    "validated_at": "2026-08-11T19:57:38Z",
+    "validation_rules": [
+      "P1_EVIDENCE_FIRST",
+      "P7_NO_SYMMETRY_ASSUMPTIONS",
+      "P8_EPISTEMIC_TRANSPARENCY",
+      "P14_PRESERVE_BUILDABILITY"
+    ]
+  },
+  {
+    "entity_id": "wtc2_outdoor_observation_deck",
+    "entity_name": "WTC 2 Outdoor Observation Deck Promenade (Floor 107/Roof)",
+    "entity_type": "space",
+    "parent_entity": "wtc2_roof_zone",
+    "confidence_score": 95,
+    "evidence_source": "NCSTAR_1-2_Fig_7-33_Pg334",
+    "evidence_classification": "Direct Evidence",
+    "validation_status": "VALID",
+    "validated_at": "2026-08-11T19:57:38Z",
+    "validation_rules": [
+      "P1_EVIDENCE_FIRST",
+      "P7_NO_SYMMETRY_ASSUMPTIONS",
+      "P8_EPISTEMIC_TRANSPARENCY",
+      "P14_PRESERVE_BUILDABILITY"
+    ]
+  },
+  {
+    "entity_id": "wtc2_core_columns_501_1008",
+    "entity_name": "WTC 2 Core Columns 501-1008 Grid",
+    "entity_type": "element",
+    "parent_entity": "wtc2_core_zone",
+    "confidence_score": 95,
+    "evidence_source": "ST-01_st_01_wtc2_core_columns.png",
+    "evidence_classification": "Direct Evidence",
+    "validation_status": "VALID",
+    "validated_at": "2026-08-11T19:57:38Z",
+    "validation_rules": [
+      "P1_EVIDENCE_FIRST",
+      "P7_NO_SYMMETRY_ASSUMPTIONS",
+      "P8_EPISTEMIC_TRANSPARENCY",
+      "P14_PRESERVE_BUILDABILITY"
+    ]
+  },
+  {
+    "entity_id": "wtc2_main_double_trusses_c32_c36",
+    "entity_name": "WTC 2 Main Double Floor Trusses C32/C36",
+    "entity_type": "element",
+    "parent_entity": "wtc2_tenant_zone",
+    "confidence_score": 95,
+    "evidence_source": "ST-02_st_02_wtc2_typical_floor_framing.png",
+    "evidence_classification": "Direct Evidence",
+    "validation_status": "VALID",
+    "validated_at": "2026-08-11T19:57:38Z",
+    "validation_rules": [
+      "P1_EVIDENCE_FIRST",
+      "P7_NO_SYMMETRY_ASSUMPTIONS",
+      "P8_EPISTEMIC_TRANSPARENCY",
+      "P14_PRESERVE_BUILDABILITY"
+    ]
+  },
+  {
+    "entity_id": "wtc2_base_3column_wall_panels",
+    "entity_name": "WTC 2 Base 3-Column Wall Panels (Floors 1-9)",
+    "entity_type": "element",
+    "parent_entity": "wtc2_floors_1_9",
+    "confidence_score": 95,
+    "evidence_source": "ST-03_st_03_wtc2_exterior_wall_panels.png",
+    "evidence_classification": "Direct Evidence",
+    "validation_status": "VALID",
+    "validated_at": "2026-08-11T19:57:38Z",
+    "validation_rules": [
+      "P1_EVIDENCE_FIRST",
+      "P7_NO_SYMMETRY_ASSUMPTIONS",
+      "P8_EPISTEMIC_TRANSPARENCY",
+      "P14_PRESERVE_BUILDABILITY"
+    ]
+  },
+  {
+    "entity_id": "wtc2_tree_column_transfers",
+    "entity_name": "WTC 2 Plaza Lobby Diagonal Tree Column Transfers (Floors 7-9)",
+    "entity_type": "element",
+    "parent_entity": "wtc2_floors_1_9",
+    "confidence_score": 95,
+    "evidence_source": "ST-03_st_03_wtc2_exterior_wall_panels.png",
+    "evidence_classification": "Direct Evidence",
+    "validation_status": "VALID",
+    "validated_at": "2026-08-11T19:57:38Z",
+    "validation_rules": [
+      "P1_EVIDENCE_FIRST",
+      "P7_NO_SYMMETRY_ASSUMPTIONS",
+      "P8_EPISTEMIC_TRANSPARENCY",
+      "P14_PRESERVE_BUILDABILITY"
+    ]
+  },
+  {
+    "entity_id": "wtc2_mechanical_outrigger_trusses",
+    "entity_name": "WTC 2 Mechanical Outrigger Diagonal Trusses",
+    "entity_type": "element",
+    "parent_entity": "wtc2_mechanical_zone",
+    "confidence_score": 95,
+    "evidence_source": "ST-04_st_04_wtc2_mechanical_floor_outriggers.png",
+    "evidence_classification": "Direct Evidence",
+    "validation_status": "VALID",
+    "validated_at": "2026-08-11T19:57:38Z",
+    "validation_rules": [
+      "P1_EVIDENCE_FIRST",
+      "P7_NO_SYMMETRY_ASSUMPTIONS",
+      "P8_EPISTEMIC_TRANSPARENCY",
+      "P14_PRESERVE_BUILDABILITY"
+    ]
+  },
+  {
+    "entity_id": "wtc2_heavy_belt_spandrels",
+    "entity_name": "WTC 2 Heavy Belt Spandrel Girders (56\" Deep)",
+    "entity_type": "element",
+    "parent_entity": "wtc2_mechanical_zone",
+    "confidence_score": 95,
+    "evidence_source": "ST-04_st_04_wtc2_mechanical_floor_outriggers.png",
+    "evidence_classification": "Direct Evidence",
+    "validation_status": "VALID",
+    "validated_at": "2026-08-11T19:57:38Z",
+    "validation_rules": [
+      "P1_EVIDENCE_FIRST",
+      "P7_NO_SYMMETRY_ASSUMPTIONS",
+      "P8_EPISTEMIC_TRANSPARENCY",
+      "P14_PRESERVE_BUILDABILITY"
+    ]
+  },
+  {
+    "entity_id": "wtc2_roof_hat_truss",
+    "entity_name": "WTC 2 Roof Hat Truss Structural Framing",
+    "entity_type": "element",
+    "parent_entity": "wtc2_roof_zone",
+    "confidence_score": 95,
+    "evidence_source": "ST-05_st_05_wtc2_roof_observation_deck.png",
+    "evidence_classification": "Direct Evidence",
+    "validation_status": "VALID",
+    "validated_at": "2026-08-11T19:57:38Z",
+    "validation_rules": [
+      "P1_EVIDENCE_FIRST",
+      "P7_NO_SYMMETRY_ASSUMPTIONS",
+      "P8_EPISTEMIC_TRANSPARENCY",
+      "P14_PRESERVE_BUILDABILITY"
+    ]
+  },
+  {
+    "entity_id": "wtc2_outdoor_observation_platform_steel",
+    "entity_name": "WTC 2 Outdoor Observation Promenade Platform Steel",
+    "entity_type": "element",
+    "parent_entity": "wtc2_outdoor_observation_deck",
+    "confidence_score": 95,
+    "evidence_source": "ST-05_st_05_wtc2_roof_observation_deck.png",
+    "evidence_classification": "Direct Evidence",
+    "validation_status": "VALID",
+    "validated_at": "2026-08-11T19:57:38Z",
+    "validation_rules": [
+      "P1_EVIDENCE_FIRST",
+      "P7_NO_SYMMETRY_ASSUMPTIONS",
+      "P8_EPISTEMIC_TRANSPARENCY",
+      "P14_PRESERVE_BUILDABILITY"
+    ]
+  },
+  {
+    "entity_id": "wtc2_viscoelastic_dampers_type_a",
+    "entity_name": "WTC 2 Type A Viscoelastic Damping Units",
+    "entity_type": "element",
+    "parent_entity": "wtc2_main_double_trusses_c32_c36",
+    "confidence_score": 95,
+    "evidence_source": "ST-06_st_06_wtc2_floor_truss_dampers.png",
+    "evidence_classification": "Direct Evidence",
+    "validation_status": "VALID",
+    "validated_at": "2026-08-11T19:57:38Z",
+    "validation_rules": [
+      "P1_EVIDENCE_FIRST",
+      "P7_NO_SYMMETRY_ASSUMPTIONS",
+      "P8_EPISTEMIC_TRANSPARENCY",
+      "P14_PRESERVE_BUILDABILITY"
+    ]
+  }
+]

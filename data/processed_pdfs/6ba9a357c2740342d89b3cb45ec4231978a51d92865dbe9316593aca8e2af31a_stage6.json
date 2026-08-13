@@ -1,0 +1,84 @@
+{
+  "contract_version": "1.0.0",
+  "source_file_hash": "6ba9a357c2740342d89b3cb45ec4231978a51d92865dbe9316593aca8e2af31a",
+  "source_sheet_code": "A-A-18",
+  "transaction_id": "tx_20260812_224648",
+  "ingestion_timestamp": "2026-08-12T22:46:48Z",
+  "ingested_entities": {
+    "total_inserted": 2,
+    "total_updated": 1,
+    "entities_inserted": [
+      {
+        "entity_id": "wtc1_poly_core_mech_zone",
+        "category": "mechanical_area",
+        "target_table": "elements",
+        "confidence_score": 95
+      },
+      {
+        "entity_id": "wtc1_poly_elevator_shaft_b1",
+        "category": "elevator_bank",
+        "target_table": "elements",
+        "confidence_score": 95
+      }
+    ],
+    "entities_updated": [
+      {
+        "entity_id": "wtc1_poly_fan_room_101",
+        "updated_attributes": [
+          "confidence_score",
+          "lifecycle_state",
+          "updated_at"
+        ]
+      }
+    ]
+  },
+  "ingested_relationships": {
+    "total_edges_inserted": 1,
+    "edges_inserted": [
+      {
+        "relationship_id": "rel_aa18_10",
+        "subject_entity_id": "wtc1_f1_fan_room_101",
+        "relationship_type": "CONTAINS",
+        "object_entity_id": "wtc1_f1_chiller_unit_1"
+      }
+    ]
+  },
+  "ingested_citations": {
+    "total_citations_inserted": 3,
+    "citations_inserted": [
+      {
+        "citation_id": "cite_6ba9a357",
+        "entity_id": "wtc1_poly_fan_room_101",
+        "source_id": "src_yamasaki_drawings",
+        "sheet_code": "A-A-18"
+      }
+    ]
+  },
+  "validation_results": {
+    "single_parent_check_passed": true,
+    "foreign_keys_passed": true,
+    "postgis_srid_passed": true,
+    "orphan_records_detected": 0
+  },
+  "transaction_status": "COMMITTED",
+  "rollback_status": {
+    "executed_rollback": false,
+    "rollback_timestamp": null,
+    "post_rollback_catalog_clean": true
+  },
+  "human_review_audit": {
+    "human_review_required": false,
+    "review_signoff_timestamp": null,
+    "reviewer_id": null
+  },
+  "quarantine_audit": {
+    "quarantined": false,
+    "quarantine_file_path": null
+  },
+  "processing_errors": [],
+  "operational_metrics": {
+    "total_db_query_time_ms": 45,
+    "total_transaction_time_ms": 85,
+    "memory_usage_mb": 24.5
+  }
+}

@@ -1,0 +1,272 @@
+[
+  {
+    "entity_id": "wtc1_floor_b1",
+    "entity_name": "WTC 1 Sub-Level 1 (B1) Concourse & Transit Level",
+    "entity_type": "floor",
+    "parent_entity": "wtc1_tower_a",
+    "confidence_score": 95,
+    "evidence_source": "A-A-18",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_fb1_path_transit_terminal_zone",
+    "entity_name": "Sub-Level 1 PATH Terminal & Sub-Grade Platform Access Zone",
+    "entity_type": "zone",
+    "parent_entity": "wtc1_floor_b1",
+    "confidence_score": 95,
+    "evidence_source": "A-A-18",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_fb1_shopping_concourse_retail_zone",
+    "entity_name": "Sub-Level 1 Mall Shopping Concourse & Retail Store Arcade Zone",
+    "entity_type": "zone",
+    "parent_entity": "wtc1_floor_b1",
+    "confidence_score": 95,
+    "evidence_source": "A-A-18",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_fb1_subway_and_pedestrian_transit_zone",
+    "entity_name": "Sub-Level 1 NYC Subway Mezzanine & Pedestrian Tunnel Zone",
+    "entity_type": "zone",
+    "parent_entity": "wtc1_floor_b1",
+    "confidence_score": 95,
+    "evidence_source": "A-A-18",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_fb1_subgrade_mechanical_and_mep_zone",
+    "entity_name": "Sub-Level 1 Mechanical Riser & Utility Substation Zone",
+    "entity_type": "zone",
+    "parent_entity": "wtc1_floor_b1",
+    "confidence_score": 95,
+    "evidence_source": "A-A-18",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_fb1_slurry_wall_foundation_envelope_zone",
+    "entity_name": "Sub-Level 1 Slurry Wall Perimeter Foundation Envelope Zone",
+    "entity_type": "zone",
+    "parent_entity": "wtc1_floor_b1",
+    "confidence_score": 95,
+    "evidence_source": "A-A-18",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_fb1_path_terminal_turnstile_concourse",
+    "entity_name": "Sub-Level 1 PATH Terminal Fare Gate & Turnstile Concourse",
+    "entity_type": "transit_station",
+    "parent_entity": "wtc1_fb1_path_transit_terminal_zone",
+    "confidence_score": 95,
+    "evidence_source": "A-A-18",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_fb1_cortlandt_street_subway_connector",
+    "entity_name": "IRT Cortlandt Street Subway Line Platform Passage Tunnel",
+    "entity_type": "transit_station",
+    "parent_entity": "wtc1_fb1_subway_and_pedestrian_transit_zone",
+    "confidence_score": 95,
+    "evidence_source": "A-A-18",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_fb1_path_commuter_ticket_hall",
+    "entity_name": "PATH Commuter Ticketing Hall & Information Center",
+    "entity_type": "space",
+    "parent_entity": "wtc1_fb1_path_transit_terminal_zone",
+    "confidence_score": 95,
+    "evidence_source": "A-A-18",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_fb1_chambers_street_pedestrian_underpass",
+    "entity_name": "Sub-Grade North Pedestrian Underpass Tunnel to Chambers Street",
+    "entity_type": "corridor",
+    "parent_entity": "wtc1_fb1_subway_and_pedestrian_transit_zone",
+    "confidence_score": 95,
+    "evidence_source": "A-A-18",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_fb1_north_retail_arcade_galleria",
+    "entity_name": "North Concourse Main Retail Galleria Arcade",
+    "entity_type": "retail_space",
+    "parent_entity": "wtc1_fb1_shopping_concourse_retail_zone",
+    "confidence_score": 95,
+    "evidence_source": "A-A-18",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_fb1_east_mall_retail_promenade",
+    "entity_name": "East Mall Retail Store Promenade (Connecting WTC 1 to WTC 2 Concourse)",
+    "entity_type": "retail_space",
+    "parent_entity": "wtc1_fb1_shopping_concourse_retail_zone",
+    "confidence_score": 95,
+    "evidence_source": "A-A-18",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_fb1_concourse_food_court_pavilion",
+    "entity_name": "Sub-Grade Concourse Central Food Court & Dining Pavilion",
+    "entity_type": "retail_space",
+    "parent_entity": "wtc1_fb1_shopping_concourse_retail_zone",
+    "confidence_score": 95,
+    "evidence_source": "A-A-18",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_fb1_anchor_bank_and_financial_service_suite",
+    "entity_name": "Sub-Level 1 Commercial Bank Branch & ATM Financial Suite",
+    "entity_type": "retail_space",
+    "parent_entity": "wtc1_fb1_shopping_concourse_retail_zone",
+    "confidence_score": 95,
+    "evidence_source": "A-A-18",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_fb1_path_platform_escalator_bank",
+    "entity_name": "PATH Train Platform Access Escalator Bank (Escalators E1-E4)",
+    "entity_type": "escalator",
+    "parent_entity": "wtc1_fb1_path_transit_terminal_zone",
+    "confidence_score": 95,
+    "evidence_source": "A-A-18",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_fb1_truck_loading_ramp_and_dock",
+    "entity_name": "Sub-Level 1 Heavy Commercial Truck Service Loading Ramp & Dock",
+    "entity_type": "service_area",
+    "parent_entity": "wtc1_fb1_subgrade_mechanical_and_mep_zone",
+    "confidence_score": 95,
+    "evidence_source": "A-A-18",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_fb1_waste_compaction_and_recycling_depot",
+    "entity_name": "Central Building Waste Compaction & Recycling Facility",
+    "entity_type": "service_area",
+    "parent_entity": "wtc1_fb1_subgrade_mechanical_and_mep_zone",
+    "confidence_score": 95,
+    "evidence_source": "A-A-18",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_fb1_b1_electrical_distribution_vault",
+    "entity_name": "Sub-Level 1 Primary Low-Voltage Electrical Distribution Vault",
+    "entity_type": "mechanical_area",
+    "parent_entity": "wtc1_fb1_subgrade_mechanical_and_mep_zone",
+    "confidence_score": 95,
+    "evidence_source": "A-A-18",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_fb1_chilled_water_pipe_riser_vault",
+    "entity_name": "Sub-Grade Primary Chilled Water Pipe Riser Shaft Vault",
+    "entity_type": "mechanical_area",
+    "parent_entity": "wtc1_fb1_subgrade_mechanical_and_mep_zone",
+    "confidence_score": 95,
+    "evidence_source": "A-A-18",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_fb1_express_shuttle_bank_44_pass",
+    "entity_name": "Express Shuttle Elevator Shaft Enclosures to 44th Floor (Cars 41-44 Pit Pass)",
+    "entity_type": "elevator_bank",
+    "parent_entity": "wtc1_fb1_subgrade_mechanical_and_mep_zone",
+    "confidence_score": 95,
+    "evidence_source": "A-A-18",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_fb1_express_shuttle_bank_78_pass",
+    "entity_name": "Express Shuttle Elevator Shaft Enclosures to 78th Floor (Cars 71-74 Pit Pass)",
+    "entity_type": "elevator_bank",
+    "parent_entity": "wtc1_fb1_subgrade_mechanical_and_mep_zone",
+    "confidence_score": 95,
+    "evidence_source": "A-A-18",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_fb1_local_elevator_bank_1_subgrade",
+    "entity_name": "Local Low-Rise Elevator Bank 1 Sub-Grade Terminal (Cars 1-6 Buffer)",
+    "entity_type": "elevator_bank",
+    "parent_entity": "wtc1_fb1_subgrade_mechanical_and_mep_zone",
+    "confidence_score": 95,
+    "evidence_source": "A-A-18",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_fb1_heavy_freight_shaft_50_subgrade",
+    "entity_name": "Heavy Freight Elevator Car 50 Sub-Grade Loading Dock Landing",
+    "entity_type": "elevator",
+    "parent_entity": "wtc1_fb1_subgrade_mechanical_and_mep_zone",
+    "confidence_score": 95,
+    "evidence_source": "A-A-18",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_fb1_service_elevator_49_subgrade",
+    "entity_name": "Primary Service Elevator Car 49 Sub-Grade Waste & Dock Terminal",
+    "entity_type": "elevator",
+    "parent_entity": "wtc1_fb1_subgrade_mechanical_and_mep_zone",
+    "confidence_score": 95,
+    "evidence_source": "A-A-18",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_fb1_stair_a_shaft",
+    "entity_name": "Emergency Egress Stairwell A Shaft Enclosure (Sub-Level 1 Level)",
+    "entity_type": "stair",
+    "parent_entity": "wtc1_fb1_subgrade_mechanical_and_mep_zone",
+    "confidence_score": 95,
+    "evidence_source": "A-A-18",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_fb1_stair_b_shaft",
+    "entity_name": "Emergency Egress Stairwell B Shaft Enclosure (Sub-Level 1 Level)",
+    "entity_type": "stair",
+    "parent_entity": "wtc1_fb1_subgrade_mechanical_and_mep_zone",
+    "confidence_score": 95,
+    "evidence_source": "A-A-18",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_fb1_stair_c_shaft",
+    "entity_name": "Emergency Egress Stairwell C Shaft Enclosure (Sub-Level 1 Level)",
+    "entity_type": "stair",
+    "parent_entity": "wtc1_fb1_subgrade_mechanical_and_mep_zone",
+    "confidence_score": 95,
+    "evidence_source": "A-A-18",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_fb1_core_box_columns_501_1008",
+    "entity_name": "Sub-Level 1 Core Steel Box Columns 501-1008 Grid (47 Box Columns)",
+    "entity_type": "structural_element",
+    "parent_entity": "wtc1_fb1_subgrade_mechanical_and_mep_zone",
+    "confidence_score": 95,
+    "evidence_source": "A-A-18",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_fb1_perimeter_slurry_wall_foundation",
+    "entity_name": "3-Foot-Thick Reinforced Concrete Perimeter Slurry Wall Bathtub Foundation",
+    "entity_type": "structural_element",
+    "parent_entity": "wtc1_fb1_slurry_wall_foundation_envelope_zone",
+    "confidence_score": 95,
+    "evidence_source": "A-A-18",
+    "evidence_classification": "Direct Evidence"
+  },
+  {
+    "entity_id": "wtc1_fb1_plaza_concourse_support_columns",
+    "entity_name": "Sub-Level 1 Plaza Deck Support Columns (Spaced on 30' Grid Under Plaza)",
+    "entity_type": "structural_element",
+    "parent_entity": "wtc1_fb1_shopping_concourse_retail_zone",
+    "confidence_score": 95,
+    "evidence_source": "A-A-18",
+    "evidence_classification": "Direct Evidence"
+  }
+]

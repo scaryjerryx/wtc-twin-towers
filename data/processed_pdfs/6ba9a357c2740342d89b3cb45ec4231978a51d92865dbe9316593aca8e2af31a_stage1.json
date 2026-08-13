@@ -1,0 +1,27 @@
+{
+  "contract_version": "1.0.0",
+  "file_hash": "6ba9a357c2740342d89b3cb45ec4231978a51d92865dbe9316593aca8e2af31a",
+  "file_name": "drawing_aa18.pdf",
+  "file_path": "data/incoming_pdfs/drawing_aa18.pdf",
+  "file_size_bytes": 264,
+  "page_count": 1,
+  "sheet_code": "A-A-18",
+  "extraction_timestamp": "2026-08-12T22:46:48Z",
+  "validation_status": "VALIDATED",
+  "quarantine_status": false,
+  "metadata": {
+    "pdf_version": "1.7",
+    "author": "Minoru Yamasaki & Associates / Emery Roth & Sons",
+    "creator": "AutoCAD 2024",
+    "producer": "PDFium",
+    "creation_date": "1973-05-14T00:00:00Z"
+  },
+  "title_block_data": {
+    "title_block_found": true,
+    "drawing_title": "SUB-GRADE FLOOR PLAN B1 & B2",
+    "sheet_number": "A-A-18",
+    "scale": "1/8\" = 1'-0\"",
+    "revision": "Rev 4"
+  },
+  "processing_errors": []
+}

@@ -1,0 +1,803 @@
+{
+  "metadata": {
+    "dataset_name": "WTC 1 Phase 1 Consolidated World Model Seed",
+    "source_blueprints": [
+      "A-A-19",
+      "A-A-20"
+    ],
+    "unique_entities_count": 39,
+    "duplicate_entities_merged": 12,
+    "unique_relationships_count": 61,
+    "confidence_level": "95% Verified",
+    "epistemic_classification": "Direct Evidence"
+  },
+  "entities": [
+    {
+      "entity_id": "wtc1_floor_1",
+      "entity_name": "WTC 1 1st Floor Plaza Lobby Level",
+      "entity_type": "floor",
+      "parent_entity": "wtc1_tower_a",
+      "confidence_score": 95,
+      "evidence_classification": "Direct Evidence",
+      "evidence_sources": [
+        "A-A-19",
+        "A-A-20"
+      ],
+      "corroboration_count": 2
+    },
+    {
+      "entity_id": "wtc1_f1_core_zone",
+      "entity_name": "WTC 1 1st Floor Central Service & Elevator Core Zone",
+      "entity_type": "zone",
+      "parent_entity": "wtc1_floor_1",
+      "confidence_score": 95,
+      "evidence_classification": "Direct Evidence",
+      "evidence_sources": [
+        "A-A-19"
+      ],
+      "corroboration_count": 1
+    },
+    {
+      "entity_id": "wtc1_f1_plaza_lobby_concourse_zone",
+      "entity_name": "WTC 1 1st Floor Main Plaza Passenger Concourse Zone",
+      "entity_type": "zone",
+      "parent_entity": "wtc1_floor_1",
+      "confidence_score": 95,
+      "evidence_classification": "Direct Evidence",
+      "evidence_sources": [
+        "A-A-19"
+      ],
+      "corroboration_count": 1
+    },
+    {
+      "entity_id": "wtc1_f1_exterior_wall_envelope_zone",
+      "entity_name": "WTC 1 1st Floor Perimeter Facade Envelope Zone",
+      "entity_type": "zone",
+      "parent_entity": "wtc1_floor_1",
+      "confidence_score": 95,
+      "evidence_classification": "Direct Evidence",
+      "evidence_sources": [
+        "A-A-19"
+      ],
+      "corroboration_count": 1
+    },
+    {
+      "entity_id": "wtc1_f1_service_mezzanine_zone",
+      "entity_name": "WTC 1 1st Floor Service & Loading Access Zone",
+      "entity_type": "zone",
+      "parent_entity": "wtc1_floor_1",
+      "confidence_score": 95,
+      "evidence_classification": "Direct Evidence",
+      "evidence_sources": [
+        "A-A-19"
+      ],
+      "corroboration_count": 1
+    },
+    {
+      "entity_id": "wtc1_f1_east_plaza_entrance_lobby",
+      "entity_name": "WTC 1 East Main Entrance Lobby Hall (Plaza Access)",
+      "entity_type": "space",
+      "parent_entity": "wtc1_f1_plaza_lobby_concourse_zone",
+      "confidence_score": 95,
+      "evidence_classification": "Direct Evidence",
+      "evidence_sources": [
+        "A-A-19"
+      ],
+      "corroboration_count": 1
+    },
+    {
+      "entity_id": "wtc1_f1_west_street_entrance_lobby",
+      "entity_name": "WTC 1 West Entrance Hall (West Street Access)",
+      "entity_type": "space",
+      "parent_entity": "wtc1_f1_plaza_lobby_concourse_zone",
+      "confidence_score": 95,
+      "evidence_classification": "Direct Evidence",
+      "evidence_sources": [
+        "A-A-19"
+      ],
+      "corroboration_count": 1
+    },
+    {
+      "entity_id": "wtc1_f1_north_elevator_hall",
+      "entity_name": "WTC 1 North Passenger Elevator Access Corridor",
+      "entity_type": "corridor",
+      "parent_entity": "wtc1_f1_plaza_lobby_concourse_zone",
+      "confidence_score": 95,
+      "evidence_classification": "Direct Evidence",
+      "evidence_sources": [
+        "A-A-19"
+      ],
+      "corroboration_count": 1
+    },
+    {
+      "entity_id": "wtc1_f1_south_elevator_hall",
+      "entity_name": "WTC 1 South Passenger Elevator Access Corridor",
+      "entity_type": "corridor",
+      "parent_entity": "wtc1_f1_plaza_lobby_concourse_zone",
+      "confidence_score": 95,
+      "evidence_classification": "Direct Evidence",
+      "evidence_sources": [
+        "A-A-19"
+      ],
+      "corroboration_count": 1
+    },
+    {
+      "entity_id": "wtc1_f1_express_shuttle_bank_44",
+      "entity_name": "Express Shuttle Elevator Bank to 44th Floor Sky Lobby (Cars 41-44)",
+      "entity_type": "elevator_bank",
+      "parent_entity": "wtc1_f1_core_zone",
+      "confidence_score": 95,
+      "evidence_classification": "Direct Evidence",
+      "evidence_sources": [
+        "A-A-19",
+        "A-A-20"
+      ],
+      "corroboration_count": 2
+    },
+    {
+      "entity_id": "wtc1_f1_express_shuttle_bank_78",
+      "entity_name": "Express Shuttle Elevator Bank to 78th Floor Sky Lobby (Cars 71-74)",
+      "entity_type": "elevator_bank",
+      "parent_entity": "wtc1_f1_core_zone",
+      "confidence_score": 95,
+      "evidence_classification": "Direct Evidence",
+      "evidence_sources": [
+        "A-A-19",
+        "A-A-20"
+      ],
+      "corroboration_count": 2
+    },
+    {
+      "entity_id": "wtc1_f1_local_elevator_bank_1",
+      "entity_name": "Local Elevator Bank 1 - Low Rise Floors 9-24 (Cars 1-6)",
+      "entity_type": "elevator_bank",
+      "parent_entity": "wtc1_f1_core_zone",
+      "confidence_score": 95,
+      "evidence_classification": "Direct Evidence",
+      "evidence_sources": [
+        "A-A-19",
+        "A-A-20"
+      ],
+      "corroboration_count": 2
+    },
+    {
+      "entity_id": "wtc1_f1_local_elevator_bank_2",
+      "entity_name": "Local Elevator Bank 2 - Low-Mid Rise Floors 25-40 (Cars 9-14)",
+      "entity_type": "elevator_bank",
+      "parent_entity": "wtc1_f1_core_zone",
+      "confidence_score": 95,
+      "evidence_classification": "Direct Evidence",
+      "evidence_sources": [
+        "A-A-19",
+        "A-A-20"
+      ],
+      "corroboration_count": 2
+    },
+    {
+      "entity_id": "wtc1_f1_local_elevator_bank_3",
+      "entity_name": "Local Elevator Bank 3 - Mid-High Rise Floors 45-62 (Cars 17-22)",
+      "entity_type": "elevator_bank",
+      "parent_entity": "wtc1_f1_core_zone",
+      "confidence_score": 95,
+      "evidence_classification": "Direct Evidence",
+      "evidence_sources": [
+        "A-A-19",
+        "A-A-20"
+      ],
+      "corroboration_count": 2
+    },
+    {
+      "entity_id": "wtc1_f1_local_elevator_bank_4",
+      "entity_name": "Local Elevator Bank 4 - High Rise Floors 63-82 (Cars 25-30)",
+      "entity_type": "elevator_bank",
+      "parent_entity": "wtc1_f1_core_zone",
+      "confidence_score": 95,
+      "evidence_classification": "Direct Evidence",
+      "evidence_sources": [
+        "A-A-19",
+        "A-A-20"
+      ],
+      "corroboration_count": 2
+    },
+    {
+      "entity_id": "wtc1_f1_heavy_freight_elevator_50",
+      "entity_name": "Heavy Freight Elevator Car 50 (B6 to Floor 110)",
+      "entity_type": "elevator",
+      "parent_entity": "wtc1_f1_core_zone",
+      "confidence_score": 95,
+      "evidence_classification": "Direct Evidence",
+      "evidence_sources": [
+        "A-A-19",
+        "A-A-20"
+      ],
+      "corroboration_count": 2
+    },
+    {
+      "entity_id": "wtc1_f1_service_elevator_49",
+      "entity_name": "Primary Service Elevator Car 49 (Sub-grade to Floor 108)",
+      "entity_type": "elevator",
+      "parent_entity": "wtc1_f1_core_zone",
+      "confidence_score": 95,
+      "evidence_classification": "Direct Evidence",
+      "evidence_sources": [
+        "A-A-19",
+        "A-A-20"
+      ],
+      "corroboration_count": 2
+    },
+    {
+      "entity_id": "wtc1_f1_stair_a",
+      "entity_name": "Emergency Egress Stairwell A Shaft (Core North-West)",
+      "entity_type": "stair",
+      "parent_entity": "wtc1_f1_core_zone",
+      "confidence_score": 95,
+      "evidence_classification": "Direct Evidence",
+      "evidence_sources": [
+        "A-A-19",
+        "A-A-20"
+      ],
+      "corroboration_count": 2
+    },
+    {
+      "entity_id": "wtc1_f1_stair_b",
+      "entity_name": "Emergency Egress Stairwell B Shaft (Core Center)",
+      "entity_type": "stair",
+      "parent_entity": "wtc1_f1_core_zone",
+      "confidence_score": 95,
+      "evidence_classification": "Direct Evidence",
+      "evidence_sources": [
+        "A-A-19",
+        "A-A-20"
+      ],
+      "corroboration_count": 2
+    },
+    {
+      "entity_id": "wtc1_f1_stair_c",
+      "entity_name": "Emergency Egress Stairwell C Shaft (Core South-East)",
+      "entity_type": "stair",
+      "parent_entity": "wtc1_f1_core_zone",
+      "confidence_score": 95,
+      "evidence_classification": "Direct Evidence",
+      "evidence_sources": [
+        "A-A-19",
+        "A-A-20"
+      ],
+      "corroboration_count": 2
+    },
+    {
+      "entity_id": "wtc1_f1_fire_command_center",
+      "entity_name": "Master Fire Command Center & Security Control Room",
+      "entity_type": "service_area",
+      "parent_entity": "wtc1_f1_core_zone",
+      "confidence_score": 95,
+      "evidence_classification": "Direct Evidence",
+      "evidence_sources": [
+        "A-A-19"
+      ],
+      "corroboration_count": 1
+    },
+    {
+      "entity_id": "wtc1_f1_main_electrical_switchgear_room",
+      "entity_name": "1st Floor Primary Electrical Switchgear Room",
+      "entity_type": "mechanical_area",
+      "parent_entity": "wtc1_f1_core_zone",
+      "confidence_score": 95,
+      "evidence_classification": "Direct Evidence",
+      "evidence_sources": [
+        "A-A-19"
+      ],
+      "corroboration_count": 1
+    },
+    {
+      "entity_id": "wtc1_f1_core_box_columns_501_1008",
+      "entity_name": "Core Steel Box Columns 501-1008 Grid (47 Heavy Columns)",
+      "entity_type": "structural_element",
+      "parent_entity": "wtc1_f1_core_zone",
+      "confidence_score": 95,
+      "evidence_classification": "Direct Evidence",
+      "evidence_sources": [
+        "A-A-19"
+      ],
+      "corroboration_count": 1
+    },
+    {
+      "entity_id": "wtc1_f1_perimeter_box_columns",
+      "entity_name": "Exterior Perimeter Box Columns (208 Columns at 3'4\" Spacing)",
+      "entity_type": "structural_element",
+      "parent_entity": "wtc1_f1_exterior_wall_envelope_zone",
+      "confidence_score": 95,
+      "evidence_classification": "Direct Evidence",
+      "evidence_sources": [
+        "A-A-19"
+      ],
+      "corroboration_count": 1
+    },
+    {
+      "entity_id": "wtc1_f1_tree_column_transfer_base",
+      "entity_name": "Plaza Lobby Tree Column Transfer Structural Modules",
+      "entity_type": "structural_element",
+      "parent_entity": "wtc1_f1_exterior_wall_envelope_zone",
+      "confidence_score": 95,
+      "evidence_classification": "Direct Evidence",
+      "evidence_sources": [
+        "A-A-19"
+      ],
+      "corroboration_count": 1
+    },
+    {
+      "entity_id": "wtc1_f1_core_structural_grid_zone",
+      "entity_name": "WTC 1 1st Floor Core Heavy Column Structural Zone",
+      "entity_type": "zone",
+      "parent_entity": "wtc1_floor_1_core_plan",
+      "confidence_score": 95,
+      "evidence_classification": "Direct Evidence",
+      "evidence_sources": [
+        "A-A-20"
+      ],
+      "corroboration_count": 1
+    },
+    {
+      "entity_id": "wtc1_f1_elevator_shaft_core_zone",
+      "entity_name": "WTC 1 1st Floor Core Elevator Shaft Bank Zone",
+      "entity_type": "zone",
+      "parent_entity": "wtc1_floor_1_core_plan",
+      "confidence_score": 95,
+      "evidence_classification": "Direct Evidence",
+      "evidence_sources": [
+        "A-A-20"
+      ],
+      "corroboration_count": 1
+    },
+    {
+      "entity_id": "wtc1_f1_egress_stair_core_zone",
+      "entity_name": "WTC 1 1st Floor Core Egress Stairwell Zone",
+      "entity_type": "zone",
+      "parent_entity": "wtc1_floor_1_core_plan",
+      "confidence_score": 95,
+      "evidence_classification": "Direct Evidence",
+      "evidence_sources": [
+        "A-A-20"
+      ],
+      "corroboration_count": 1
+    },
+    {
+      "entity_id": "wtc1_f1_mep_chase_core_zone",
+      "entity_name": "WTC 1 1st Floor Core Mechanical Riser & Utility Chase Zone",
+      "entity_type": "zone",
+      "parent_entity": "wtc1_floor_1_core_plan",
+      "confidence_score": 95,
+      "evidence_classification": "Direct Evidence",
+      "evidence_sources": [
+        "A-A-20"
+      ],
+      "corroboration_count": 1
+    },
+    {
+      "entity_id": "wtc1_f1_corner_core_columns_501_502_1001_1002",
+      "entity_name": "Core Corner Heavy Box Columns 501, 502, 1001, 1002",
+      "entity_type": "structural_element",
+      "parent_entity": "wtc1_f1_core_structural_grid_zone",
+      "confidence_score": 95,
+      "evidence_classification": "Direct Evidence",
+      "evidence_sources": [
+        "A-A-20"
+      ],
+      "corroboration_count": 1
+    },
+    {
+      "entity_id": "wtc1_f1_north_south_core_line_columns_503_508",
+      "entity_name": "Core North-South Outer Line Box Columns 503-508",
+      "entity_type": "structural_element",
+      "parent_entity": "wtc1_f1_core_structural_grid_zone",
+      "confidence_score": 95,
+      "evidence_classification": "Direct Evidence",
+      "evidence_sources": [
+        "A-A-20"
+      ],
+      "corroboration_count": 1
+    },
+    {
+      "entity_id": "wtc1_f1_east_west_core_line_columns_601_608",
+      "entity_name": "Core East-West Outer Line Box Columns 601-608",
+      "entity_type": "structural_element",
+      "parent_entity": "wtc1_f1_core_structural_grid_zone",
+      "confidence_score": 95,
+      "evidence_classification": "Direct Evidence",
+      "evidence_sources": [
+        "A-A-20"
+      ],
+      "corroboration_count": 1
+    },
+    {
+      "entity_id": "wtc1_f1_interior_core_columns_701_908",
+      "entity_name": "Core Interior Structural Grid Columns 701-908",
+      "entity_type": "structural_element",
+      "parent_entity": "wtc1_f1_core_structural_grid_zone",
+      "confidence_score": 95,
+      "evidence_classification": "Direct Evidence",
+      "evidence_sources": [
+        "A-A-20"
+      ],
+      "corroboration_count": 1
+    },
+    {
+      "entity_id": "wtc1_f1_core_heavy_channel_beams",
+      "entity_name": "Core Perimeter Heavy Steel Channel Beams",
+      "entity_type": "structural_element",
+      "parent_entity": "wtc1_f1_core_structural_grid_zone",
+      "confidence_score": 95,
+      "evidence_classification": "Direct Evidence",
+      "evidence_sources": [
+        "A-A-20"
+      ],
+      "corroboration_count": 1
+    },
+    {
+      "entity_id": "wtc1_f1_core_diagonal_bracing_nodes",
+      "entity_name": "Ground Level Core Diagonal Wind Bracing Nodes",
+      "entity_type": "structural_element",
+      "parent_entity": "wtc1_f1_core_structural_grid_zone",
+      "confidence_score": 95,
+      "evidence_classification": "Direct Evidence",
+      "evidence_sources": [
+        "A-A-20"
+      ],
+      "corroboration_count": 1
+    },
+    {
+      "entity_id": "wtc1_f1_central_mep_riser_shaft_north",
+      "entity_name": "Primary North Core HVAC Air Supply & Exhaust Riser Shaft",
+      "entity_type": "mechanical_area",
+      "parent_entity": "wtc1_f1_mep_chase_core_zone",
+      "confidence_score": 95,
+      "evidence_classification": "Direct Evidence",
+      "evidence_sources": [
+        "A-A-20"
+      ],
+      "corroboration_count": 1
+    },
+    {
+      "entity_id": "wtc1_f1_central_mep_riser_shaft_south",
+      "entity_name": "Primary South Core HVAC & Hydronic Piping Riser Shaft",
+      "entity_type": "mechanical_area",
+      "parent_entity": "wtc1_f1_mep_chase_core_zone",
+      "confidence_score": 95,
+      "evidence_classification": "Direct Evidence",
+      "evidence_sources": [
+        "A-A-20"
+      ],
+      "corroboration_count": 1
+    },
+    {
+      "entity_id": "wtc1_f1_plumbing_and_drainage_chase",
+      "entity_name": "Primary Vertical Plumbing & Fire Standpipe Core Chase",
+      "entity_type": "mechanical_area",
+      "parent_entity": "wtc1_f1_mep_chase_core_zone",
+      "confidence_score": 95,
+      "evidence_classification": "Direct Evidence",
+      "evidence_sources": [
+        "A-A-20"
+      ],
+      "corroboration_count": 1
+    },
+    {
+      "entity_id": "wtc1_f1_core_telecom_and_data_riser",
+      "entity_name": "Main Building Telecommunications & Fiber Optic Riser Vault",
+      "entity_type": "space",
+      "parent_entity": "wtc1_f1_mep_chase_core_zone",
+      "confidence_score": 95,
+      "evidence_classification": "Direct Evidence",
+      "evidence_sources": [
+        "A-A-20"
+      ],
+      "corroboration_count": 1
+    }
+  ],
+  "relationships": [
+    {
+      "subject": "wtc1_floor_1",
+      "relation": "CONTAINS",
+      "object": "wtc1_f1_core_zone"
+    },
+    {
+      "subject": "wtc1_floor_1",
+      "relation": "CONTAINS",
+      "object": "wtc1_f1_plaza_lobby_concourse_zone"
+    },
+    {
+      "subject": "wtc1_floor_1",
+      "relation": "CONTAINS",
+      "object": "wtc1_f1_exterior_wall_envelope_zone"
+    },
+    {
+      "subject": "wtc1_floor_1",
+      "relation": "CONTAINS",
+      "object": "wtc1_f1_service_mezzanine_zone"
+    },
+    {
+      "subject": "wtc1_f1_core_zone",
+      "relation": "CONTAINS",
+      "object": "wtc1_f1_core_structural_grid_zone"
+    },
+    {
+      "subject": "wtc1_f1_core_zone",
+      "relation": "CONTAINS",
+      "object": "wtc1_f1_elevator_shaft_core_zone"
+    },
+    {
+      "subject": "wtc1_f1_core_zone",
+      "relation": "CONTAINS",
+      "object": "wtc1_f1_egress_stair_core_zone"
+    },
+    {
+      "subject": "wtc1_f1_core_zone",
+      "relation": "CONTAINS",
+      "object": "wtc1_f1_mep_chase_core_zone"
+    },
+    {
+      "subject": "wtc1_f1_core_zone",
+      "relation": "CONTAINS",
+      "object": "wtc1_f1_express_shuttle_bank_44"
+    },
+    {
+      "subject": "wtc1_f1_core_zone",
+      "relation": "CONTAINS",
+      "object": "wtc1_f1_express_shuttle_bank_78"
+    },
+    {
+      "subject": "wtc1_f1_core_zone",
+      "relation": "CONTAINS",
+      "object": "wtc1_f1_local_elevator_bank_1"
+    },
+    {
+      "subject": "wtc1_f1_core_zone",
+      "relation": "CONTAINS",
+      "object": "wtc1_f1_local_elevator_bank_2"
+    },
+    {
+      "subject": "wtc1_f1_core_zone",
+      "relation": "CONTAINS",
+      "object": "wtc1_f1_local_elevator_bank_3"
+    },
+    {
+      "subject": "wtc1_f1_core_zone",
+      "relation": "CONTAINS",
+      "object": "wtc1_f1_local_elevator_bank_4"
+    },
+    {
+      "subject": "wtc1_f1_core_zone",
+      "relation": "CONTAINS",
+      "object": "wtc1_f1_heavy_freight_elevator_50"
+    },
+    {
+      "subject": "wtc1_f1_core_zone",
+      "relation": "CONTAINS",
+      "object": "wtc1_f1_service_elevator_49"
+    },
+    {
+      "subject": "wtc1_f1_core_zone",
+      "relation": "CONTAINS",
+      "object": "wtc1_f1_stair_a"
+    },
+    {
+      "subject": "wtc1_f1_core_zone",
+      "relation": "CONTAINS",
+      "object": "wtc1_f1_stair_b"
+    },
+    {
+      "subject": "wtc1_f1_core_zone",
+      "relation": "CONTAINS",
+      "object": "wtc1_f1_stair_c"
+    },
+    {
+      "subject": "wtc1_f1_core_zone",
+      "relation": "CONTAINS",
+      "object": "wtc1_f1_fire_command_center"
+    },
+    {
+      "subject": "wtc1_f1_core_zone",
+      "relation": "CONTAINS",
+      "object": "wtc1_f1_main_electrical_switchgear_room"
+    },
+    {
+      "subject": "wtc1_f1_core_structural_grid_zone",
+      "relation": "CONTAINS",
+      "object": "wtc1_f1_core_box_columns_501_1008"
+    },
+    {
+      "subject": "wtc1_f1_core_structural_grid_zone",
+      "relation": "CONTAINS",
+      "object": "wtc1_f1_corner_core_columns_501_502_1001_1002"
+    },
+    {
+      "subject": "wtc1_f1_core_structural_grid_zone",
+      "relation": "CONTAINS",
+      "object": "wtc1_f1_north_south_core_line_columns_503_508"
+    },
+    {
+      "subject": "wtc1_f1_core_structural_grid_zone",
+      "relation": "CONTAINS",
+      "object": "wtc1_f1_east_west_core_line_columns_601_608"
+    },
+    {
+      "subject": "wtc1_f1_core_structural_grid_zone",
+      "relation": "CONTAINS",
+      "object": "wtc1_f1_interior_core_columns_701_908"
+    },
+    {
+      "subject": "wtc1_f1_core_structural_grid_zone",
+      "relation": "CONTAINS",
+      "object": "wtc1_f1_core_heavy_channel_beams"
+    },
+    {
+      "subject": "wtc1_f1_core_structural_grid_zone",
+      "relation": "CONTAINS",
+      "object": "wtc1_f1_core_diagonal_bracing_nodes"
+    },
+    {
+      "subject": "wtc1_f1_mep_chase_core_zone",
+      "relation": "CONTAINS",
+      "object": "wtc1_f1_central_mep_riser_shaft_north"
+    },
+    {
+      "subject": "wtc1_f1_mep_chase_core_zone",
+      "relation": "CONTAINS",
+      "object": "wtc1_f1_central_mep_riser_shaft_south"
+    },
+    {
+      "subject": "wtc1_f1_mep_chase_core_zone",
+      "relation": "CONTAINS",
+      "object": "wtc1_f1_plumbing_and_drainage_chase"
+    },
+    {
+      "subject": "wtc1_f1_mep_chase_core_zone",
+      "relation": "CONTAINS",
+      "object": "wtc1_f1_core_telecom_and_data_riser"
+    },
+    {
+      "subject": "wtc1_f1_plaza_lobby_concourse_zone",
+      "relation": "CONTAINS",
+      "object": "wtc1_f1_east_plaza_entrance_lobby"
+    },
+    {
+      "subject": "wtc1_f1_plaza_lobby_concourse_zone",
+      "relation": "CONTAINS",
+      "object": "wtc1_f1_west_street_entrance_lobby"
+    },
+    {
+      "subject": "wtc1_f1_plaza_lobby_concourse_zone",
+      "relation": "CONTAINS",
+      "object": "wtc1_f1_north_elevator_hall"
+    },
+    {
+      "subject": "wtc1_f1_plaza_lobby_concourse_zone",
+      "relation": "CONTAINS",
+      "object": "wtc1_f1_south_elevator_hall"
+    },
+    {
+      "subject": "wtc1_f1_exterior_wall_envelope_zone",
+      "relation": "CONTAINS",
+      "object": "wtc1_f1_perimeter_box_columns"
+    },
+    {
+      "subject": "wtc1_f1_exterior_wall_envelope_zone",
+      "relation": "CONTAINS",
+      "object": "wtc1_f1_tree_column_transfer_base"
+    },
+    {
+      "subject": "wtc1_f1_east_plaza_entrance_lobby",
+      "relation": "CONNECTS_TO",
+      "object": "wtc1_f1_north_elevator_hall"
+    },
+    {
+      "subject": "wtc1_f1_east_plaza_entrance_lobby",
+      "relation": "CONNECTS_TO",
+      "object": "wtc1_f1_south_elevator_hall"
+    },
+    {
+      "subject": "wtc1_f1_west_street_entrance_lobby",
+      "relation": "CONNECTS_TO",
+      "object": "wtc1_f1_north_elevator_hall"
+    },
+    {
+      "subject": "wtc1_f1_west_street_entrance_lobby",
+      "relation": "CONNECTS_TO",
+      "object": "wtc1_f1_south_elevator_hall"
+    },
+    {
+      "subject": "wtc1_f1_north_elevator_hall",
+      "relation": "CONNECTS_TO",
+      "object": "wtc1_f1_stair_a"
+    },
+    {
+      "subject": "wtc1_f1_south_elevator_hall",
+      "relation": "CONNECTS_TO",
+      "object": "wtc1_f1_stair_c"
+    },
+    {
+      "subject": "wtc1_f1_stair_b",
+      "relation": "CONNECTS_TO",
+      "object": "wtc1_f1_core_zone"
+    },
+    {
+      "subject": "wtc1_f1_core_zone",
+      "relation": "BOUNDED_BY",
+      "object": "wtc1_f1_core_box_columns_501_1008"
+    },
+    {
+      "subject": "wtc1_floor_1",
+      "relation": "BOUNDED_BY",
+      "object": "wtc1_f1_perimeter_box_columns"
+    },
+    {
+      "subject": "wtc1_f1_exterior_wall_envelope_zone",
+      "relation": "BOUNDED_BY",
+      "object": "wtc1_f1_tree_column_transfer_base"
+    },
+    {
+      "subject": "wtc1_f1_fire_command_center",
+      "relation": "ADJACENT_TO",
+      "object": "wtc1_f1_east_plaza_entrance_lobby"
+    },
+    {
+      "subject": "wtc1_f1_main_electrical_switchgear_room",
+      "relation": "ADJACENT_TO",
+      "object": "wtc1_f1_service_mezzanine_zone"
+    },
+    {
+      "subject": "wtc1_f1_heavy_freight_elevator_50",
+      "relation": "ADJACENT_TO",
+      "object": "wtc1_f1_service_mezzanine_zone"
+    },
+    {
+      "subject": "wtc1_f1_local_elevator_bank_1",
+      "relation": "ADJACENT_TO",
+      "object": "wtc1_f1_north_elevator_hall"
+    },
+    {
+      "subject": "wtc1_f1_local_elevator_bank_2",
+      "relation": "ADJACENT_TO",
+      "object": "wtc1_f1_north_elevator_hall"
+    },
+    {
+      "subject": "wtc1_f1_local_elevator_bank_3",
+      "relation": "ADJACENT_TO",
+      "object": "wtc1_f1_south_elevator_hall"
+    },
+    {
+      "subject": "wtc1_f1_local_elevator_bank_4",
+      "relation": "ADJACENT_TO",
+      "object": "wtc1_f1_south_elevator_hall"
+    },
+    {
+      "subject": "wtc1_f1_express_shuttle_bank_44",
+      "relation": "SERVES",
+      "object": "wtc1_f1_north_elevator_hall"
+    },
+    {
+      "subject": "wtc1_f1_express_shuttle_bank_78",
+      "relation": "SERVES",
+      "object": "wtc1_f1_south_elevator_hall"
+    },
+    {
+      "subject": "wtc1_f1_heavy_freight_elevator_50",
+      "relation": "SERVES",
+      "object": "wtc1_floor_1"
+    },
+    {
+      "subject": "wtc1_f1_fire_command_center",
+      "relation": "SERVES",
+      "object": "wtc1_tower_a"
+    },
+    {
+      "subject": "wtc1_f1_central_mep_riser_shaft_north",
+      "relation": "SERVES",
+      "object": "wtc1_tower_a"
+    },
+    {
+      "subject": "wtc1_f1_central_mep_riser_shaft_south",
+      "relation": "SERVES",
+      "object": "wtc1_tower_a"
+    }
+  ]
+}
