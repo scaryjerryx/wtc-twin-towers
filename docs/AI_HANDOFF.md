@@ -97,7 +97,7 @@ The reconstruction is not a single static model. It is a **living reconstruction
 | CG-2 | Architectural Floor Plans | ✅ Phase 1 Complete — A-A-18, 19, 20, 31, 121, 130, 145 extractions complete (144 WTC 1 entities verified, 82 master relationships) |
 | CG-3 | Site Plan & Plaza | ❌ Open |
 | CG-4 | Tower A Upper Wall Schedules | ✅ Closed — AB2/AB3 XLS covers floors 107-110 |
-| Operational | PostgreSQL DB Ingestion | 🔄 Phase 2 Active — Seed JSON files written & validated; PostgreSQL PostGIS DDL schema design in preparation under `WORLD_MODEL_SPECIFICATION_V1.md` |
+| Operational | PostgreSQL DB Ingestion & Reconstruction Engine | ✅ Phase 5 Active — PostGIS 3.6.4 schema (`wtc_evidence`) active; ADR-006 & ADR-006A adopted; Gemini established as PRIMARY RECONSTRUCTION ENGINE; Sessions 001–003 & World Model Consolidation 001 complete. |
 
 ### Key Session Handoff Documents (August 12, 2026 Milestone)
 

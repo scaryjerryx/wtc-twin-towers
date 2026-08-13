@@ -94,24 +94,21 @@ The project tracks reconstruction readiness across 9 areas of the WTC complex:
 
 ## Current Status
 
-### Phase 1 — World Model Construction Phase ✅ COMPLETE
+### Phase 5 — Gemini Architectural Reconstruction Engine 🚀 ACTIVE
 
-All Phase 1 blueprint extractions (`A-A-18`, `A-A-19`, `A-A-20`, `A-A-31`, `A-A-121`, `A-A-130`, `A-A-145`) and seed consolidations are complete. The Minimum Viable World Model (MVWM) target has been passed (**164 verified unique entities & 82 master relationships** cataloged across 6 vertical anchor elevations).
+Active phase focusing on Gemini multi-modal architectural analysis as the **PRIMARY RECONSTRUCTION ENGINE** (ADR-006), supported by PostGIS 3.6.4 spatial deduplication (`wtc_evidence`) and evidence-quality confidence scoring (ADR-006A). Real reconstruction sessions 001–003, corroboration review 001, and world model consolidation 001 have established a validated World Model baseline.
 
-- **Approved Spatial Hierarchy:** Streamlined **6-Tier Spatial Containment Hierarchy** (`Site` ──► `Building` ──► `Floor` ──► `Zone` ──► `Space` ──► `Element`).
-- **Approved Specifications:** [`docs/WORLD_MODEL_SPECIFICATION_V1.md`](file:///opt/wtc/wtc-twin-towers/docs/WORLD_MODEL_SPECIFICATION_V1.md) and [`docs/WORLD_MODEL_GOVERNANCE_AND_LIFECYCLE_RULES.md`](file:///opt/wtc/wtc-twin-towers/docs/WORLD_MODEL_GOVERNANCE_AND_LIFECYCLE_RULES.md).
-
-### Phase 2 — Database Design Preparation 🔄 OPEN
-
-Active phase focusing on spatial geometry specs, PostGIS 3D coordinate standards, relational graph Specs, and automated Python seed data validation test suites prior to PostgreSQL DDL schema implementation.
+- **Authoritative Architecture Records:** [`docs/ADR-006_GEMINI_PRIMARY_RECONSTRUCTION_ENGINE.md`](file:///opt/wtc/wtc-twin-towers/docs/ADR-006_GEMINI_PRIMARY_RECONSTRUCTION_ENGINE.md) and [`docs/ADR-006A_CONFIDENCE_ASSESSMENT_REALIGNMENT.md`](file:///opt/wtc/wtc-twin-towers/docs/ADR-006A_CONFIDENCE_ASSESSMENT_REALIGNMENT.md).
+- **Approved Reconstruction Specs:** [`docs/PHASE_5_GEMINI_RECONSTRUCTION_ARCHITECTURE.md`](file:///opt/wtc/wtc-twin-towers/docs/PHASE_5_GEMINI_RECONSTRUCTION_ARCHITECTURE.md) and [`docs/GEMINI_RECONSTRUCTION_OUTPUT_SPECIFICATION.md`](file:///opt/wtc/wtc-twin-towers/docs/GEMINI_RECONSTRUCTION_OUTPUT_SPECIFICATION.md).
+- **Consolidated Baseline:** [`docs/PHASE_5_WORLD_MODEL_CONSOLIDATION_001.md`](file:///opt/wtc/wtc-twin-towers/docs/PHASE_5_WORLD_MODEL_CONSOLIDATION_001.md) (1 VALIDATED Entity, 2 CORROBORATED Entities, 3 DRAFT_SEED Entities).
 
 ---
 
 ## Status
 
-Current version: **1.0.0-world-model-phase1-complete**
+Current version: **1.0.0-phase5-realigned**
 
-**August 12, 2026 — Strategic Milestone:** Phase 1 World Model Construction is officially **COMPLETE**. 164 verified unique entities and 82 master relationships across 6 vertical anchor elevations (-3.5m to +410.0m) cataloged in `data/*.json`. Project formally transitions to **Phase 2: Database Design Preparation**.
+**August 13, 2026 — Strategic Milestone:** ADR-006 and ADR-006A are formally adopted. Gemini is established as the PRIMARY RECONSTRUCTION ENGINE. OCR and Vector Extraction operate as SUPPORTING EVIDENCE SOURCES. Real Reconstruction Sessions 001–003, Corroboration Review 001, and World Model Consolidation 001 are completed. Project is in active **Phase 5 Production Reconstruction Operations**.
 
 ---
 

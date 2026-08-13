@@ -1,24 +1,25 @@
 # Next Task
 
-## Phase 2 Database Design Preparation — Task 2.1: Spatial Geometry & 3D Coordinate Specification
+## Phase 5 Production Reconstruction Operations — Real Reconstruction Session 004
 
 ### Status
 
-🔄 **In Progress**
+🚀 **Ready For Execution**
 
 ## Objective
 
-Resolve PostGIS spatial geometry and 3D coordinate system standards (Task 2.1 in [`docs/PHASE_2_DATABASE_PREPARATION_ROADMAP.md`](file:///opt/wtc/wtc-twin-towers/docs/PHASE_2_DATABASE_PREPARATION_ROADMAP.md)) based on [`docs/WORLD_MODEL_SPECIFICATION_V1.md`](file:///opt/wtc/wtc-twin-towers/docs/WORLD_MODEL_SPECIFICATION_V1.md).
+Execute **Phase 5 Real Reconstruction Session 004** on target drawing sheet **`S-1`** (Structural Framing Plan - Sub-grade to Floor 78) following the 15-step Session Methodology ([`docs/PHASE_5_GEMINI_RECONSTRUCTION_SESSION_METHODOLOGY.md`](file:///opt/wtc/wtc-twin-towers/docs/PHASE_5_GEMINI_RECONSTRUCTION_SESSION_METHODOLOGY.md)) and ADR-006 / ADR-006A standards.
 
-Specifically, evaluate:
-- Native PostGIS 3D spatial volumes (`GEOMETRY(POLYGONZ)`) vs 2D plan footprints (`GEOMETRY(POLYGON)`) paired with numeric elevation bounds (`z_min`, `z_max`).
-- Alignment with Port Authority zero-datum elevation (+310.0 ft PA).
+Target Goals for Session 004:
+- Target multi-sheet corroboration for `wtc1_structural_col_502` to promote from `DRAFT_SEED` ──► `CORROBORATED`.
+- Discover and catalog perimeter column tree assemblies and structural floor framing trusses.
+- Perform evidence attribution, composite confidence scoring, and PostGIS spatial validation.
 
 The authoritative specifications and roadmap documents are:
-- `docs/WORLD_MODEL_SPECIFICATION_V1.md`
-- `docs/WORLD_MODEL_GOVERNANCE_AND_LIFECYCLE_RULES.md`
-- `docs/PHASE_2_DATABASE_PREPARATION_ROADMAP.md`
-- `docs/PHASE_1_WORLD_MODEL_COMPLETION.md`
+- [`docs/ADR-006_GEMINI_PRIMARY_RECONSTRUCTION_ENGINE.md`](file:///opt/wtc/wtc-twin-towers/docs/ADR-006_GEMINI_PRIMARY_RECONSTRUCTION_ENGINE.md)
+- [`docs/ADR-006A_CONFIDENCE_ASSESSMENT_REALIGNMENT.md`](file:///opt/wtc/wtc-twin-towers/docs/ADR-006A_CONFIDENCE_ASSESSMENT_REALIGNMENT.md)
+- [`docs/PHASE_5_GEMINI_RECONSTRUCTION_ARCHITECTURE.md`](file:///opt/wtc/wtc-twin-towers/docs/PHASE_5_GEMINI_RECONSTRUCTION_ARCHITECTURE.md)
+- [`docs/PHASE_5_WORLD_MODEL_CONSOLIDATION_001.md`](file:///opt/wtc/wtc-twin-towers/docs/PHASE_5_WORLD_MODEL_CONSOLIDATION_001.md)
 
 ## Current Reconstruction Readiness: ~75% (Direct-Evidence Verified Baseline)
 
