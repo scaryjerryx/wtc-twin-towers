@@ -1,220 +1,164 @@
-# World Trade Center: Interactive Historical Reconstruction (1966–2001)
+# World Trade Center: The Living Historical Reconstruction (1966–2001)
 
 [![Release](https://img.shields.io/badge/Release-v1.0.0--authoritative-blue.svg?style=for-the-badge&logo=github)](https://github.com/scaryjerryx/wtc-twin-towers/releases/tag/v1.0.0-authoritative)
-[![Timeline](https://img.shields.io/badge/Historical%20Scope-1966--2001-amber.svg?style=for-the-badge)](docs/HISTORICAL_TIMELINE_EXPERIENCE.md)
-[![Exhibition](https://img.shields.io/badge/Exhibition-Open--World%20Reconstruction-purple.svg?style=for-the-badge)](docs/PROJECT_VISION_2026.md)
-[![Evidence](https://img.shields.io/badge/Evidence-100%25%20Verified%20Archive-brightgreen.svg?style=for-the-badge)](docs/PHASE_5_AUTHORITATIVE_VERIFICATION_PROGRAM_001.md)
+[![Experience](https://img.shields.io/badge/Experience-1966--2001%20Time%20Travel-amber.svg?style=for-the-badge)](docs/HISTORICAL_TIMELINE_EXPERIENCE.md)
+[![Reconstruction](https://img.shields.io/badge/Reconstruction-Authoritative%20Spatial%20Twin-purple.svg?style=for-the-badge)](docs/PROJECT_VISION_2026.md)
+[![Evidence](https://img.shields.io/badge/Archive-100%25%20Verified%20Blueprints-brightgreen.svg?style=for-the-badge)](docs/PHASE_5_AUTHORITATIVE_VERIFICATION_PROGRAM_001.md)
 
-> **Step back in time to explore the World Trade Center Complex as it was built, evolved, and operated from 1966 to 2001.**  
-> An evidence-based, interactive historical reconstruction platform enabling open-world spatial exploration and day-by-day temporal navigation across 35 years of architectural, engineering, and civic history.
+> **Step onto the site. Experience the construction. Walk the complex as it evolved through time.**  
+> An open-world historical reconstruction platform that lets you explore the World Trade Center Complex day-by-day from initial groundbreaking in 1966 through its complete 35-year lifespan up to September 2001.
 
 ---
 <img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/ed42cb83-efa5-42d8-acdc-837c197ce063" />
 
-## 🏛 Vision Statement
+## 🚶 Experiencing the World Trade Center Across Time
 
-The World Trade Center was more than two 110-story towers; it was a 16-acre urban metropolis, an engineering marvel, and a living civic space that defined New York City for three decades.
+Imagine walking through the 16-acre site at any moment in its history:
 
-This project is an open-world historical reconstruction created to preserve and explore the complete World Trade Center Complex across time. By synthesizing thousands of Port Authority architectural drawings, structural blueprints, historical photographs, and engineering archives, this platform allows visitors to walk through the complex at any moment in its 35-year lifespan—from the initial slurry wall excavation in 1966 to the vibrant 16-acre complex of September 2001.
+- **August 1966:** Stand inside the 3,100-foot concrete slurry wall "bathtub" on Radio Row as excavators dig down to 70 feet of Manhattan bedrock.
+- **October 1969:** Look up from the plaza as yellow kangaroo cranes hoist massive 50-ton prefabricated perimeter column trees into place on Tower A.
+- **April 1973:** Attend the ribbon-cutting dedication ceremony on the 5-acre Austin J. Tobin Plaza, surrounding Fritz Koenig’s *The Sphere*.
+- **July 1976:** Step into the elevator shuttle to *Windows on the World* on Floor 107, or step out onto the 110th-floor Outdoor Observation Deck.
+- **September 2001:** Walk through the bustling subterranean shopping concourses, transit halls, drawing rooms, and mechanical heart of the fully operational complex.
 
----
-
-## ⏳ Explore Through Space and Time
-
-The platform unlocks the World Trade Center along two interconnected axes: **Space** and **Time**.
+This project exists to preserve, reconstruct, and experience the World Trade Center built environment—not as static photos or disconnected architectural drawings, but as an explorable, time-traversable physical reality.
 
 ```text
 ========================================================================================
-                      EXPLORING THE WORLD TRADE CENTER COMPLEX                         
+                      THE WORLD TRADE CENTER TEMPORAL EXPERIENCE                        
 ========================================================================================
 
-                 [ TIME: 1966 ────────► 1973 ────────► 1993 ────────► 2001 ]
-                                      │
-  ┌───────────────────────────────────┼───────────────────────────────────┐
-  │                                   │                                   │
-  ▼                                   ▼                                   ▼
-[ THE TOWERS ]               [ PUBLIC REALM ]                   [ SUB-GRADE WORLD ]
- - North Tower (WTC 1)        - 5-Acre Austin J. Tobin Plaza     - 6 Sub-grade Basements
- - South Tower (WTC 2)        - WTC Mall Concourse               - PATH Transit Terminal
- - WTC 3 (Vista Hotel)        - Fountain & Sculpture Plaza       - Sub-grade Truck Docks
- - WTC 4, 5, 6, 7             - Skylobbies (Floors 44 & 78)      - Central Chiller Plant
- - Observatory Deck           - Windows on the World             - Electrical Vaults
+                 [ 1966 ─────────────► 1973 ─────────────► 1993 ─────────────► 2001 ]
+                                           │
+  ┌────────────────────────────────────────┼────────────────────────────────────────┐
+  │                                        │                                        │
+  ▼                                        ▼                                        ▼
+[ WALKING THE SITE ]             [ ENTERING THE SPACES ]          [ EXPLORING INFRASTRUCTURE ]
+ - Groundbreaking & Slurry Wall   - Austin J. Tobin Plaza          - Sub-grade Truck Docks & B1-B6
+ - Foundation & Column Trees      - Mall Concourse & PATH Station  - Central Chiller Plant (Floor 7)
+ - Tower Steel Erection (1-110)   - Floor 44 & 78 Skylobbies       - Master Electrical Switchgears
+ - Topping Out & Glazing          - Windows on the World           - Telephone MDF & Fiber Vaults
 ========================================================================================
 ```
 
 ---
 
-## 📅 The 1966–2001 Timeline
+## 🧭 How You Explore
 
-Experience the complex as a living organism changing day-by-day across 35 years of history:
+Navigation occurs along two seamless axes:
 
-### 1. The Slurry Wall & Excavation Era (1966–1968)
-Stand inside the 3,100-foot concrete "bathtub" slurry wall as 1.2 million cubic yards of Manhattan bedrock are excavated to create the foundation for the complex and Radio Row gives way to the future plaza.
+### 1. Temporal Exploration (Moving Through Time)
+Set your temporal date anywhere between **1966 and 2001**. Watch steel columns rise, floor slabs pour, curtain walls seal, and tenant spaces fit out. Experience how spaces changed post-1973, post-1993, and leading up to September 2001.
 
-### 2. The Structural Steel Erection Era (1968–1971)
-Watch the 47 massive core box columns rise floor-by-floor, see the prefabricated three-column perimeter trees hoisted into place by kangaroo cranes, and observe the topping out of Tower A at Floor 107 in 1970.
-
-### 3. Fitting Out & Initial Occupancy (1971–1975)
-Explore the opening of the PATH train terminal in 1971, the initial tenant moves into the mid-rise floors, the completion of the Austin J. Tobin Plaza, and the official dedication ceremony on April 4, 1973.
-
-### 4. Expansion, Tourism & Civic Life (1976–1992)
-Walk through the opening of *Windows on the World* on Floor 107 in 1976, visit the 110th-floor Outdoor Observatory Deck, explore the Vista International Hotel (WTC 3), and experience daily life for 50,000 workers and 80,000 daily visitors.
-
-### 5. Infrastructure Modernization & The Mature Complex (1993–2001)
-Examine post-1993 security enhancements, sub-grade infrastructure upgrades, state-of-the-art optical fiber telecom networks, emergency operations centers, and the complete integrated complex as it stood on September 10, 2001.
+### 2. Spatial Exploration (Open-World Navigation)
+Walk freely through all 16 acres of the complex:
+- **The Twin Towers:** Explore WTC 1 (North Tower) and WTC 2 (South Tower) floor-by-floor.
+- **The Plaza & Buildings 3–7:** Walk the open-air plaza, WTC 3 (Vista Hotel), and commercial buildings 4, 5, 6, and 7.
+- **The Sub-Grade World:** Descend 6 levels below ground into the PATH train terminal, retail concourses, sub-grade logistics corridors, and MEP utility vaults.
+- **The Drawing Rooms & Technical Spaces:** Step inside the actual Port Authority engineering drawing rooms, inspect active blueprints on drafting tables, and trace physical conduit and piping runs through mechanical shafts.
 
 ---
 
-## 🌐 Open-World Exploration
+## 📐 Historical Reconstruction Methodology
 
-Navigate seamlessly between public cultural landmarks, tenant office spaces, and hidden infrastructure networks:
+Every corridor, column, fixture, and duct is reconstructed directly from authoritative historical archives:
 
-- 🏛 **The Public Realm:** Walk the 5-acre Austin J. Tobin Plaza around Fritz Koenig’s *The Sphere*, browse the shopping concourses, and visit the Floor 107 Observatory Promenade.
-- 🏢 **The Towers & Skylobbies:** Experience the revolutionary elevator system, transferring from high-speed express shuttles to local elevator cabs at the Floor 44 and Floor 78 Skylobbies.
-- ⚙️ **The Hidden Infrastructure:** Descend deep into the 6-level sub-grade basement to inspect the 7-story slurry wall, PATH train platforms, sub-grade truck dock loading berths, Floor 7 central centrifugal chiller plant, master electrical switchgear vaults, and optical fiber MDF rooms.
-
----
-
-## 🔍 Historical Reconstruction Methodology
-
-Every beam, column, riser, duct, and corridor in this reconstruction is built upon authoritative historical evidence:
-
-- 📐 **Port Authority Architectural & Engineering Archives:** Sourced directly from original Port Authority contract drawing series (`S` Structural, `M` Mechanical, `E` Electrical, `P` Plumbing, `A-A` Architectural).
-- 📷 **Photogrammetric & Photographic Alignment:** Cross-referenced with historical construction photography, aerial surveys, and archival documentary footage.
-- 🔬 **Empirical Validation Standard:** 100% of reconstructed entities are corroborated across multiple primary sources to eliminate speculative inference.
-
----
-
-## 📜 Evidence and Verification
+- **Original Port Authority Blueprint Series:** Reconstructed directly from original PANYNJ contract drawings (`S` Structural, `M` Mechanical, `E` Electrical, `P` Plumbing, `A-A` Architectural).
+- **Archival Photography & Film Alignment:** Cross-referenced with historical construction footage, aerial photography, and oral histories.
+- **Zero Speculative Inference:** 100% of physical entities in the spatial model trace directly back to verified primary sources.
 
 ```text
-AUTHORITATIVE EVIDENCE VERIFICATION SCORECARD:
+HISTORICAL EVIDENCE INTEGRITY SCORECARD:
 ┌────────────────────────────────────────┬────────────────────────────────────────┐
-│ Evidence Verification Parameter        │ Verified Historical Result             │
+│ Historical Integrity Metric            │ Verified Reconstruction Value          │
 ├────────────────────────────────────────┼────────────────────────────────────────┤
-│ Validated Complex Entities             │ 185 Entities (100% Verified Evidence)  │
-│ Directed Infrastructure Flow Paths     │ 175 Edges (100% Graph Continuity)      │
-│ Primary Drawing Sheet Citations        │ 100% Linked to Primary PANYNJ Plans    │
-│ Reconstruction Validation Rate         │ 100.0% Validation Rate                 │
-│ Contradiction Count                    │ 0 Contradictions                       │
-├────────────────────────────────────────┼────────────────────────────────────────┤
-│ RECONSTRUCTION CLASSIFICATION          │ 🏆 AUTHORITATIVE HISTORICAL TWIN       │
+│ Reconstructed Physical Entities        │ 185 Entities (100% Verified Evidence)  │
+│ Connected Physical & Utility Paths     │ 175 Edges (100% Spatial Continuity)    │
+│ Primary Drawing Sheet Citations        │ 100% Linked to Original PANYNJ Plans   │
+│ Evidence Verification Rate             │ 100.0% Validation Rate                 │
+│ Spatial / Structural Contradictions    │ 0 Contradictions                       │
 └────────────────────────────────────────┴────────────────────────────────────────┘
 ```
 
 ---
 
-## 🌐 The World Model
+## 🏛 The 16 Reconstructed Subsystem Worlds
 
-The underlying spatial and historical model organizes the complex into **16 interconnected subsystems**:
+The complex is experienced across 16 interconnected physical and operational domains:
 
-1. **Structural Systems:** Core box columns (501–508), perimeter column trees, Floor 107 hat truss, floor trusses, slurry wall.
-2. **Mechanical Systems:** Floor 7 central chiller plant, primary pumps, vertical chilled water risers, AHUs, VAV terminal zones.
-3. **Electrical Systems:** Sub-grade 13.8kV ConEd intake vault, master switchgear, 4000A busduct risers, floor transformer vaults.
-4. **Plumbing Systems:** Sub-grade water booster pumps, penthouse 50,000-gallon water tanks, domestic risers, sanitary ejectors.
-5. **Communications & IT:** Floor 1 MDF vault, optical fiber vertical risers, Floor 41/75 IDF closets, tenant cable tray networks.
-6. **Fire Protection:** Sub-grade fire pump room, vertical standpipe risers, Floor 1 fire command center, sprinkler mains.
-7. **Life Safety:** Floor 108 smoke evacuation fans, pressurized smoke shafts, emergency operations center, skylobby refuge zones.
-8. **Security Systems:** Level B1 SOC command center, visitor screening facilities, truck dock security checkpoints, access control loops.
-9. **Vertical Transportation:** Express shuttles, local elevator banks (1–6), skylobby transfer halls, motor rooms.
-10. **Mass Transit:** Level B5 PATH train platforms, ticket hall, concourse mezzanine, subway pedestrian connectors.
-11. **Pedestrian Circulation:** Austin J. Tobin Plaza, skylobbies, WTC Mall retail concourses, elevator lobbies.
-12. **Means of Egress:** Enclosed core stairways A, B, and C, exit vestibules, skylobby stair landings.
-13. **Observation & Tourism:** Floor 107 enclosed observatory, Floor 110 rooftop promenade, *Windows on the World*.
-14. **Operational Support:** Level B6 sub-grade truck dock berths, freight receiving terminal, maintenance service corridors.
-15. **Facilities Operations:** Level B2 building engineering headquarters, central trades workshops, electrical/plumbing shops.
-16. **Building Automation:** Level B1 master BMS command control center, Floor 41/75 DDC control nodes, energy monitoring stations.
+1. **Structural Systems:** Core box columns (501–508), perimeter column trees, hat trusses, slurry wall.
+2. **Pedestrian Circulation:** Austin J. Tobin Plaza, skylobbies, retail concourses, elevator transfer halls.
+3. **Mass Transit:** Sub-grade PATH train platforms, passenger ticket hall, subway connectors.
+4. **Vertical Transportation:** Express shuttle elevators, local elevator banks, motor rooms.
+5. **Observation & Tourism:** Floor 107 enclosed observatory, Floor 110 rooftop deck, *Windows on the World*.
+6. **Means of Egress:** Enclosed core stairways A, B, and C, exit vestibules, skylobby landings.
+7. **Operational Support:** Sub-grade truck dock berths, freight receiving terminal, logistics corridors.
+8. **Facilities Operations:** Engineering headquarters, central trades workshops, electrical/plumbing shops.
+9. **Mechanical Systems:** Floor 7 central chiller plant, primary pumps, chilled water risers, AHU rooms, diffusers.
+10. **Electrical Systems:** Sub-grade ConEd intake vault, master switchgear, busduct risers, panelboard rooms.
+11. **Plumbing Systems:** Sub-grade booster pumps, penthouse 50,000-gallon water tanks, domestic risers.
+12. **Communications & IT:** Main MDF vault, optical fiber vertical risers, IDF closets, cable trays.
+13. **Fire Protection:** Sub-grade fire pumps, standpipe risers, master fire command center.
+14. **Life Safety:** Floor 108 smoke evacuation fans, pressurized smoke shafts, emergency operations center.
+15. **Security Systems:** SOC command center, visitor screening facilities, dock checkpoints.
+16. **Building Automation:** Master BMS command center, DDC control nodes, energy monitoring stations.
 
 ---
 
-## 💻 Platform Architecture & Technology
+## 🔧 Behind the Scenes: The Underlying Engine
 
-To support real-time time-travel and open-world spatial queries, the platform relies on a modern multi-database digital twin architecture running in containerized microservices:
+*The database, graph queries, APIs, and validation frameworks exist solely to power this historical experience under the hood. They are the engine, not the experience.*
 
 ```mermaid
 graph TD
-    Explorer[Historian / Visitor / Analyst] -->|Temporal Scrubber & Spatial Queries| Gateway[FastAPI REST Gateway :8000]
+    Explorer[Explorer / Historian / Analyst] -->|Time-Travel Scrubber & Spatial Navigation| Gateway[FastAPI REST Gateway :8000]
     
-    subgraph Reconstruction Engine
-        Gateway -->|Spatial Polygons & Subsystem Queries| PG[(PostgreSQL 16 + PostGIS 3.6)]
-        Gateway -->|Multi-Hop Pathfinding & Flow Tracing| NEO[(Neo4j Property Graph v5.15)]
+    subgraph Underlying Reconstruction Engine
+        Gateway -->|Spatial Geometry & Drawing Citations| PG[(PostgreSQL 16 + PostGIS 3.6)]
+        Gateway -->|System Connectivity & Path Tracing| NEO[(Neo4j Property Graph v5.15)]
         
-        PG ---|Drawing Citations & Bounding Boxes| SQL_DATA[wtc_evidence Schema / 9 Tables]
-        NEO ---|Flow Paths & System Topology| GRAPH_DATA[:Entity Nodes & Directed Edges]
-    end
-    
-    subgraph Data Contracts
-        JSON_ENT[data/wtc1_entities.json] -->|185 Entities| Gateway
-        JSON_REL[data/wtc1_relationships.json] -->|175 Edges| Gateway
+        PG ---|Blueprints & Historical Logs| SQL_DATA[wtc_evidence Schema / 9 Tables]
+        NEO ---|Flow Networks & Graph Topology| GRAPH_DATA[:Entity Nodes & Directed Edges]
     end
 ```
 
-- **PostgreSQL 16 + PostGIS 3.6:** Relational storage for drawing citations, spatial geometries (`EPSG:2263`), and historical logs.
-- **Neo4j Graph DB v5.15 + APOC:** Property graph engine executing variable-length pathfinding for power, air, water, and fiber tracing.
-- **FastAPI OpenAPI 3.1 Gateway:** REST API server delivering spatial query endpoints (`/entities`, `/relationships`, `/trace`).
-- **Docker Compose Stack:** Containerized environment launching `wtc1_postgres`, `wtc1_neo4j`, and `wtc1_api_server`.
+- **Spatial & Blueprint Engine (PostgreSQL 16 + PostGIS 3.6):** Stores spatial geometry polygons (`EPSG:2263`), blueprint bounding box citations, and historical logs.
+- **Connectivity Engine (Neo4j v5.15 + APOC):** Traces multi-hop physical paths for power, water, air, and fiber data signals.
+- **REST Gateway (FastAPI Python 3.11):** Exposes spatial endpoints (`/entities`, `/relationships`, `/trace`) for interactive 3D and web viewports.
 
 ---
 
-## 🎬 Example Historical & Infrastructure Experiences
+## 🚀 Experiencing it Yourself
 
-### 1. Tracing Power Flow from Street Intake to Floor 41
-Explore how 13.8kV electrical energy enters sub-grade Level B6 and routes through switchgears and busduct risers up to floor panelboards:
 ```bash
-curl -s "http://localhost:8000/api/v1/trace?start_entity_id=wtc1_fb6_utility_service_entrance_west"
+# Clone the repository
+git clone https://github.com/scaryjerryx/wtc-twin-towers.git
+cd wtc-twin-towers
+
+# Launch the complete temporal twin stack
+docker compose up -d --build
 ```
 
-### 2. Querying Chilled Water Flow to Floor 41 Tenant Spaces
-```cypher
-MATCH path = (chiller:Entity {entity_id: 'wtc1_f7_central_chiller_plant'})-[r*1..6]->(diffuser:Entity)
-RETURN [n in nodes(path) | n.canonical_name] AS FlowPath;
-```
-
-### 3. Listing Floor 41 Infrastructure Assets
-```sql
-SELECT entity_id, canonical_name, subsystem_id 
-FROM wtc_evidence.entities 
-WHERE building_level = 'Floor 41' 
-ORDER BY subsystem_id;
-```
+### Access Points
+- **Interactive Spatial Gateway:** [`http://localhost:8000/docs`](http://localhost:8000/docs)
+- **Graph Connection Explorer:** [`http://localhost:7474`](http://localhost:7474) *(User: `neo4j` | Pass: `ChangeThisPassword123`)*
 
 ---
 
-## 🖼 Screenshots & Interactive Visualizers
-
-```text
-┌──────────────────────────────────────────────────────────────────────────────────┐
-│                   [ World Trade Center Graph Explorer Viewport ]                 │
-│                                                                                  │
-│    (ConEd Intake) ──FEEDS──> (HV Dist Room) ──FEEDS──> (Master Switchgear)       │
-│                                                              │                   │
-│                                                        FEEDS_RISER_TO            │
-│                                                              ▼                   │
-│    (LP-41A Panel) <──BRANCHES── (Panelboard Room) <──DISTRIBUTES── (Busduct)     │
-│                                                                                  │
-└──────────────────────────────────────────────────────────────────────────────────┘
-```
-
-- 📌 **OpenAPI 3.1 Interactive Gateway:** Explore API endpoints at `http://localhost:8000/docs`.
-- 📌 **Neo4j Property Graph Browser:** Query spatial graph topology at `http://localhost:7474`.
-- 📌 **PostgreSQL PostGIS Analytics:** Query spatial entity audits via `psql`.
-
----
-
-## 🗺 Roadmap & Future Exhibitions
+## 🗺 Future Roadmap
 
 - **v1.1 WebGL 3D Temporal Viewport:** Interactive 3D web browser viewer with a 4D chronological scrubber slider (1966–2001).
 - **v1.2 AI Historian & Architectural Copilot:** Natural language assistant answering conversational queries about construction history and engineering details.
-- **v1.3 Advanced Graph Data Science (GDS):** Structural PageRank, centrality, and network resilience algorithms.
-- **v2.0 Full Complex Interactive Twin:** Real-time IoT streaming, PATH train simulation, and dynamic multi-building automation.
+- **v1.3 Advanced Graph Data Science (GDS):** Structural network resilience and historical flow algorithms.
+- **v2.0 Complete Open-World Complex:** Real-time pedestrian simulation, PATH train arrivals, and dynamic environmental controls.
 
 ---
 
-## 🏷 Release & Citation Information
+## 🏷 Release & Licensing
 
 - **Official Release Tag:** [`v1.0.0-authoritative`](https://github.com/scaryjerryx/wtc-twin-towers/releases/tag/v1.0.0-authoritative)
 - **Target Branch:** `main` (Synchronized with `origin/main`)
 - **Release Documentation:** [`docs/GITHUB_RELEASE_NOTES_V1.0.0.md`](docs/GITHUB_RELEASE_NOTES_V1.0.0.md)
 - **License:** Open Historical Reconstruction & Architectural Research License.
 
-*The World Trade Center Interactive Historical Reconstruction is live, verified, and open for exploration.*
+*The World Trade Center Living Historical Reconstruction is live, verified, and open for exploration.*
