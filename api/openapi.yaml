@@ -1,0 +1,185 @@
+openapi: 3.1.0
+info:
+  title: World Trade Center 1 Authoritative Digital Twin REST API
+  description: Production OpenAPI 3.1 REST API specification for querying WTC 1 entities, directed property graph relationships, drawings, evidence citations, and operational flow chains.
+  version: 1.0.0
+servers:
+  - url: https://wtc1-twin.internal/api/v1
+    description: Production Internal Gateway
+paths:
+  /entities:
+    get:
+      summary: List Validated Entities
+      operationId: listEntities
+      parameters:
+        - name: subsystem
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: level
+          in: query
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful Entity Array Response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Entity'
+
+  /entities/{id}:
+    get:
+      summary: Get Entity Details by ID
+      operationId: getEntityById
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Detailed Entity Payload
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Entity'
+
+  /relationships:
+    get:
+      summary: Query Directed Property Graph Edges
+      operationId: listRelationships
+      parameters:
+        - name: subject_id
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: type
+          in: query
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Relationship Array Response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Relationship'
+
+  /drawings:
+    get:
+      summary: List Source Contract Drawings
+      operationId: listDrawings
+      responses:
+        '200':
+          description: Drawing Metadata List
+
+  /evidence:
+    get:
+      summary: Query Bounding Box Evidence Citations
+      operationId: listEvidence
+      responses:
+        '200':
+          description: Evidence Citations List
+
+  /subsystems:
+    get:
+      summary: List 16 Primary/Expanded Subsystems
+      operationId: listSubsystems
+      responses:
+        '200':
+          description: Subsystem Summary List
+
+  /operational-chains:
+    get:
+      summary: Audit 8 End-to-End Operational Flow Chains
+      operationId: listOperationalChains
+      responses:
+        '200':
+          description: Flow Chains Continuity Report
+
+  /search:
+    get:
+      summary: Spatial and Full-Text Search
+      operationId: searchTwin
+      parameters:
+        - name: q
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Search Results
+
+  /trace:
+    get:
+      summary: Graph Traversal Endpoint
+      operationId: traceFlowPath
+      parameters:
+        - name: start_entity_id
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: end_entity_id
+          in: query
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Operational Path Traversal Payload
+
+components:
+  schemas:
+    Entity:
+      type: object
+      required:
+        - entity_id
+        - canonical_name
+        - subsystem
+        - building
+        - level
+        - validation_status
+        - confidence_score
+      properties:
+        entity_id:
+          type: string
+        canonical_name:
+          type: string
+        subsystem:
+          type: string
+        building:
+          type: string
+        level:
+          type: string
+        validation_status:
+          type: string
+        confidence_score:
+          type: integer
+    Relationship:
+      type: object
+      required:
+        - subject_entity_id
+        - relationship_type
+        - object_entity_id
+        - confidence_score
+      properties:
+        subject_entity_id:
+          type: string
+        relationship_type:
+          type: string
+        object_entity_id:
+          type: string
+        confidence_score:
+          type: integer

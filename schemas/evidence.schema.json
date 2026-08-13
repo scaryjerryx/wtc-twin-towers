@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "WTC1_Evidence_Contract",
+  "description": "Production schema definition for Authoritative WTC 1 drawing evidence objects.",
+  "type": "object",
+  "required": [
+    "evidence_id",
+    "entity_id",
+    "drawing_id",
+    "page_number",
+    "bounding_box_rect",
+    "citation_uri"
+  ],
+  "properties": {
+    "evidence_id": {
+      "type": "string",
+      "pattern": "^ev_[a-z0-9_]+$"
+    },
+    "entity_id": {
+      "type": "string",
+      "pattern": "^wtc1_[a-z0-9_]+$"
+    },
+    "drawing_id": {
+      "type": "string"
+    },
+    "page_number": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "bounding_box_rect": {
+      "type": "string",
+      "pattern": "^[0-9]+,[0-9]+,[0-9]+,[0-9]+$"
+    },
+    "citation_uri": {
+      "type": "string",
+      "format": "uri-reference"
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,92 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "WTC1_Entity_Contract",
+  "description": "Production schema definition for Authoritative WTC 1 Digital Twin entities.",
+  "type": "object",
+  "required": [
+    "entity_id",
+    "canonical_name",
+    "subsystem",
+    "building",
+    "level",
+    "validation_status",
+    "confidence_score",
+    "source_drawings",
+    "supporting_sessions",
+    "relationships",
+    "evidence_links"
+  ],
+  "properties": {
+    "entity_id": {
+      "type": "string",
+      "pattern": "^wtc1_[a-z0-9_]+$"
+    },
+    "canonical_name": {
+      "type": "string",
+      "minLength": 3
+    },
+    "subsystem": {
+      "type": "string",
+      "enum": [
+        "structural",
+        "mechanical",
+        "electrical",
+        "plumbing",
+        "communications",
+        "fire_protection",
+        "security",
+        "life_safety",
+        "vertical_transportation",
+        "transit",
+        "circulation",
+        "egress",
+        "observation",
+        "operational_support",
+        "facilities_operations",
+        "building_automation"
+      ]
+    },
+    "building": {
+      "type": "string",
+      "const": "WTC 1 (Tower A)"
+    },
+    "level": {
+      "type": "string"
+    },
+    "validation_status": {
+      "type": "string",
+      "const": "VALIDATED"
+    },
+    "confidence_score": {
+      "type": "integer",
+      "const": 100
+    },
+    "source_drawings": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 3
+    },
+    "supporting_sessions": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1
+    },
+    "relationships": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["relationship_type", "target_entity_id"],
+        "properties": {
+          "relationship_type": { "type": "string" },
+          "target_entity_id": { "type": "string" }
+        }
+      }
+    },
+    "evidence_links": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "WTC1_Relationship_Contract",
+  "description": "Production schema definition for Authoritative WTC 1 directed graph edges.",
+  "type": "object",
+  "required": [
+    "subject_entity_id",
+    "relationship_type",
+    "object_entity_id",
+    "confidence_score"
+  ],
+  "properties": {
+    "subject_entity_id": {
+      "type": "string",
+      "pattern": "^wtc1_[a-z0-9_]+$"
+    },
+    "relationship_type": {
+      "type": "string",
+      "enum": [
+        "SUPPLIES",
+        "FEEDS",
+        "SERVES",
+        "DRAINS_TO",
+        "CONNECTS_TO",
+        "ROUTES_TO",
+        "DISTRIBUTES_TO",
+        "BRANCHES_TO",
+        "MONITORS",
+        "CONTROLS",
+        "SUPERVISES",
+        "INTERFACES_WITH",
+        "PUMPS_TO",
+        "COLLECTS_FROM",
+        "RETURNS_TO",
+        "CONTAINS",
+        "POWERED_BY",
+        "COOLED_BY"
+      ]
+    },
+    "object_entity_id": {
+      "type": "string",
+      "pattern": "^wtc1_[a-z0-9_]+$"
+    },
+    "confidence_score": {
+      "type": "integer",
+      "const": 100
+    }
+  },
+  "additionalProperties": false
+}

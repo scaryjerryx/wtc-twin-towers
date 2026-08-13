@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "WTC1_Drawing_Contract",
+  "description": "Production schema definition for Authoritative WTC 1 drawing sheet metadata.",
+  "type": "object",
+  "required": [
+    "drawing_id",
+    "sheet_number",
+    "title",
+    "corpus_collection"
+  ],
+  "properties": {
+    "drawing_id": {
+      "type": "string"
+    },
+    "sheet_number": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "corpus_collection": {
+      "type": "string"
+    },
+    "scale_ratio": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}
