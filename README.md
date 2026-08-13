@@ -9,6 +9,7 @@
 > An evidence-based, interactive historical reconstruction platform enabling open-world spatial exploration and day-by-day temporal navigation across 35 years of architectural, engineering, and civic history.
 
 ---
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/ed42cb83-efa5-42d8-acdc-837c197ce063" />
 
 ## 🏛 Vision Statement
 
