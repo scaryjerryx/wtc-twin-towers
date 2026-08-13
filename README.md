@@ -1,190 +1,164 @@
-# World Trade Center 1 Authoritative Digital Twin (v1.0.0)
+# World Trade Center 1 Authoritative Digital Twin & Temporal Reconstruction (1966–2001)
 
 [![Release](https://img.shields.io/badge/Release-v1.0.0--authoritative-blue.svg?style=for-the-badge&logo=github)](https://github.com/scaryjerryx/wtc-twin-towers/releases/tag/v1.0.0-authoritative)
-[![Status](https://img.shields.io/badge/Status-PRODUCTION%20READY-brightgreen.svg?style=for-the-badge)](https://github.com/scaryjerryx/wtc-twin-towers)
-[![Validation](https://img.shields.io/badge/Validation%20Rate-100.0%25-success.svg?style=for-the-badge)](docs/PHASE_5_AUTHORITATIVE_VERIFICATION_PROGRAM_001.md)
-[![Database](https://img.shields.io/badge/PostgreSQL-16%20%2B%20PostGIS-336791.svg?style=for-the-badge&logo=postgresql)](sql/schema.sql)
-[![Graph DB](https://img.shields.io/badge/Neo4j-v5.15.0%20%2B%20APOC-008CC1.svg?style=for-the-badge&logo=neo4j)](neo4j/constraints.cypher)
-[![API Gateway](https://img.shields.io/badge/FastAPI-OpenAPI%203.1-009688.svg?style=for-the-badge&logo=fastapi)](api/openapi.yaml)
-[![Docker Stack](https://img.shields.io/badge/Docker%20Compose-Containerized-2496ED.svg?style=for-the-badge&logo=docker)](docker-compose.yml)
+[![Timeline](https://img.shields.io/badge/Historical%20Timeline-1966--2001-amber.svg?style=for-the-badge)](docs/HISTORICAL_TIMELINE_EXPERIENCE.md)
+[![Reconstruction](https://img.shields.io/badge/Reconstruction-Authoritative%20185%20Entities-brightgreen.svg?style=for-the-badge)](docs/PHASE_5_AUTHORITATIVE_VERIFICATION_PROGRAM_001.md)
+[![Platform](https://img.shields.io/badge/Platform-Open--World%20Temporal%20Twin-purple.svg?style=for-the-badge)](docs/PROJECT_VISION_2026.md)
 
-> **The Authoritative Multi-Database Digital Twin of World Trade Center 1 (Tower A)** — A production-grade spatial, relational, and property graph platform mapping 185 evidence-verified infrastructure entities, 175 directed flow paths, 16 subsystems, and 8 operational flow chains from sub-grade basements to floor 110.
+> **Step back in time to explore the World Trade Center as it was built, evolved, and operated from 1966 to 2001.**  
+> An authoritative, historically accurate, open-world reconstruction and temporal exploration platform powered by Port Authority architectural plans, structural engineering archives, and a multi-subsystem graph digital twin.
 
 ---
 
-## 📌 Executive Overview
+## 🏛 The World Trade Center Experience (1966–2001)
 
-### What is the WTC 1 Authoritative Digital Twin?
-The **World Trade Center 1 Authoritative Digital Twin** is a multi-database, full-stack digital twin platform engineered to model the structural, mechanical, electrical, plumbing, telecommunications, fire protection, and operational infrastructure of World Trade Center 1 (Tower A).
+Imagine standing at the corner of Liberty and Church Streets in **1966** as excavators break ground for the slurry wall, watching 47 massive steel core columns rise through **1969**, walking the newly opened Floor 44 Skylobby in **1971**, visiting *Windows on the World* in **1976**, or tracing the flow of power, water, air, and fiber data on September 10, **2001**.
 
-### Why Was It Created?
-Historically, architectural and MEP (Mechanical, Electrical, Plumbing) infrastructure data resided across thousands of disconnected 2D Port Authority of New York and New Jersey (PANYNJ) contract drawings (`S`, `M`, `E`, `P`, `A-A` series). Synthesizing cross-floor dependencies, electrical distribution paths, or single-points-of-failure from flat blueprints required hours of manual cross-sheet inspection.
-
-### What Problems Does It Solve?
-- **Instant Graph Traversal:** Resolves 10-hop power, fluid, airflow, and data flow paths across 110 floors in under 5 milliseconds.
-- **Predictive Cascade Failure Simulation:** Simulates downstream component blackouts caused by utility intake or switchgear disruptions.
-- **Single-Point-of-Failure (SPOF) Auditing:** Automatically ranks high-centrality hub nodes using graph degree metrics.
-- **Unified Multi-Disciplinary View:** Integrates core box columns, high-voltage busducts, chilled water risers, and optical fiber frames into a single PostGIS/Neo4j query interface.
-
----
-
-## 📊 Key System Metrics
+This repository hosts the **authoritative 4D temporal reconstruction platform** of World Trade Center 1 (Tower A) and the 16-acre complex.
 
 ```text
 ========================================================================================
-                 WORLD TRADE CENTER 1 DIGITAL TWIN VERSION 1.0 METRICS                 
+             WORLD TRADE CENTER TEMPORAL RECONSTRUCTION TIMELINE (1966-2001)             
 ========================================================================================
- - Validated Entities:              185 Entities (100% Evidence Traceable)
- - Directed Graph Relationships:    175 Edges (100% Continuous Flow Paths)
- - Subsystem Domains Covered:       16 Primary & Expanded Subsystems
- - End-to-End Operational Chains:   8 Continuous System Backbone Loops
- - Model Validation Rate:           100.0% Validation Rate
- - Model Contradiction Count:       0 Contradictions
- - Orphan / Isolated Nodes:         0 Orphan Nodes (Single Unified Component Graph)
- - Runtime Synchronization:        100.0% Synchronized (PostgreSQL, Neo4j, FastAPI)
+ [1966] Slurry Wall Groundbreaking ──► Sub-grade bathtub excavation & slurry wall slurry
+ [1968] Structural Steel Erection ──► Core box columns 501-508 & perimeter column trees
+ [1970] Tower A Topping Out       ──► Floor 107 Hat Truss & antenna pedestal installation
+ [1971] Initial Tenant Occupancy  ──► Floor 44 Skylobby, express shuttles & lower MEP
+ [1973] Official Complex Dedication ├── Tower A & B full commercial operation
+ [1976] Observatory & Dining      ──► Windows on the World & Floor 107/110 Deck open
+ [1993] Sub-grade Infrastructure  ──► Post-1993 emergency power, security & SOC upgrades
+ [2001] Complete Digital Twin     └── Final 110-story operational twin baseline state
 ========================================================================================
 ```
 
 ---
 
-## 🏗 System Architecture
+## 🏙 Open-World Exploration & Temporal Navigation
 
-The platform uses a tri-database hybrid architecture separating spatial geometry, property graph pathfinding, and REST API gateway services into containerized microservices orchestrated via Docker Compose.
+The platform is designed to enable users to navigate World Trade Center 1 across two primary axes: **Space (Open-World Navigation)** and **Time (1966–2001 Chronology)**.
+
+### 1. Temporal Time-Travel (Day-by-Day Evolution)
+- **4D Chronological Scrubber:** Travel to any date between August 5, 1966, and September 10, 2001, to view the precise state of construction, structural steel height, wall enclosures, and active tenant spaces.
+- **As-Built Construction Lineage:** Trace how core box columns (501–508) were erected, how prefabricated perimeter column trees were welded, and how hat trusses were anchored.
+
+### 2. Open-World Spatial Exploration
+- **Sub-Grade Basements to Roof Deck:** Explore 6 sub-grade basement levels (B1–B6), PATH transit platforms, truck docks, central mechanical equipment rooms, floor skylobbies (44 & 78), and the 110th-floor rooftop promenade.
+- **Multi-System Visual Overlay:** Toggle visual layers for structural steel, electrical busducts, chilled water risers, domestic water mains, telecom fiber frames, and BMS sensor nodes.
+
+---
+
+## 📊 Historical & Model Metrics
+
+```text
+========================================================================================
+                 AUTHORITATIVE DIGITAL TWIN MODEL CAPACITY METRICS                     
+========================================================================================
+ - Validated Entities:              185 Entities (100% Evidence Traceable)
+ - Directed Graph Flow Paths:       175 Edges (100% Flow Continuity)
+ - Subsystem Domains Covered:       16 Primary & Expanded Subsystems
+ - End-to-End Operational Chains:   8 Continuous System Backbone Loops
+ - Historical Timeline Range:       35 Years (August 1966 to September 2001)
+ - Drawing Corpus Citations:        100% Linked to PANYNJ Contract Plans
+========================================================================================
+```
+
+---
+
+## ⚙️ Underlying Digital Twin Engine & Architecture
+
+Behind the historical experience is a production-grade multi-database digital twin engine that guarantees 100% evidence traceability and mathematical relationship continuity.
 
 ```mermaid
 graph TD
-    Client[REST API Client / Web Browser / Analyst] -->|HTTP / OpenAPI 3.1| API[FastAPI Application Gateway :8000]
+    User[Explorer / Historian / Analyst] -->|Temporal Scrubber & Spatial Navigation| Gateway[FastAPI REST Gateway :8000]
     
-    subgraph Containerized Stack (Docker Compose)
-        API -->|Psycopg2 SQL Queries| PG[(PostgreSQL 16 + PostGIS 3.6 :5432)]
-        API -->|Neo4j Bolt Driver| NEO[(Neo4j Property Graph v5.15 :7687)]
+    subgraph Multi-Database Digital Twin Engine
+        Gateway -->|Spatial Polygons & Subsystem Queries| PG[(PostgreSQL 16 + PostGIS 3.6)]
+        Gateway -->|Multi-Hop Pathfinding & Flow Tracing| NEO[(Neo4j Property Graph v5.15)]
         
-        PG ---|Relational & Spatial Geometry| DB_DATA[(wtc_evidence Schema / 9 Tables)]
-        NEO ---|Cypher Property Graph| GRAPH_DATA[(:Entity Nodes & Directed Edges)]
+        PG ---|Relational Data & Drawings| SQL_DATA[wtc_evidence Schema / 9 Tables]
+        NEO ---|175 Graph Flow Paths| GRAPH_DATA[:Entity Nodes & Directed Edges]
     end
     
-    subgraph Data Pipeline & ETL Contracts
-        JSON_ENTities[data/wtc1_entities.json] -->|Ingestion Loader| API
-        JSON_Rels[data/wtc1_relationships.json] -->|Ingestion Loader| API
+    subgraph Authoritative Datasets
+        JSON_ENT[data/wtc1_entities.json] -->|185 Entities| Gateway
+        JSON_REL[data/wtc1_relationships.json] -->|175 Edges| Gateway
     end
 ```
 
-### Architecture Components:
-1. **Relational & Spatial Engine (PostgreSQL 16 + PostGIS 3.6):** Stores entity schemas, drawing metadata, bounding box crops, validation logs, and PostGIS `EPSG:2263` spatial geometries.
-2. **Property Graph Engine (Neo4j v5.15 + APOC Core):** High-performance graph traversal engine executing variable-length Cypher queries (`r*1..10`) for power, water, air, and fiber signal tracing.
-3. **API Gateway (FastAPI Python 3.11):** Serves interactive OpenAPI 3.1 REST documentation, entity search, relationship queries, and graph pathfinding endpoints.
-4. **Data Contracts & ETL Layer:** Draft 2020-12 JSON Schemas (`entity.schema.json`, `relationship.schema.json`) validating JSON data ingestion.
+### Digital Twin Backends:
+- **Spatial & Relational Store (PostgreSQL 16 + PostGIS 3.6):** Stores spatial geometry polygons (`EPSG:2263`), PANYNJ contract drawing citations, bounding box crops, and historical session logs.
+- **Graph Traversal Engine (Neo4j v5.15 + APOC Core):** Executes sub-second Cypher queries tracing multi-hop electrical power, chilled water, domestic water, airflow, and optical fiber paths.
+- **REST API Gateway (FastAPI Python 3.11):** Exposes OpenAPI 3.1 endpoints (`/entities`, `/relationships`, `/trace`) for client viewports and graph exploration tools.
 
 ---
 
-## 🔥 Key Features & Capabilities
-
-- ⚡ **Multi-Hop Electrical Power Tracing:** Traces 13.8kV ConEd street utility intake through switchgear, vertical busduct risers, step-down transformers, and floor panelboards down to individual lighting panels.
-- ❄️ **HVAC Airflow & Thermal Comfort Modeling:** Traces chilled water from Floor 7 central chillers through vertical risers, AHU rooms, primary supply trunks, and VAV terminal boxes down to ceiling diffusers.
-- 💧 **Domestic Potable Water Cascades:** Models Level B6 water booster pump pressure delivery up 1,300 feet to Floor 108 penthouse 50,000-gallon water storage tanks and gravity downfeeds.
-- 📡 **Optical Fiber Lineage:** Traces telecom signal from street carrier demarcation through Floor 1 MDF vaults, optical fiber risers, and Floor 41/75 IDF closets to overhead cable trays.
-- 🚨 **BMS Telemetry & Control Loops:** Maps field sensors, dampers, and DDC nodes to the Level B1 Master BMS Command Control Center.
-- ⚠️ **Single-Point-of-Failure (SPOF) Detection:** Identifies top degree-centrality hub nodes across electrical, mechanical, and plumbing systems.
-- 💥 **Cascade Failure Simulations:** Simulates multi-stage downstream blackout and thermal overload zones resulting from utility intake or switchgear disruptions.
-- 📈 **Executive Intelligence Scorecards:** Generates floor-level risk scorecards (Floors 41, 75, 107) and subsystem resilience rankings across all 16 domains.
-
----
-
-## 🚀 Quickstart Deployment Guide
+## 🚀 Quickstart: Launching the Twin
 
 ### Prerequisites
 - Docker Engine 24.0+ & Docker Compose v2.20+
 - Git 2.34+
 
-### 1. Clone Repository & Launch Stack
+### Launching the Stack
 ```bash
 # Clone the repository
 git clone https://github.com/scaryjerryx/wtc-twin-towers.git
 cd wtc-twin-towers
 
-# Launch the full containerized stack
+# Spin up the complete temporal twin stack
 docker compose up -d --build
 ```
 
-### 2. Verify Container Health
-```bash
-docker compose ps
-```
-*Expected Output: `wtc1_postgres`, `wtc1_neo4j`, and `wtc1_api_server` all report `Up (healthy)` or `Started`.*
-
-### 3. Service Endpoint URLs
-| Service | Endpoint URL | Credentials / Notes |
+### Live Service Interfaces
+| Interface | Access URL | Description |
 | :--- | :--- | :--- |
-| **REST API Gateway (OpenAPI Docs)** | [`http://localhost:8000/docs`](http://localhost:8000/docs) | Interactive Swagger UI |
-| **Neo4j Property Graph Browser** | [`http://localhost:7474`](http://localhost:7474) | User: `neo4j` \| Pass: `ChangeThisPassword123` |
-| **PostgreSQL Database** | `localhost:5432` | User: `wtc_admin` \| Pass: `ChangeThisToSomethingLongAndRandom` \| DB: `wtc_evidence` |
-| **REST Healthcheck Endpoint** | [`http://localhost:8000/api/v1/health`](http://localhost:8000/api/v1/health) | Returns HTTP 200 JSON `{"status":"ONLINE"}` |
+| **REST API Gateway & OpenAPI Docs** | [`http://localhost:8000/docs`](http://localhost:8000/docs) | Interactive API & Graph Query Specs |
+| **Neo4j Property Graph Explorer** | [`http://localhost:7474`](http://localhost:7474) | User: `neo4j` \| Pass: `ChangeThisPassword123` |
+| **PostgreSQL Database** | `localhost:5432` | User: `wtc_admin` \| Pass: `ChangeThisToSomethingLongAndRandom` |
 
 ---
 
-## 💻 Example Queries
+## 💻 Exploring the System: Example Queries
 
-### 1. REST API Graph Traversal (`GET /api/v1/trace`)
-Query power path from sub-grade utility entrance down to floor panelboards:
+### 1. Tracing Power from Street Entry to Floor 41 Panelboard
 ```bash
 curl -s "http://localhost:8000/api/v1/trace?start_entity_id=wtc1_fb6_utility_service_entrance_west"
 ```
 
-### 2. Cypher Graph Query (Neo4j Power Traversal)
+### 2. Cypher Graph Traversal (Tracing Chilled Water Supply Loop)
 ```cypher
-MATCH path = (src:Entity {entity_id: 'wtc1_fb6_utility_service_entrance_west'})-[r*1..10]->(dst:Entity)
-WHERE ALL(rel in relationships(path) WHERE type(rel) IN ['FEEDS', 'SUPPLIES', 'FEEDS_RISER_TO', 'DISTRIBUTES_TO', 'BRANCHES_TO'])
-RETURN [n in nodes(path) | n.canonical_name] AS PowerPath, length(path) AS HopCount;
+MATCH path = (chiller:Entity {entity_id: 'wtc1_f7_central_chiller_plant'})-[r*1..6]->(diffuser:Entity)
+RETURN [n in nodes(path) | n.canonical_name] AS AirflowPath;
 ```
 
-### 3. PostgreSQL SQL Query (Top 10 Infrastructure Hubs)
+### 3. PostgreSQL Spatial & Subsystem Query
 ```sql
-SELECT entity_id, canonical_name, (outgoing_edge_count + incoming_edge_count) AS total_degree
-FROM wtc_evidence.v_entity_audit
-ORDER BY total_degree DESC LIMIT 10;
+SELECT entity_id, canonical_name, building_level, subsystem_id
+FROM wtc_evidence.entities
+WHERE building_level = 'Floor 41'
+ORDER BY subsystem_id;
 ```
 
 ---
 
-## 🖼 Screenshots & System Demos
+## 📜 Project History & Reconstruction Milestones
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────┐
-│                             [ Neo4j Graph Viewport ]                             │
-│                                                                                  │
-│    (ConEd Intake) ──FEEDS──> (HV Dist Room) ──FEEDS──> (Master Switchgear)       │
-│                                                              │                   │
-│                                                        FEEDS_RISER_TO            │
-│                                                              ▼                   │
-│    (LP-41A Panel) <──BRANCHES── (Panelboard Room) <──DISTRIBUTES── (Busduct)     │
-│                                                                                  │
-└──────────────────────────────────────────────────────────────────────────────────┘
-```
-
-- 📌 **Interactive OpenAPI 3.1 Swagger Docs:** View endpoints at `http://localhost:8000/docs`.
-- 📌 **Neo4j Cypher Visualizer:** Query graph topology at `http://localhost:7474`.
-- 📌 **PostgreSQL PostGIS Views:** Query `v_entity_audit` and `v_directed_graph_edges` via `psql`.
-
----
-
-## 📜 Project Phase History
-
-- **Phase 5 (Reconstruction & Verification):** Executed 45 real reconstruction sessions ([`docs/PHASE_5_REAL_RECONSTRUCTION_SESSION_001.md`](docs/PHASE_5_REAL_RECONSTRUCTION_SESSION_001.md) to `045.md`), 5 gap analyses, and 100% verification audit ([`docs/PHASE_5_AUTHORITATIVE_VERIFICATION_PROGRAM_001.md`](docs/PHASE_5_AUTHORITATIVE_VERIFICATION_PROGRAM_001.md)).
-- **Phase 6 (Implementation & Deployment):** Designed DDL schemas ([`sql/schema.sql`](sql/schema.sql)), containerized stack ([`docker-compose.yml`](docker-compose.yml)), validated runtime health, and reconciled data datasets ([`docs/PHASE_6_RUNTIME_DATASET_RECONCILIATION_001.md`](docs/PHASE_6_RUNTIME_DATASET_RECONCILIATION_001.md)).
-- **Phase 7 (Analytics & Executive Intelligence):** Published 70 query blueprints ([`docs/PHASE_7_DIGITAL_TWIN_QUERY_ANALYTICS_PROGRAM_001.md`](docs/PHASE_7_DIGITAL_TWIN_QUERY_ANALYTICS_PROGRAM_001.md)), operational trace paths, cascade failure impact models, and promoted Version 1.0.
+- **Phase 5 (Historical Reconstruction & Verification):** Executed 45 real reconstruction sessions ([`docs/PHASE_5_REAL_RECONSTRUCTION_SESSION_001.md`](docs/PHASE_5_REAL_RECONSTRUCTION_SESSION_001.md) to `045.md`), 5 gap analyses, and 100% verification audit ([`docs/PHASE_5_AUTHORITATIVE_VERIFICATION_PROGRAM_001.md`](docs/PHASE_5_AUTHORITATIVE_VERIFICATION_PROGRAM_001.md)).
+- **Phase 6 (Database Engineering & Runtime Launch):** Implemented PostgreSQL schemas ([`sql/schema.sql`](sql/schema.sql)), Neo4j Cypher templates, Docker Compose stack ([`docker-compose.yml`](docker-compose.yml)), and runtime dataset reconciliation ([`docs/PHASE_6_RUNTIME_DATASET_RECONCILIATION_001.md`](docs/PHASE_6_RUNTIME_DATASET_RECONCILIATION_001.md)).
+- **Phase 7 (Analytics, Operations & Release 1.0):** Published 70 query blueprints ([`docs/PHASE_7_DIGITAL_TWIN_QUERY_ANALYTICS_PROGRAM_001.md`](docs/PHASE_7_DIGITAL_TWIN_QUERY_ANALYTICS_PROGRAM_001.md)), operational use cases ([`docs/PHASE_7_DIGITAL_TWIN_OPERATIONAL_USE_CASES_PROGRAM_001.md`](docs/PHASE_7_DIGITAL_TWIN_OPERATIONAL_USE_CASES_PROGRAM_001.md)), executive intelligence reports ([`docs/PHASE_7_EXECUTIVE_INTELLIGENCE_PROGRAM_001.md`](docs/PHASE_7_EXECUTIVE_INTELLIGENCE_PROGRAM_001.md)), and released Version 1.0.
 
 ---
 
 ## 🗺 Future Roadmap
 
-- **v1.1 Visualization:** WebGL / Three.js 3D interactive viewport rendering PostGIS geometry polygons in web browsers.
-- **v1.2 AI Copilot:** Fine-tuned Natural Language interface translating conversational questions into SQL and Cypher path queries.
-- **v1.3 Advanced Graph Analytics:** Graph Data Science (GDS) PageRank, Betweenness Centrality, and community detection algorithms.
-- **v2.0 Interactive Digital Twin:** Real-time IoT sensor streaming, MQTT integration, and dynamic building automation control loops.
+- **v1.1 WebGL 3D Temporal Viewport:** WebGL / Three.js 3D interactive viewport rendering PostGIS geometry polygons with a 4D chronological scrubber slider (1966–2001).
+- **v1.2 AI Historian & Engineering Copilot:** Fine-tuned Natural Language assistant answering conversational historical and engineering queries.
+- **v1.3 Graph Data Science (GDS) Analytics:** Advanced PageRank, Betweenness Centrality, and community detection algorithms for infrastructure resilience.
+- **v2.0 Interactive Digital Twin:** Real-time IoT sensor streaming and dynamic building automation simulation.
 
 ---
 
-## 🏷 Release & Production Status
+## 🏷 Release & Licensing
 
 - **Official Release Tag:** [`v1.0.0-authoritative`](https://github.com/scaryjerryx/wtc-twin-towers/releases/tag/v1.0.0-authoritative)
 - **Target Branch:** `main` (Synchronized with `origin/main`)
