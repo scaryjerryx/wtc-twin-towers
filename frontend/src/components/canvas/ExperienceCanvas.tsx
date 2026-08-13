@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, Sky } from '@react-three/drei';
 import { Day1World } from './Day1World';
@@ -18,29 +18,32 @@ export const ExperienceCanvas: React.FC<ExperienceCanvasProps> = ({ onSelectProv
           gl.setClearColor('#e0ded7');
         }}
       >
-        {/* 1. Atmospheric Sky & Lighting */}
-        <Sky 
-          distance={450000} 
-          sunPosition={[100, 40, 100]} 
-          inclination={0.5} 
-          azimuth={0.25} 
-        />
-        <ambientLight intensity={0.5} />
+        {/* Lighting */}
+        <ambientLight intensity={0.6} />
         <directionalLight 
           position={[50, 40, 30]} 
           intensity={1.2} 
           castShadow 
-          shadow-mapSize-width={2048} 
-          shadow-mapSize-height={2048} 
         />
         
-        {/* 2. Atmospheric Fog (1966 NYC Haze) */}
-        <fog attach="fog" args={['#e0ded7', 15, 90]} />
+        {/* Diagnostic Red Test Cube */}
+        <mesh position={[0, 1.5, 10]}>
+          <boxGeometry args={[0.5, 0.5, 0.5]} />
+          <meshStandardMaterial color="#ef4444" />
+        </mesh>
 
-        {/* 3. Day 1 1966 World Scene */}
-        <Day1World onSelectProvenance={onSelectProvenance} />
+        {/* Suspense boundary for Drei async assets (Sky, Troika Text) */}
+        <Suspense fallback={null}>
+          <Sky 
+            distance={450000} 
+            sunPosition={[100, 40, 100]} 
+            inclination={0.5} 
+            azimuth={0.25} 
+          />
+          <fog attach="fog" args={['#e0ded7', 15, 90]} />
+          <Day1World onSelectProvenance={onSelectProvenance} />
+        </Suspense>
 
-        {/* 4. Controls (Smooth Navigation) */}
         <OrbitControls 
           target={[0, 1, 0]} 
           maxPolarAngle={Math.PI / 2 - 0.05} 
