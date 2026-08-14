@@ -31,6 +31,9 @@ To prevent random asset creation and enforce a historically defensible reconstru
     *   *Action:* Capture the rendered output directly from the engine camera.
 9.  **Gap Analysis**
     *   *Actor:* Validation Agent
-    *   *Action:* Compare the engine screenshot against the Shot Blocking Plan and Scene Reconstruction. Identify failures.
-10. **Iteration**
-    *   *Action:* Return to Step 7 (Implementation) to correct the identified gaps until the Validation Agent confirms the Success Criterion is met.
+    *   *Action:* Compare the engine screenshot against the Shot Blocking Plan and Scene Reconstruction. Identify failures in visibility or composition.
+10. **Historical Review**
+    *   *Actor:* Review Agent
+    *   *Action:* Evaluate the screenshot for historical communication and narrative impact. Render decision: `CONTINUE ITERATION` or `READY FOR HUMAN REVIEW`.
+11. **Iteration**
+    *   *Action:* If either Validation fails or Review returns `CONTINUE ITERATION`, return to Step 7 (Implementation) to correct the identified gaps.

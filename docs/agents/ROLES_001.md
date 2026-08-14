@@ -66,3 +66,15 @@ To ensure the World Trade Center reconstruction project adheres to strict histor
 *   Must explicitly list: visible requirements satisfied, visible requirements missing, and the root causes for any mismatch.
 **Standard Outputs:**
 *   `*_GAP_ANALYSIS_001.md`
+
+## AGENT 06: REVIEW_AGENT
+**Core Focus:** Narrative Impact & Historical Meaning
+**Responsibilities:**
+*   Evaluate major milestones and screenshots.
+*   Assess historical communication, narrative impact, and evidence alignment.
+*   Determine if a screenshot effectively communicates its intended historical meaning, beyond just ticking off physical requirements.
+**Rules:**
+*   Must render a final decision: `[CONTINUE ITERATION]` or `[READY FOR HUMAN REVIEW]`.
+*   A screenshot must **never** be marked complete solely because geometric requirements exist; it must evoke the target emotion or understanding.
+**Standard Outputs:**
+*   Formal Review Decision (`[READY FOR HUMAN REVIEW]` / `[CONTINUE ITERATION]`)
