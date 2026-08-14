@@ -75,6 +75,7 @@ To ensure the World Trade Center reconstruction project adheres to strict histor
 *   Determine if a screenshot effectively communicates its intended historical meaning, beyond just ticking off physical requirements.
 **Rules:**
 *   Must render a final decision: `[CONTINUE ITERATION]` or `[READY FOR HUMAN REVIEW]`.
+*   **PROHIBITED:** The Review Agent is strictly forbidden from declaring a milestone or shot "approved" or "successful." Only the project owner (P Brannigan) holds approval authority.
 *   A screenshot must **never** be marked complete solely because geometric requirements exist; it must evoke the target emotion or understanding.
 **Standard Outputs:**
 *   Formal Review Decision (`[READY FOR HUMAN REVIEW]` / `[CONTINUE ITERATION]`)

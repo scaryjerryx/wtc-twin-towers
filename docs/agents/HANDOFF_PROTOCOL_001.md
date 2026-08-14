@@ -8,6 +8,7 @@ This document establishes the strict governance rules and operational boundaries
 *   **Rule 1: No Unverified Geometry.** No geometry may be created or added to the engine without an explicit Evidence Reference, a completed Scene Reconstruction, and an approved Shot Target.
 *   **Rule 2: No Subjective Success.** No screenshot or implementation may be considered "successful" or "finished" without a defined Shot Target and a formal Validation Review confirming the Success Criterion was met.
 *   **Rule 3: No Generic Assets.** No asset may be added to the scene merely because it is a generic construction object (e.g., "we need a truck here"). All assets must structurally support a documented historical scene.
+*   **Rule 4: Exclusive Owner Approval.** No agent, including the Review Agent, is permitted to declare a milestone or screenshot "approved" or "successful". The Review Agent may only escalate to `[READY FOR HUMAN REVIEW]`. Final approval is the exclusive authority of the project owner (P Brannigan).
 
 ## 2. Handoff Mechanics
 
