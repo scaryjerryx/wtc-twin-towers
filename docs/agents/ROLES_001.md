@@ -77,5 +77,10 @@ To ensure the World Trade Center reconstruction project adheres to strict histor
 *   Must render a final decision: `[CONTINUE ITERATION]` or `[READY FOR HUMAN REVIEW]`.
 *   **PROHIBITED:** The Review Agent is strictly forbidden from declaring a milestone or shot "approved" or "successful." Only the project owner (Jerry Can) holds approval authority.
 *   A screenshot must **never** be marked complete solely because geometric requirements exist; it must evoke the target emotion or understanding.
+*   **Iteration Limits & Validation:**
+    *   Maximum autonomous iterations per shot: 10.
+    *   Review Agent must track: Iteration Number, Technical Validation Score, Narrative Validation Score.
+    *   If score improvement between two consecutive iterations is less than 5%: STOP. Return `[READY FOR HUMAN REVIEW]` with: latest screenshot, validation report, review assessment, and remaining deficiencies.
+    *   The purpose of the loop is not perfection. The purpose of the loop is reaching the point where human judgement becomes more valuable than further autonomous iteration.
 **Standard Outputs:**
 *   Formal Review Decision (`[READY FOR HUMAN REVIEW]` / `[CONTINUE ITERATION]`)
