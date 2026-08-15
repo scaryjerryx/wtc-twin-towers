@@ -1,11 +1,12 @@
 import React from 'react';
-import { Calendar, MapPin, Compass, HelpCircle } from 'lucide-react';
+import { Calendar, MapPin, Compass, HelpCircle, Eye } from 'lucide-react';
 
 interface HUDProps {
   onShowInfo: () => void;
+  hoveredTarget: string | null;
 }
 
-export const HUD: React.FC<HUDProps> = ({ onShowInfo }) => {
+export const HUD: React.FC<HUDProps> = ({ onShowInfo, hoveredTarget }) => {
   return (
     <div className="ui-overlay">
       {/* Top Header Row */}
@@ -49,12 +50,36 @@ export const HUD: React.FC<HUDProps> = ({ onShowInfo }) => {
         </button>
       </div>
 
+      {/* Target Interaction Prompt (Center Area) */}
+      {hoveredTarget && (
+        <div style={{ alignSelf: 'center', pointerEvents: 'none' }}>
+          <div 
+            className="hud-card" 
+            style={{ 
+              background: 'rgba(2, 132, 199, 0.85)', 
+              borderColor: '#38bdf8', 
+              padding: '10px 18px',
+              boxShadow: '0 0 20px rgba(56, 189, 248, 0.4)',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '10px'
+            }}
+          >
+            <Eye size={18} color="#ffffff" />
+            <span style={{ fontSize: '13px', fontWeight: 600, color: '#ffffff' }}>
+              {hoveredTarget.includes('drawing') ? 'Drawing S-1: Bedrock & Slurry Wall Plan' : 'Port Authority Site Signboard'}
+              <span style={{ opacity: 0.85, fontWeight: 400, marginLeft: '8px' }}>— Press [E] or Left Click to Inspect</span>
+            </span>
+          </div>
+        </div>
+      )}
+
       {/* Bottom Footer Controls Prompt */}
       <div style={{ display: 'flex', justifyContent: 'center' }}>
         <div className="hud-card" style={{ fontSize: '12px', color: '#d1d5db', textAlign: 'center' }}>
           <span style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
             <Compass size={14} color="#10b981" />
-            <strong>Desktop Controls:</strong> Click to lock mouse look | WASD to Walk | Touch items to inspect provenance
+            <strong>Controls:</strong> Click Scene to Lock Mouse Look | <strong>WASD / Arrows</strong> to Walk | <strong>Shift</strong> to Sprint | <strong>E / Click</strong> to Inspect Provenance | <strong>ESC</strong> to Unlock Mouse
           </span>
         </div>
       </div>
